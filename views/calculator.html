@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>ProspecTurk Renal</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="../public/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="../public/css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../public/css/style.css" rel="stylesheet">
+  <!-- MDBootstrap Datatables  -->
+  <link href="../public/css/addons/datatables.min.css" rel="stylesheet"> 
+  <!-- faviconit.favicons -->
+  <link rel="shortcut icon" href="img/favicons/favicon.ico">
+  <link rel="icon" sizes="16x16 32x32 64x64" href="../public/img/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="196x196" href="../public/img/favicons/favicon-192.png">
+  <link rel="icon" type="image/png" sizes="160x160" href="../public/img/favicons/favicon-160.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../public/img/favicons/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="../public/img/favicons/favicon-64.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../public/img/favicons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../public/img/favicons/favicon-16.png">
+  <link rel="apple-touch-icon" href="../public/img/favicons/favicon-57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../public/img/favicons/favicon-114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../public/img/favicons/favicon-72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../public/img/favicons/favicon-144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../public/img/favicons/favicon-60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../public/img/favicons/favicon-120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../public/img/favicons/favicon-76.png">	
+  <link rel="apple-touch-icon" sizes="152x152" href="../public/img/favicons/favicon-152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../public/img/favicons/favicon-180.png">
+  <meta name="msapplication-TileColor" content="#FFFFFF">
+  <meta name="msapplication-TileImage" content="../public/img/favicons/favicon-144.png">	
+  <meta name="msapplication-config" content="../public/img/favicons/browserconfig.xml">
+  <!-- faviconit.favicons -->
+</head>
+
+<body>
+  <!-- Start your project here-->
+  <header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark default-color fixed-top scrolling-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><strong>PR</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Ana Sayfa<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="calculator.html">Hesaplayıcı</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="data_table.html">Veri Tablosu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Hakında</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- /Navbar -->
+    <!-- Full Page Intro -->
+    <div class="view" style="background-image: url('../public/img/design/calculate_01.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+      <!-- Mask & flexbox options-->
+      <div class="mask rgba-black-light align-items-center flex-center">
+        <!-- Content -->
+        <div class="container">
+          <!--Grid row-->
+          <div class="row">
+            <!--Grid column-->
+            <div class="col-md-12 mb-4 white-text text-center">
+              <h1 class="h1-reponsive white-text mb-0 pt-md-5 pt-5 wow flipInX slow"><strong>İnteraktif Doz Hesaplayıcı</strong></h1>
+              <hr class="hr-light my-4 w-75 wow fadeInDown slow">
+              <h5 class="mb-4 white-text wow fadeInDown slow"><strong>Hasta için belirli klinik verilere sahipseniz, seçtiğiniz etken madde için doz hesaplamasına başlayabiliriz</strong></h5>
+              <a class="btn btn-outline-white wow pulse smooth-scroll" data-wow-delay="2s" href="#activeSubstance">Hazırım, başlayalım</a>
+              <!--<a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s">About me</a> -->
+            </div>
+            <!-- /Grid column -->
+          </div>
+          <!-- /Grid row -->
+        </div>
+        <!-- /Content -->
+      </div>
+      <!-- /Mask & flexbox options-->
+    </div>
+    <!-- /Full Page Intro -->
+  </header>
+    
+  <!-- Selecting The Active Substance -->
+  <div class="view" id="activeSubstance" data-spy="activeSubstance" data-target="#activeSubstance" style="background-image: url('../public/img/design/calculate_02.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-stylish-light align-items-center flex-center">
+      <!-- Content -->
+      <div class="container">
+        <div class="row">
+          <!--Dropdown primary-->
+          <div class="col">          
+            <!--Dropdown primary-->            
+            <div class="dropdown">          
+              <!--Trigger-->
+              <a class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="display: block">Etken Madde Seçimi</a>     
+              <!--Menu-->
+              <div class="dropdown-menu dropdown-primary" id="substanceList">
+                <a class="dropdown-item">Ertapenem sodyum - <small>İnvanz</small></a>
+                <a class="dropdown-item">İmipenem / Silastatin sodyum - <small>Tienam</small></a>
+                <a class="dropdown-item">Meropenem trihidrat - <small>Meronem</small></a>
+                <a class="dropdown-item">Siprofloksasin laktat - <small>Ciproktan</small></a>
+                <a class="dropdown-item">Levofloksasin - <small>Tavanic</small></a>
+                <a class="dropdown-item">Daptomisin - <small>Cubicin</small></a>
+                <a class="dropdown-item">Teikoplanin - <small>Targocid</small></a>
+                <a class="dropdown-item">Vankomisin hidroklorür - <small>Vancotek</small></a>
+                <a class="dropdown-item">Piperasilin sodyum / Tazobaktam sodyum - <small>Tazocin EF</small></a>
+                <a class="dropdown-item">Flukonazol - <small>Lumen EF</small></a>
+                <a class="dropdown-item">Sefoperazon sodyum / Sulbaktam sodyum - <small>Sulperazon</small></a>
+                <a class="dropdown-item">Kolistimetat sodyum - <small>Colimycin</small></a>
+                <a class="dropdown-item">Tigesiklin - <small>Tygacil</small></a>
+                <a class="dropdown-item">Moksifloksasin hidroklorür - <small>Avelox</small></a>
+                <a class="dropdown-item">Linezolit - <small>Zyvoxid</small></a>
+                <a class="dropdown-item">Metronidazol - <small>Metronidazol</small></a>
+              </div>
+            </div>              
+          </div>
+          <!--/Dropdown primary-->
+          <!--Dropdown primary-->
+          <div class="col">          
+            <!--Dropdown primary-->            
+            <div class="dropdown">          
+              <!--Trigger-->
+              <a class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" style="display: block">Cockcroft-Gault Denklemi</a>     
+              <!--Menu-->
+              <div class="dropdown-menu dropdown-info" id="methodlist">
+                <a class="dropdown-item2" id="willDisable">Cockcroft-Gault Denklemi</a>
+                <a class="dropdown-item2" id="willDisable2">e-GFR Hesaplayıcısı</a>
+              </div>
+            </div>              
+          </div>
+          <!--/Dropdown primary-->
+        </div>
+        <div class="row mt-3">
+          <div class="col" style="display:none" id="notNeeded">
+            <p class="note note-info wow fadeIn"><strong>Sonuç: </strong>Gözünüz aydın! Bu etken madde için doz ayarlaması yapmanıza gerek yok</p>
+          </div>
+        </div>
+        <div class="row text-center align-items-center mt-3" id="cockgaulty">
+          <div class="col">
+            <select class="browser-default custom-select" id="gender1">
+              <option selected>Cinsiyet</option>
+              <option value="1">Erkek</option>
+              <option value="2">Kadın</option>
+            </select>
+          </div>
+          <div class="col">
+            <div class="md-form">
+              <input type="number" id="age1" class="form-control" step='1'>
+              <label for="form1">Yaş</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="md-form">
+              <input type="number" id="weight1" class="form-control" step='0.5'>
+              <label for="form1">Kilo</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="md-form">
+              <input type="number" id="srcr1" class="form-control" step='0.01'>
+              <label for="form1">Serum kreatinin</label>
+            </div>
+          </div>
+          <div class="col">
+            <select class="browser-default custom-select" id="crunit1">
+              <option selected>mg/dL</option>
+              <option value="2">‎µg/dL</option>
+            </select>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+            <label class="custom-control-label" for="defaultUnchecked">Hemodiyaliz Alıyor</label>
+          </div>
+        </div>
+        <div class="row text-center align-items-center mt-3" style="display:none" id="egfry">
+          <div class="col">
+            <select class="browser-default custom-select">
+              <option selected>Cinsiyet</option>
+              <option value="1">Erkek</option>
+              <option value="2">Kadın</option>
+            </select>
+          </div>
+          <div class="col">
+            <div class="md-form">
+              <input type="text" id="form1" class="form-control">
+              <label for="form1">Yaş</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="md-form">
+              <input type="text" id="form1" class="form-control">
+              <label for="form1">Serum kreatinin</label>
+            </div>
+          </div>
+          <div class="col">
+            <select class="browser-default custom-select">
+              <option selected>mg/dL</option>
+              <option value="2">‎µg/dL</option>
+            </select>
+          </div>
+          <div class="col">
+            <div class="md-form">
+              <input type="text" id="form1" class="form-control">
+              <label for="form1">BUN (mg/dL)</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="md-form">
+              <input type="text" id="form1" class="form-control">
+              <label for="form1">Albumin</label>
+            </div>
+          </div>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+            <label class="custom-control-label" for="defaultUnchecked">Siyahi</label>
+          </div>
+        </div>
+        <div class="row text-center align-items-center mt-3">
+          <div class="col" id="calculate">
+            <button type="button" class="btn btn-cyan btn-lg disabled" id="calcButton" onclick="window.location.href = '#presentResults';">Hesaplayalım</button>
+          </div>
+        </div>
+      <!-- /Content -->
+      </div>
+    </div>
+  </div>  
+  <!-- /Selecting The Active Substance -->
+
+  <!-- Presenting The Results -->
+  <div class="view" id="presentResults" data-spy="presentResults" data-target="#presentResults" style="background-image: url('../public/img/design/calculate_03.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-stylish-light align-items-center flex-center text-center">
+      <!-- Content -->
+      <h1 class="mx-3" id="resultText" style="color: white; font-weight: bold; letter-spacing: 4px;">Hesaplamanın işleminin başlatılması bekleniyor. <a href="#activeSubstance">Veri girişi</a> bölüme geçelim</h1>
+      <!-- Content -->
+    </div>
+  </div>
+  <!-- /Presenting The Results -->
+
+  <!-- /Start your project here-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="../public/js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="../public/js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="../public/js/mdb.js"></script>
+  
+  <script>
+  // Animations init
+  new WOW().init();
+  </script>
+
+  <script>
+  $( ".dropdown-item" ).click(function() {
+    var string = $(this).text();
+    var index = string.indexOf('-');
+    var result = string.substring(0, (index-1));
+    $('#dropdownMenu1').text(result);
+    
+    var needy = document.getElementById("notNeeded");
+    var egfry = document.getElementById("egfry");
+    var cockgaulty = document.getElementById("cockgaulty");
+    var neighbour = $('#dropdownMenu2');
+    var disably = document.getElementById("willDisable");
+    var disably2 = document.getElementById("willDisable2");
+    var calculatey = document.getElementById("calculate");
+    var buttony = document.getElementById("calcButton");
+
+    if (result === "Tigesiklin" || result === "Moksifloksasin hidroklorür" || result === "Linezolit" || result === "Metronidazol") {
+      needy.style.display = "block";
+      egfry.style.display = "none";
+      cockgaulty.style.display = "none";
+      disably.className = "dropdown-item2 disabled";
+      disably2.className = "dropdown-item2 disabled";
+      calculatey.style.display = "none";
+
+    } else {
+      needy.style.display = "none";
+      egfry.style.display = "none";
+      cockgaulty.style.display = "flex";
+      neighbour.text('Cockcroft-Gault Denklemi');
+      disably.className = "dropdown-item2";
+      disably2.className = "dropdown-item2";
+      calculatey.style.display = "block";
+      buttony.className = "btn btn-cyan btn-lg";
+    }
+  });
+
+  $( ".dropdown-item2" ).click(function() {
+    var string = $(this).text();
+    
+    $('#dropdownMenu2').text(string);
+    var egfry = document.getElementById("egfry");
+    var cockgaulty = document.getElementById("cockgaulty");
+    var texty = $('#dropdownMenu2').text();
+    
+    if (texty === "e-GFR Hesaplayıcısı") {
+      egfry.style.display = "flex";
+      cockgaulty.style.display = "none";
+    } else if (texty === "Cockcroft-Gault Denklemi") {
+      egfry.style.display = "none";
+      cockgaulty.style.display = "flex";
+    }
+  });
+  </script>
+
+  <script>
+
+  $('#calcButton').click(() => {
+    var gender1 = document.getElementById("gender1").value;
+    var age1 = parseFloat(document.getElementById("age1").value);
+    var weight1 = parseFloat(document.getElementById("weight1").value);
+    var srcr1 = parseFloat(document.getElementById("srcr1").value);
+    var crunit1 = document.getElementById("crunit1").value;
+    
+    console.log(gender1);
+    console.log(age1);
+    console.log(weight1);
+    console.log(srcr1);
+    console.log(crunit1);
+
+    });
+  </script>
+  
+</body>
+</html>

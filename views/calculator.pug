@@ -1,0 +1,307 @@
+doctype html
+html(lang='tr')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title ProspecTurk Renal
+    // Font Awesome
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
+    // Bootstrap core CSS
+    link(href='../public/css/bootstrap.min.css', rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='../public/css/mdb.min.css', rel='stylesheet')
+    // Your custom styles (optional)
+    link(href='../public/css/style.css', rel='stylesheet')
+    // MDBootstrap Datatables
+    link(href='../public/css/addons/datatables.min.css', rel='stylesheet')
+    // faviconit.favicons
+    link(rel='shortcut icon', href='img/favicons/favicon.ico')
+    link(rel='icon', sizes='16x16 32x32 64x64', href='../public/img/favicons/favicon.ico')
+    link(rel='icon', type='image/png', sizes='196x196', href='../public/img/favicons/favicon-192.png')
+    link(rel='icon', type='image/png', sizes='160x160', href='../public/img/favicons/favicon-160.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../public/img/favicons/favicon-96.png')
+    link(rel='icon', type='image/png', sizes='64x64', href='../public/img/favicons/favicon-64.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../public/img/favicons/favicon-32.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../public/img/favicons/favicon-16.png')
+    link(rel='apple-touch-icon', href='../public/img/favicons/favicon-57.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../public/img/favicons/favicon-114.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../public/img/favicons/favicon-72.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../public/img/favicons/favicon-144.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../public/img/favicons/favicon-60.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../public/img/favicons/favicon-120.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../public/img/favicons/favicon-76.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../public/img/favicons/favicon-152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../public/img/favicons/favicon-180.png')
+    meta(name='msapplication-TileColor', content='#FFFFFF')
+    meta(name='msapplication-TileImage', content='../public/img/favicons/favicon-144.png')
+    meta(name='msapplication-config', content='../public/img/favicons/browserconfig.xml')
+    // faviconit.favicons
+  body
+    // Start your project here
+    header
+      // Navbar
+      nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
+        .container
+          a.navbar-brand(href='index.html')
+            strong PR
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarSupportedContent-7.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='index.html')
+                  | Ana Sayfa
+                  span.sr-only (current)
+              li.nav-item.active
+                a.nav-link(href='calculator.html') Hesaplayıcı
+              li.nav-item
+                a.nav-link(href='data_table.html') Veri Tablosu
+              li.nav-item
+                a.nav-link(href='about.html') Hakında
+      // /Navbar
+      // Full Page Intro
+      .view(style="background-image: url('../public/img/design/calculate_01.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        // Mask & flexbox options
+        .mask.rgba-black-light.align-items-center.flex-center
+          // Content
+          .container
+            // Grid row
+            .row
+              // Grid column
+              .col-md-12.mb-4.white-text.text-center
+                h1.h1-reponsive.white-text.mb-0.pt-md-5.pt-5.wow.flipInX.slow
+                  strong İnteraktif Doz Hesaplayıcı
+                hr.hr-light.my-4.w-75.wow.fadeInDown.slow
+                h5.mb-4.white-text.wow.fadeInDown.slow
+                  strong
+                    | Hasta için belirli klinik verilere sahipseniz, seçtiğiniz etken madde için doz hesaplamasına başlayabiliriz
+                a.btn.btn-outline-white.wow.pulse.smooth-scroll(data-wow-delay='2s', href='#activeSubstance') Hazırım, başlayalım
+                // <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s">About me</a>
+                // /Grid column
+                // /Grid row
+                // /Content
+                // /Mask & flexbox options
+                // /Full Page Intro
+                // Selecting The Active Substance
+                #activeSubstance.view(data-spy='activeSubstance', data-target='#activeSubstance', style="background-image: url('../public/img/design/calculate_02.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+                  // Mask & flexbox options
+                  .mask.rgba-stylish-light.align-items-center.flex-center
+                    // Content
+                    .container
+                      .row
+                        // Dropdown primary
+                        .col
+                          // Dropdown primary
+                          .dropdown
+                            // Trigger
+                            a#dropdownMenu1.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', style='display: block') Etken Madde Seçimi
+                            // Menu
+                            #substanceList.dropdown-menu.dropdown-primary
+                              a.dropdown-item
+                                | Ertapenem sodyum - 
+                                small İnvanz
+                              a.dropdown-item
+                                | İmipenem / Silastatin sodyum - 
+                                small Tienam
+                              a.dropdown-item
+                                | Meropenem trihidrat - 
+                                small Meronem
+                              a.dropdown-item
+                                | Siprofloksasin laktat - 
+                                small Ciproktan
+                              a.dropdown-item
+                                | Levofloksasin - 
+                                small Tavanic
+                              a.dropdown-item
+                                | Daptomisin - 
+                                small Cubicin
+                              a.dropdown-item
+                                | Teikoplanin - 
+                                small Targocid
+                              a.dropdown-item
+                                | Vankomisin hidroklorür - 
+                                small Vancotek
+                              a.dropdown-item
+                                | Piperasilin sodyum / Tazobaktam sodyum - 
+                                small Tazocin EF
+                              a.dropdown-item
+                                | Flukonazol - 
+                                small Lumen EF
+                              a.dropdown-item
+                                | Sefoperazon sodyum / Sulbaktam sodyum - 
+                                small Sulperazon
+                              a.dropdown-item
+                                | Kolistimetat sodyum - 
+                                small Colimycin
+                              a.dropdown-item
+                                | Tigesiklin - 
+                                small Tygacil
+                              a.dropdown-item
+                                | Moksifloksasin hidroklorür - 
+                                small Avelox
+                              a.dropdown-item
+                                | Linezolit - 
+                                small Zyvoxid
+                              a.dropdown-item
+                                | Metronidazol - 
+                                small Metronidazol
+                        // /Dropdown primary
+                        // Dropdown primary
+                        .col
+                          // Dropdown primary
+                          .dropdown
+                            // Trigger
+                            a#dropdownMenu2.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', style='display: block') Cockcroft-Gault Denklemi
+                            // Menu
+                            #methodlist.dropdown-menu.dropdown-info
+                              a#willDisable.dropdown-item2 Cockcroft-Gault Denklemi
+                              a#willDisable2.dropdown-item2 e-GFR Hesaplayıcısı
+                        // /Dropdown primary
+                      .row.mt-3
+                        #notNeeded.col(style='display:none')
+                          p.note.note-info.wow.fadeIn
+                            strong Sonuç: 
+                            | Gözünüz aydın! Bu etken madde için doz ayarlaması yapmanıza gerek yok
+                      #cockgaulty.row.text-center.align-items-center.mt-3
+                        .col
+                          select#gender1.browser-default.custom-select
+                            option(selected='') Cinsiyet
+                            option(value='1') Erkek
+                            option(value='2') Kadın
+                        .col
+                          .md-form
+                            input#age1.form-control(type='number', step='1')
+                            label(for='form1') Yaş
+                        .col
+                          .md-form
+                            input#weight1.form-control(type='number', step='0.5')
+                            label(for='form1') Kilo
+                        .col
+                          .md-form
+                            input#srcr1.form-control(type='number', step='0.01')
+                            label(for='form1') Serum kreatinin
+                        .col
+                          select#crunit1.browser-default.custom-select
+                            option(selected='') mg/dL
+                            option(value='2') ‎µg/dL
+                        .custom-control.custom-checkbox
+                          input#defaultUnchecked.custom-control-input(type='checkbox')
+                          label.custom-control-label(for='defaultUnchecked') Hemodiyaliz Alıyor
+                      #egfry.row.text-center.align-items-center.mt-3(style='display:none')
+                        .col
+                          select.browser-default.custom-select
+                            option(selected='') Cinsiyet
+                            option(value='1') Erkek
+                            option(value='2') Kadın
+                        .col
+                          .md-form
+                            input#form1.form-control(type='text')
+                            label(for='form1') Yaş
+                        .col
+                          .md-form
+                            input#form1.form-control(type='text')
+                            label(for='form1') Serum kreatinin
+                        .col
+                          select.browser-default.custom-select
+                            option(selected='') mg/dL
+                            option(value='2') ‎µg/dL
+                        .col
+                          .md-form
+                            input#form1.form-control(type='text')
+                            label(for='form1') BUN (mg/dL)
+                        .col
+                          .md-form
+                            input#form1.form-control(type='text')
+                            label(for='form1') Albumin
+                        .custom-control.custom-checkbox
+                          input#defaultUnchecked.custom-control-input(type='checkbox')
+                          label.custom-control-label(for='defaultUnchecked') Siyahi
+                      .row.text-center.align-items-center.mt-3
+                        #calculate.col
+                          button#calcButton.btn.btn-cyan.btn-lg.disabled(type='button', onclick="window.location.href = '#presentResults';") Hesaplayalım
+                      // /Content
+                      // /Selecting The Active Substance
+                      // Presenting The Results
+                      #presentResults.view(data-spy='presentResults', data-target='#presentResults', style="background-image: url('../public/img/design/calculate_03.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+                        // Mask & flexbox options
+                        .mask.rgba-stylish-light.align-items-center.flex-center.text-center
+                          // Content
+                          h1#resultText.mx-3(style='color: white; font-weight: bold; letter-spacing: 4px;')
+                            | Hesaplamanın işleminin başlatılması bekleniyor. 
+                            a(href='#activeSubstance') Veri girişi
+                            |  bölüme geçelim
+                          // Content
+                          // /Presenting The Results
+                          // /Start your project here
+                          // SCRIPTS
+                          // JQuery
+                          script(type='text/javascript', src='../public/js/jquery-3.3.1.min.js')
+                          // Bootstrap tooltips
+                          script(type='text/javascript', src='../public/js/popper.min.js')
+                          // Bootstrap core JavaScript
+                          script(type='text/javascript', src='../public/js/bootstrap.min.js')
+                          // MDB core JavaScript
+                          script(type='text/javascript', src='../public/js/mdb.js')
+                          script.
+                            // Animations init
+                            new WOW().init();
+                          script.
+                            $( ".dropdown-item" ).click(function() {
+                            var string = $(this).text();
+                            var index = string.indexOf('-');
+                            var result = string.substring(0, (index-1));
+                            $('#dropdownMenu1').text(result);
+                            var needy = document.getElementById("notNeeded");
+                            var egfry = document.getElementById("egfry");
+                            var cockgaulty = document.getElementById("cockgaulty");
+                            var neighbour = $('#dropdownMenu2');
+                            var disably = document.getElementById("willDisable");
+                            var disably2 = document.getElementById("willDisable2");
+                            var calculatey = document.getElementById("calculate");
+                            var buttony = document.getElementById("calcButton");
+                            if (result === "Tigesiklin" || result === "Moksifloksasin hidroklorür" || result === "Linezolit" || result === "Metronidazol") {
+                            needy.style.display = "block";
+                            egfry.style.display = "none";
+                            cockgaulty.style.display = "none";
+                            disably.className = "dropdown-item2 disabled";
+                            disably2.className = "dropdown-item2 disabled";
+                            calculatey.style.display = "none";
+                            } else {
+                            needy.style.display = "none";
+                            egfry.style.display = "none";
+                            cockgaulty.style.display = "flex";
+                            neighbour.text('Cockcroft-Gault Denklemi');
+                            disably.className = "dropdown-item2";
+                            disably2.className = "dropdown-item2";
+                            calculatey.style.display = "block";
+                            buttony.className = "btn btn-cyan btn-lg";
+                            }
+                            });
+                            $( ".dropdown-item2" ).click(function() {
+                            var string = $(this).text();
+                            $('#dropdownMenu2').text(string);
+                            var egfry = document.getElementById("egfry");
+                            var cockgaulty = document.getElementById("cockgaulty");
+                            var texty = $('#dropdownMenu2').text();
+                            if (texty === "e-GFR Hesaplayıcısı") {
+                            egfry.style.display = "flex";
+                            cockgaulty.style.display = "none";
+                            } else if (texty === "Cockcroft-Gault Denklemi") {
+                            egfry.style.display = "none";
+                            cockgaulty.style.display = "flex";
+                            }
+                            });
+                          script.
+                            $('#calcButton').click(() => {
+                            var gender1 = document.getElementById("gender1").value;
+                            var age1 = parseFloat(document.getElementById("age1").value);
+                            var weight1 = parseFloat(document.getElementById("weight1").value);
+                            var srcr1 = parseFloat(document.getElementById("srcr1").value);
+                            var crunit1 = document.getElementById("crunit1").value;
+                            console.log(gender1);
+                            console.log(age1);
+                            console.log(weight1);
+                            console.log(srcr1);
+                            console.log(crunit1);
+                            });

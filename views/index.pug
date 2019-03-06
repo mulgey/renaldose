@@ -1,0 +1,128 @@
+doctype html
+html(lang='tr')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title ProspecTurk Renal
+    // Font Awesome
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
+    // Bootstrap core CSS
+    link(href='../public/css/bootstrap.min.css', rel='stylesheet')
+    // Material Design Bootstrap
+    link(href='../public/css/mdb.min.css', rel='stylesheet')
+    // Your custom styles (optional)
+    link(href='../public/css/style.css', rel='stylesheet')
+    // MDBootstrap Datatables
+    link(href='../public/css/addons/datatables.min.css', rel='stylesheet')
+    // faviconit.favicons
+    link(rel='shortcut icon', href='img/favicons/favicon.ico')
+    link(rel='icon', sizes='16x16 32x32 64x64', href='../public/img/favicons/favicon.ico')
+    link(rel='icon', type='image/png', sizes='196x196', href='../public/img/favicons/favicon-192.png')
+    link(rel='icon', type='image/png', sizes='160x160', href='../public/img/favicons/favicon-160.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../public/img/favicons/favicon-96.png')
+    link(rel='icon', type='image/png', sizes='64x64', href='../public/img/favicons/favicon-64.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../public/img/favicons/favicon-32.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../public/img/favicons/favicon-16.png')
+    link(rel='apple-touch-icon', href='../public/img/favicons/favicon-57.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../public/img/favicons/favicon-114.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../public/img/favicons/favicon-72.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../public/img/favicons/favicon-144.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../public/img/favicons/favicon-60.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../public/img/favicons/favicon-120.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../public/img/favicons/favicon-76.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../public/img/favicons/favicon-152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../public/img/favicons/favicon-180.png')
+    meta(name='msapplication-TileColor', content='#FFFFFF')
+    meta(name='msapplication-TileImage', content='../public/img/favicons/favicon-144.png')
+    meta(name='msapplication-config', content='../public/img/favicons/browserconfig.xml')
+    // faviconit.favicons
+  body
+    // Start your project here
+    header
+      // Navbar Start
+      nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
+        .container
+          a.navbar-brand(href='index.html')
+            strong PR
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarSupportedContent-7.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item.active
+                a.nav-link(href='index.html')
+                  | Ana Sayfa
+                  span.sr-only (current)
+              li.nav-item
+                a.nav-link(href='calculator.html') Hesaplayıcı
+              li.nav-item
+                a.nav-link(href='data_table.html') Veri Tablosu
+              li.nav-item
+                a.nav-link(href='about.html') Hakında
+            //
+              <form class="form-inline">
+              <div class="md-form my-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              </div>
+              </form>
+      // /Navbar
+      // Full Page Intro
+      .view(style="background-image: url('../public/img/design/main.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        // Mask & flexbox options
+        .mask.rgba-black-light.align-items-center.flex-center
+          // Content
+          .container
+            // Grid row
+            .row
+              // Grid column
+              .col-md-12.mb-4.white-text.text-center
+                h1.h1-reponsive.white-text.text-uppercase.font-weight-bold.mb-0.pt-md-5.pt-5.wow.fadeInDown(data-wow-delay='0.3s')
+                  strong Prospecturk Renal
+                hr.hr-light.my-4.w-75.wow.fadeInDown(data-wow-delay='0.4s')
+                h5.text-uppercase.mb-4.white-text.wow.fadeInDown(data-wow-delay='0.4s')
+                  strong Online Doz Hesaplama Aracı
+                a.btn.btn-outline-white.w-25.wow.fadeInDown.slow(data-wow-delay='2s', href='#cards') Daha fazla bilgi
+                a.btn.btn-outline-white.w-25.ml-5.font-weight-bold.wow.fadeInDown.slower(data-wow-delay='2s', href='calculator.html') Başla
+              // /Grid column
+              // /Grid row
+              // /Content
+              // /Mask & flexbox options
+              // /Full Page Intro
+              // Card Deck
+              #cards.card-deck.m-4(data-spy='cards', data-target='#cards')
+                .card.wow.animated.bounceIn.slow
+                  img.card-img-top(src='../public/img/design/card-01.jpg', alt='card-01')
+                  .card-body
+                    h5.card-title Etken Maddeyi Seçin
+                    p.card-text
+                      | Veritabanındaki etken maddelerden, hesaplama yapacağınız etken maddeyi seçerek başlayabilirsiniz
+                .card.wow.animated.bounceIn.slow.delay-1s
+                  img.card-img-top(src='../public/img/design/card-02.jpg', alt='card-02')
+                  .card-body
+                    h5.card-title Hastanın Klinik Verilerini Girin
+                    p.card-text
+                      | Hastanın serum kreatinini hesaplamak için, Cockcroft-Gault denklemine veya eGFR testine dayanarak uygun hesaplamayı gerçekleştirebilirsiniz
+                .card.wow.animated.bounceIn.slower.delay-2s
+                  img.card-img-top(src='../public/img/design/card-03.jpg', alt='card-03')
+                  .card-body
+                    h5.card-title Hastanız İçin Uygun Dozu Bulun
+                    p.card-text
+                      | Seçtiğiniz etken madde ve laboratuvar değerlerine göre uygun doz bilgisine ulaşabilirsiniz
+              // /Card Deck
+              // Start Button
+              .text-center.mb-4
+                button.btn.blue-gradient.btn-huge.wow.animated.flipInX.delay-2s.slower(type='button', onclick="window.location.href = 'calculator.html';") Haydi Başlayalım!
+              // /Start Button
+              // /Start your project here
+              // SCRIPTS
+              // JQuery
+              script(type='text/javascript', src='../public/js/jquery-3.3.1.min.js')
+              // Bootstrap tooltips
+              script(type='text/javascript', src='../public/js/popper.min.js')
+              // Bootstrap core JavaScript
+              script(type='text/javascript', src='../public/js/bootstrap.min.js')
+              // MDB core JavaScript
+              script(type='text/javascript', src='../public/js/mdb.js')
+              script.
+                // Animations init
+                new WOW().init();
