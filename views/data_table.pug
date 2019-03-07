@@ -8,35 +8,35 @@ html(lang='tr')
     // Font Awesome
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
     // Bootstrap core CSS
-    link(href='../public/css/bootstrap.min.css', rel='stylesheet')
+    link(href='css/bootstrap.min.css', rel='stylesheet')
     // Material Design Bootstrap
-    link(href='../public/css/mdb.min.css', rel='stylesheet')
+    link(href='css/mdb.min.css', rel='stylesheet')
     // Your custom styles (optional)
-    link(href='../public/css/style.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
     // MDBootstrap Datatables
-    link(href='../public/css/addons/datatables.min.css', rel='stylesheet')
+    link(href='css/addons/datatables.min.css', rel='stylesheet')
     // faviconit.favicons
     link(rel='shortcut icon', href='img/favicons/favicon.ico')
-    link(rel='icon', sizes='16x16 32x32 64x64', href='../public/img/favicons/favicon.ico')
-    link(rel='icon', type='image/png', sizes='196x196', href='../public/img/favicons/favicon-192.png')
-    link(rel='icon', type='image/png', sizes='160x160', href='../public/img/favicons/favicon-160.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='../public/img/favicons/favicon-96.png')
-    link(rel='icon', type='image/png', sizes='64x64', href='../public/img/favicons/favicon-64.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='../public/img/favicons/favicon-32.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='../public/img/favicons/favicon-16.png')
-    link(rel='apple-touch-icon', href='../public/img/favicons/favicon-57.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='../public/img/favicons/favicon-114.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='../public/img/favicons/favicon-72.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='../public/img/favicons/favicon-144.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='../public/img/favicons/favicon-60.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='../public/img/favicons/favicon-120.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='../public/img/favicons/favicon-76.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='../public/img/favicons/favicon-152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='../public/img/favicons/favicon-180.png')
+    link(rel='icon', sizes='16x16 32x32 64x64', href='img/favicons/favicon.ico')
+    link(rel='icon', type='image/png', sizes='196x196', href='img/favicons/favicon-192.png')
+    link(rel='icon', type='image/png', sizes='160x160', href='img/favicons/favicon-160.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='img/favicons/favicon-96.png')
+    link(rel='icon', type='image/png', sizes='64x64', href='img/favicons/favicon-64.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='img/favicons/favicon-32.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='img/favicons/favicon-16.png')
+    link(rel='apple-touch-icon', href='img/favicons/favicon-57.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='img/favicons/favicon-114.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='img/favicons/favicon-72.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='img/favicons/favicon-144.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='img/favicons/favicon-60.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='img/favicons/favicon-120.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='img/favicons/favicon-76.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='img/favicons/favicon-152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='img/favicons/favicon-180.png')
     meta(name='msapplication-TileColor', content='#FFFFFF')
-    meta(name='msapplication-TileImage', content='../public/img/favicons/favicon-144.png')
-    meta(name='msapplication-config', content='../public/img/favicons/browserconfig.xml')
-    // faviconit.favicons
+    meta(name='msapplication-TileImage', content='img/favicons/favicon-144.png')
+    meta(name='msapplication-config', content='img/favicons/browserconfig.xml')
+    // /faviconit.favicons
   body
     // Start your project here
     header
@@ -59,15 +59,8 @@ html(lang='tr')
                 a.nav-link(href='data_table.html') Veri Tablosu
               li.nav-item
                 a.nav-link(href='about.html') Hakında
-            //
-              <form class="form-inline">
-              <div class="md-form my-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              </div>
-              </form>
-      // /Navbar
       // Full Page Intro
-      .view(style="background-image: url('../public/img/design/dt.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+      .view(style="background-image: url('img/dt.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         // Mask & flexbox options
         .mask.rgba-black-light.align-items-center.flex-center
           // Content
@@ -82,11 +75,7 @@ html(lang='tr')
                 h5.mb-4.white-text.wow.fadeIn.slow
                   strong Veritabanındaki bütün verileri taramak için bu bölümü kullanabilirsiniz
                 a.btn.btn-outline-white.wow.shake.smooth-scroll(data-wow-delay='2s', href='#datatable') Göz Gezdir
-              // /Grid column
-              // /Grid row
-              // /Content
-              // /Mask & flexbox options
-              // /Full Page Intro
+    // Table Section
     #datatable.m-4(data-spy='datatable', data-target='#datatable')
       table#dtBasicExample.table.table-striped.table-bordered.table-sm(cellspacing='0', width='100%')
         thead
@@ -463,22 +452,19 @@ html(lang='tr')
       p.font-italic
         | Türkçe karakter ile başlayan bir arama yapıyorsanız, ilk harfi büyük tercih ediniz. Örn: İmipenem
       p.font-italic *TÖH = Tablolar ötesi hesaplama gerektirir
-    // /Start your project here
     // SCRIPTS
     // JQuery
-    script(type='text/javascript', src='../public/js/jquery-3.3.1.min.js')
+    script(type='text/javascript', src='js/jquery-3.3.1.min.js')
     // Bootstrap tooltips
-    script(type='text/javascript', src='../public/js/popper.min.js')
+    script(type='text/javascript', src='js/popper.min.js')
     // Bootstrap core JavaScript
-    script(type='text/javascript', src='../public/js/bootstrap.min.js')
+    script(type='text/javascript', src='js/bootstrap.min.js')
     // MDB core JavaScript
-    script(type='text/javascript', src='../public/js/mdb.js')
+    script(type='text/javascript', src='js/mdb.js')
     // MDBootstrap Datatables
-    script(type='text/javascript', src='../public/js/addons/datatables.min.js')
+    script(type='text/javascript', src='js/addons/datatables.min.js')
     script.
-      // Animations init
       new WOW().init();
-      // Datatables show
       $(document).ready(function () {
       $('#dtBasicExample').DataTable();
       $('.dataTables_length').addClass('bs-select');
