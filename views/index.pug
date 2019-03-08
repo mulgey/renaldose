@@ -41,22 +41,22 @@ html(lang='tr')
       // Navbar Start
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
         .container
-          a.navbar-brand(href='index.html')
+          a.navbar-brand(href='/')
             strong PR
           button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarSupportedContent-7.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
               li.nav-item.active
-                a.nav-link(href='index.html')
+                a.nav-link(href='/')
                   | Ana Sayfa
                   span.sr-only (current)
               li.nav-item
-                a.nav-link(href='calculator.html') Hesaplayıcı
+                a.nav-link(href='calculator') Hesaplayıcı
               li.nav-item
-                a.nav-link(href='data_table.html') Veri Tablosu
+                a.nav-link(href='data_table') Veri Tablosu
               li.nav-item
-                a.nav-link(href='about.html') Hakında
+                a.nav-link(href='about') Hakında
       // Full Page Intro
       .view(style="background-image: url('img/main.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         // Mask & flexbox options
@@ -73,7 +73,7 @@ html(lang='tr')
                 h5.text-uppercase.mb-4.white-text.wow.fadeInDown(data-wow-delay='0.4s')
                   strong Online Doz Hesaplama Aracı
                 a.btn.btn-outline-white.w-25.wow.fadeInDown.slow(data-wow-delay='2s', href='#cards') Daha fazla bilgi
-                a.btn.btn-outline-white.w-25.ml-5.font-weight-bold.wow.fadeInDown.slower(data-wow-delay='2s', href='calculator.html') Başla
+                a.btn.btn-outline-white.w-25.ml-5.font-weight-bold.wow.fadeInDown.slower(data-wow-delay='2s', href='calculator') Başla
     // Card Deck
     #cards.card-deck.m-4(data-spy='cards', data-target='#cards')
       .card.wow.animated.bounceIn.slow
@@ -96,7 +96,7 @@ html(lang='tr')
             | Seçtiğiniz etken madde ve laboratuvar değerlerine göre uygun doz bilgisine ulaşabilirsiniz
     // Start Button
     .text-center.mb-4
-      button.btn.blue-gradient.btn-huge.wow.animated.flipInX.delay-2s.slower(type='button', onclick="window.location.href = 'calculator.html';") Haydi Başlayalım!
+      button.btn.blue-gradient.btn-huge.wow.animated.flipInX.delay-2s.slower(type='button', onclick="window.location.href = 'calculator';") Haydi Başlayalım!
     // SCRIPTS
     // JQuery
     script(type='text/javascript', src='js/jquery-3.3.1.min.js')
