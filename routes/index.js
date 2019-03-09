@@ -17,7 +17,6 @@ router.get('/calculator', function(req, res, next) {
 // POST /calculator
 router.post('/calculator', function(req, res, next) {
     console.log("A good start man!");
-    res.render('calculator');
 });
 
 // GET /data_table
