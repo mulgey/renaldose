@@ -4,12 +4,14 @@
 const express = require('express');
 const router = express.Router();
 
+let result;
+
 const calcSrcr = function (method, unit, sex, age, weight, srcr) {
     if (unit === "2") {
         srcr = srcr / 88.4;
     }
     if (method === "Cockcroft-Gault Denklemi") {
-        return (((140 - age) * weight) / (72 * srcr)).toFixed(0);
+        result = (((140 - age) * weight) / (72 * srcr)).toFixed(0);
         if (sex === "2") {
             result = (result * 0.85).toFixed(0);
         }
@@ -30,8 +32,11 @@ router.get('/calculator', function(req, res, next) {
 // POST /calculator
 router.post('/calculator', function(req, res, next) {
     console.log("A good start man!");
+    console.log(req.body);
+    // console.log(req.body.method, req.body.unit1, req.body.sex1, req.body.age1, req.body.weight1, req.body.srcr1);
     let value = calcSrcr(req.body.method, req.body.unit1, req.body.sex1, req.body.age1, req.body.weight1, req.body.srcr1);
-    console.log(value);
+    // console.log(value);
+
 });
 
 // GET /data_table
