@@ -1,0 +1,27 @@
+Genel
+- Kodun düzeni (indent etc)
+
+index.html
+- İki tuş mobil düzende bozuk bir hal alıyor
+- İki tuşun arasına biraz mesafe
+
+Data_table.html
+- Tablonun mobilde responsive olması engellenecek
+- Tablo sütunları hover lanacak
+- "Bu hesaplama yetişkinler içindir"
+- Veri tablosu sayfasında scroll-slide etkisi, search kutusunu gösterecek şekilde çalışsın
+
+Calculator.html
+- Etken madde seçimi tıklamayla değil hover ile açılsın (CSS Dropdown)
+- Etken madde seçimindeki devam tuşunun hover efektleri düzenlensin
+- Dropdown a search ekleyelim
+- Dropdown açılır menü genişliği tuş kadar olsun (şu an dar kalabiliyor)
+- notNeeded efekt seçeneklerini gözden geçir
+- notNeeded => disabled dropdown items and changed margins
+- form-control tıklama alanlarında problem var, düzeltilecek (!) Bir de renkler
+- Değişimlerdeki animasyonlar fonksiyonlarla daha kaliteli hale getirilebilir
+- Sonuç metninde hover ile detay bilgileri sunulacak
+- Method seçiminde etken madde seçimi gibi hover çalışmıyor
+- Önce eGFR seçilip sonra etken madde seçilirse, eGFR Cockcroft a dönüşüyor
+
+discount for mdbootstrap: modl20undecided99

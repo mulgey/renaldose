@@ -279,20 +279,54 @@ html(lang='tr')
       }
       });
     script.
+      var method;
       var gender1;
       var age1;
       var weight1;
       var srcr1;
       var crunit1;
+      var preresult1;
+      var result1;
+      var resulty;
+      // var resultText;
+      var actSubs;
+      var doseText;
       $('#calcButton').click(() => {
+      var method =  $('#dropdownMenu2').text();
       var gender1 = document.getElementById("gender1").value;
       var age1 = parseFloat(document.getElementById("age1").value);
       var weight1 = parseFloat(document.getElementById("weight1").value);
       var srcr1 = parseFloat(document.getElementById("srcr1").value);
       var crunit1 = document.getElementById("crunit1").value;
+      var resulty = document.getElementById('resultText');
+      var actSubs = document.getElementById('dropdownMenu1').text;
+      if (crunit1 === "2") {
+      srcr1 = srcr1 / 88.4;
+      }
+      if (method === "Cockcroft-Gault Denklemi") {
+      result1 = (((140 - age1) * weight1) / (72 * srcr1)).toFixed(0);
+      if (age1 && weight1 && srcr1) {
+      if (gender1 === "2") {
+      result1 = (result1 * 0.85).toFixed(0);
+      }
+      if (actSubs === "Ertapenem sodyum") {
+      if (result1 > 30) {
+      doseText = "Doz ayarlaması gerekmemektedir (Standart günlük doz 1g)";
+      } else if (result1 <= 30) {
+      doseText = "Günde 500 mg"
+      }
+      }
+      resulty.style = "color: white; font-weight: bold; letter-spacing: 2px;"
+      resulty.innerHTML = doseText;
+      console.log(`Kr.klirensi = ${result1}`);
+      console.log("Hesaplama kısmını hallettik sanırım");
+      } else {
+      resulty.innerHTML = `Bilgileri eksiksiz girersek, hesaplamaya <a href="#activeSubstance">başlayabiliriz</a>`;
+      }
       console.log(gender1);
       console.log(age1);
       console.log(weight1);
       console.log(srcr1);
       console.log(crunit1);
+      }
       });

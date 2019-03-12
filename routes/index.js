@@ -4,6 +4,7 @@
 const express = require('express');
 const router = express.Router();
 
+/*
 let result;
 
 const calcSrcr = function (method, unit, sex, age, weight, srcr) {
@@ -19,6 +20,8 @@ const calcSrcr = function (method, unit, sex, age, weight, srcr) {
     return result;
 }
 
+*/
+
 // GET /
 router.get('/', function(req, res, next) {
     return res.render("index");
@@ -31,12 +34,7 @@ router.get('/calculator', function(req, res, next) {
 
 // POST /calculator
 router.post('/calculator', function(req, res, next) {
-    console.log("A good start man!");
-    console.log(req.body);
-    // console.log(req.body.method, req.body.unit1, req.body.sex1, req.body.age1, req.body.weight1, req.body.srcr1);
-    let value = calcSrcr(req.body.method, req.body.unit1, req.body.sex1, req.body.age1, req.body.weight1, req.body.srcr1);
-    // console.log(value);
-
+    console.log("A good start man, that's all!");
 });
 
 // GET /data_table
