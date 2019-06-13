@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ProspecTurk Renal</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- MDBootstrap Datatables  -->
+    <link href="css/addons/datatables.min.css" rel="stylesheet">
+    <!-- Print Stuff  -->
+    <link href="css/print.css" rel="stylesheet" type="text/css" media="print"> 
+    <!-- faviconit.favicons -->
+    <link rel="shortcut icon" href="img/favicons/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="img/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="img/favicons/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="img/favicons/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicons/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="img/favicons/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16.png">
+    <link rel="apple-touch-icon" href="img/favicons/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicons/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/favicon-76.png">	
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicons/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="img/favicons/favicon-144.png">	
+    <meta name="msapplication-config" content="img/favicons/browserconfig.xml">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-lg-center text-center">
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+    <form class="border border-light p-5 print">
+        <div class="text-center">
+            <img src="img/logo_transparent.png" style="display: inline-block" height="200" width="300">
+        </div>
+        <div class="form-row justify-content-lg-center">
+            <div class="col-12 col-lg-8 mt-3" id="timey">
+                Hesaplama Zamanı:<br>
+                <input type="text" id="time" class="form-control" autocomplete="off">
+            </div>
+            <div class="col-12 col-lg-8 mt-3" id="namey">
+                Hasta İsmi:<br>
+                <input type="text" id="name" class="form-control">
+            </div>
+            <div class="col-12 col-lg-8 mt-3" id="wardy">
+                Servis Adı:<br>
+                <input type="text" id="ward" class="form-control">
+            </div>
+            <div class="col-12 col-lg-8 mt-3" id="docty">
+                Doktor İsmi:<br>
+                <input type="text" id="doctor" class="form-control">
+            </div>
+            <div class="col-12 col-lg-8 mt-3" id="crCly">
+                Kreatinin Klirensi (ml/dakika):<br>
+                <input type="number" id="crCl" class="form-control" autocomplete="off" value="29.33" readonly>
+            </div>
+            <div class="col-12 col-lg-8 mt-3" id="diay">
+                Hemodiyaliz Durumu:<br>
+                <input type="text" id="dia" class="form-control" autocomplete="off" readonly>
+            </div>
+            <div class="col-12 col-lg-8 mt-3" id="acty">
+                Etken Madde Adı:<br>
+                <input type="text" id="actSubs" class="form-control" autocomplete="off" required readonly>
+            </div>
+            <div class="col-12 col-lg-8 mt-3" id="producty">
+                Ticari İsmi:<br>
+                <input type="text" id="productName" class="form-control">
+            </div>
+            <div class="col-12 col-lg-8 mt-3" id="suggesty">
+                Önerilen Doz:<br>
+                <input type="text" id="suggest" class="form-control" autocomplete="off" readonly>
+            </div>
+            <div class="col-12 col-lg-8 mt-3" id="operaty">
+                Hesaplamayı Yapan:<br>
+                <input type="text" id="operator" class="form-control">
+            </div>
+            <div class="col-12 col-lg-8 mt-3"  id="noty">
+                Notlar:<br>
+                <input type="text" id="notes" class="form-control" autocomplete="off">
+            </div>
+        </div>
+        <div class="row text-justify justify-content-center mt-5">
+            <div class="col-12 col-lg-8">
+                <p><strong>Not: </strong>Yukarıdaki bilgiler hastanın tedavisini belirlemek konusunda yeterli bilgiye sahip olan, tam yetkili kişilere tavsiye niteliğindedir. Hekim, eczacı veya diğer sağlık profesyonellerinin hasta için optimum faydayı sağlayacak bilgi ve uygulamalarının yerini tutamaz.</p>
+            </div>
+        </div>
+    </form>  
+        <div class="row text-center justify-content-center my-5">
+            <div class="col-12 col-lg-3">
+                <button class="btn btn-cyan rounded-pill mt-3" style="padding: 1rem 2rem;" id="print">Yazdır <i class="fas fa-print pl-1"></i></button>
+            </div>
+            <div class="col-12 col-lg-3">
+                <button class="btn btn-cyan rounded-pill mt-3" style="padding: 1rem 2rem;" id="save">Kaydet (PDF) <i class="fas fa-save pl-1"></i></button>
+            </div>            
+            <div class="col-12 col-lg-3">
+                <button onclick="window.location.href = 'calculator.html#activeSubstance'; return false;" class="btn btn-cyan rounded-pill mt-3" style="padding: 1rem 2rem;" id="back">Yeni Hesaplama <i class="fas fa-redo pl-1"></i></button>
+            </div>
+        </div>
+</body>
+
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.js"></script>
+<!-- PDF Saving stuff -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+<script>
+    function createCookie(name,value,days) {
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            var expires = "; expires="+date.toGMTString();
+        }
+        else var expires = "";
+        document.cookie = name+"="+value+expires+"; path=/";
+    }
+
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        createCookie(name,"",-1);
+    }
+
+    let crCl = readCookie('crCl');
+    let dia = readCookie('dia');
+    let actSubs = readCookie('actSubs');
+    let suggest = readCookie('suggestion');
+    let time = readCookie('time');
+
+    document.getElementById('time').value = time;
+    document.getElementById('crCl').value = crCl;
+    document.getElementById('dia').value = dia;
+    document.getElementById('actSubs').value = actSubs;
+    document.getElementById('suggest').value = suggest;
+  
+</script>
+
+<script>
+$('#print').click(() => {
+    let time = document.getElementById('time');
+    let timey = document.getElementById('timey');
+    let name = document.getElementById('name');
+    let namey = document.getElementById('namey');
+    let wardy = document.getElementById('wardy');
+    let docty = document.getElementById('docty');
+    let productName = document.getElementById('productName');
+    let producty = document.getElementById('producty');
+    let operator = document.getElementById('operator');
+    let operaty = document.getElementById('operaty');
+    let notes = document.getElementById('notes');
+    let noty = document.getElementById('noty');
+    
+    if (time.value) {} else {
+        timey.style.display = "none";
+    }
+    
+    if (name.value) {} else {
+        namey.style.display = "none";
+    }
+    
+    if (ward.value) {} else {
+        wardy.style.display = "none";
+    }      
+
+    if (doctor.value) {} else {
+        docty.style.display = "none";
+    }
+
+    if (productName.value) {} else {
+        producty.style.display = "none";
+    } 
+
+    if (operator.value) {} else {
+        operaty.style.display = "none";
+    } 
+
+    if (notes.value) {} else {
+        noty.style.display = "none";
+    }  
+
+    window.print();
+
+    timey.style.display = "block";
+    namey.style.display = "block";
+    wardy.style.display = "block";
+    docty.style.display = "block";
+    producty.style.display = "block";
+    operaty.style.display = "block";
+    noty.style.display = "block";
+
+});
+</script>
+<script>
+$(function() {
+  var doc = new jsPDF();
+  var specialElementHandlers = {
+    '#editor': function(element, renderer) {
+      return true;
+    }
+  };
+  $('#save').click(function() {
+    doc.fromHTML($('.print').html(), 15, 15, {
+      'width': 170,
+      'elementHandlers': specialElementHandlers
+    });
+    doc.save('sample-file.pdf');
+  });
+});
+</script>
+
+</html>

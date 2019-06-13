@@ -1,21 +1,15 @@
 doctype html
-html(lang='tr')
+html(lang='en')
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     title ProspecTurk Renal
-    // Font Awesome
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
-    // Bootstrap core CSS
     link(href='css/bootstrap.min.css', rel='stylesheet')
-    // Material Design Bootstrap
     link(href='css/mdb.min.css', rel='stylesheet')
-    // Your custom styles (optional)
     link(href='css/style.css', rel='stylesheet')
-    // MDBootstrap Datatables
     link(href='css/addons/datatables.min.css', rel='stylesheet')
-    // faviconit.favicons
     link(rel='shortcut icon', href='img/favicons/favicon.ico')
     link(rel='icon', sizes='16x16 32x32 64x64', href='img/favicons/favicon.ico')
     link(rel='icon', type='image/png', sizes='196x196', href='img/favicons/favicon-192.png')
@@ -36,21 +30,18 @@ html(lang='tr')
     meta(name='msapplication-TileColor', content='#FFFFFF')
     meta(name='msapplication-TileImage', content='img/favicons/favicon-144.png')
     meta(name='msapplication-config', content='img/favicons/browserconfig.xml')
-    // /faviconit.favicons
   body
-    // Start your project here
     header
-      // Navbar
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
         .container
-          a.navbar-brand(href='/')
+          a.navbar-brand(href='index')
             strong PR
           button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarSupportedContent-7.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
               li.nav-item
-                a.nav-link(href='/')
+                a.nav-link(href='index')
                   | Ana Sayfa
                   span.sr-only (current)
               li.nav-item
@@ -59,15 +50,14 @@ html(lang='tr')
                 a.nav-link(href='data_table') Veri Tablosu
               li.nav-item
                 a.nav-link(href='about') Hakında
-      // Full Page Intro
+            ul.navbar-nav
+              button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill(onclick="window.location.href = 'calculator#activeSubstance';")
+                | Hızlı Başla! 
+                i.fas.fa-fast-forward.pl-1
       .view(style="background-image: url('img/dt.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        // Mask & flexbox options
         .mask.rgba-black-light.align-items-center.flex-center
-          // Content
           .container
-            // Grid row
             .row
-              // Grid column
               .col-md-12.mb-4.white-text.text-center
                 h1.h1-reponsive.white-text.mb-0.pt-md-5.pt-5.wow.fadeIn.slow
                   strong Veritabanı Listesi
@@ -75,7 +65,6 @@ html(lang='tr')
                 h5.mb-4.white-text.wow.fadeIn.slow
                   strong Veritabanındaki bütün verileri taramak için bu bölümü kullanabilirsiniz
                 a.btn.btn-outline-white.wow.shake.smooth-scroll(data-wow-delay='2s', href='#datatable') Göz Gezdir
-    // Table Section
     #datatable.m-4(data-spy='datatable', data-target='#datatable')
       table#dtBasicExample.table.table-striped.table-bordered.table-sm(cellspacing='0', width='100%')
         thead
@@ -243,23 +232,11 @@ html(lang='tr')
               | Normal doz / 2 günde bir (veya) Normal dozun yarısı / günde bir kez (40-44)
               br
             // 30-44
-            td
-              | Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez (30-39)
-              br
-              | Normal doz / 2 günde bir (veya) Normal dozun yarısı / günde bir kez (40-44)
-              br
+            td Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez
             // 15-29
-            td
-              | Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez (30-39)
-              br
-              | Normal doz / 2 günde bir (veya) Normal dozun yarısı / günde bir kez (40-44)
-              br
+            td Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez
             // 15 altı
-            td
-              | Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez (30-39)
-              br
-              | Normal doz / 2 günde bir (veya) Normal dozun yarısı / günde bir kez (40-44)
-              br
+            td Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez
             // diyaliz
           tr
             td Vankomisin hidroklorür
@@ -451,8 +428,10 @@ html(lang='tr')
               | Hemodiyaliz Tedavisi Durumunda
       p.font-italic
         | Türkçe karakter ile başlayan bir arama yapıyorsanız, ilk harfi büyük tercih ediniz. Örn: İmipenem
-      p.font-italic *TÖH = Tablolar ötesi hesaplama gerektirir
-    // SCRIPTS
+      p
+        strong *TÖH
+        |  = 
+        i Tablolar ötesi hesaplama gerektirir
     // JQuery
     script(type='text/javascript', src='js/jquery-3.3.1.min.js')
     // Bootstrap tooltips
@@ -464,7 +443,9 @@ html(lang='tr')
     // MDBootstrap Datatables
     script(type='text/javascript', src='js/addons/datatables.min.js')
     script.
+      // Animations init
       new WOW().init();
+      // Datatables show
       $(document).ready(function () {
       $('#dtBasicExample').DataTable();
       $('.dataTables_length').addClass('bs-select');

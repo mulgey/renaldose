@@ -32,13 +32,6 @@ router.get('/calculator', function(req, res, next) {
     return res.render("calculator");
 });
 
-/*
-// POST /calculator
-router.post('/calculator', function(req, res, next) {
-    console.log("A good start man, that's all!");
-});
-*/
-
 // GET /data_table
 router.get('/data_table', function(req, res, next) {
     return res.render("data_table");
@@ -47,6 +40,11 @@ router.get('/data_table', function(req, res, next) {
 // GET /about
 router.get('/about', function(req, res, next) {
     return res.render("about");
+});
+
+// GET /about
+router.get('/print', function(req, res, next) {
+    return res.render("print");
 });
 
 module.exports = router;

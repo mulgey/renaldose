@@ -5,15 +5,10 @@ html(lang='tr')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     title ProspecTurk Renal
-    // Font Awesome
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
-    // Bootstrap core CSS
     link(href='css/bootstrap.min.css', rel='stylesheet')
-    // Material Design Bootstrap
     link(href='css/mdb.min.css', rel='stylesheet')
-    // Your custom styles (optional)
     link(href='css/style.css', rel='stylesheet')
-    // faviconit.favicons
     link(rel='shortcut icon', href='img/favicons/favicon.ico')
     link(rel='icon', sizes='16x16 32x32 64x64', href='img/favicons/favicon.ico')
     link(rel='icon', type='image/png', sizes='196x196', href='img/favicons/favicon-192.png')
@@ -34,21 +29,18 @@ html(lang='tr')
     meta(name='msapplication-TileColor', content='#FFFFFF')
     meta(name='msapplication-TileImage', content='img/favicons/favicon-144.png')
     meta(name='msapplication-config', content='img/favicons/browserconfig.xml')
-    // /faviconit.favicons
   body
-    // Start your project here
     header
-      // Navbar Start
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
         .container
-          a.navbar-brand(href='/')
+          a.navbar-brand(href='index')
             strong PR
           button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarSupportedContent-7.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
               li.nav-item
-                a.nav-link(href='/')
+                a.nav-link(href='index')
                   | Ana Sayfa
                   span.sr-only (current)
               li.nav-item
@@ -57,19 +49,20 @@ html(lang='tr')
                 a.nav-link(href='data_table') Veri Tablosu
               li.nav-item.active
                 a.nav-link(href='about') Hakında
-      // Full Page Intro
+            ul.navbar-nav
+              button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill(onclick="window.location.href = 'calculator#activeSubstance';")
+                | Hızlı Başla! 
+                i.fas.fa-fast-forward.pl-1
       .view(style="background-image: url('img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        // Mask & flexbox options
         .mask.rgba-black-light.align-items-center.flex-center
-          // Content
-          // SCRIPTS
-          // JQuery
-          script(type='text/javascript', src='js/jquery-3.3.1.min.js')
-          // Bootstrap tooltips
-          script(type='text/javascript', src='js/popper.min.js')
-          // Bootstrap core JavaScript
-          script(type='text/javascript', src='js/bootstrap.min.js')
-          // MDB core JavaScript
-          script(type='text/javascript', src='js/mdb.js')
-          script.
-            new WOW().init();
+    // JQuery
+    script(type='text/javascript', src='js/jquery-3.3.1.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript', src='js/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript', src='js/mdb.js')
+    script.
+      // Animations init
+      new WOW().init();
