@@ -23,6 +23,8 @@ Calculator.html
 - Sonuç metninde hover ile detay bilgileri sunulacak
 - Method seçiminde etken madde seçimi gibi hover çalışmıyor
 - Önce eGFR seçilip sonra etken madde seçilirse, eGFR Cockcroft a dönüşüyor
+<<<<<<< HEAD
 - Diyaliz checkbox ortalı değil
+=======
 
 discount for mdbootstrap: modl20undecided99
