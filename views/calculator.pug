@@ -34,14 +34,14 @@ html(lang='tr')
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
         .container
-          a.navbar-brand(href='index')
+          a.navbar-brand(href='/')
             strong PR
           button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarSupportedContent-7.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
               li.nav-item
-                a.nav-link(href='index')
+                a.nav-link(href='/')
                   | Ana Sayfa
                   span.sr-only (current)
               li.nav-item.active
@@ -177,7 +177,7 @@ html(lang='tr')
                 | ile hesaplama yaparken cinsiyet, yaş, ağırlık ve serum kreatinini değerlerini girmeniz gerekir.
           .row.text-center.align-items-center.mt-3
             #calculate.col.mb-3
-              button#calcButton.btn.btn-cyan.rounded-pill.btn-lg.disabled(type='button') Hesaplayalım
+              button#calcButton.btn.btn-cyan.rounded-pill.rounded-pill.btn-lg.disabled(type='button') Hesaplayalım
     #imipenem-cilastatin.view(data-spy='imipenem-cilastatin', data-target='#imipenem-cilastatin', style="display: none; background-image: url('img/imi-cila.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
       .mask.rgba-stylish-light.flex-center.text-center.align-items-center
         .container
@@ -212,7 +212,7 @@ html(lang='tr')
               input#weightForCila.form-control(type='text', style='color: black', autocomplete='off')
           .row.text-center.align-items-center.mt-4
             #calculateForCila.col
-              button#calcForCila.btn.btn-cyan.btn-lg(type='button') Hesaplayalım
+              button#calcForCila.btn.btn-cyan.rounded-pill.rounded-pill.btn-lg(type='button') Hesaplayalım
     #daptomicina.view(data-spy='daptomicina', data-target='#daptomicina', style="display: none; background-image: url('img/imi-cila.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
       .mask.rgba-stylish-light.flex-center.text-center.align-items-center
         .container
@@ -243,7 +243,7 @@ html(lang='tr')
                 input#weightForDapto.form-control(type='text', style='color: black', autocomplete='off')
             .row.text-center.align-items-center.mt-4
               #calculateForDapto.col
-                button#calculateForDapto.btn.btn-cyan.btn-lg(type='button') Hesaplayalım
+                button#calculateForDapto.btn.btn-cyan.rounded-pill.btn-lg(type='button') Hesaplayalım
         strong
       strong
     strong
@@ -276,7 +276,7 @@ html(lang='tr')
                 input#srcrForLevo.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0')
             .row.text-center.align-items-center.mt-4
               #calculateForDapto.col
-                button#calculateForLevo.btn.btn-cyan.btn-lg(type='button') Hesaplayalım
+                button#calculateForLevo.btn.btn-cyan.rounded-pill.btn-lg(type='button') Hesaplayalım
       #presentResults.view(data-spy='presentResults', data-target='#presentResults', style="background-image: url('img/calculate_03.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-stylish-light.flex-center.align-items-center.text-center
           .container
@@ -408,6 +408,7 @@ html(lang='tr')
       script.
         let result;
         let resulty = document.getElementById('resultText');
+        let print = document.getElementById("print");
         $('#calcButton').click(() => {
         let method =  $('#dropdownMenu2').text();
         let gender1 = document.getElementById("gender1").value;
@@ -427,7 +428,6 @@ html(lang='tr')
         let daptomcy = document.getElementById("daptomicina");
         let levofloxy = document.getElementById("levofloxacin");
         let reload = document.getElementById("reload");
-        let print = document.getElementById("print");
         if (crunit1 === "2") {
         srcr1 = srcr1 / 88.4;
         }

@@ -10,7 +10,7 @@ header,
   body,
   header,
   .view {
-    height: 100vh;
+    height: 110vh;
   }
 }
 
@@ -69,6 +69,14 @@ table.dataTable thead .sorting_desc_disabled:before {
   background-color: #66a3ff;
 }
 
+#willDisable:hover, #willDisable:focus {
+  background-color: #66a3ff;
+}
+
+#willDisable2:hover, #willDisable2:focus {
+  background-color: #66a3ff;
+}
+
 .dropdown-primary {
   height: auto;
   max-height: 200px;
@@ -123,7 +131,6 @@ table.dataTable thead .sorting_desc_disabled:before {
 
 .md-form label, .md-form, .form-control {
   color: #f8f9fa;
-  font-weight: bold;
 }
 
 label.active {
@@ -136,4 +143,53 @@ label.custom-control-label {
 
 .note-info {
   text-align: center;
-} 
+}
+
+#leftNote1, #leftNote {
+  text-align: left;
+  padding-left: 1em;
+}
+
+.form-control {
+  color: #1F618D;
+  font-weight: bold;
+}
+
+.form-control:focus {
+  color: #1F618D;
+}
+
+.form-control::-webkit-input-placeholder { color:#FAFAFA; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder {color:#FAFAFA; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder {color:#FAFAFA; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder {color:#FAFAFA; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder {color:#FAFAFA; }  /* Microsoft Edge */
+
+@media (max-width:480px) {
+  .dropdown-menu {
+    width:99%;
+ }
+
+  .dropdown-menu > li > a {
+    white-space: normal;
+ }
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#starty:hover, #starty:focus {
+  color: #210FD2;
+}
+
+#diya1, #diya2, #bla {
+  color: #FBFBFB;
+}
+
+.print {
+  font-weight: normal;
+  font-family: helvetica;
+}

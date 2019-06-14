@@ -5,6 +5,8 @@ html(lang='tr')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     title ProspecTurk Renal
+    // PDF Saving stuff
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js', integrity='sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/', crossorigin='anonymous')
     // Font Awesome
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
     // Bootstrap core CSS
@@ -116,8 +118,6 @@ html(lang='tr')
     script(type='text/javascript', src='js/bootstrap.min.js')
     // MDB core JavaScript
     script(type='text/javascript', src='js/mdb.js')
-    // PDF Saving stuff
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js', integrity='sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/', crossorigin='anonymous')
     script.
       function createCookie(name,value,days) {
       if (days) {
@@ -196,18 +196,7 @@ html(lang='tr')
       noty.style.display = "block";
       });
     script.
-      $(function() {
-      var doc = new jsPDF();
-      var specialElementHandlers = {
-      '#editor': function(element, renderer) {
-      return true;
-      }
-      };
       $('#save').click(function() {
-      doc.fromHTML($('.print').html(), 15, 15, {
-      'width': 170,
-      'elementHandlers': specialElementHandlers
-      });
-      doc.save('sample-file.pdf');
-      });
+        window.open("https://pdf-ace.com/pdfme/");
+        console.log('clicked!');
       });
