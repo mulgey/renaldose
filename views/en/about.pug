@@ -27,32 +27,32 @@ html(lang='tr')
     link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/favicon-152.png')
     link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/favicon-180.png')
     meta(name='msapplication-TileColor', content='#FFFFFF')
-    meta(name='msapplication-TileImage', content='img/favicons/favicon-144.png')
-    meta(name='msapplication-config', content='img/favicons/browserconfig.xml')
+    meta(name='msapplication-TileImage', content='../img/favicons/favicon-144.png')
+    meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
   body
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
         .container
-          a.navbar-brand(href='/')
+          a.navbar-brand(href='/en')
             strong PR
           button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarSupportedContent-7.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
               li.nav-item
-                a.nav-link(href='/')
+                a.nav-link(href='/en')
                   | Ana Sayfa
                   span.sr-only (current)
               li.nav-item
-                a.nav-link(href='calculator') Hesaplayıcı
+                a.nav-link(href='/en/calculator') Hesaplayıcı
               li.nav-item
                 a.nav-link(href='data_table') Veri Tablosu
               li.nav-item.active
                 a.nav-link(href='about') Hakında
             ul.navbar-nav
               li.nav-item
-                a.nav-link.mt-1(href='')
-                  img(src='../img/english-language.png', width='30', height='30')            
+                a.nav-link.mt-1(href='/tr/about')
+                  img(src='../img/turkey.png', width='30', height='30')            
               button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = 'calculator#activeSubstance';")
                 | Hızlı Başla! 
                 i.fas.fa-fast-forward.pl-1
