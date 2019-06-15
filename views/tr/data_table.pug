@@ -1,0 +1,455 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title ProspecTurk Renal
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
+    link(href='../css/bootstrap.min.css', rel='stylesheet')
+    link(href='../css/mdb.min.css', rel='stylesheet')
+    link(href='../css/style.css', rel='stylesheet')
+    link(href='../css/addons/datatables.min.css', rel='stylesheet')
+    link(rel='shortcut icon', href='../img/favicons/favicon.ico')
+    link(rel='icon', sizes='16x16 32x32 64x64', href='../img/favicons/favicon.ico')
+    link(rel='icon', type='image/png', sizes='196x196', href='../img/favicons/favicon-192.png')
+    link(rel='icon', type='image/png', sizes='160x160', href='../img/favicons/favicon-160.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96.png')
+    link(rel='icon', type='image/png', sizes='64x64', href='../img/favicons/favicon-64.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16.png')
+    link(rel='apple-touch-icon', href='../img/favicons/favicon-57.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/favicon-114.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/favicon-72.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/favicon-144.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/favicon-60.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/favicon-120.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/favicon-76.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/favicon-152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/favicon-180.png')
+    meta(name='msapplication-TileColor', content='#FFFFFF')
+    meta(name='msapplication-TileImage', content='../img/favicons/favicon-144.png')
+    meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
+  body
+    header
+      nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
+        .container
+          a.navbar-brand(href='/')
+            strong PR
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarSupportedContent-7.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='/')
+                  | Ana Sayfa
+                  span.sr-only (current)
+              li.nav-item
+                a.nav-link(href='calculator') Hesaplayıcı
+              li.nav-item.active
+                a.nav-link(href='data_table') Veri Tablosu
+              li.nav-item
+                a.nav-link(href='about') Hakında
+            ul.navbar-nav
+              li.nav-item
+                a.nav-link.mt-1(href='')
+                  img(src='../img/english-language.png', width='30', height='30')            
+              button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = 'calculator#activeSubstance';")
+                | Hızlı Başla! 
+                i.fas.fa-fast-forward.pl-1
+      .view(style="background-image: url('../img/dt.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.flex-center
+          .container
+            .row
+              .col-md-12.mb-4.white-text.text-center
+                h1.h1-reponsive.white-text.mb-0.pt-md-5.pt-5.wow.fadeIn.slow
+                  strong Veritabanı Listesi
+                hr.hr-light.my-4.w-50.wow.fadeIn.slow
+                h5.mb-4.white-text.wow.fadeIn.slow
+                  strong Veritabanındaki bütün verileri taramak için bu bölümü kullanabilirsiniz
+                a.btn.btn-outline-white.wow.shake.smooth-scroll(data-wow-delay='2s', href='#datatable') Göz Gezdir
+    #datatable.m-4(data-spy='datatable', data-target='#datatable')
+      table#dtBasicExample.table.table-striped.table-bordered.table-sm(cellspacing='0', width='100%')
+        thead
+          tr
+            th.th-sm
+              | Etken Madde İsmi
+            th.th-sm
+              | Normal Doz 
+              strong (GFR 90 ve üzeri)
+            th.th-sm
+              | GFR 
+              strong "60 - 89"
+              |  Dozu
+            th.th-sm
+              | GFR 
+              strong "45 - 59"
+              |  Dozu
+            th.th-sm
+              | GFR 
+              strong "30 - 44"
+              |  Dozu
+            th.th-sm
+              | GFR 
+              strong "15 - 29"
+              |  Dozu
+            th.th-sm
+              | GFR 
+              strong "15 altı"
+              |  Dozu
+            th.th-sm
+              | Hemodiyaliz Tedavisi Durumunda
+        tbody
+          tr
+            td Ertapenem sodyum
+            td 1 g
+            // Normal
+            td 1 g
+            // 60-89
+            td 1 g
+            // 45-59
+            td 1 g
+            // 30-44
+            td 500 mg
+            // 15-29
+            td 500 mg
+            // 15 altı
+            td
+              | Hemodiyalizden önceki 6 saat içerisinde 500 mg verilmişse eğer, seans sonrası 150 mg ek doz önerilir
+              br
+              | Diyalizden en az 6 saat önce verildiyse eğer, ek doza gerek yoktur
+              br
+            // diyaliz
+          tr
+            td İmipenem / Silastatin sodyum
+            td 1 - 4 g
+            // Normal
+            td TÖH*
+            // 60-89
+            td TÖH*
+            // 45-59
+            td TÖH*
+            // 30-44
+            td TÖH*
+            // 15-29
+            td TÖH*
+            // 15 altı
+            td TÖH*
+            // diyaliz
+          tr
+            td Meropenem trihidrat
+            td 1,5 g - 6 g
+            // Normal
+            td 1 g / 8 saat
+            // 60-89
+            td
+              | 1 g / 8 saat (50-59)
+              br
+              | 1 g / 12 saat (45-49)
+              br
+            // 45-59
+            td 1 g / 12 saat
+            // 30-44
+            td
+              | 1 g / 12 saat (25-29)
+              br
+              | 500 mg / 12 saat (15-24)
+              br
+            // 15-29
+            td
+              | 500 mg / 12 saat (10-14)
+              br
+              | 500 mg / 24 saat (10'un altı)
+              br
+            // 15 altı
+            td
+              | Enfeksiyonun tipine ve şekline göre belirlenecek normal dozun hemodiyaliz tedavisinden sonra uygulanması önerilir
+              br
+            // diyaliz
+          tr
+            td Siprofloksasin laktat
+            td 800 - 1200 mg
+            // Normal
+            td Hekimin belirlemiş olduğu normal doz
+            // 60-89
+            td Maksimum 800 mg olacak şekilde düzenlenir
+            // 45-59
+            td Maksimum 800 mg olacak şekilde düzenlenir
+            // 30-44
+            td Maksimum 400 mg olacak şekilde düzenlenir
+            // 15-29
+            td Maksimum 400 mg olacak şekilde düzenlenir
+            // 15 altı
+            td
+              | Hemodiyaliz günlerinde diyaliz sonrasındaki en fazla günlük siprofloksasin intravenöz dozu 400 mg olmalıdır.
+            // diyaliz
+          tr
+            td Levofloksasin
+            td 250 mg - 1000 mg
+            // Normal
+            td TÖH*
+            // 60-89
+            td TÖH*
+            // 45-59
+            td TÖH*
+            // 30-44
+            td TÖH*
+            // 15-29
+            td TÖH*
+            // 15 altı
+            td TÖH*
+            // diyaliz
+          tr
+            td Daptomisin
+            td 4 - 6 mg / kg (24 saatte bir)
+            // Normal
+            td Hekimin belirlemiş olduğu normal doz
+            // 60-89
+            td
+              | Hekimin belirlemiş olduğu normal doz
+              br
+            // 45-59
+            td Hekimin belirlemiş olduğu normal doz
+            // 30-44
+            td TÖH*
+            // 15-29
+            td TÖH*
+            // 15 altı
+            td TÖH*
+            // diyaliz
+          tr
+            td Teikoplanin
+            td 200, 400 veya 800 mg'lık tek doz
+            // Normal
+            td Hekimin belirlemiş olduğu normal doz
+            // 60-89
+            td
+              | Normal doz / 2 günde bir (veya)
+              br
+              | Normal dozun yarısı / günde bir kez
+              br
+            // 45-59
+            td
+              | Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez (30-39)
+              br
+              | Normal doz / 2 günde bir (veya) Normal dozun yarısı / günde bir kez (40-44)
+              br
+            // 30-44
+            td Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez
+            // 15-29
+            td Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez
+            // 15 altı
+            td Normal doz / 3 günde bir (veya) Normal dozun üçte biri / günde bir kez
+            // diyaliz
+          tr
+            td Vankomisin hidroklorür
+            td 2 g
+            // Normal
+            td TÖH*
+            // 60-89
+            td TÖH*
+            // 45-59
+            td TÖH*
+            // 30-44
+            td TÖH*
+            // 15-29
+            td TÖH*
+            // 15 altı
+            td TÖH*
+            // diyaliz
+          tr
+            td Piperasilin sodyum / Tazobaktam sodyum
+            td 4,5 g / 6 veya 8 saat
+            // Normal
+            td
+              | 4,5 g / 8 saat (60-80)
+              br
+              | Hekimin belirlemiş olduğu normal doz (80 üstü)
+              br
+            // 60-89
+            td 4,5 g / 8 saat
+            // 45-59
+            td 4,5 g / 8 saat
+            // 30-44
+            td
+              | 4,5 g / 12 saat (15-19)
+              br
+              | 4,5 g / 8 saat (20-29)
+              br
+            // 15-29
+            td 4,5 g / 12 saat
+            // 15 altı
+            td
+              | 4,5 g / 12 saat. Her bir diyaliz periyodundan sonra 2,25 g takviye dozu uygulanmalıdır
+            // diyaliz
+          tr
+            td Flukonazol
+            td 50 mg - 400 mg
+            // Normal
+            td Önerilen doz yüzdesi = % 100
+            // 60-89
+            td
+              | Önerilen doz yüzdesi = % 50 (45-50)
+              br
+              | Önerilen doz yüzdesi = %100 (51-59)
+              br
+            // 45-59
+            td Önerilen doz yüzdesi = % 50
+            // 30-44
+            td Önerilen doz yüzdesi = % 50
+            // 15-29
+            td Önerilen doz yüzdesi = % 50
+            // 15 altı
+            td Her hemodiyaliz seansından sonra hekimin belirlemiş olduğu normal doz alınabilir
+            // diyaliz
+          tr
+            td Sefoperazon sodyum / Sulbaktam sodyum
+            td 3 g - 12 g (2 etken madde için total doz)
+            // Normal
+            td Hekimin belirlemiş olduğu normal doz
+            // 60-89
+            td Hekimin belirlemiş olduğu normal doz
+            // 45-59
+            td Hekimin belirlemiş olduğu normal doz
+            // 30-44
+            td 3 g / 12 saat (2 etken madde için total doz)
+            // 15-29
+            td 1,5 g / 12 saat (2 etken madde için total doz)
+            // 15 altı
+            td
+              | Doz ayarlanması gerektiği belirtilmiştir fakat ürün prospektüsünde nasıl yapılacağına ilişkin bir bilgi bulunmamaktadır.
+            // diyaliz
+          tr
+            td Kolistimetat sodyum
+            td 150.000 IU/kg/gün. Önerilen maksimum günlük doz 14.250.000 IU
+            // Normal
+            td Hekimin belirlemiş olduğu normal doz
+            // 60-89
+            td TÖH*
+            // 45-59
+            td TÖH*
+            // 30-44
+            td TÖH*
+            // 15-29
+            td TÖH*
+            // 15 altı
+            td
+              | Hemodiyaliz yapılmayan günlerde günlük toplam 3.150.000 IU olarak 12 saatte bir uygulanır. Diyaliz günlerinde toplam 4.500.000 IU doz ikiye bölünür ve ilk yarısı hemodiyalizin son saatinde diğer yarısı hemodiyalizin son saatinde diğer yarısı da bundan 12 saat sonra uygulanır.
+            // diyaliz
+          tr
+            td Tigesiklin
+            td 100 mg başlangıç dozundan sonra 12 saatte bir 50 mg
+            // Normal
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 60-89
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 45-59
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 30-44
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 15-29
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 15 altı
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // diyaliz
+          tr
+            td Moksifloksasin hidroklorür
+            td 400 mg
+            // Normal
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 60-89
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 45-59
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 30-44
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 15-29
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 15 altı
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // diyaliz
+          tr
+            td Linezolit
+            td 400 - 600 mg / 12 saat
+            // Normal
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 60-89
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 45-59
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 30-44
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 15-29
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 15 altı
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // diyaliz
+          tr
+            td Metronidazol
+            td 1 - 1,5 g / gün
+            // Normal
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 60-89
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 45-59
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 30-44
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 15-29
+            td Bu etken madde için doz ayarlamasına gerek yoktur
+            // 15 altı
+            td Hemodiyalizden hemen sonra yeniden uygulanmalıdır
+            // diyaliz
+        tfoot
+          tr
+            th
+              | Etken Madde İsmi
+            th
+              | Normal Doz 
+              strong (GFR 90 ve üzeri)
+            th
+              | GFR 
+              strong "60 - 89"
+              |  Dozu
+            th
+              | GFR 
+              strong "45 - 59"
+              |  Dozu
+            th
+              | GFR 
+              strong "30 - 44"
+              |  Dozu
+            th
+              | GFR 
+              strong "15 - 29"
+              |  Dozu
+            th
+              | GFR 
+              strong "15 altı"
+              |  Dozu
+            th
+              | Hemodiyaliz Tedavisi Durumunda
+      p.font-italic
+        | Türkçe karakter ile başlayan bir arama yapıyorsanız, ilk harfi büyük tercih ediniz. Örn: İmipenem
+      p
+        strong *TÖH
+        |  = 
+        i Tablolar ötesi hesaplama gerektirir
+    // JQuery
+    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript', src='../js/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='../js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript', src='../js/mdb.js')
+    // MDBootstrap Datatables
+    script(type='text/javascript', src='../js/addons/datatables.min.js')
+    script.
+      // Animations init
+      new WOW().init();
+      // Datatables show
+      $(document).ready(function () {
+      $('#dtBasicExample').DataTable();
+      $('.dataTables_length').addClass('bs-select');
+      });

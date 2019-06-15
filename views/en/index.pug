@@ -39,22 +39,59 @@ html(lang='tr')
             span.navbar-toggler-icon
           #navbarSupportedContent-7.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
-              li.nav-item
+              li.nav-item.active
                 a.nav-link(href='/')
                   | Ana Sayfa
                   span.sr-only (current)
               li.nav-item
-                a.nav-link(href='calculator') Hesaplayıcı
+                a.nav-link(href='tr/calculator') Hesaplayıcı
               li.nav-item
-                a.nav-link(href='data_table') Veri Tablosu
-              li.nav-item.active
-                a.nav-link(href='about') Hakında
+                a.nav-link(href='tr/data_table') Veri Tablosu
+              li.nav-item
+                a.nav-link(href='tr/about') Hakında
             ul.navbar-nav
-              button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill(onclick="window.location.href = 'calculator#activeSubstance';")
+              li.nav-item
+                a.nav-link.mt-1(href='')
+                  img(src='img/english-language.png', width='30', height='30')            
+              button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = 'tr/calculator#activeSubstance';")
                 | Hızlı Başla! 
                 i.fas.fa-fast-forward.pl-1
-      .view(style="background-image: url('img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        .mask.rgba-black-light.align-items-center.flex-center
+      .view(style="background-image: url('img/main.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.text-center.flex-center.justify-content-center
+          .container
+            .row.white-text.mb-4.justify-content-center
+              h2.col-12.h2-reponsive.white-text.text-uppercase.font-weight-bold.mb-0.pt-md-5.pt-5.wow.fadeInDown(style='letter-spacing: 5px; font-size: 2.2rem;', data-wow-delay='0.3s')
+                strong Prospecturk Renal
+              hr.col-10.col-lg-12.hr-light.my-4.w-75.wow.fadeInDown(data-wow-delay='0.4s')
+              h5.col-12.text-uppercase.mb-4.white-text.wow.fadeInDown(data-wow-delay='0.4s')
+                strong Online Doz Hesaplama Aracı
+            .row.white-text.justify-content-center
+              a.col-11.col-lg-5.mx-3.mb-3.btn.btn-outline-white.wow.fadeInDown.slow(data-wow-delay='2s', href='#cards') Daha fazla bilgi
+              a.col-11.col-lg-5.mx-3.mb-3.btn.btn-outline-white.font-weight-bold.wow.fadeInDown.slower(data-wow-delay='2s', href='calculator') Başla
+    #cards.card-deck.m-4(data-spy='cards', data-target='#cards')
+      .card.wow.animated.bounceIn.slow
+        img.card-img-top(src='img/cards/card-01.jpg', alt='card-01')
+        .card-body
+          h5.card-title Etken Maddeyi Seçin
+          p.card-text(style='text-align: justify;')
+            | Veritabanındaki etken maddelerden, hesaplama yapacağınız etken maddeyi seçerek başlayabilirsiniz
+      .card.wow.animated.bounceIn.slow.delay-1s
+        img.card-img-top(src='img/cards/card-02.jpg', alt='card-02')
+        .card-body
+          h5.card-title Hastanın Klinik Verilerini Girin
+          p.card-text(style='text-align: justify;')
+            | Hastanın serum kreatinini hesaplamak için, Cockcroft-Gault veya eGFR formüllerine dayanarak uygun hesaplamayı gerçekleştirebilirsiniz
+      .card.wow.animated.bounceIn.slower.delay-2s
+        img.card-img-top(src='img/cards/card-03.jpg', alt='card-03')
+        .card-body
+          h5.card-title Hastanız İçin Uygun Dozu Bulun
+          p.card-text(style='text-align: justify;')
+            | Seçtiğiniz etken madde ve klinik verilere uygun olacak doz bilgisine ulaşabilirsiniz
+    .text-center.mb-4
+      button#starty.btn.rounded-pill.btn-primary.flipInX.delay-2s.slower(type='button', onclick="window.location.href = 'tr/calculator';")
+        | Başlayalım! 
+        i.fas.fa-caret-square-right.pl-1
+      
     // JQuery
     script(type='text/javascript', src='js/jquery-3.3.1.min.js')
     // Bootstrap tooltips

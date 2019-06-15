@@ -6,27 +6,27 @@ html(lang='tr')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     title ProspecTurk Renal
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
-    link(href='css/bootstrap.min.css', rel='stylesheet')
-    link(href='css/mdb.min.css', rel='stylesheet')
-    link(href='css/style.css', rel='stylesheet')
-    link(href='css/addons/datatables.min.css', rel='stylesheet')
-    link(rel='shortcut icon', href='img/favicons/favicon.ico')
-    link(rel='icon', sizes='16x16 32x32 64x64', href='img/favicons/favicon.ico')
-    link(rel='icon', type='image/png', sizes='196x196', href='img/favicons/favicon-192.png')
-    link(rel='icon', type='image/png', sizes='160x160', href='img/favicons/favicon-160.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='img/favicons/favicon-96.png')
-    link(rel='icon', type='image/png', sizes='64x64', href='img/favicons/favicon-64.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='img/favicons/favicon-32.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='img/favicons/favicon-16.png')
-    link(rel='apple-touch-icon', href='img/favicons/favicon-57.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='img/favicons/favicon-114.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='img/favicons/favicon-72.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='img/favicons/favicon-144.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='img/favicons/favicon-60.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='img/favicons/favicon-120.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='img/favicons/favicon-76.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='img/favicons/favicon-152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='img/favicons/favicon-180.png')
+    link(href='../css/bootstrap.min.css', rel='stylesheet')
+    link(href='../css/mdb.min.css', rel='stylesheet')
+    link(href='../css/style.css', rel='stylesheet')
+    link(href='../css/addons/datatables.min.css', rel='stylesheet')
+    link(rel='shortcut icon', href='../img/favicons/favicon.ico')
+    link(rel='icon', sizes='16x16 32x32 64x64', href='../img/favicons/favicon.ico')
+    link(rel='icon', type='image/png', sizes='196x196', href='../img/favicons/favicon-192.png')
+    link(rel='icon', type='image/png', sizes='160x160', href='../img/favicons/favicon-160.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96.png')
+    link(rel='icon', type='image/png', sizes='64x64', href='../img/favicons/favicon-64.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16.png')
+    link(rel='apple-touch-icon', href='../img/favicons/favicon-57.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/favicon-114.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/favicon-72.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/favicon-144.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/favicon-60.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/favicon-120.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/favicon-76.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/favicon-152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/favicon-180.png')
     meta(name='msapplication-TileColor', content='#FFFFFF')
     meta(name='msapplication-TileImage', content='img/favicons/favicon-144.png')
     meta(name='msapplication-config', content='img/favicons/browserconfig.xml')
@@ -50,7 +50,11 @@ html(lang='tr')
                 a.nav-link(href='data_table') Veri Tablosu
               li.nav-item
                 a.nav-link(href='about') Hakında
-      .view(style="background-image: url('img/calculate_01.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+            ul.navbar-nav
+              li.nav-item
+                a.nav-link.mt-1(href='')
+                  img(src='../img/english-language.png', width='30', height='30')
+      .view(style="background-image: url('../img/calculate_01.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-black-light.align-items-center.flex-center
           .container
             .row
@@ -62,7 +66,7 @@ html(lang='tr')
                   strong
                     | Hasta için belirli klinik verilere sahipseniz, seçtiğiniz etken madde için doz hesaplamasına başlayabiliriz
                 a.btn.btn-outline-white.wow.pulse.smooth-scroll(data-wow-delay='2s', href='#activeSubstance') Hazırım, başlayalım
-    #activeSubstance.view(data-spy='activeSubstance', data-target='#activeSubstance', style="background-image: url('img/calculate_02.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+    #activeSubstance.view(data-spy='activeSubstance', data-target='#activeSubstance', style="background-image: url('../img/calculate_02.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
       .mask.rgba-stylish-light.align-items-center.flex-center
         .container
           .row.mt-3
@@ -178,7 +182,7 @@ html(lang='tr')
           .row.text-center.align-items-center.mt-3
             #calculate.col.mb-3
               button#calcButton.btn.btn-cyan.rounded-pill.rounded-pill.btn-lg.disabled(type='button') Hesaplayalım
-    #imipenem-cilastatin.view(data-spy='imipenem-cilastatin', data-target='#imipenem-cilastatin', style="display: none; background-image: url('img/imi-cila.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+    #imipenem-cilastatin.view(data-spy='imipenem-cilastatin', data-target='#imipenem-cilastatin', style="display: none; background-image: url('../img/imi-cila.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
       .mask.rgba-stylish-light.flex-center.text-center.align-items-center
         .container
           .row
@@ -188,7 +192,7 @@ html(lang='tr')
                   | Bu etken madde için doz hesaplaması, 
                   u hekimin endikasyon için belirlemiş olduğu
                   |  doz üzerinden yapılabilmektedir. Normal doz tablosuna 
-                  a(href='img/tienam_kub.png', target='blank') buradan
+                  a(href='../img/tienam_kub.png', target='blank') buradan
                   |  ulaşabilirsiniz.
           .row.mt-3
             .col-12.col-lg-3.mt-3
@@ -213,7 +217,7 @@ html(lang='tr')
           .row.text-center.align-items-center.mt-4
             #calculateForCila.col
               button#calcForCila.btn.btn-cyan.rounded-pill.rounded-pill.btn-lg(type='button') Hesaplayalım
-    #daptomicina.view(data-spy='daptomicina', data-target='#daptomicina', style="display: none; background-image: url('img/imi-cila.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+    #daptomicina.view(data-spy='daptomicina', data-target='#daptomicina', style="display: none; background-image: url('../img/imi-cila.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
       .mask.rgba-stylish-light.flex-center.text-center.align-items-center
         .container
           .row
@@ -247,7 +251,7 @@ html(lang='tr')
         strong
       strong
     strong
-      #levofloxacin.view(data-spy='levofloxacin', data-target='#levofloxacin', style="display: none; background-image: url('img/imi-cila.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+      #levofloxacin.view(data-spy='levofloxacin', data-target='#levofloxacin', style="display: none; background-image: url('../img/imi-cila.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-stylish-light.flex-center.text-center.align-items-center
           .container
             .row
@@ -257,7 +261,7 @@ html(lang='tr')
                     | Bu etken madde için doz hesaplaması, 
                     u hekimin endikasyon için belirlemiş olduğu
                     |  doz üzerinden yapılabilmektedir. Normal doz tablosuna 
-                    a(href='img/tavanic_kub.png', target='blank') buradan
+                    a(href='../img/tavanic_kub.png', target='blank') buradan
                     |  ulaşabilirsiniz.
             .row.mt-3
               .col-12.col-lg-4.mt-3
@@ -277,7 +281,7 @@ html(lang='tr')
             .row.text-center.align-items-center.mt-4
               #calculateForDapto.col
                 button#calculateForLevo.btn.btn-cyan.rounded-pill.btn-lg(type='button') Hesaplayalım
-      #presentResults.view(data-spy='presentResults', data-target='#presentResults', style="background-image: url('img/calculate_03.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+      #presentResults.view(data-spy='presentResults', data-target='#presentResults', style="background-image: url('../img/calculate_03.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-stylish-light.flex-center.align-items-center.text-center
           .container
             .row
@@ -296,13 +300,13 @@ html(lang='tr')
                   | Kaydet / Yazdır 
                   i.far.fa-file-alt.pl-1
       // JQuery
-      script(type='text/javascript', src='js/jquery-3.3.1.min.js')
+      script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
       // Bootstrap tooltips
-      script(type='text/javascript', src='js/popper.min.js')
+      script(type='text/javascript', src='../js/popper.min.js')
       // Bootstrap core JavaScript
-      script(type='text/javascript', src='js/bootstrap.min.js')
+      script(type='text/javascript', src='../js/bootstrap.min.js')
       // MDB core JavaScript
-      script(type='text/javascript', src='js/mdb.js')
+      script(type='text/javascript', src='../js/mdb.js')
       script.
         // Animations init
         new WOW().init();

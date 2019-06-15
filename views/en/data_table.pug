@@ -6,27 +6,27 @@ html(lang='en')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     title ProspecTurk Renal
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
-    link(href='css/bootstrap.min.css', rel='stylesheet')
-    link(href='css/mdb.min.css', rel='stylesheet')
-    link(href='css/style.css', rel='stylesheet')
-    link(href='css/addons/datatables.min.css', rel='stylesheet')
-    link(rel='shortcut icon', href='img/favicons/favicon.ico')
-    link(rel='icon', sizes='16x16 32x32 64x64', href='img/favicons/favicon.ico')
-    link(rel='icon', type='image/png', sizes='196x196', href='img/favicons/favicon-192.png')
-    link(rel='icon', type='image/png', sizes='160x160', href='img/favicons/favicon-160.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='img/favicons/favicon-96.png')
-    link(rel='icon', type='image/png', sizes='64x64', href='img/favicons/favicon-64.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='img/favicons/favicon-32.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='img/favicons/favicon-16.png')
-    link(rel='apple-touch-icon', href='img/favicons/favicon-57.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='img/favicons/favicon-114.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='img/favicons/favicon-72.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='img/favicons/favicon-144.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='img/favicons/favicon-60.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='img/favicons/favicon-120.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='img/favicons/favicon-76.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='img/favicons/favicon-152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='img/favicons/favicon-180.png')
+    link(href='../css/bootstrap.min.css', rel='stylesheet')
+    link(href='../css/mdb.min.css', rel='stylesheet')
+    link(href='../css/style.css', rel='stylesheet')
+    link(href='../css/addons/datatables.min.css', rel='stylesheet')
+    link(rel='shortcut icon', href='../img/favicons/favicon.ico')
+    link(rel='icon', sizes='16x16 32x32 64x64', href='../img/favicons/favicon.ico')
+    link(rel='icon', type='image/png', sizes='196x196', href='../img/favicons/favicon-192.png')
+    link(rel='icon', type='image/png', sizes='160x160', href='../img/favicons/favicon-160.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96.png')
+    link(rel='icon', type='image/png', sizes='64x64', href='../img/favicons/favicon-64.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16.png')
+    link(rel='apple-touch-icon', href='../img/favicons/favicon-57.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/favicon-114.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/favicon-72.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/favicon-144.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/favicon-60.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/favicon-120.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/favicon-76.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/favicon-152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/favicon-180.png')
     meta(name='msapplication-TileColor', content='#FFFFFF')
     meta(name='msapplication-TileImage', content='img/favicons/favicon-144.png')
     meta(name='msapplication-config', content='img/favicons/browserconfig.xml')
@@ -51,10 +51,13 @@ html(lang='en')
               li.nav-item
                 a.nav-link(href='about') Hakında
             ul.navbar-nav
-              button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill(onclick="window.location.href = 'calculator#activeSubstance';")
+              li.nav-item
+                a.nav-link.mt-1(href='')
+                  img(src='../img/english-language.png', width='30', height='30')            
+              button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = 'calculator#activeSubstance';")
                 | Hızlı Başla! 
                 i.fas.fa-fast-forward.pl-1
-      .view(style="background-image: url('img/dt.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+      .view(style="background-image: url('../img/dt.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-black-light.align-items-center.flex-center
           .container
             .row
@@ -433,15 +436,15 @@ html(lang='en')
         |  = 
         i Tablolar ötesi hesaplama gerektirir
     // JQuery
-    script(type='text/javascript', src='js/jquery-3.3.1.min.js')
+    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
     // Bootstrap tooltips
-    script(type='text/javascript', src='js/popper.min.js')
+    script(type='text/javascript', src='../js/popper.min.js')
     // Bootstrap core JavaScript
-    script(type='text/javascript', src='js/bootstrap.min.js')
+    script(type='text/javascript', src='../js/bootstrap.min.js')
     // MDB core JavaScript
-    script(type='text/javascript', src='js/mdb.js')
+    script(type='text/javascript', src='../js/mdb.js')
     // MDBootstrap Datatables
-    script(type='text/javascript', src='js/addons/datatables.min.js')
+    script(type='text/javascript', src='../js/addons/datatables.min.js')
     script.
       // Animations init
       new WOW().init();
