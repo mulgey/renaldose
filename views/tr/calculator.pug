@@ -50,10 +50,6 @@ html(lang='tr')
                 a.nav-link(href='data_table') Veri Tablosu
               li.nav-item
                 a.nav-link(href='about') Hakında
-            ul.navbar-nav
-              li.nav-item
-                a.nav-link.mt-1(href='/en/calculator')
-                  img(src='../img/english-language.png', width='30', height='30')
       .view(style="background-image: url('../img/calculate_01.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-black-light.align-items-center.flex-center
           .container
@@ -587,7 +583,7 @@ html(lang='tr')
         window.location.href='#presentResults';
         } else if (actSubs === "Teikoplanin") {
         if (result >= 60) {
-        doseText = "Hekimin belirlemiş olduğu normal doz (Endikasyona bağlı olarak 	200, 400 veya 800 mg'lık tek doz)<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
+        doseText = "Hekimin belirlemiş olduğu normal doz (Endikasyona bağlı olarak 200, 400 veya 800 mg'lık tek doz)<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
         } else if (result < 60 && result >= 40) {
         doseText = "Normal dozun yarısını uygulayın veya normal dozu 2 günde bir uygulayın. Tedavinin ilk 4 günü doz ayarlamasına gerek yoktur<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
         } else if (result < 40) {

@@ -24,6 +24,8 @@ Calculator.html
 - Method seçiminde etken madde seçimi gibi hover çalışmıyor
 - Önce eGFR seçilip sonra etken madde seçilirse, eGFR Cockcroft a dönüşüyor
 - Diyaliz checkbox ortalı değil
-- Peşpeşe toFixed(0) ler hesaplamanın kalitesini düşürüyor
+- Peşpeşe toFixed(0) ler hesaplamanın kalitesini 
+- Eksik bilgi sonucu => "bütün bilgileri girersek başlayabiliriz" altında yeni hesaplama tuşu vs olmamalı
+- Sayfayı gramer açısından tarayacak bir chrome uzantısı
 
 discount for mdbootstrap: modl20undecided99
