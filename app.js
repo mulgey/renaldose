@@ -18,11 +18,11 @@ app.use(bodyParser.json()); //json kullanılmış(?)
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // serve static files from /public
-app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 
 // view engine setup
 app.set('view engine', 'pug');
-app.set('views', './views');
+app.set('views', __dirname + '/views');
 
 // include routes
 var routes = require('./routes/index');
