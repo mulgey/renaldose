@@ -151,12 +151,12 @@ label.custom-control-label {
 }
 
 .form-control {
-  color: ghostwhite;
+  color: #1F618D;
   font-weight: bold;
 }
 
 .form-control:focus {
-  color: ghostwhite;
+  color: #1F618D;
 }
 
 .form-control::-webkit-input-placeholder { color:#FAFAFA; }  /* WebKit, Blink, Edge */
@@ -196,4 +196,8 @@ label.custom-control-label {
 
 .dropdown-item {
   margin-top: 5px;
+}
+
+#age1, #srcr1, #weight, #age2, #srcr2, #nitrog, #albumin {
+  color: ghostwhite;
 }
