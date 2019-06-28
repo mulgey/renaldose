@@ -193,3 +193,7 @@ label.custom-control-label {
   font-weight: normal;
   font-family: helvetica;
 }
+
+.dropdown-item {
+  margin-top: 5px;
+}

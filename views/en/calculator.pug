@@ -130,19 +130,19 @@ html(lang='en')
           #cockgaulty.row.text-center.align-items-center
             .col-6.col-lg-2
               select#gender1.browser-default.custom-select(autocomplete='off')
-                option Gender
-                option(selected='', value='1') Male
+                option(selected='') Gender
+                option(value='1') Male
                 option(value='2') Female
             .col-6.col-lg-2.md-form.input-group.mb-3
-              input#age1.form-control(type='number', placeholder='Age', aria-label='Age', aria-describedby='material-addon1', step='1', autocomplete='off', min='0', value='40')
+              input#age1.form-control(type='number', placeholder='Age', aria-label='Age', aria-describedby='material-addon1', step='1', autocomplete='off', min='0')
             .col-6.col-lg-2.md-form.input-group.mb-3
-              input#srcr1.form-control(type='number', placeholder='Serum creatinine', aria-label='Serum creatinine', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0', value='2.5')
+              input#srcr1.form-control(type='number', placeholder='Serum creatinine', aria-label='Serum creatinine', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
             .col-6.col-lg-2
               select#crunit1.browser-default.custom-select
                 option(selected='', value='1') mg/dL
                 option(value='2') ‎µmol/L
             .col-6.col-lg-2.md-form.input-group.mb-3
-              input#weight.form-control(type='number', placeholder='Weight', aria-label='Weight', aria-describedby='material-addon1', step='0.5', autocomplete='off', min='0', value='80')
+              input#weight.form-control(type='number', placeholder='Weight', aria-label='Weight', aria-describedby='material-addon1', step='0.5', autocomplete='off', min='0')
             #diya1.col-6.col-lg-2.custom-control.custom-checkbox.mt-3(style='padding-left: 2.5rem;')
               input#diyaliz1.custom-control-input(type='checkbox', autocomplete='off')
               label#dia1.custom-control-label(for='diyaliz1') Receiving Hemodialysis
@@ -276,6 +276,80 @@ html(lang='en')
             .row.text-center.align-items-center.mt-4
               #calculateForDapto.col
                 button#calculateForLevo.btn.btn-cyan.rounded-pill.btn-lg(type='button') Calculate
+      #testy.view(data-spy='testy', data-target='#testy', style="background-image: url('../img/imi-cila.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-stylish-light.flex-center.text-center.align-items-center
+          .container
+            .row
+              .col
+                p#leftNote1.note.note-info.wow.fadeIn
+                  strong
+                    | Calculation for this active substance may be performed based on the dose which
+                    u physician determined for the indication.
+                    |  You can check the dose table using this 
+                    a(href='../img/tavanic_kub.png', target='blank') link.
+            .row.mt-3
+              .col-12.col-lg-6.mt-3
+                .dropdown
+                  button#dropdownMenu1-1.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 90%;', type='button', data-toggle='dropdown') Select The Active Substance
+                  #searchDrop.dropdown-menu.dropdown-primary(style="width: 85%")
+                    input#searchField.form-control.ml-2(style="width: 95%" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search')
+                    a.dropdown-item
+                      | Daptomicina - 
+                      small Cubicin
+                    a.dropdown-item
+                      | Ertapenem sodium - 
+                      small İnvanz
+                    a.dropdown-item
+                      | Fluconazole - 
+                      small Lumen EF
+                    a.dropdown-item
+                      | Imipenem / Cilastatin sodium - 
+                      small Tienam
+                    a.dropdown-item
+                      | Colistimethate sodium - 
+                      small Colimycin
+                    a.dropdown-item
+                      | Levofloxacin - 
+                      small Tavanic
+                    a.dropdown-item
+                      | Linezolid - 
+                      small Zyvoxid
+                    a.dropdown-item
+                      | Meropenem trihydrate - 
+                      small Meronem
+                    a.dropdown-item
+                      | Metronidazole - 
+                      small Metronidazol
+                    a.dropdown-item
+                      | Moxifloxacin hydrochloride - 
+                      small Avelox
+                    a.dropdown-item
+                      | Piperacillin sodium / Tazobactam sodium - 
+                      small Tazocin EF
+                    a.dropdown-item
+                      | Cefoperazone sodium / Sulbactam sodium - 
+                      small Sulperazon
+                    a.dropdown-item
+                      | Ciprofloxacin lactate - 
+                      small Ciproktan
+                    a.dropdown-item
+                      | Teicoplanin - 
+                      small Targocid
+                    a.dropdown-item
+                      | Tigecycline - 
+                      small Tygacil
+                    a.dropdown-item
+                      | Vancomycin hydrochloride - 
+                      small Vancotek
+              .col-12.col-lg-6.mt-3
+                .dropdown
+                  button#dropdownMenu1-1.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 90%;', type='button', data-toggle='dropdown') Cockcroft-Gault Equation
+                  #searchDrop.dropdown-menu.dropdown-primary(style="width: 85%")
+                    a.dropdown-item Cockcroft-Gault Equation
+                    a.dropdown-item e-GFR Method
+            .row.text-center.align-items-center.mt-4
+              #calculateForDapto.col
+                button#calculateForLevo.btn.btn-cyan.rounded-pill.btn-lg(type='button') Calculate
       #presentResults.view(data-spy='presentResults', data-target='#presentResults', style="background-image: url('../img/calculate_03.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-stylish-light.flex-center.align-items-center.text-center
           .container
@@ -306,6 +380,22 @@ html(lang='en')
         // Animations init
         new WOW().init();
         $('.toast').toast('show');
+      script.
+        function searchTest() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("searchField");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("searchDrop");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        a[i].style.display = "";
+        } else {
+        a[i].style.display = "none";
+        }
+        }
+        }
       script.
         let infoDiv = document.getElementById("infoDiv");
         let infoText = document.getElementById("infoText");
@@ -397,7 +487,7 @@ html(lang='en')
         if (texty === "e-GFR Method") {
         egfry.style.display = "flex";
         cockgaulty.style.display = "none";
-        infoText.innerHTML = "When making calculation with <strong>e-GFR method </strong>, you should provide at least gender, age and serum creatinine values"
+        infoText.innerHTML = "When making calculation with <strong>e-GFR method, </strong>you should provide at least gender, age and serum creatinine values"
         } else if (texty === "Cockcroft-Gault Equation") {
         egfry.style.display = "none";
         cockgaulty.style.display = "flex";
@@ -487,7 +577,7 @@ html(lang='en')
         result = ((186 * (srcr2 ** -1.154) * (age2 ** -0.203)) * 1.210).toFixed(2);
         }
         } else {
-        doseText = "When making calculation with <strong>e-GFR method </strong>, you should provide at least gender, age and serum creatinine values."
+        doseText = "When making calculation with <strong>e-GFR method, </strong>you should provide at least gender, age and serum creatinine values."
         }
         }
         if (result) {
@@ -1071,7 +1161,7 @@ html(lang='en')
         });
       script.
         const text1 = "When using <strong>Cockcroft-Gault equation</strong>, you should provide gender, age, weight and serum creatinine values.";
-        const text2 = "When making calculation with <strong>e-GFR method </strong>, you should provide at least gender, age and serum creatinine values.";
+        const text2 = "When making calculation with <strong>e-GFR method, </strong>you should provide at least gender, age and serum creatinine values.";
         // basic expectations
         $('#weight').focus(() => {
         infoText.innerHTML = "<strong>Weight </strong>value must be provided as kilograms";

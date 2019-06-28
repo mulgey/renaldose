@@ -58,4 +58,9 @@ router.get('/en/print', function(req, res, next) {
     return res.render("en/print");
 });
 
+// GET en/test
+router.get('/en/test', function(req, res, next) {
+    return res.render("en/test");
+});
+
 module.exports = router;
