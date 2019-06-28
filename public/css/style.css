@@ -151,12 +151,12 @@ label.custom-control-label {
 }
 
 .form-control {
-  color: #1F618D;
+  color: ghostwhite;
   font-weight: bold;
 }
 
 .form-control:focus {
-  color: #1F618D;
+  color: ghostwhite;
 }
 
 .form-control::-webkit-input-placeholder { color:#FAFAFA; }  /* WebKit, Blink, Edge */
