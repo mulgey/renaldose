@@ -10,25 +10,32 @@ html(lang='tr')
     link(href='../css/mdb.min.css', rel='stylesheet')
     link(href='../css/style.css', rel='stylesheet')
     link(rel='shortcut icon', href='../img/favicons/favicon.ico')
-    link(rel='icon', sizes='16x16 32x32 64x64', href='../img/favicons/favicon.ico')
-    link(rel='icon', type='image/png', sizes='196x196', href='../img/favicons/favicon-192.png')
-    link(rel='icon', type='image/png', sizes='160x160', href='../img/favicons/favicon-160.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96.png')
-    link(rel='icon', type='image/png', sizes='64x64', href='../img/favicons/favicon-64.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16.png')
-    link(rel='apple-touch-icon', href='../img/favicons/favicon-57.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/favicon-114.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/favicon-72.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/favicon-144.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/favicon-60.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/favicon-120.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/favicon-76.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/favicon-152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/favicon-180.png')
-    meta(name='msapplication-TileColor', content='#FFFFFF')
-    meta(name='msapplication-TileImage', content='../img/favicons/favicon-144.png')
+    link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='../img/favicons/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16x16.png')
+    link(rel='manifest', href='../img/favicons/manifest.json')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='../img/favicons/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
     meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
+    // JQuery
+    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript', src='../js/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='../js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript', src='../js/mdb.js')
   body
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
@@ -58,14 +65,6 @@ html(lang='tr')
                 i.fas.fa-fast-forward.pl-1
       .view(style="background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-black-light.align-items-center.flex-center
-    // JQuery
-    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
-    // Bootstrap tooltips
-    script(type='text/javascript', src='../js/popper.min.js')
-    // Bootstrap core JavaScript
-    script(type='text/javascript', src='../js/bootstrap.min.js')
-    // MDB core JavaScript
-    script(type='text/javascript', src='../js/mdb.js')
-    script.
-      // Animations init
-      new WOW().init();
+  script.
+    // Animations init
+    new WOW().init();

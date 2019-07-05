@@ -1,2 +1,0 @@
-Express in kulağı 3000 de, dinliyor
-[0mGET /nodejs [33m404 [0m7.023 ms - 145[0m

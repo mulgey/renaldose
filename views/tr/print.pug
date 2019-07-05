@@ -5,43 +5,40 @@ html(lang='tr')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     title ProspecTurk Renal
-    // Font Awesome
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
-    // Bootstrap core CSS
     link(href='../css/bootstrap.min.css', rel='stylesheet')
-    // Material Design Bootstrap
     link(href='../css/mdb.min.css', rel='stylesheet')
-    // Your custom styles (optional)
     link(href='../css/style.css', rel='stylesheet')
-    // MDBootstrap Datatables
     link(href='../css/addons/datatables.min.css', rel='stylesheet')
-    // Print Stuff
     link(href='../css/print.css', rel='stylesheet', type='text/css', media='print')
-    // faviconit.favicons
-    link(rel='shortcut icon', href='img/favicons/favicon.ico')
-    link(rel='icon', sizes='16x16 32x32 64x64', href='img/favicons/favicon.ico')
-    link(rel='icon', type='image/png', sizes='196x196', href='img/favicons/favicon-192.png')
-    link(rel='icon', type='image/png', sizes='160x160', href='img/favicons/favicon-160.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='img/favicons/favicon-96.png')
-    link(rel='icon', type='image/png', sizes='64x64', href='img/favicons/favicon-64.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='img/favicons/favicon-32.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='img/favicons/favicon-16.png')
-    link(rel='apple-touch-icon', href='img/favicons/favicon-57.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='img/favicons/favicon-114.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='img/favicons/favicon-72.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='img/favicons/favicon-144.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='img/favicons/favicon-60.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='img/favicons/favicon-120.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='img/favicons/favicon-76.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='img/favicons/favicon-152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='img/favicons/favicon-180.png')
-    meta(name='msapplication-TileColor', content='#FFFFFF')
-    meta(name='msapplication-TileImage', content='../img/favicons/favicon-144.png')
+    link(rel='shortcut icon', href='../img/favicons/favicon.ico')
+    link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='../img/favicons/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16x16.png')
+    link(rel='manifest', href='../img/favicons/manifest.json')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='../img/favicons/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
     meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
+    // JQuery
+    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript', src='../js/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='../js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript', src='../js/mdb.js')
   body
-    .container
-      .row.justify-content-lg-center.text-center
-        .col
     form.border.border-light.p-5.print
       .text-center
         img(src='../img/logo_transparent.png', style='display: inline-block', height='200', width='300')
@@ -95,106 +92,149 @@ html(lang='tr')
           p
             strong Not: 
             | Yukarıdaki bilgiler hastanın tedavisini belirlemek konusunda yeterli bilgiye sahip olan, tam yetkili kişilere tavsiye niteliğindedir. Hekim, eczacı veya diğer sağlık profesyonellerinin hasta için optimum faydayı sağlayacak bilgi ve uygulamalarının yerini tutamaz.
-    .row.text-center.justify-content-center.my-5
+    #buttons.row.text-center.justify-content-center.my-5
       .col-12.col-lg-3
         button#print.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;')
           | Yazdır 
           i.fas.fa-print.pl-1
       .col-12.col-lg-3
-        button#save.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;')
+        button#save.btn.btn-cyan.rounded-pill.mt-3(href='javascript:saveResults()', style='padding: 1rem 2rem;')
           | Kaydet (PDF) 
           i.fas.fa-save.pl-1
       .col-12.col-lg-3
         button#back.btn.btn-cyan.rounded-pill.mt-3(onclick="window.location.href = 'calculator#activeSubstance'; return false;", style='padding: 1rem 2rem;')
           | Yeni Hesaplama 
           i.fas.fa-redo.pl-1
-    // JQuery
-    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
-    // Bootstrap tooltips
-    script(type='text/javascript', src='../js/popper.min.js')
-    // Bootstrap core JavaScript
-    script(type='text/javascript', src='../js/bootstrap.min.js')
-    // MDB core JavaScript
-    script(type='text/javascript', src='../js/mdb.js')
-    script.
-      function createCookie(name,value,days) {
-      if (days) {
-      var date = new Date();
-      date.setTime(date.getTime()+(days*24*60*60*1000));
-      var expires = "; expires="+date.toGMTString();
-      }
-      else var expires = "";
-      document.cookie = name+"="+value+expires+"; path=/";
-      }
-      function readCookie(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for(var i=0;i < ca.length;i++) {
-      var c = ca[i];
-      while (c.charAt(0)==' ') c = c.substring(1,c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-      }
-      return null;
-      }
-      function eraseCookie(name) {
-      createCookie(name,"",-1);
-      }
-      let crCl = readCookie('crCl');
-      let dia = readCookie('dia');
-      let actSubs = readCookie('actSubs');
-      let suggest = readCookie('suggestion');
-      let time = readCookie('time');
-      document.getElementById('time').value = time;
-      document.getElementById('crCl').value = crCl;
-      document.getElementById('dia').value = dia;
-      document.getElementById('actSubs').value = actSubs;
-      document.getElementById('suggest').value = suggest;
-    script.
-      $('#print').click(() => {
-      let time = document.getElementById('time');
-      let timey = document.getElementById('timey');
-      let name = document.getElementById('name');
-      let namey = document.getElementById('namey');
-      let wardy = document.getElementById('wardy');
-      let docty = document.getElementById('docty');
-      let productName = document.getElementById('productName');
-      let producty = document.getElementById('producty');
-      let operator = document.getElementById('operator');
-      let operaty = document.getElementById('operaty');
-      let notes = document.getElementById('notes');
-      let noty = document.getElementById('noty');
-      if (time.value) {} else {
-      timey.style.display = "none";
-      }
-      if (name.value) {} else {
-      namey.style.display = "none";
-      }
-      if (ward.value) {} else {
-      wardy.style.display = "none";
-      }
-      if (doctor.value) {} else {
-      docty.style.display = "none";
-      }
-      if (productName.value) {} else {
-      producty.style.display = "none";
-      }
-      if (operator.value) {} else {
-      operaty.style.display = "none";
-      }
-      if (notes.value) {} else {
-      noty.style.display = "none";
-      }
-      window.print();
-      timey.style.display = "block";
-      namey.style.display = "block";
-      wardy.style.display = "block";
-      docty.style.display = "block";
-      producty.style.display = "block";
-      operaty.style.display = "block";
-      noty.style.display = "block";
-      });
-    script.
-      $('#save').click(function() {
-        window.open("https://pdf-ace.com/pdfme/");
-        console.log('clicked!');
-      });
+  script.
+    function createCookie(name,value,days) {
+    if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+    }
+    function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+    }
+    function eraseCookie(name) {
+    createCookie(name,"",-1);
+    }
+    let crCl = readCookie('crCl');
+    let dia = readCookie('dia');
+    let actSubs = readCookie('actSubs');
+    let suggest = readCookie('suggestion');
+    let time = readCookie('time');
+    document.getElementById('time').value = time;
+    document.getElementById('crCl').value = crCl;
+    document.getElementById('dia').value = dia;
+    document.getElementById('actSubs').value = actSubs;
+    document.getElementById('suggest').value = suggest;
+  script.
+    $('#print').click(() => {
+    let time = document.getElementById('time');
+    let timey = document.getElementById('timey');
+    let name = document.getElementById('name');
+    let namey = document.getElementById('namey');
+    let wardy = document.getElementById('wardy');
+    let docty = document.getElementById('docty');
+    let productName = document.getElementById('productName');
+    let producty = document.getElementById('producty');
+    let operator = document.getElementById('operator');
+    let operaty = document.getElementById('operaty');
+    let notes = document.getElementById('notes');
+    let noty = document.getElementById('noty');
+    if (time.value) {} else {
+    timey.style.display = "none";
+    }
+    if (name.value) {} else {
+    namey.style.display = "none";
+    }
+    if (ward.value) {} else {
+    wardy.style.display = "none";
+    }
+    if (doctor.value) {} else {
+    docty.style.display = "none";
+    }
+    if (productName.value) {} else {
+    producty.style.display = "none";
+    }
+    if (operator.value) {} else {
+    operaty.style.display = "none";
+    }
+    if (notes.value) {} else {
+    noty.style.display = "none";
+    }
+    window.print();
+    timey.style.display = "block";
+    namey.style.display = "block";
+    wardy.style.display = "block";
+    docty.style.display = "block";
+    producty.style.display = "block";
+    operaty.style.display = "block";
+    noty.style.display = "block";
+    });      
+  script.
+    $('#save').click(function() {
+    let time = document.getElementById('time');
+    let timey = document.getElementById('timey');
+    let name = document.getElementById('name');
+    let namey = document.getElementById('namey');
+    let wardy = document.getElementById('wardy');
+    let docty = document.getElementById('docty');
+    let productName = document.getElementById('productName');
+    let producty = document.getElementById('producty');
+    let operator = document.getElementById('operator');
+    let operaty = document.getElementById('operaty');
+    let notes = document.getElementById('notes');
+    let noty = document.getElementById('noty');
+    let buttons = document.getElementById('buttons');
+
+    if (time.value) {} else {
+    timey.style.display = "none";
+    }
+    if (name.value) {} else {
+    namey.style.display = "none";
+    }
+    if (ward.value) {} else {
+    wardy.style.display = "none";
+    }
+    if (doctor.value) {} else {
+    docty.style.display = "none";
+    }
+    if (productName.value) {} else {
+    producty.style.display = "none";
+    }
+    if (operator.value) {} else {
+    operaty.style.display = "none";
+    }
+    if (notes.value) {} else {
+    noty.style.display = "none";
+    }
+    buttons.style.display = "none";
+    $("#crCl").prop('readonly', false);
+    $("#dia").prop('readonly', false);
+    $("#actSubs").prop('readonly', false);
+    $("#suggest").prop('readonly', false);
+    window.open("http://pdf-ace.com/pdfme?cache=0");
+    timey.style.display = "block";
+    namey.style.display = "block";
+    wardy.style.display = "block";
+    docty.style.display = "block";
+    producty.style.display = "block";
+    operaty.style.display = "block";
+    noty.style.display = "block";
+    buttons.style.display = "flex";
+    $("#crCl").prop('readonly', true);
+    $("#dia").prop('readonly', true);
+    $("#actSubs").prop('readonly', true);
+    $("#suggest").prop('readonly', true);
+    });

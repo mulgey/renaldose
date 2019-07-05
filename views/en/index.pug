@@ -4,31 +4,38 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
-    title Renal Dosing
+    title Renal Dose
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
     link(href='../css/bootstrap.min.css', rel='stylesheet')
     link(href='../css/mdb.min.css', rel='stylesheet')
     link(href='../css/style.css', rel='stylesheet')
     link(rel='shortcut icon', href='../img/favicons/favicon.ico')
-    link(rel='icon', sizes='16x16 32x32 64x64', href='../img/favicons/favicon.ico')
-    link(rel='icon', type='image/png', sizes='196x196', href='../img/favicons/favicon-192.png')
-    link(rel='icon', type='image/png', sizes='160x160', href='../img/favicons/favicon-160.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96.png')
-    link(rel='icon', type='image/png', sizes='64x64', href='../img/favicons/favicon-64.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16.png')
-    link(rel='apple-touch-icon', href='../img/favicons/favicon-57.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/favicon-114.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/favicon-72.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/favicon-144.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/favicon-60.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/favicon-120.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/favicon-76.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/favicon-152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/favicon-180.png')
-    meta(name='msapplication-TileColor', content='#FFFFFF')
-    meta(name='msapplication-TileImage', content='../img/favicons/favicon-144.png')
+    link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='../img/favicons/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16x16.png')
+    link(rel='manifest', href='../img/favicons/manifest.json')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='../img/favicons/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
     meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
+    // JQuery
+    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript', src='../js/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='../js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript', src='../js/mdb.js')
   body
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
@@ -61,10 +68,10 @@ html(lang='en')
           .container
             .row.white-text.mb-4.justify-content-center
               h2.col-12.h2-reponsive.white-text.text-uppercase.font-weight-bold.mb-0.pt-md-5.pt-5.wow.fadeInDown(style='letter-spacing: 5px; font-size: 2.2rem;', data-wow-delay='0.3s')
-                strong Renal Dosing
+                strong Renal Dose
               hr.col-10.col-lg-12.hr-light.my-4.w-75.wow.fadeInDown(data-wow-delay='0.4s')
               h5.col-12.text-uppercase.mb-4.white-text.wow.fadeInDown(data-wow-delay='0.4s')
-                strong Online Dose Calculator Tool
+                strong Interactive Dose Calculation Tool
             .row.white-text.justify-content-center
               a.col-11.col-lg-5.mx-3.mb-3.btn.btn-outline-white.wow.fadeInDown.slow(data-wow-delay='2s', href='#cards') More Information
               a.col-11.col-lg-5.mx-3.mb-3.btn.btn-outline-white.font-weight-bold.wow.fadeInDown.slower(data-wow-delay='2s', href='/en/calculator') Start
@@ -91,14 +98,5 @@ html(lang='en')
       button#starty.btn.rounded-pill.btn-primary.flipInX.delay-2s.slower(type='button', onclick="window.location.href = '/en/calculator';")
         | Let's Start! 
         i.fas.fa-caret-square-right.pl-1
-      
-    // JQuery
-    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
-    // Bootstrap tooltips
-    script(type='text/javascript', src='../js/popper.min.js')
-    // Bootstrap core JavaScript
-    script(type='text/javascript', src='../js/bootstrap.min.js')
-    // MDB core JavaScript
-    script(type='text/javascript', src='../js/mdb.js')
-    script.
-      new WOW().init();
+  script.
+    new WOW().init();

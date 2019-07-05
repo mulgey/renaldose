@@ -1,3 +1,0 @@
-Express in kulağı 3000 de, dinliyor
-[0mGET /nodejs/tr/calculator [33m404 [0m9.033 ms - 159[0m
-[0mGET /nodejs/tr/calculator [33m404 [0m0.786 ms - 159[0m
