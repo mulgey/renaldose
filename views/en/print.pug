@@ -4,7 +4,7 @@ html(lang='en')
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
-    title Renal Dosing
+    title Renal Dose
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
     link(href='../css/bootstrap.min.css', rel='stylesheet')
     link(href='../css/mdb.min.css', rel='stylesheet')
@@ -39,7 +39,7 @@ html(lang='en')
     // MDB core JavaScript
     script(type='text/javascript', src='../js/mdb.js')
   body
-    form.border.border-light.p-5.print
+    form.border.border-light.p-5.print(name='saveList', action='/en/print', onsubmit='submit();')
       .text-center
         img(src='../img/logo_transparent.png', style='display: inline-block', height='200', width='300')
       .form-row.justify-content-lg-center
@@ -54,7 +54,7 @@ html(lang='en')
         #wardy.col-12.col-lg-8.mt-3
           | Ward Name:
           br
-          input#ward.form-control(type='text')
+          input#ward.form-control(type='text' name="ward")
         #docty.col-12.col-lg-8.mt-3
           | Doctor Name:
           br
@@ -62,7 +62,7 @@ html(lang='en')
         #crCly.col-12.col-lg-8.mt-3
           | Creatinine Clearance (ml/min):
           br
-          input#crCl.form-control(type='number', autocomplete='off', value='29.33', readonly='')
+          input#crCl.form-control(type='number', autocomplete='off', value='', readonly='')
         #diay.col-12.col-lg-8.mt-3
           | State of Hemodialysis:
           br
@@ -184,7 +184,11 @@ html(lang='en')
     });
   script.
     $('#save').click(function() {
-    window.open("http://pdf-ace.com/pdfme?cache=0");
+    console.log('clicked!');
+    function submit(){
+      document.saveList.ward.value = 'Diyaliz';
+      return true;
+    }
     /*
     let time = document.getElementById('time');
     let timey = document.getElementById('timey');

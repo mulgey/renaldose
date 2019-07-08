@@ -1,59 +1,96 @@
-.row.mt-3(style="display: none;")
-    .col-12.col-lg-6.mt-2
-        .dropdown
-        a#dropdownMenu1.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', style='display: block') Select The Active Substance
-        #substanceList.dropdown-menu.dropdown-primary
-            a.dropdown-item
-            | Daptomicina - 
-            small Cubicin
-            a.dropdown-item
-            | Ertapenem sodium - 
-            small İnvanz
-            a.dropdown-item
-            | Fluconazole - 
-            small Lumen EF
-            a.dropdown-item
-            | Imipenem / Cilastatin sodium - 
-            small Tienam
-            a.dropdown-item
-            | Colistimethate sodium - 
-            small Colimycin
-            a.dropdown-item
-            | Levofloxacin - 
-            small Tavanic
-            a.dropdown-item
-            | Linezolid - 
-            small Zyvoxid
-            a.dropdown-item
-            | Meropenem trihydrate - 
-            small Meronem
-            a.dropdown-item
-            | Metronidazole - 
-            small Metronidazol
-            a.dropdown-item
-            | Moxifloxacin hydrochloride - 
-            small Avelox
-            a.dropdown-item
-            | Piperacillin sodium / Tazobactam sodium - 
-            small Tazocin EF
-            a.dropdown-item
-            | Cefoperazone sodium / Sulbactam sodium - 
-            small Sulperazon
-            a.dropdown-item
-            | Ciprofloxacin lactate - 
-            small Ciproktan
-            a.dropdown-item
-            | Teicoplanin - 
-            small Targocid
-            a.dropdown-item
-            | Tigecycline - 
-            small Tygacil
-            a.dropdown-item
-            | Vancomycin hydrochloride - 
-            small Vancotek
-    .col-12.col-lg-6.mt-2
-        .dropdown
-        a#dropdownMenu2.btn.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false', style='display: block') Cockcroft-Gault Equation
-        #methodlist.dropdown-menu.dropdown-info
-            a#willDisable.dropdown-item2 Cockcroft-Gault Equation
-            a#willDisable2.dropdown-item2 e-GFR Method
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title Renal Dosing
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
+    link(href='../css/bootstrap.min.css', rel='stylesheet')
+    link(href='../css/mdb.min.css', rel='stylesheet')
+    link(href='../css/style.css', rel='stylesheet')
+    link(href='../css/addons/datatables.min.css', rel='stylesheet')
+    link(href='../css/print.css', rel='stylesheet', type='text/css', media='print')
+    link(rel='shortcut icon', href='../img/favicons/favicon.ico')
+    link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='../img/favicons/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16x16.png')
+    link(rel='manifest', href='../img/favicons/manifest.json')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='../img/favicons/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
+    meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
+    // JQuery
+    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript', src='../js/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='../js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript', src='../js/mdb.js')
+  body
+    .container
+      .text-center
+        img(src='../img/logo_transparent.png', style='display: inline-block', height='200', width='300')
+      .form-row.justify-content-lg-center
+        #timey.col-12.col-lg-8.mt-3
+          | Calculation Time:
+          br
+          input#time.form-control(type='text', autocomplete='off')
+        #namey.col-12.col-lg-8.mt-3
+          | Patient Name:
+          br
+          input#name.form-control(type='text')
+        #wardy.col-12.col-lg-8.mt-3
+          | Ward Name:
+          br
+          input#ward.form-control(type='text')
+        #docty.col-12.col-lg-8.mt-3
+          | Doctor Name:
+          br
+          input#doctor.form-control(type='text')
+        #crCly.col-12.col-lg-8.mt-3
+          | Creatinine Clearance (ml/min):
+          br
+          input#crCl.form-control(type='number', autocomplete='off', value='', readonly='')
+        #diay.col-12.col-lg-8.mt-3
+          | State of Hemodialysis:
+          br
+          input#dia.form-control(type='text', autocomplete='off', readonly='')
+        #acty.col-12.col-lg-8.mt-3
+          | Active Substance:
+          br
+          input#actSubs.form-control(type='text', autocomplete='off', required='', readonly='')
+        #producty.col-12.col-lg-8.mt-3
+          | Brand Name:
+          br
+          input#productName.form-control(type='text')
+        #suggesty.col-12.col-lg-8.mt-3
+          | Suggested Dose:
+          br
+          input#suggest.form-control(type='text', autocomplete='off', readonly='')
+        #operaty.col-12.col-lg-8.mt-3
+          | Operator:
+          br
+          input#operator.form-control(type='text')
+        #noty.col-12.col-lg-8.mt-3
+          | Notes:
+          br
+          input#notes.form-control(type='text', autocomplete='off')
+      p.text-center.mt-5
+        a.btn.btn-danger(href='http://pdf-ace.com/pdfme?cache=0') Save as PDF
+    // Optional JavaScript
+    // jQuery first, then Popper.js, then Bootstrap JS
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1', crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
