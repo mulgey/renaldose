@@ -17,6 +17,10 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json()); //json kullanılmış(?)
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Kurabiye çalışmalarımız için middleware
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
 // serve static files from /public
 app.use(express.static(__dirname + '/public'));
 

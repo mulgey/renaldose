@@ -63,4 +63,18 @@ router.get('/en/test', function(req, res, next) {
     return res.render("en/test");
 });
 
+// GET en/save
+router.get('/en/save', (req, res) => {
+    if (req.cookies.ward) { // Yönlendirmeyle veya direkt gelindiğinde, eğer isim değeri içeren "kurabiye" miz varsa, içinde "isim" anahtarı olan index.pug dosyasıyla çalıştır
+        res.locals.ward = req.cookies.ward;
+    }
+    return res.render("en/save");
+});
+
+// POST en/print
+router.post('/en/print', (req, res) => {
+    res.cookie('ward', req.body.ward); // POST cereyan ettiği zaman, "ward" olarak girilen değeri "ward" olarak cookie le
+    return res.redirect('/en/save'); // Ardından giriş sayfasına yolla. Bu aşamadan sonra EXECUTION STOP istersen eğer (sonraki res.render ler vs) başına RETURN geç
+});
+
 module.exports = router;
