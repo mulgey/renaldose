@@ -46,11 +46,11 @@ html(lang='en')
         #timey.col-12.col-lg-8.mt-3
           | Calculation Time:
           br
-          input#time.form-control(type='text', autocomplete='off')
+          input#time.form-control(type='text' autocomplete='off' name="time" value=time)
         #namey.col-12.col-lg-8.mt-3
           | Patient Name:
           br
-          input#name.form-control(type='text')
+          input#name.form-control(type='text' name="called" value=called)
         #wardy.col-12.col-lg-8.mt-3
           | Ward Name:
           br
@@ -58,39 +58,83 @@ html(lang='en')
         #docty.col-12.col-lg-8.mt-3
           | Doctor Name:
           br
-          input#doctor.form-control(type='text')
+          input#doctor.form-control(type='text' name="doctor" value=doctor)
         #crCly.col-12.col-lg-8.mt-3
           | Creatinine Clearance (ml/min):
           br
-          input#crCl.form-control(type='number', autocomplete='off', value='', readonly='')
+          input#crCl.form-control(type='number' autocomplete='off' readonly='' name='crCl' value=crCl)
         #diay.col-12.col-lg-8.mt-3
           | State of Hemodialysis:
           br
-          input#dia.form-control(type='text', autocomplete='off', readonly='')
+          input#dia.form-control(type='text' autocomplete='off' readonly='' name='dia' value=dia)
         #acty.col-12.col-lg-8.mt-3
           | Active Substance:
           br
-          input#actSubs.form-control(type='text', autocomplete='off', required='', readonly='')
+          input#actSubs.form-control(type='text' autocomplete='off' required='' readonly='' name='actSubs' value=actSubs)
         #producty.col-12.col-lg-8.mt-3
           | Brand Name:
           br
-          input#productName.form-control(type='text')
+          input#productName.form-control(type='text' name='product' value=product)
         #suggesty.col-12.col-lg-8.mt-3
           | Suggested Dose:
           br
-          input#suggest.form-control(type='text', autocomplete='off', readonly='')
+          input#suggest.form-control(type='text', autocomplete='off', readonly='' name='suggest' value=suggest)
         #operaty.col-12.col-lg-8.mt-3
           | Operator:
           br
-          input#operator.form-control(type='text')
+          input#operator.form-control(type='text' name='operator' value=operator)
         #noty.col-12.col-lg-8.mt-3
           | Notes:
           br
-          input#notes.form-control(type='text', autocomplete='off')
+          input#notes.form-control(type='text', autocomplete='off' name='note' value=note)
       .row.text-justify.justify-content-center.mt-5
         .col-12.col-lg-8
           p
             strong Note: 
             | All the information above is advisory for the full authorized health professionals who has enough capability for determination of patient's treatment. And they can never be a substitute for the information and applications of physicians, pharmacists or other health professionals those will provide optimum benefit for the patient.
-
-
+          p
+            a(href='https://pdf-ace.com/pdfme/', target='_blank') Save as PDF
+  script.
+    /*
+    let time = document.getElementById('time');
+    let timey = document.getElementById('timey');
+    let name = document.getElementById('name');
+    let namey = document.getElementById('namey');
+    let wardy = document.getElementById('wardy');
+    let docty = document.getElementById('docty');
+    let productName = document.getElementById('productName');
+    let producty = document.getElementById('producty');
+    let operator = document.getElementById('operator');
+    let operaty = document.getElementById('operaty');
+    let notes = document.getElementById('notes');
+    let noty = document.getElementById('noty');
+    if (time.value) {} else {
+    timey.style.display = "none";
+    }
+    if (name.value) {} else {
+    namey.style.display = "none";
+    }
+    if (ward.value) {} else {
+    wardy.style.display = "none";
+    }
+    if (doctor.value) {} else {
+    docty.style.display = "none";
+    }
+    if (productName.value) {} else {
+    producty.style.display = "none";
+    }
+    if (operator.value) {} else {
+    operaty.style.display = "none";
+    }
+    if (notes.value) {} else {
+    noty.style.display = "none";
+    }
+    window.open("https://pdf-ace.com/pdfme/", "_blank");
+    timey.style.display = "block";
+    namey.style.display = "block";
+    wardy.style.display = "block";
+    docty.style.display = "block";
+    producty.style.display = "block";
+    operaty.style.display = "block";
+    noty.style.display = "block";
+    */
