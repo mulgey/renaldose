@@ -64,7 +64,58 @@ router.get('/en/test', function(req, res, next) {
 });
 
 // GET en/save
-router.get('/en/save', (req, res) => {
+router.get('/en/save/:id', (req, res) => {
+
+    if (req.query.time) {
+        res.locals.time = req.query.time;
+    }
+    
+    if (req.query.called) {
+        res.locals.called = req.query.called;
+    }
+    
+    if (req.query.ward) {
+        res.locals.ward = req.query.ward;
+    }
+
+    if (req.query.doctor) {
+        res.locals.doctor = req.query.doctor;
+    }
+
+    if (req.query.crCl) {
+        res.locals.crCl = req.query.crCl;
+    }
+
+    if (req.query.dia) {
+        res.locals.dia = req.query.dia;
+    }
+
+    if (req.query.actSubs) {
+        res.locals.actSubs = req.query.actSubs;
+    }
+
+    if (req.query.product) {
+        res.locals.product = req.query.product;
+    }
+
+    if (req.query.suggest) {
+        res.locals.suggest = req.query.suggest;
+    }
+
+    if (req.query.operator) {
+        res.locals.operator = req.query.operator;
+    }
+
+    if (req.query.note) {
+        res.locals.note = req.query.note;
+    }
+
+    return res.render('en/save');
+});
+
+// GET en/save
+router.get('/en/save/', (req, res) => {
+    /*
     if (req.cookies.time) {
         res.locals.time = req.cookies.time;
     }
@@ -98,13 +149,15 @@ router.get('/en/save', (req, res) => {
     if (req.cookies.note) {
         res.locals.note = req.cookies.note;
     }
-    return res.render("en/save");
+    */
+    return res.render('en/save');
 });
 
 // POST en/print
 router.post('/en/print', (req, res) => {
-    res.cookie('ward', req.body.ward); // POST cereyan ettiği zaman, "ward" olarak girilen değeri "ward" olarak cookie le
+    res.cookie('time', req.body.time)
     res.cookie('called', req.body.called);
+    res.cookie('ward', req.body.ward); // POST cereyan ettiği zaman, "ward" olarak girilen değeri "ward" olarak cookie le
     res.cookie('doctor', req.body.doctor);
     res.cookie('crCl', req.body.crCl);
     res.cookie('dia', req.body.dia);
@@ -113,7 +166,65 @@ router.post('/en/print', (req, res) => {
     res.cookie('suggest', req.body.suggest);
     res.cookie('operator', req.body.operator);
     res.cookie('note', req.body.note);
-    return res.redirect('/en/save'); // Ardından giriş sayfasına yolla. Bu aşamadan sonra EXECUTION STOP istersen eğer (sonraki res.render ler vs) başına RETURN geç
+    
+    let urlString = "/en/save/pdf?"
+    
+    if (req.body.time) {
+        let time = req.body.time;
+        urlString += `time=${time}&`
+    } 
+    
+    if (req.body.called) {
+        let called = req.body.called;
+        urlString += `called=${called}&`
+    }
+
+    if (req.body.ward) {
+        let ward = req.body.ward;
+        urlString += `ward=${ward}&`
+    } 
+
+    if (req.body.doctor) {
+        let doctor = req.body.doctor;
+        urlString += `doctor=${doctor}&`
+    }
+
+    if (req.body.crCl) {
+        let crCl = req.body.crCl;
+        urlString += `crCl=${crCl}&`
+    }
+
+    if (req.body.dia) {
+        let dia = req.body.dia;
+        urlString += `dia=${dia}&`
+    }
+
+    if (req.body.actSubs) {
+        let actSubs = req.body.actSubs;
+        urlString += `actSubs=${actSubs}&`
+    }
+
+    if (req.body.product) {
+        let product = req.body.product;
+        urlString += `product=${product}&`
+    }
+
+    if (req.body.suggest) {
+        let suggest = req.body.suggest;
+        urlString += `suggest=${suggest}&`
+    }
+
+    if (req.body.operator) {
+        let operator = req.body.operator;
+        urlString += `operator=${operator}&`
+    }
+
+    if (req.body.note) {
+        let note = req.body.note;
+        urlString += `note=${note}&`
+    }
+
+    return res.redirect(urlString);
 });
 
 module.exports = router;

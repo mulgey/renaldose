@@ -6,135 +6,147 @@ html(lang='en')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
     title Renal Dose
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
-    link(href='../css/bootstrap.min.css', rel='stylesheet')
-    link(href='../css/mdb.min.css', rel='stylesheet')
-    link(href='../css/style.css', rel='stylesheet')
-    link(href='../css/addons/datatables.min.css', rel='stylesheet')
-    link(href='../css/print.css', rel='stylesheet', type='text/css', media='print')
+    link(href='../../css/bootstrap.min.css', rel='stylesheet')
+    link(href='../../css/mdb.min.css', rel='stylesheet')
+    link(href='../../css/style.css', rel='stylesheet')
+    link(href='../../css/addons/datatables.min.css', rel='stylesheet')
+    link(href='../../css/print.css', rel='stylesheet', type='text/css', media='print')
     link(rel='shortcut icon', href='../img/favicons/favicon.ico')
-    link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/apple-icon-72x72.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/apple-icon-76x76.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/apple-icon-114x114.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/apple-icon-120x120.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/apple-icon-144x144.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/apple-icon-152x152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/apple-icon-180x180.png')
-    link(rel='icon', type='image/png', sizes='192x192', href='../img/favicons/android-icon-192x192.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32x32.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96x96.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16x16.png')
-    link(rel='manifest', href='../img/favicons/manifest.json')
+    link(rel='apple-touch-icon', sizes='57x57', href='../../img/favicons/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../../img/favicons/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../../img/favicons/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../../img/favicons/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../../img/favicons/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../../img/favicons/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../../img/favicons/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../../img/favicons/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../../img/favicons/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='../../img/favicons/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../../img/favicons/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../../img/favicons/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../../img/favicons/favicon-16x16.png')
+    link(rel='manifest', href='../../img/favicons/manifest.json')
     meta(name='msapplication-TileColor', content='#ffffff')
-    meta(name='msapplication-TileImage', content='../img/favicons/ms-icon-144x144.png')
+    meta(name='msapplication-TileImage', content='../../img/favicons/ms-icon-144x144.png')
     meta(name='theme-color', content='#ffffff')
-    meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
+    meta(name='msapplication-config', content='../../img/favicons/browserconfig.xml')
     // JQuery
-    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
+    script(type='text/javascript', src='../../js/jquery-3.3.1.min.js')
     // Bootstrap tooltips
-    script(type='text/javascript', src='../js/popper.min.js')
+    script(type='text/javascript', src='../../js/popper.min.js')
     // Bootstrap core JavaScript
-    script(type='text/javascript', src='../js/bootstrap.min.js')
+    script(type='text/javascript', src='../../js/bootstrap.min.js')
     // MDB core JavaScript
-    script(type='text/javascript', src='../js/mdb.js')
+    script(type='text/javascript', src='../../js/mdb.js')
   body
-    form.border.border-light.p-5.print(name='saveList', action='/en/print', onsubmit='submit();')
-      .text-center
-        img(src='../img/logo_transparent.png', style='display: inline-block', height='200', width='300')
-      .form-row.justify-content-lg-center
-        #timey.col-12.col-lg-8.mt-3
-          | Calculation Time:
-          br
-          input#time.form-control(type='text' autocomplete='off' name="time" value=time)
-        #namey.col-12.col-lg-8.mt-3
-          | Patient Name:
-          br
-          input#name.form-control(type='text' name="called" value=called)
-        #wardy.col-12.col-lg-8.mt-3
-          | Ward Name:
-          br
-          input#ward.form-control(type='text' name="ward" value=ward)
-        #docty.col-12.col-lg-8.mt-3
-          | Doctor Name:
-          br
-          input#doctor.form-control(type='text' name="doctor" value=doctor)
-        #crCly.col-12.col-lg-8.mt-3
-          | Creatinine Clearance (ml/min):
-          br
-          input#crCl.form-control(type='number' autocomplete='off' readonly='' name='crCl' value=crCl)
-        #diay.col-12.col-lg-8.mt-3
-          | State of Hemodialysis:
-          br
-          input#dia.form-control(type='text' autocomplete='off' readonly='' name='dia' value=dia)
-        #acty.col-12.col-lg-8.mt-3
-          | Active Substance:
-          br
-          input#actSubs.form-control(type='text' autocomplete='off' required='' readonly='' name='actSubs' value=actSubs)
-        #producty.col-12.col-lg-8.mt-3
-          | Brand Name:
-          br
-          input#productName.form-control(type='text' name='product' value=product)
-        #suggesty.col-12.col-lg-8.mt-3
-          | Suggested Dose:
-          br
-          input#suggest.form-control(type='text', autocomplete='off', readonly='' name='suggest' value=suggest)
-        #operaty.col-12.col-lg-8.mt-3
-          | Operator:
-          br
-          input#operator.form-control(type='text' name='operator' value=operator)
-        #noty.col-12.col-lg-8.mt-3
-          | Notes:
-          br
-          input#notes.form-control(type='text', autocomplete='off' name='note' value=note)
-      .row.text-justify.justify-content-center.mt-5
-        .col-12.col-lg-8
-          p
-            strong Note: 
-            | All the information above is advisory for the full authorized health professionals who has enough capability for determination of patient's treatment. And they can never be a substitute for the information and applications of physicians, pharmacists or other health professionals those will provide optimum benefit for the patient.
-          p
-            a(href='https://pdf-ace.com/pdfme/', target='_blank') Save as PDF
+    form.border.border-light.p-5
+      .print
+        .text-center
+          img(src='../../img/logo_transparent.png', style='display: inline-block', height='200', width='300')
+        .form-row.justify-content-lg-center
+          #timey.col-12.col-lg-8.mt-3
+            | Calculation Time:
+            br
+            input#time.form-control(type='text' autocomplete='off' name="time" value=time)
+          #namey.col-12.col-lg-8.mt-3
+            | Patient Name:
+            br
+            input#name.form-control(type='text' name="called" value=called)
+          #wardy.col-12.col-lg-8.mt-3
+            | Ward Name:
+            br
+            input#ward.form-control(type='text' name="ward" value=ward)
+          #docty.col-12.col-lg-8.mt-3
+            | Doctor Name:
+            br
+            input#doctor.form-control(type='text' name="doctor" value=doctor)
+          #crCly.col-12.col-lg-8.mt-3
+            | Creatinine Clearance (ml/min):
+            br
+            input#crCl.form-control(type='number' autocomplete='off' readonly='' name='crCl' value=crCl)
+          #diay.col-12.col-lg-8.mt-3
+            | State of Hemodialysis:
+            br
+            input#dia.form-control(type='text' autocomplete='off' readonly='' name='dia' value=dia)
+          #acty.col-12.col-lg-8.mt-3
+            | Active Substance:
+            br
+            input#actSubs.form-control(type='text' autocomplete='off' required='' readonly='' name='actSubs' value=actSubs)
+          #producty.col-12.col-lg-8.mt-3
+            | Brand Name:
+            br
+            input#productName.form-control(type='text' name='product' value=product)
+          #suggesty.col-12.col-lg-8.mt-3
+            | Suggested Dose:
+            br
+            input#suggest.form-control(type='text', autocomplete='off', readonly='' name='suggest' value=suggest)
+          #operaty.col-12.col-lg-8.mt-3
+            | Operator:
+            br
+            input#operator.form-control(type='text' name='operator' value=operator)
+          #noty.col-12.col-lg-8.mt-3
+            | Notes:
+            br
+            input#notes.form-control(type='text', autocomplete='off' name='note' value=note)
+        .row.text-justify.justify-content-center.mt-5
+          .col-12.col-lg-8
+            p
+              strong Note: 
+              | All the information above is advisory for the full authorized health professionals who has enough capability for determination of patient's treatment. And they can never be a substitute for the information and applications of physicians, pharmacists or other health professionals those will provide optimum benefit for the patient.
+      #buttons.row.text-center.justify-content-center.my-5
+        .col-12.col-lg-3
+          button#back.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;')
+            | Rearrange The Information 
+            i.fas.fa-redo.pl-1
+        .col-12.col-lg-3
+          button#forward.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;')
+            | Ready to Save 
+            i.fas.fa-check.pl-1
   script.
-    /*
-    let time = document.getElementById('time');
-    let timey = document.getElementById('timey');
-    let name = document.getElementById('name');
-    let namey = document.getElementById('namey');
-    let wardy = document.getElementById('wardy');
-    let docty = document.getElementById('docty');
-    let productName = document.getElementById('productName');
-    let producty = document.getElementById('producty');
-    let operator = document.getElementById('operator');
-    let operaty = document.getElementById('operaty');
-    let notes = document.getElementById('notes');
-    let noty = document.getElementById('noty');
-    if (time.value) {} else {
-    timey.style.display = "none";
+    $('#forward').click( () => {
+      let time = document.getElementById('time');
+      let timey = document.getElementById('timey');
+      let name = document.getElementById('name');
+      let namey = document.getElementById('namey');
+      let wardy = document.getElementById('wardy');
+      let docty = document.getElementById('docty');
+      let productName = document.getElementById('productName');
+      let producty = document.getElementById('producty');
+      let operator = document.getElementById('operator');
+      let operaty = document.getElementById('operaty');
+      let notes = document.getElementById('notes');
+      let noty = document.getElementById('noty');
+      if (time.value) {} else {
+      timey.style.display = "none";
+      }
+      if (name.value) {} else {
+      namey.style.display = "none";
+      }
+      if (ward.value) {} else {
+      wardy.style.display = "none";
+      }
+      if (doctor.value) {} else {
+      docty.style.display = "none";
+      }
+      if (productName.value) {} else {
+      producty.style.display = "none";
+      }
+      if (operator.value) {} else {
+      operaty.style.display = "none";
+      }
+      if (notes.value) {} else {
+      noty.style.display = "none";
+      }
+      window.open("https://pdf-ace.com/pdfme/", "_blank");
+      timey.style.display = "block";
+      namey.style.display = "block";
+      wardy.style.display = "block";
+      docty.style.display = "block";
+      producty.style.display = "block";
+      operaty.style.display = "block";
+      noty.style.display = "block";
+    })
+  script.
+    $('#back').click( () => {
+      window.location.href = 'http://renaldose.com/en/print';
     }
-    if (name.value) {} else {
-    namey.style.display = "none";
-    }
-    if (ward.value) {} else {
-    wardy.style.display = "none";
-    }
-    if (doctor.value) {} else {
-    docty.style.display = "none";
-    }
-    if (productName.value) {} else {
-    producty.style.display = "none";
-    }
-    if (operator.value) {} else {
-    operaty.style.display = "none";
-    }
-    if (notes.value) {} else {
-    noty.style.display = "none";
-    }
-    window.open("https://pdf-ace.com/pdfme/", "_blank");
-    timey.style.display = "block";
-    namey.style.display = "block";
-    wardy.style.display = "block";
-    docty.style.display = "block";
-    producty.style.display = "block";
-    operaty.style.display = "block";
-    noty.style.display = "block";
-    */
