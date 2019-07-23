@@ -1,5 +1,7 @@
 Genel
 - Kodun düzeni (indent etc)
+- .view için genel olarak height: 110vh yerine, bölümlere özel vh tanımlamaları gerekmektedir
+- Huawei Mate 20 Lite testi gerekmektedir
 
 index.html
 - İki tuş mobil düzende bozuk bir hal alıyor

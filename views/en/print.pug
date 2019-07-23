@@ -1,6 +1,13 @@
 doctype html
 html(lang='en')
   head
+    // Global site tag (gtag.js) - Google Analytics
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-144190992-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-144190992-1');  
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
@@ -182,65 +189,4 @@ form.border.border-light.p-5(action='/en/print', method='post')
     producty.style.display = "block";
     operaty.style.display = "block";
     noty.style.display = "block";
-    });
-  script.
-    $('#save').click(function() {
-    console.log('clicked!');
-    window.open("http://pdf-ace.com/pdfme?cache=0");
-    }
-    /*
-    let time = document.getElementById('time');
-    let timey = document.getElementById('timey');
-    let name = document.getElementById('name');
-    let namey = document.getElementById('namey');
-    let wardy = document.getElementById('wardy');
-    let docty = document.getElementById('docty');
-    let productName = document.getElementById('productName');
-    let producty = document.getElementById('producty');
-    let operator = document.getElementById('operator');
-    let operaty = document.getElementById('operaty');
-    let notes = document.getElementById('notes');
-    let noty = document.getElementById('noty');
-    let buttons = document.getElementById('buttons');
-
-    if (time.value) {} else {
-    timey.style.display = "none";
-    }
-    if (name.value) {} else {
-    namey.style.display = "none";
-    }
-    if (ward.value) {} else {
-    wardy.style.display = "none";
-    }
-    if (doctor.value) {} else {
-    docty.style.display = "none";
-    }
-    if (productName.value) {} else {
-    producty.style.display = "none";
-    }
-    if (operator.value) {} else {
-    operaty.style.display = "none";
-    }
-    if (notes.value) {} else {
-    noty.style.display = "none";
-    }
-    buttons.style.display = "none";
-    $("#crCl").prop('readonly', false);
-    $("#dia").prop('readonly', false);
-    $("#actSubs").prop('readonly', false);
-    $("#suggest").prop('readonly', false);
-    window.open("http://pdf-ace.com/pdfme?cache=0");
-    timey.style.display = "block";
-    namey.style.display = "block";
-    wardy.style.display = "block";
-    docty.style.display = "block";
-    producty.style.display = "block";
-    operaty.style.display = "block";
-    noty.style.display = "block";
-    buttons.style.display = "flex";
-    $("#crCl").prop('readonly', true);
-    $("#dia").prop('readonly', true);
-    $("#actSubs").prop('readonly', true);
-    $("#suggest").prop('readonly', true);
-    */
     });

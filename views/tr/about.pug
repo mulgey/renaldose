@@ -1,6 +1,13 @@
 doctype html
 html(lang='tr')
   head
+    // Global site tag (gtag.js) - Google Analytics
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-144190992-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-144190992-1');
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
@@ -63,8 +70,39 @@ html(lang='tr')
               button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = 'calculator#activeSubstance';")
                 | Hızlı Başla! 
                 i.fas.fa-fast-forward.pl-1
-      .view(style="background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        .mask.rgba-black-light.align-items-center.flex-center
+      nav.navbar.navbar-expand-lg.fixed-bottom.navbar-dark.info-color
+        .container
+          a.navbar-brand(href='#core')
+            strong ÖZ
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-8', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarSupportedContent-8.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='#team') Takım
+      #core.view(data-spy='core', data-target='#core', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
+          .container
+            .row.mt-3.align-items-center
+              .col-12.col-lg-6.mt-3
+                img.p-2.rounded.img-thumbnail.z-depth-3(src='../img/me.jpeg' height='350' width='350' alt='owner' style='margin: auto; opacity: 0.9;')
+              .col-12.col-lg-6.mt-3
+                p(style='color:white; text-align:justify') 1986 doğumlu. 2010 yılından bu yana hastane eczacısı. 2011 yılından bu yana çalıştığı Konya Numune Hastanesi'nde güzel tecrübeler edindi. EAHP'ın (Avrupa Hastane Eczacıları Birliği) seminerlerine katıldıktan sonra kendini çalışmasını sunmak üzere 2013 yılında Fransa'daki kongresinde buldu. Sonrasında poster düzeyindeki çalışmaları yayınlandı. Çalışmalarından bu sitenin temasını oluşturanı, bakanlığın 2014 yılında düzenlediği proje yarışmasında üçüncülük ödülü aldı. Şu sıralar mesleki pratiğini web uygulamalarına uyarlamakla meşgul.
+      #team.view(data-spy='team', data-target='#team', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
+          .container
+            .row.mt-3.align-items-center
+              .col-12.col-lg-6.mt-3
+                img.p-2.rounded.img-thumbnail.z-depth-3(src='../img/team.jpeg'  height='350' width='350' alt='team' style='margin: auto; opacity: 0.9;')
+              .col-12.col-lg-6.mt-3
+                p(style='color:white; text-align:justify') Üyesi olduğum Konya Numune Hastanesi Eczane Birimi, muhtemelen ülkenin en iyi hastane eczacıları ekibi. Mesleğin başında henüz ideal yaklaşımlara sahipken Uzm.Ecz.Ersin GÜNER gibi sizi doğru yönlendiren ve size iyi kapılar açan bir meslektaşa ihtiyaç duyarsınız. Bu avantajı fazlasıyla değerlendirdiğim için mutluyum. Normal çalışma düzeninizin dışına çıktığınızda ve zorlu dönemlerinizde size destek olacak meslektaşlara da sahip olmalısınız. Ecz.Dilek TÜRKTAŞ gibi bir ekip arkadaşınız varsa çoğu engeli daha oluşmadan ortadan kaldırabilmişsinizdir. Ayrıca meslek ruhunu hissedebileceğiniz işini seven, isimlerini tek tek sayamayacağım çok sayıda arkadaş: İş yeriniz eviniz gibidir.
+      #credits.view(data-spy='credits', data-target='#credits', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
+          .container
+            .row.mt-3.align-items-center
+              .col-12.mt-3
+                img.p-2(src='../img/credits.png' height='162.5' width='300' alt='credits' style='margin: auto; opacity: 0.9;')
+              .col-12.col-lg-6.mt-3
   script.
     // Animations init
     new WOW().init();

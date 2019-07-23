@@ -52,58 +52,58 @@ html(lang='en')
           img(src='../../img/logo_transparent.png', style='display: inline-block', height='200', width='300')
         .form-row.justify-content-lg-center
           #timey.col-12.col-lg-8.mt-3
-            | Calculation Time:
+            | Hesaplama Zamanı:
             br
             input#time.form-control(type='text' autocomplete='off' name="time" value=time)
           #namey.col-12.col-lg-8.mt-3
-            | Patient Name:
+            | Hasta İsmi:
             br
             input#name.form-control(type='text' name="called" value=called)
           #wardy.col-12.col-lg-8.mt-3
-            | Ward Name:
+            | Servis Adı:
             br
             input#ward.form-control(type='text' name="ward" value=ward)
           #docty.col-12.col-lg-8.mt-3
-            | Doctor Name:
+            | Doktor İsmi:
             br
             input#doctor.form-control(type='text' name="doctor" value=doctor)
           #crCly.col-12.col-lg-8.mt-3
-            | Creatinine Clearance (ml/min):
+            | Kreatinin Klirensi (ml/dakika):
             br
             input#crCl.form-control(type='number' autocomplete='off' readonly='' name='crCl' value=crCl)
           #diay.col-12.col-lg-8.mt-3
-            | State of Hemodialysis:
+            | Hemodiyaliz Durumu:
             br
             input#dia.form-control(type='text' autocomplete='off' readonly='' name='dia' value=dia)
           #acty.col-12.col-lg-8.mt-3
-            | Active Substance:
+            | Etken Madde Adı:
             br
             input#actSubs.form-control(type='text' autocomplete='off' required='' readonly='' name='actSubs' value=actSubs)
           #producty.col-12.col-lg-8.mt-3
-            | Brand Name:
+            | Ticari İsmi:
             br
             input#productName.form-control(type='text' name='product' value=product)
           #suggesty.col-12.col-lg-8.mt-3
-            | Suggested Dose:
+            | Önerilen Doz:
             br
             input#suggest.form-control(type='text', autocomplete='off', readonly='' name='suggest' value=suggest)
           #operaty.col-12.col-lg-8.mt-3
-            | Operator:
+            | Hesaplamayı Yapan:
             br
             input#operator.form-control(type='text' name='operator' value=operator)
           #noty.col-12.col-lg-8.mt-3
-            | Notes:
+            | Notlar:
             br
             input#notes.form-control(type='text', autocomplete='off' name='note' value=note)
         .row.text-justify.justify-content-center.mt-5
           .col-12.col-lg-8
             p
-              strong Note: 
-              | All the information above is advisory for the full authorized health professionals who has enough capability for determination of patient's treatment. And they can never be a substitute for the information and applications of physicians, pharmacists or other health professionals those will provide optimum benefit for the patient.
+              strong Not: 
+              | Yukarıdaki bilgiler hastanın tedavisini belirlemek konusunda yeterli bilgiye sahip olan, tam yetkili kişilere tavsiye niteliğindedir. Hekim, eczacı veya diğer sağlık profesyonellerinin hasta için optimum faydayı sağlayacak bilgi ve uygulamalarının yerini tutamaz.
       #buttons.row.text-center.justify-content-center.my-5
         .col-12.col-lg-3
           button#forward.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;')
-            | Ready to Save 
+            | Kaydetmeye Hazır
             i.fas.fa-check.pl-1
   script.
     $('#forward').click( () => {

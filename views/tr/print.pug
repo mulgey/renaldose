@@ -1,10 +1,17 @@
 doctype html
 html(lang='tr')
   head
+    // Global site tag (gtag.js) - Google Analytics
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-144190992-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-144190992-1');  
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
-    title ProspecTurk Renal
+    title Renal Dose
     link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
     link(href='../css/bootstrap.min.css', rel='stylesheet')
     link(href='../css/mdb.min.css', rel='stylesheet')
@@ -39,72 +46,73 @@ html(lang='tr')
     // MDB core JavaScript
     script(type='text/javascript', src='../js/mdb.js')
   body
-    form.border.border-light.p-5.print
-      .text-center
-        img(src='../img/logo_transparent.png', style='display: inline-block', height='200', width='300')
-      .form-row.justify-content-lg-center
-        #timey.col-12.col-lg-8.mt-3
-          | Hesaplama Zamanı:
-          br
-          input#time.form-control(type='text', autocomplete='off')
-        #namey.col-12.col-lg-8.mt-3
-          | Hasta İsmi:
-          br
-          input#name.form-control(type='text')
-        #wardy.col-12.col-lg-8.mt-3
-          | Servis Adı:
-          br
-          input#ward.form-control(type='text')
-        #docty.col-12.col-lg-8.mt-3
-          | Doktor İsmi:
-          br
-          input#doctor.form-control(type='text')
-        #crCly.col-12.col-lg-8.mt-3
-          | Kreatinin Klirensi (ml/dakika):
-          br
-          input#crCl.form-control(type='number', autocomplete='off', value='', readonly='')
-        #diay.col-12.col-lg-8.mt-3
-          | Hemodiyaliz Durumu:
-          br
-          input#dia.form-control(type='text', autocomplete='off', readonly='')
-        #acty.col-12.col-lg-8.mt-3
-          | Etken Madde Adı:
-          br
-          input#actSubs.form-control(type='text', autocomplete='off', required='', readonly='')
-        #producty.col-12.col-lg-8.mt-3
-          | Ticari İsmi:
-          br
-          input#productName.form-control(type='text')
-        #suggesty.col-12.col-lg-8.mt-3
-          | Önerilen Doz:
-          br
-          input#suggest.form-control(type='text', autocomplete='off', readonly='')
-        #operaty.col-12.col-lg-8.mt-3
-          | Hesaplamayı Yapan:
-          br
-          input#operator.form-control(type='text')
-        #noty.col-12.col-lg-8.mt-3
-          | Notlar:
-          br
-          input#notes.form-control(type='text', autocomplete='off')
-      .row.text-justify.justify-content-center.mt-5
-        .col-12.col-lg-8
-          p
-            strong Not: 
-            | Yukarıdaki bilgiler hastanın tedavisini belirlemek konusunda yeterli bilgiye sahip olan, tam yetkili kişilere tavsiye niteliğindedir. Hekim, eczacı veya diğer sağlık profesyonellerinin hasta için optimum faydayı sağlayacak bilgi ve uygulamalarının yerini tutamaz.
-    #buttons.row.text-center.justify-content-center.my-5
-      .col-12.col-lg-3
-        button#print.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;')
-          | Yazdır 
-          i.fas.fa-print.pl-1
-      .col-12.col-lg-3
-        button#save.btn.btn-cyan.rounded-pill.mt-3(href='javascript:saveResults()', style='padding: 1rem 2rem;')
-          | Kaydet (PDF) 
-          i.fas.fa-save.pl-1
-      .col-12.col-lg-3
-        button#back.btn.btn-cyan.rounded-pill.mt-3(onclick="window.location.href = 'calculator#activeSubstance'; return false;", style='padding: 1rem 2rem;')
-          | Yeni Hesaplama 
-          i.fas.fa-redo.pl-1
+form.border.border-light.p-5(action='/tr/print', method='post')
+  .print
+    .text-center
+      img(src='../img/logo_transparent.png', style='display: inline-block;', height='200', width='300')
+    .form-row.justify-content-lg-center
+      #timey.col-12.col-lg-8.mt-3
+        | Hesaplama Zamanı:
+        br
+        input#time.form-control(type='text', autocomplete='off' name="time")
+      #namey.col-12.col-lg-8.mt-3
+        | Hasta İsmi:
+        br
+        input#name.form-control(type='text' name="called")
+      #wardy.col-12.col-lg-8.mt-3
+        | Servis Adı:
+        br
+        input#ward.form-control(type='text', name='ward')
+      #docty.col-12.col-lg-8.mt-3
+        | Doktor İsmi:
+        br
+        input#doctor.form-control(type='text' name='doctor')
+      #crCly.col-12.col-lg-8.mt-3
+        | Kreatinin Klirensi (ml/dakika):
+        br
+        input#crCl.form-control(type='number', autocomplete='off', readonly='' name='crCl')
+      #diay.col-12.col-lg-8.mt-3
+        | Hemodiyaliz Durumu:
+        br
+        input#dia.form-control(type='text', autocomplete='off', readonly='' name='dia')
+      #acty.col-12.col-lg-8.mt-3
+        | Etken Madde Adı:
+        br
+        input#actSubs.form-control(type='text', autocomplete='off', required='', readonly='' name='actSubs')
+      #producty.col-12.col-lg-8.mt-3
+        | Ticari İsmi:
+        br
+        input#productName.form-control(type='text' name='product')
+      #suggesty.col-12.col-lg-8.mt-3
+        | Önerilen Doz:
+        br
+        input#suggest.form-control(type='text', autocomplete='off', readonly='' name='suggest')
+      #operaty.col-12.col-lg-8.mt-3
+        | Hesaplamayı Yapan:
+        br
+        input#operator.form-control(type='text' name='operator')
+      #noty.col-12.col-lg-8.mt-3
+        | Notlar:
+        br
+        input#notes.form-control(type='text', autocomplete='off' name='note')
+    .row.text-justify.justify-content-center.mt-5
+      .col-12.col-lg-8
+        p
+          strong Not: 
+          | Yukarıdaki bilgiler hastanın tedavisini belirlemek konusunda yeterli bilgiye sahip olan, tam yetkili kişilere tavsiye niteliğindedir. Hekim, eczacı veya diğer sağlık profesyonellerinin hasta için optimum faydayı sağlayacak bilgi ve uygulamalarının yerini tutamaz.
+  #buttons.row.text-center.justify-content-center.my-5
+    .col-12.col-lg-3
+      button#print.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;')
+        | Yazdır 
+        i.fas.fa-print.pl-1
+    .col-12.col-lg-3
+      button#save.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;', type='submit')
+        | Kaydet (PDF) 
+        i.fas.fa-save.pl-1
+    .col-12.col-lg-3
+      button#back.btn.btn-cyan.rounded-pill.mt-3(onclick="window.location.href = 'calculator#activeSubstance'; return false;", style='padding: 1rem 2rem;')
+        | Yeni Hesaplama
+        i.fas.fa-redo.pl-1
   script.
     function createCookie(name,value,days) {
     if (days) {
@@ -181,60 +189,4 @@ html(lang='tr')
     producty.style.display = "block";
     operaty.style.display = "block";
     noty.style.display = "block";
-    });      
-  script.
-    $('#save').click(function() {
-    let time = document.getElementById('time');
-    let timey = document.getElementById('timey');
-    let name = document.getElementById('name');
-    let namey = document.getElementById('namey');
-    let wardy = document.getElementById('wardy');
-    let docty = document.getElementById('docty');
-    let productName = document.getElementById('productName');
-    let producty = document.getElementById('producty');
-    let operator = document.getElementById('operator');
-    let operaty = document.getElementById('operaty');
-    let notes = document.getElementById('notes');
-    let noty = document.getElementById('noty');
-    let buttons = document.getElementById('buttons');
-
-    if (time.value) {} else {
-    timey.style.display = "none";
-    }
-    if (name.value) {} else {
-    namey.style.display = "none";
-    }
-    if (ward.value) {} else {
-    wardy.style.display = "none";
-    }
-    if (doctor.value) {} else {
-    docty.style.display = "none";
-    }
-    if (productName.value) {} else {
-    producty.style.display = "none";
-    }
-    if (operator.value) {} else {
-    operaty.style.display = "none";
-    }
-    if (notes.value) {} else {
-    noty.style.display = "none";
-    }
-    buttons.style.display = "none";
-    $("#crCl").prop('readonly', false);
-    $("#dia").prop('readonly', false);
-    $("#actSubs").prop('readonly', false);
-    $("#suggest").prop('readonly', false);
-    window.open("http://pdf-ace.com/pdfme?cache=0");
-    timey.style.display = "block";
-    namey.style.display = "block";
-    wardy.style.display = "block";
-    docty.style.display = "block";
-    producty.style.display = "block";
-    operaty.style.display = "block";
-    noty.style.display = "block";
-    buttons.style.display = "flex";
-    $("#crCl").prop('readonly', true);
-    $("#dia").prop('readonly', true);
-    $("#actSubs").prop('readonly', true);
-    $("#suggest").prop('readonly', true);
     });
