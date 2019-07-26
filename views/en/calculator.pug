@@ -77,7 +77,7 @@ html(lang='en')
                     | In the case of having specific clinical data of the patient, we can start dose calculation for the active substance you choose
                 a.btn.btn-outline-white.wow.pulse.smooth-scroll(data-wow-delay='2s', href='#activeSubstance') I'm ready, let's go
     #activeSubstance.view(data-spy='activeSubstance', data-target='#activeSubstance', style="background-image: url('../img/calculate_02.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-      .mask.rgba-stylish-light.align-items-center.flex-center
+      .mask.rgba-stylish-light.align-items-center.flex-center(style="overflow-y: scroll")
         .container
           .row.mt-3.text-center
             .col-12.col-lg-6.mt-3
@@ -252,12 +252,12 @@ html(lang='en')
                   option(selected='', value='2') Bacteremias Caused by S.Aureus
               .col-12.col-lg-3.mt-3
                 label(for='srcrForDapto', style='color: white; font-weight: bold') Creatinin Clearence (ml/min)
-                input#srcrForDapto.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0')
+                input#srcrForDapto.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0', readonly='')
               .col-12.col-lg-3.mt-3
                 label(for='weightForDapto', style='color: white; font-weight: bold') Weight (Kilogram)
-                input#weightForDapto.form-control(type='text', style='color: black', autocomplete='off')
+                input#weightForDapto.form-control(type='text', style='color: black', autocomplete='off', readonly='')
             .row.text-center.align-items-center.mt-4
-              #calculateForDapto.col
+              .col
                 button#calculateForDapto.btn.btn-cyan.rounded-pill.btn-lg(type='button') Calculate
         strong
       strong
@@ -289,7 +289,7 @@ html(lang='en')
                 label(for='srcrForLevo', style='color: white; font-weight: bold') Creatinin Clearence (ml/min)
                 input#srcrForLevo.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0')
             .row.text-center.align-items-center.mt-4
-              #calculateForDapto.col
+              .col
                 button#calculateForLevo.btn.btn-cyan.rounded-pill.btn-lg(type='button') Calculate
       #presentResults.view(data-spy='presentResults', data-target='#presentResults', style="background-image: url('../img/calculate_03.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-stylish-light.flex-center.align-items-center.text-center
@@ -450,6 +450,7 @@ html(lang='en')
     let daptomcy = document.getElementById("daptomicina");
     let levofloxy = document.getElementById("levofloxacin");
     let reload = document.getElementById("reload");
+    let buttony = document.getElementById("calcButton");    
     if (crunit1 === "2") {
     srcr1 = srcr1 / 88.4;
     }
@@ -458,7 +459,7 @@ html(lang='en')
     }
     if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked')) {
     if (actSubs === "Ertapenem sodium") {
-    doseText = "500 mg / day. If the dose was applied within 6 hours before the hemodialysis, 150 mg extra dose is suggested. If not, extra dose isn't needed<a href='https://www.msd.com.tr/static/pdf/INVANZ_1g_IM-IV_Enjeksiyon_Icin_Liyofilize_Toz_Iceren_Flakon_KUB.pdf' target='_blank'>*</a>"
+    doseText = "500 mg / day. If the dose was applied within 6 hours before the hemodialysis, 150 mg extra dose is suggested. If not, extra dose isn't needed"
     } else if (actSubs === "Fluconazole") {
     doseText = "The dose dedicated by the doctor according to indication may be applied following the hemodialysis treatment<a href='https://titck.gov.tr/storage/kubKtAttachments/Xb2snaSjTfhFC.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Colistimethate sodium") {
@@ -481,6 +482,7 @@ html(lang='en')
     window.location.href='#presentResults';
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    $("#calcButton").attr("disabled", true);
     } else if (method === "Cockcroft-Gault Equation") {
     if (age1 && weight && srcr1 && gender1 != "Gender") {
     result = (((140 - age1) * weight) / (72 * srcr1)).toFixed(2);
@@ -520,13 +522,14 @@ html(lang='en')
     }
     if (actSubs === "Ertapenem sodium") {
     if (result > 30) {
-    doseText = "Dose adjustment is not needed. (Standard daily dose: 1g)<a href='https://www.msd.com.tr/static/pdf/INVANZ_1g_IM-IV_Enjeksiyon_Icin_Liyofilize_Toz_Iceren_Flakon_KUB.pdf' target='_blank'>*</a>";
+    doseText = "Dose adjustment is not needed. (Standard daily dose: 1g)";
     } else if (result <= 30) {
-    doseText = "500 mg / day<a href='https://www.msd.com.tr/static/pdf/INVANZ_1g_IM-IV_Enjeksiyon_Icin_Liyofilize_Toz_Iceren_Flakon_KUB.pdf' target='_blank'>*</a>";
+    doseText = "500 mg / day";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Fluconazole") {
     if (result > 50) {
     doseText = "Dose adjustment is not needed. (50 mg - 400 mg a day, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/Xb2snaSjTfhFC.pdf' target='_blank'>*</a>";
@@ -536,6 +539,7 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Meropenem trihydrate") {
     if (result >= 90) {
     doseText = "Dose adjustment is not needed. (1.5 g - 6 g a day, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
@@ -551,6 +555,7 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
     if (result > 80) {
     doseText = "Dose adjustment is not needed. (4.5 g in every 6 or 8 hours, depending on the indication)<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
@@ -562,6 +567,7 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Colistimethate sodium") {
     if (result >= 70) {
     doseText = "Dose adjustment is not needed. Daily total dose is calculated as 5 mg/kg/day. Total dose is given in 2 or 3 equal parts.<a href='http://kocakfarma.com/urun-aciklama.aspx?bolumSeo=kisabilgi&id=43&lang=tr' target='_blank'>*</a>";
@@ -573,6 +579,7 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Vancomycin hydrochloride") {
     if (result < 90) {
     vancoDose = (result * 15.45).toFixed(0);
@@ -581,6 +588,7 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Cefoperazone sodium / Sulbactam sodium") {
     if (result >= 30) {
     doseText = "Normal dose which was dedicated by the physician. (Total dose for 2 active substances: 3 g - 12 g, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>";
@@ -592,6 +600,7 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ciprofloxacin lactate") {
     if (result >= 60) {
     doseText = "Normal dose which was dedicated by the physician. (800 mg - 1200 mg, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
@@ -603,6 +612,7 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Teicoplanin") {
     if (result >= 60) {
     doseText = "Normal dose which was dedicated by the physician. (A single dose of 200, 400 or 800 mg, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
@@ -614,6 +624,7 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Imipenem / Cilastatin sodium") {
     document.getElementById('srcrForCila').value = result;
     document.getElementById('weightForCila').value = weight;
@@ -992,6 +1003,7 @@ html(lang='en')
     }
     resulty.innerHTML = cilaText;
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     });
   script.
     $('#calculateForDapto').click(() => {
@@ -1006,18 +1018,18 @@ html(lang='en')
     if (result >= 30) {
     if (normal === "1") {
     mgValue = (4 * weight);
-    daptoText = `${mgValue} mg in every 24 hours<a href='https://www.msd.com.tr/static/pdf/Cubicin%20500mg_KUB.pdf' target='_blank'>*</a>`;
+    daptoText = `${mgValue} mg in every 24 hours`;
     } else if (normal === "2") {
     mgValue = (6 * weight);
-    daptoText = `${mgValue} mg in every 24 hours<a href='https://www.msd.com.tr/static/pdf/Cubicin%20500mg_KUB.pdf' target='_blank'>*</a>`;
+    daptoText = `${mgValue} mg in every 24 hours`;
     }
     } else if (result < 30) {
     if (normal === "1") {
     mgValue = (4 * weight);
-    daptoText = `${mgValue} mg in every 48 hours<a href='https://www.msd.com.tr/static/pdf/Cubicin%20500mg_KUB.pdf' target='_blank'>*</a>`;
+    daptoText = `${mgValue} mg in every 48 hours`;
     } else if (normal === "2") {
     mgValue = (6 * weight);
-    daptoText = `${mgValue} mg in every 24 hours<a href='https://www.msd.com.tr/static/pdf/Cubicin%20500mg_KUB.pdf' target='_blank'>*</a>`;
+    daptoText = `${mgValue} mg in every 24 hours`;
     }
     }
     } else {
@@ -1031,6 +1043,8 @@ html(lang='en')
     }
     resulty.innerHTML = daptoText;
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    $("#calculateForDapto").attr("disabled", true);
     });
   script.
     $('#calculateForLevo').click(() => {
@@ -1084,6 +1098,7 @@ html(lang='en')
     }
     resulty.innerHTML = levoText;
     window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     });
   script.
     $('#reload').click(() => {
@@ -1234,8 +1249,8 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
-    } else if (age1.value != 0 && age1.value > 0 && age1.value < 18) {
-    infoText.innerHTML = "Safety and effectiveness of <strong>daptomicina</strong> is not determined in the patients younger than 18 years old. Its usage is not suggested.<a href='https://www.msd.com.tr/static/pdf/Cubicin%20500mg_KUB.pdf' target='_blank'>*</a>";
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Safety and effectiveness of <strong>daptomicina</strong> is not determined in the patients younger than 18 years old. Its usage is not suggested.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1248,8 +1263,8 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
-    } else if (age1.value != 0 && age1.value > 0 && age1.value < 13) {
-    infoText.innerHTML = "There's not any data for <strong>ertapenem sodium</strong> about pediatric patients who has renal insufficiency.<a href='https://www.msd.com.tr/static/pdf/INVANZ_1g_IM-IV_Enjeksiyon_Icin_Liyofilize_Toz_Iceren_Flakon_KUB.pdf' target='_blank'>*</a>";
+    } else if (age1.value > -1 && age1.value < 13) {
+    infoText.innerHTML = "There's not any data for <strong>ertapenem sodium</strong> about pediatric patients who has renal insufficiency.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1262,7 +1277,7 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
-    } else if (age1.value != 0 && age1.value > 0 && age1.value < 18) {
+    } else if (age1.value > -1 && age1.value < 18) {
     infoText.innerHTML = "<strong>Levofloxacin</strong> is contraindicated for the children and adolescents whose growing still proceeds.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
@@ -1276,7 +1291,7 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
-    } else if (age1.value != 0 && age1.value > 0 && age1.value < 18) {
+    } else if (age1.value > -1 && age1.value < 18) {
     infoText.innerHTML = "There's no experience related to <strong>meropeneme</strong> on children who has renal dysfunction.<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
@@ -1290,7 +1305,7 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
-    } else if (age1.value != 0 && age1.value > 0 && age1.value < 13) {
+    } else if (age1.value > -1 && age1.value < 13) {
     infoText.innerHTML = "For <strong>piperacillin sodium / tazobactam sodium</strong>, there's a different calculation method for the children younger than 13 years old.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
@@ -1304,7 +1319,7 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
-    } else if (age1.value != 0 && age1.value > 0 && age1.value < 18) {
+    } else if (age1.value > -1 && age1.value < 18) {
     infoText.innerHTML = "There is no dose study conducted in the children who has renal and/or liver failure for <strong>ciprofloxacin lactate</strong>.<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
@@ -1318,7 +1333,7 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
-    } else if (age1.value != 0 && age1.value > 0 && age1.value < 18) {
+    } else if (age1.value > -1 && age1.value < 18) {
     infoText.innerHTML = "There's no prospectus information provided about <strong>vancomycin hydrochloride</strong> dosage for the children who has renal and/or liver failure.<a href='https://titck.gov.tr/storage/kubKtAttachments/b2b033b065298.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
@@ -1350,8 +1365,8 @@ html(lang='en')
     $('#calculate').fadeTo('fast', 100);
     }
     } else if (actSubs.textContent === "Daptomicina") {
-    if (age2.value != 0 && age2.value > 0 && age2.value < 18) {
-    infoText.innerHTML = "Safety and effectiveness of <strong>daptomicina</strong> is not determined in the patients younger than 18 years old. Its usage is not suggested.<a href='https://www.msd.com.tr/static/pdf/Cubicin%20500mg_KUB.pdf' target='_blank'>*</a>";
+    if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Safety and effectiveness of <strong>daptomicina</strong> is not determined in the patients younger than 18 years old. Its usage is not suggested.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1361,8 +1376,8 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Ertapenem sodium") {
-    if (age2.value != 0 && age2.value > 0 && age2.value < 13) {
-    infoText.innerHTML = "There's not any data for <strong>ertapenem sodium</strong> about pediatric patients who has renal insufficiency.<a href='https://www.msd.com.tr/static/pdf/INVANZ_1g_IM-IV_Enjeksiyon_Icin_Liyofilize_Toz_Iceren_Flakon_KUB.pdf' target='_blank'>*</a>";
+    if (age2.value > -1 && age2.value < 13) {
+    infoText.innerHTML = "There's not any data for <strong>ertapenem sodium</strong> about pediatric patients who has renal insufficiency.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1372,7 +1387,7 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Levofloxacin") {
-    if (age2.value != 0 && age2.value > 0 && age2.value < 18) {
+    if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "<strong>Levofloxacin</strong> is contraindicated for the children and adolescents whose growing still proceeds.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1383,7 +1398,7 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Meropenem trihydrate") {
-    if (age2.value != 0 && age2.value > 0 && age2.value < 18) {
+    if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "There's no experience related to <strong>meropeneme</strong> on children who has renal dysfunction.<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1394,7 +1409,7 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Piperacillin sodium / Tazobactam sodium") {
-    if (age2.value != 0 && age2.value > 0 && age2.value < 13) {
+    if (age2.value > -1 && age2.value < 13) {
     infoText.innerHTML = "For <strong>piperacillin sodium / tazobactam sodium</strong>, there's a different calculation method for the children younger than 13 years old.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1405,7 +1420,7 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Ciprofloxacin lactate") {
-    if (age2.value != 0 && age2.value > 0 && age2.value < 18) {
+    if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "There is no dose study conducted in the children who has renal and/or liver failure for <strong>ciprofloxacin lactate</strong>.<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1416,7 +1431,7 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
-    if (age2.value != 0 && age2.value > 0 && age2.value < 18) {
+    if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "There's no prospectus information provided about <strong>vancomycin hydrochloride</strong> dosage for the children who has renal and/or liver failure.<a href='https://titck.gov.tr/storage/kubKtAttachments/b2b033b065298.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {

@@ -70,8 +70,47 @@ html(lang='en')
               button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = 'calculator#activeSubstance';")
                 | Quick Start 
                 i.fas.fa-fast-forward.pl-1
-      .view(style="background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        .mask.rgba-black-light.align-items-center.flex-center
+      nav.navbar.navbar-expand-lg.fixed-bottom.navbar-dark.info-color
+        .container
+          a.navbar-brand(href='#core')
+            strong CORE
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-8', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarSupportedContent-8.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='#team') Team
+      #core.view(data-spy='core', data-target='#core', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
+          .container
+            .row.mt-3.align-items-center
+              .col-12.col-lg-6.mt-3
+                img.p-2.rounded.img-thumbnail.z-depth-3(src='../img/core.jpeg' height='350' width='350' alt='owner' style='margin: auto; opacity: 0.9;')
+              .col-12.col-lg-6.mt-3(style='color:white; text-align:justify; line-height: 1.9; font-size: 1.7vh;')
+                p
+                u
+                  b Mustafa ÜLGEY
+                br 
+                | I’ve been working in Konya Numune Hospital since 2011, as a hospital pharmacist born in 1986. Following my participations to the seminars of EAHP (European Association of Hospital Pharmacists), I’ve found myself to make a presentation for the congress of the association in 2013, France, for the first study I’ve conducted. Afterwards, the abstracts I’ve sent to the journal of the same association, EJHP, were accepted and I had many opportunities to present my posters. Across the studies, with the one constitutes the theme for this website, I’ve been honored as third in the hospital pharmacist contest, organized by the Ministry of Health, in 2014. My current busyness is trying to acquire the occupational satisfaction by adjusting our practice to web applications.
+      #team.view(data-spy='team', data-target='#team', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
+          .container
+            .row.mt-3.align-items-center
+              .col-12.col-lg-6.mt-3
+                img.p-2.rounded.img-thumbnail.z-depth-3(src='../img/team.jpeg'  height='350' width='350' alt='team' style='margin: auto; opacity: 0.9;')
+              .col-12.col-lg-6.mt-3(style='color:white; text-align:justify; line-height: 1.9; font-size: 1.7vh;')
+                p
+                  u
+                    b Konya Numune Hospital Pharmacy Department
+                  br
+                  | The community that I’m a member of, is probably the best hospital pharmacists team of the nation. When you’re just at the beginning of your career, keeping all the ideal approaches you’ve started with; you need a colleague like Ms.Ph.Ersin GUNER, who may open the best doors and help you moving to the right direction. I’m more than glad for turning this advantage to good account. When you exceed your daily working layout and have your hard working times, you also need collegues who supports you well. If you have a team mate like Ph.Dilek TURKTAS, you would have already removed the daily obstacles, before they reach along your way. Also many co-workers loving their job and you may experience the occupational soul with, which I won’t be able to spell their names one by one: Your workplace is like your home.
+      #credits.view(data-spy='credits', data-target='#credits', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
+          .container
+            .row.mt-3.align-items-center
+              .col-12.mt-3
+                img.p-2(src='../img/credits.png' height='162.5' width='300' alt='credits' style='margin: auto; opacity: 0.9;')
+              .col-12.col-lg-6.mt-3
   script.
     // Animations init
     new WOW().init();
