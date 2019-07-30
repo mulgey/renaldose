@@ -203,8 +203,6 @@ html(lang='en')
                 strong
                   | Calculation for this active substance may be performed based on the dose which 
                   u physician determined for the indication.
-                  |  You can check the dose table using this 
-                  a(href='../img/tienam_kub.png', target='blank') link.
           .row.mt-3
             .col-12.col-lg-3.mt-3
               label(for='diyaForCila', style='color: white; font-weight: bold') Receiving Hemodialysis
@@ -221,7 +219,7 @@ html(lang='en')
                 option(value='5') 4.0 g / day
             .col-12.col-lg-3.mt-3
               label(for='srcrForCila', style='color: white; font-weight: bold') Creatinin Clearence (ml/min)
-              input#srcrForCila.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0')
+              input#srcrForCila.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0', readonly='')
             .col-12.col-lg-3.mt-3
               label(for='weightForCila', style='color: white; font-weight: bold') Weight (Kilogram)
               input#weightForCila.form-control(type='text', style='color: black', autocomplete='off')
@@ -255,7 +253,7 @@ html(lang='en')
                 input#srcrForDapto.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0', readonly='')
               .col-12.col-lg-3.mt-3
                 label(for='weightForDapto', style='color: white; font-weight: bold') Weight (Kilogram)
-                input#weightForDapto.form-control(type='text', style='color: black', autocomplete='off', readonly='')
+                input#weightForDapto.form-control(type='text', style='color: black', autocomplete='off')
             .row.text-center.align-items-center.mt-4
               .col
                 button#calculateForDapto.btn.btn-cyan.rounded-pill.btn-lg(type='button') Calculate
@@ -271,8 +269,6 @@ html(lang='en')
                   strong
                     | Calculation for this active substance may be performed based on the dose which 
                     u physician determined for the indication.
-                    |  You can check the dose table using this 
-                    a(href='../img/tavanic_kub.png', target='blank') link.
             .row.mt-3
               .col-12.col-lg-4.mt-3
                 label(for='normalForLevo', style='color: white; font-weight: bold') Determined Daily Dose
@@ -350,7 +346,7 @@ html(lang='en')
     let diya2 = document.getElementById("diya2");
     let notNeedy = document.getElementById("nonDiyaText");
     if (textResult === "Tigecycline") {
-    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.<a href='https://titck.gov.tr/storage/kubKtAttachments/ccPKR9mKrPaa4.pdf' target='_blank'>*</a>";
+    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
     needy.style.display = "block";
     egfry.style.display = "none";
     cockgaulty.style.display = "none";
@@ -359,7 +355,7 @@ html(lang='en')
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
     } else if (textResult === "Moxifloxacin hydrochloride") {
-    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.<a href='https://titck.gov.tr/storage/kubKtAttachments/LHoY4QJlVyoQp.pdf' target='_blank'>*</a>";
+    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
     needy.style.display = "block";
     egfry.style.display = "none";
     cockgaulty.style.display = "none";
@@ -368,7 +364,7 @@ html(lang='en')
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
     } else if (textResult === "Linezolid") {
-    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.<a href='https://titck.gov.tr/storage/kubKtAttachments/466583b522937.pdf' target='_blank'>*</a>";
+    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
     needy.style.display = "block";
     egfry.style.display = "none";
     cockgaulty.style.display = "none";
@@ -377,7 +373,7 @@ html(lang='en')
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
     } else if (textResult === "Metronidazole") {
-    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.<a href='https://titck.gov.tr/storage/kubKtAttachments/38219d3492102.pdf' target='_blank'>*</a>";
+    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
     needy.style.display = "block";
     egfry.style.display = "none";
     cockgaulty.style.display = "none";
@@ -461,28 +457,28 @@ html(lang='en')
     if (actSubs === "Ertapenem sodium") {
     doseText = "500 mg / day. If the dose was applied within 6 hours before the hemodialysis, 150 mg extra dose is suggested. If not, extra dose isn't needed"
     } else if (actSubs === "Fluconazole") {
-    doseText = "The dose dedicated by the doctor according to indication may be applied following the hemodialysis treatment<a href='https://titck.gov.tr/storage/kubKtAttachments/Xb2snaSjTfhFC.pdf' target='_blank'>*</a>"
+    doseText = "The dose dedicated by the doctor according to indication may be applied following the hemodialysis treatment"
     } else if (actSubs === "Colistimethate sodium") {
     doseText = ("A total daily dose of 105 mg is given every 12 hours during the period which hemodialysis treatment isn't applied. On hemodialysis treatment days, a total daily dose of 4.500.000 IU (150 mg) is divided into two and first half is applied on the last hour of hemodialysis and the other half is after 12 hours<a href='http://kocakfarma.com/urun-aciklama.aspx?bolumSeo=kisabilgi&id=43&lang=tr' target='_blank'>*</a>");
     } else if (actSubs === "Meropenem trihydrate") {
-    doseText = "The dose dedicated by the doctor is suggested to be applied after the hemodialysis treatment<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>"
+    doseText = "The dose dedicated by the doctor is suggested to be applied after the hemodialysis treatment"
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
-    doseText = "4.5 g / 12h. Following the hemodialysis period, a supply dose of 2.25 g should be applied<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>"
+    doseText = "4.5 g / 12h. Following the hemodialysis period, a supply dose of 2.25 g should be applied"
     } else if (actSubs === "Cefoperazone sodium / Sulbactam sodium") {
-    doseText = "In the product description, the need for dose adjustment was stated but the information about how to make it is not clarified. Consulting to the physicians who has the appropriate speciality is suggested<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>"
+    doseText = "In the product description, the need for dose adjustment was stated but the information about how to make it is not clarified. Consulting to the physicians who has the appropriate speciality is suggested"
     } else if (actSubs === "Ciprofloxacin lactate") {
-    doseText = "Daily dose for ciprofloxacin must be maximum of 400 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>"
+    doseText = "Daily dose for ciprofloxacin must be maximum of 400 mg"
     } else if (actSubs === "Teicoplanin") {
-    doseText = "Apply 1/3 of the dose OR apply the daily dose in every 3 days. Dose adjustment is not needed during the first 4 days of the treatment<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>"
+    doseText = "Apply 1/3 of the dose OR apply the daily dose in every 3 days. Dose adjustment is not needed during the first 4 days of the treatment"
     } else if (actSubs === "Vancomycin hydrochloride") {
-    doseText = "1 g / week<a href='https://titck.gov.tr/storage/kubKtAttachments/b2b033b065298.pdf' target='_blank'>*</a>";
+    doseText = "1 g / week";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
     window.location.href='#presentResults';
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (method === "Cockcroft-Gault Equation") {
     if (age1 && weight && srcr1 && gender1 != "Gender") {
     result = (((140 - age1) * weight) / (72 * srcr1)).toFixed(2);
@@ -529,45 +525,45 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Fluconazole") {
     if (result > 50) {
-    doseText = "Dose adjustment is not needed. (50 mg - 400 mg a day, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/Xb2snaSjTfhFC.pdf' target='_blank'>*</a>";
+    doseText = "Dose adjustment is not needed. (50 mg - 400 mg a day, depending on the indication)";
     } else if (result <= 50) {
-    doseText = "50% of the normal dose is applied. (Standard Dose: 50 mg - 400 mg a day, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/Xb2snaSjTfhFC.pdf' target='_blank'>*</a>"
+    doseText = "50% of the normal dose is applied. (Standard Dose: 50 mg - 400 mg a day, depending on the indication)"
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Meropenem trihydrate") {
     if (result >= 90) {
-    doseText = "Dose adjustment is not needed. (1.5 g - 6 g a day, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
+    doseText = "Dose adjustment is not needed. (1.5 g - 6 g a day, depending on the indication)";
     } else if (result < 90 && result >= 50 ) {
-    doseText = "1 g in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
+    doseText = "1 g in every 8 hours";
     } else if (result < 50 && result >= 25) {
-    doseText = "1 g in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
+    doseText = "1 g in every 12 hours";
     } else if (result < 25 && result >= 10) {
-    doseText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
+    doseText = "500 mg in every 12 hours";
     } else if (result < 10) {
-    doseText = "500 mg in every 24 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
+    doseText = "500 mg in every 24 hours";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
     if (result > 80) {
-    doseText = "Dose adjustment is not needed. (4.5 g in every 6 or 8 hours, depending on the indication)<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
+    doseText = "Dose adjustment is not needed. (4.5 g in every 6 or 8 hours, depending on the indication)";
     } else if (result <= 80 && result >= 20) {
-    doseText = "4.5 g in every 8 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
+    doseText = "4.5 g in every 8 hours";
     } else if (result < 20) {
-    doseText = "4.5 g in every 12 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
+    doseText = "4.5 g in every 12 hours";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Colistimethate sodium") {
     if (result >= 70) {
     doseText = "Dose adjustment is not needed. Daily total dose is calculated as 5 mg/kg/day. Total dose is given in 2 or 3 equal parts.<a href='http://kocakfarma.com/urun-aciklama.aspx?bolumSeo=kisabilgi&id=43&lang=tr' target='_blank'>*</a>";
@@ -579,52 +575,52 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Vancomycin hydrochloride") {
     if (result < 90) {
     vancoDose = (result * 15.45).toFixed(0);
-    doseText = `Following the 15 mg / kg loading dose, ${vancoDose} mg in every 24 hours.<a href='https://titck.gov.tr/storage/kubKtAttachments/b2b033b065298.pdf' target='_blank'>*</a>`;
+    doseText = `Following the 15 mg / kg loading dose, ${vancoDose} mg in every 24 hours.`;
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Cefoperazone sodium / Sulbactam sodium") {
     if (result >= 30) {
-    doseText = "Normal dose which was dedicated by the physician. (Total dose for 2 active substances: 3 g - 12 g, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>";
+    doseText = "Normal dose which was dedicated by the physician. (Total dose for 2 active substances: 3 g - 12 g, depending on the indication)";
     } else if (result < 30 && result >= 15) {
-    doseText = "3 g in every 12 hours (Total dose for 2 active substances)<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>";
+    doseText = "3 g in every 12 hours (Total dose for 2 active substances)";
     } else if (result < 15) {
-    doseText = "1.5 g for every 12 hours (Total dose for 2 active substances)<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>";
+    doseText = "1.5 g for every 12 hours (Total dose for 2 active substances)";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ciprofloxacin lactate") {
     if (result >= 60) {
-    doseText = "Normal dose which was dedicated by the physician. (800 mg - 1200 mg, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
+    doseText = "Normal dose which was dedicated by the physician. (800 mg - 1200 mg, depending on the indication)";
     } else if (result < 60 && result >= 30) {
-    doseText = "Regulated as to be maximum of 800 mg in a day<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
+    doseText = "Regulated as to be maximum of 800 mg in a day";
     } else if (result < 30) {
-    doseText = "Regulated as to be maximum of 400 mg in a da<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
+    doseText = "Regulated as to be maximum of 400 mg in a da";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Teicoplanin") {
     if (result >= 60) {
-    doseText = "Normal dose which was dedicated by the physician. (A single dose of 200, 400 or 800 mg, depending on the indication)<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
+    doseText = "Normal dose which was dedicated by the physician. (A single dose of 200, 400 or 800 mg, depending on the indication)";
     } else if (result < 60 && result >= 40) {
-    doseText = "Apply half of the dose OR apply the daily dose in every 2 days. Dose adjustment is not needed during the first 4 days of the treatment<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
+    doseText = "Apply half of the dose OR apply the daily dose in every 2 days. Dose adjustment is not needed during the first 4 days of the treatment";
     } else if (result < 40) {
-    doseText = "Apply 1/3 of the dose OR apply the daily dose in every 3 days. Dose adjustment is not needed during the first 4 days of the treatment<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
+    doseText = "Apply 1/3 of the dose OR apply the daily dose in every 3 days. Dose adjustment is not needed during the first 4 days of the treatment";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Imipenem / Cilastatin sodium") {
     document.getElementById('srcrForCila').value = result;
     document.getElementById('weightForCila').value = weight;
@@ -679,7 +675,7 @@ html(lang='en')
     let cilaInfo = document.getElementById('leftNote1');
     let cilaText;
     if (weight > 0 && weight < 30 && result < 71) {
-    return cilaInfo.innerHTML = "Due to insufficient data for <strong>imipenem / cilastatin sodium</strong> , its usage for pediatric patients weight less than 30 kilograms is not suggested.<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    return cilaInfo.innerHTML = "Due to insufficient data for <strong>imipenem / cilastatin sodium</strong> , its usage for pediatric patients weight less than 30 kilograms is not suggested.";
     }
     if (result && weight) {
     reload.style.display = "inline-block";
@@ -687,311 +683,311 @@ html(lang='en')
     if (normal === "1") {
     if (weight >= 70) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight >= 60 && weight < 70) {
     if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     }
     } else if (weight >= 50 && weight < 60) {
     if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "125 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     }
     } else if (weight >= 40 && weight < 50) {
     if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "125 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     }
     } else if (weight < 40) {
     if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "125 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     }
     }
     } else if (normal === "2") {
     if (weight >= 70) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight >= 60 && weight < 70) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight >= 50 && weight < 60) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight >= 40 && weight < 50) {
     if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     }
     } else if (weight < 40) {
     if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "125 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     }
     }
     } else if (normal === "3") {
     if (weight >= 70) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "500 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight >= 60 && weight < 70) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight >= 50 && weight < 60) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight >= 40 && weight < 50) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight < 40) {
     if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "125 mg in every 12 hours";
     }
     }
     } else if (normal === "4") {
     if (weight >= 70) {
     if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "1000 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "1000 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     }
     } else if (weight >= 60 && weight < 70) {
     if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "750 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "750 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     }
     } else if (weight >= 50 && weight < 60) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "500 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight >= 40 && weight < 50) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight < 40) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     }
     } else if (normal === "5") {
     if (weight >= 70) {
     if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "1000 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "1000 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "750 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "750 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 6 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     }
     } else if (weight >= 60 && weight < 70) {
     if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "1000 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "1000 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "750 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "750 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     }
     } else if (weight >= 50 && weight < 60) {
     if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "750 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "750 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 12 hours";
     }
     } else if (weight >= 40 && weight < 50) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "500 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 6 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     } else if (weight < 40) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     } else if (result >= 71) {
-    cilaText = "500 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "500 mg in every 8 hours";
     } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 6 hours";
     } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 8 hours";
     } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours<a href='https://titck.gov.tr/storage/kubKtAttachments/jpU9UuQRQ39Ce.pdf' target='_blank'>*</a>";
+    cilaText = "250 mg in every 12 hours";
     }
     }
     }
@@ -1003,7 +999,8 @@ html(lang='en')
     }
     resulty.innerHTML = cilaText;
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
+    // $("#calcForCila").attr("disabled", true);
     });
   script.
     $('#calculateForDapto').click(() => {
@@ -1043,8 +1040,8 @@ html(lang='en')
     }
     resulty.innerHTML = daptoText;
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
-    $("#calculateForDapto").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
+    // $("#calculateForDapto").attr("disabled", true);
     });
   script.
     $('#calculateForLevo').click(() => {
@@ -1055,30 +1052,30 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     if (result > 50) {
-    levoText = `Dose adjustment is not needed. <a href="img/tavanic_kub.png">Dosage table</a> prepared for the patients have sufficient renal functions, may be used.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>`;
+    levoText = `Dose adjustment is not needed. <a href="img/tavanic_kub.png">Dosage table</a> prepared for the patients have sufficient renal functions, may be used.`;
     } else if (result <= 50 && result > 19) {
     if (normal === "1") {
-    levoText = "First dose is 250 mg. After then 125 mg / 24 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 250 mg. After then 125 mg / 24 hours";
     } else if (normal === "2") {
-    levoText = "First dose is 500 mg. After then 250 mg / 24 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 500 mg. After then 250 mg / 24 hours";
     } else if (normal === "3") {
-    levoText = "First dose is 500 mg. After then 250 mg / 12 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 500 mg. After then 250 mg / 12 hours";
     }
     } else if (result < 20 && result >= 10) {
     if (normal === "1") {
-    levoText = "First dose is 250 mg. After then 125 mg / 48 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 250 mg. After then 125 mg / 48 hours";
     } else if (normal === "2") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
     } else if (normal === "3") {
-    levoText = "First dose is 500 mg. After then 125 mg / 12 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 500 mg. After then 125 mg / 12 hours";
     }
     } else if (result < 10) {
     if (normal === "1") {
-    levoText = "First dose is 250 mg. After then 125 mg / 48 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 250 mg. After then 125 mg / 48 hours";
     } else if (normal === "2") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
     } else if (normal === "3") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
     }
     }
     } else {
@@ -1086,11 +1083,11 @@ html(lang='en')
     }
     if (diyaLevo === "1") {
     if (normal === "1") {
-    levoText = "First dose is 250 mg. After then 125 mg / 48 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 250 mg. After then 125 mg / 48 hours";
     } else if (normal === "2") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
     } else if (normal === "3") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
     }
     }
     if (result) {
@@ -1098,7 +1095,7 @@ html(lang='en')
     }
     resulty.innerHTML = levoText;
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     });
   script.
     $('#reload').click(() => {
@@ -1278,7 +1275,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "<strong>Levofloxacin</strong> is contraindicated for the children and adolescents whose growing still proceeds.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "<strong>Levofloxacin</strong> is contraindicated for the children and adolescents whose growing still proceeds.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1292,7 +1289,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "There's no experience related to <strong>meropeneme</strong> on children who has renal dysfunction.<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "There's no experience related to <strong>meropeneme</strong> on children who has renal dysfunction.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1306,7 +1303,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     } else if (age1.value > -1 && age1.value < 13) {
-    infoText.innerHTML = "For <strong>piperacillin sodium / tazobactam sodium</strong>, there's a different calculation method for the children younger than 13 years old.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "For <strong>piperacillin sodium / tazobactam sodium</strong>, there's a different calculation method for the children younger than 13 years old.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1320,7 +1317,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "There is no dose study conducted in the children who has renal and/or liver failure for <strong>ciprofloxacin lactate</strong>.<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "There is no dose study conducted in the children who has renal and/or liver failure for <strong>ciprofloxacin lactate</strong>.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1334,7 +1331,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "There's no prospectus information provided about <strong>vancomycin hydrochloride</strong> dosage for the children who has renal and/or liver failure.<a href='https://titck.gov.tr/storage/kubKtAttachments/b2b033b065298.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "There's no prospectus information provided about <strong>vancomycin hydrochloride</strong> dosage for the children who has renal and/or liver failure.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1388,7 +1385,7 @@ html(lang='en')
     }
     } else if (actSubs.textContent === "Levofloxacin") {
     if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "<strong>Levofloxacin</strong> is contraindicated for the children and adolescents whose growing still proceeds.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "<strong>Levofloxacin</strong> is contraindicated for the children and adolescents whose growing still proceeds.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1399,7 +1396,7 @@ html(lang='en')
     }
     } else if (actSubs.textContent === "Meropenem trihydrate") {
     if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "There's no experience related to <strong>meropeneme</strong> on children who has renal dysfunction.<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "There's no experience related to <strong>meropeneme</strong> on children who has renal dysfunction.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1410,7 +1407,7 @@ html(lang='en')
     }
     } else if (actSubs.textContent === "Piperacillin sodium / Tazobactam sodium") {
     if (age2.value > -1 && age2.value < 13) {
-    infoText.innerHTML = "For <strong>piperacillin sodium / tazobactam sodium</strong>, there's a different calculation method for the children younger than 13 years old.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "For <strong>piperacillin sodium / tazobactam sodium</strong>, there's a different calculation method for the children younger than 13 years old.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1421,7 +1418,7 @@ html(lang='en')
     }
     } else if (actSubs.textContent === "Ciprofloxacin lactate") {
     if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "There is no dose study conducted in the children who has renal and/or liver failure for <strong>ciprofloxacin lactate</strong>.<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "There is no dose study conducted in the children who has renal and/or liver failure for <strong>ciprofloxacin lactate</strong>.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1432,7 +1429,7 @@ html(lang='en')
     }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
     if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "There's no prospectus information provided about <strong>vancomycin hydrochloride</strong> dosage for the children who has renal and/or liver failure.<a href='https://titck.gov.tr/storage/kubKtAttachments/b2b033b065298.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "There's no prospectus information provided about <strong>vancomycin hydrochloride</strong> dosage for the children who has renal and/or liver failure.";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1636,7 +1633,7 @@ html(lang='en')
     }
     $('#print').click(() => {
     let whole = resulty.textContent;
-    let position = whole.indexOf('*');
+    let position = whole.indexOf('(');
     let suggesty = whole.substring(0, (position));
     createCookie('crCl', result, 1);
     if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked')) {

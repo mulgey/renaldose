@@ -221,7 +221,7 @@ html(lang='tr')
                 option(value='5') 4,0 g / gün
             .col-12.col-lg-3.mt-3
               label(for='srcrForCila', style='color: white; font-weight: bold') Kreatinin Klirensi (ml/dakika)
-              input#srcrForCila.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0')
+              input#srcrForCila.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0', readonly='')
             .col-12.col-lg-3.mt-3
               label(for='weightForCila', style='color: white; font-weight: bold') Ağırlık (Kilogram)
               input#weightForCila.form-control(type='text', style='color: black', autocomplete='off')
@@ -255,7 +255,7 @@ html(lang='tr')
                 input#srcrForDapto.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0', readonly='')
               .col-12.col-lg-3.mt-3
                 label(for='weightForDapto', style='color: white; font-weight: bold') Ağırlık (Kilogram)
-                input#weightForDapto.form-control(type='text', style='color: black', autocomplete='off' readonly='')
+                input#weightForDapto.form-control(type='text', style='color: black', autocomplete='off')
             .row.text-center.align-items-center.mt-4
               .col
                 button#calculateForDapto.btn.btn-cyan.rounded-pill.btn-lg(type='button') Hesaplayalım
@@ -483,7 +483,7 @@ html(lang='tr')
     window.location.href='#presentResults';
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (method === "Cockcroft-Gault Denklemi") {
     if (age1 && weight && srcr1 && gender1 != "Cinsiyet") {
     result = (((140 - age1) * weight) / (72 * srcr1)).toFixed(2);
@@ -530,7 +530,7 @@ html(lang='tr')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Flukonazol") {
     if (result > 50) {
     doseText = "Doz ayarlaması gerekmemektedir (Endikasyona bağlı olarak günde 50 mg - 400 mg)<a href='https://titck.gov.tr/storage/kubKtAttachments/Xb2snaSjTfhFC.pdf' target='_blank'>*</a>";
@@ -540,7 +540,7 @@ html(lang='tr')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Meropenem trihidrat") {
     if (result >= 90) {
     doseText = "Doz ayarlaması gerekmemektedir (Endikasyona bağlı olarak günde 1,5 g - 6 g)<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
@@ -556,7 +556,7 @@ html(lang='tr')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Piperasilin sodyum / Tazobaktam sodyum") {
     if (result > 80) {
     doseText = "Doz ayarlaması gerekmemektedir (Endikasyona bağlı olarak 6 veya 8 saatte bir 4,5 g)<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
@@ -568,7 +568,7 @@ html(lang='tr')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Kolistimetat sodyum") {
     if (result >= 70) {
     doseText = "Doz ayarlamasına gerek yoktur. Günlük toplam doz 5 mg/kg/gün olacak şekilde hesaplanır. Toplam doz 2 veya 3'e bölünerek verilir.<a href='http://kocakfarma.com/urun-aciklama.aspx?bolumSeo=kisabilgi&id=43&lang=tr' target='_blank'>*</a>";
@@ -580,7 +580,7 @@ html(lang='tr')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Vankomisin hidroklorür") {
     if (result < 90) {
     vancoDose = (result * 15.45).toFixed(0);
@@ -589,7 +589,7 @@ html(lang='tr')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Sefoperazon sodyum / Sulbaktam sodyum") {
     if (result >= 30) {
     doseText = "Hekimin belirlemiş olduğu normal doz (Endikasyona bağlı olarak 2 etkin madde için toplam doz: 3 g - 12 g)<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>";
@@ -601,7 +601,7 @@ html(lang='tr')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Siprofloksasin laktat") {
     if (result >= 60) {
     doseText = "Hekimin belirlemiş olduğu normal doz (Endikasyona bağlı olarak 800 mg - 1200 mg)<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
@@ -613,7 +613,7 @@ html(lang='tr')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Teikoplanin") {
     if (result >= 60) {
     doseText = "Hekimin belirlemiş olduğu normal doz (Endikasyona bağlı olarak 200, 400 veya 800 mg'lık tek doz)<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
@@ -625,7 +625,7 @@ html(lang='tr')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "İmipenem / Silastatin sodyum") {
     document.getElementById('srcrForCila').value = result;
     document.getElementById('weightForCila').value = weight;
@@ -1004,7 +1004,8 @@ html(lang='tr')
     }
     resulty.innerHTML = cilaText;
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
+    // $("#calcForCila").attr("disabled", true);
     });
   script.
     $('#calculateForDapto').click(() => {
@@ -1044,8 +1045,8 @@ html(lang='tr')
     }
     resulty.innerHTML = daptoText;
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
-    $("#calculateForDapto").attr("disabled", true);
+    // $("#calcButton").attr("disabled", true);
+    // $("#calculateForDapto").attr("disabled", true);
     });
   script.
     $('#calculateForLevo').click(() => {
