@@ -43,7 +43,53 @@ html(lang='tr')
     // Bootstrap core JavaScript
     script(type='text/javascript', src='../js/bootstrap.min.js')
     // MDB core JavaScript
-    script(type='text/javascript', src='../js/mdb.js')  
+    script(type='text/javascript', src='../js/mdb.js')
+    // Scroll Stuff
+    script.
+      let isMobile = /iPhone|iPad|iPod|Android|BlackBerry|Opera Mini|IEMobile|webOS|Windows Phone/i.test(navigator.userAgent);
+      if (isMobile) {
+      $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+      scrollTop: $(hash).offset().top
+      }, 800, function(){
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+      } // End if
+      });
+      });
+      } else {
+      $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+      scrollTop: $(hash).offset().top
+      }, 50, function(){
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+      } // End if
+      });
+      });
+      }  
   body
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
@@ -84,7 +130,7 @@ html(lang='tr')
               .dropdown
                 button#dropdownMenu1-1.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Etkin Madde Seçimi
                 #searchDrop.dropdown-menu.dropdown-primary(style="width: 95%")
-                  input#searchField.form-control.ml-2(style="width: 95%; color: steelblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search')
+                  input#searchField.form-control.ml-2(style="width: 95%; color: midnightblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search')
                   a.dropdown-item
                     | Daptomisin - 
                     small Cubicin
@@ -293,11 +339,11 @@ html(lang='tr')
               .col
                 button#calculateForLevo.btn.btn-cyan.rounded-pill.btn-lg(type='button') Hesaplayalım
       #presentResults.view(data-spy='presentResults', data-target='#presentResults', style="background-image: url('../img/calculate_03.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        .mask.rgba-stylish-light.flex-center.align-items-center.text-center
+        .mask.rgba-stylish-light.flex-center.align-items-center.text-center(style="overflow-y: scroll")
           .container
             .row
               .col
-                h2#resultText(style='color: white; font-weight: bold; letter-spacing: 2px; line-height: 55px')
+                h2#resultText(style='color: white; font-weight: bold; letter-spacing: 2px; line-height: 55px; font-size: 3.5vh;')
                   | Hesaplamanın işleminin başlatılması bekleniyor. 
                   a(href='#activeSubstance') Veri girişi
                   |  bölüme geçelim
@@ -464,15 +510,15 @@ html(lang='tr')
     } else if (actSubs === "Flukonazol") {
     doseText = "Her hemodiyaliz seansından sonra hekimin endikasyona göre belirlemiş olduğu normal doz alınabilir<a href='https://titck.gov.tr/storage/kubKtAttachments/Xb2snaSjTfhFC.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Kolistimetat sodyum") {
-    doseText = ("Hemodiyaliz yapılmayan günlerde günlük toplam 105 mg olarak 12 saatte bir uygulanır. Diyaliz günlerinde toplam 4.500.000 IU (150 mg) doz ikiye bölünür ve ilk yarısı hemodiyalizin son saatinde diğer yarısı da bundan 12 saat sonra uygulanır.<a href='http://kocakfarma.com/urun-aciklama.aspx?bolumSeo=kisabilgi&id=43&lang=tr' target='_blank'>*</a>");
+    doseText = ("Hemodiyaliz yapılmayan günlerde günlük toplam 3.150.000 IU olarak 12 saatte bir uygulanır. Diyaliz günlerinde toplam 4.500.000 IU doz ikiye bölünür ve ilk yarısı hemodiyalizin son saatinde diğer yarısı da bundan 12 saat sonra uygulanır.<a href='https://titck.gov.tr/storage/kubKtAttachments/CISKhe7iHMIIx.pdf' target='_blank'>*</a>");
     } else if (actSubs === "Meropenem trihidrat") {
     doseText = "Hekimin belirlediği normal dozun hemodiyaliz tedavisinden sonra uygulanması önerilir<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Piperasilin sodyum / Tazobaktam sodyum") {
-    doseText = "Günde 2 kez 4,5 g. Her bir diyaliz periyodundan sonra 2,25 g takviye dozu uygulanmalıdır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>"
+    doseText = "Maksimum günde 2 kez 4,5 g. Her bir diyaliz periyodundan sonra 2,25 g takviye dozu uygulanmalıdır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Sefoperazon sodyum / Sulbaktam sodyum") {
-    doseText = "Doz ayarlanması gerektiği belirtilmiştir fakat ürün prospektüsünde nasıl yapılacağına ilişkin bir bilgi bulunmamaktadır. İntaniye veya nefroloji uzmanı hekimleri ile görüşülmesi tavsiye olunur.<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>"
+    doseText = "Hemodiyaliz sırasında sefoperazon serum yarı ömrü hafifçe azalabilir. Bu sebepten dolayı dozlar, diyaliz süresini takip edilecek şekilde ayarlanmalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Siprofloksasin laktat") {
-    doseText = "Diyaliz sonrasındaki günlük siprofloksasin dozu en fazla 400 mg olmalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>"
+    doseText = "Diyaliz sonrasındaki diyaliz günlerinde en fazla günlük siprofloksasin dozu 400 mg olmalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Teikoplanin") {
     doseText = "Normal dozun 1/3'ünü uygulayın veya normal dozu 3 günde bir uygulayın. Tedavinin ilk 4 günü doz ayarlamasına gerek yoktur.<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Vankomisin hidroklorür") {
@@ -542,13 +588,11 @@ html(lang='tr')
     window.location.href='#presentResults';
     // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Meropenem trihidrat") {
-    if (result >= 90) {
+    if (result > 50) {
     doseText = "Doz ayarlaması gerekmemektedir (Endikasyona bağlı olarak günde 1,5 g - 6 g)<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
-    } else if (result < 90 && result >= 50 ) {
-    doseText = "8 saatte bir 1 g<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
-    } else if (result < 50 && result >= 25) {
+    } else if (result <= 50 && result > 25 ) {
     doseText = "12 saatte bir 1 g<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
-    } else if (result < 25 && result >= 10) {
+    } else if (result <= 25 && result >= 10) {
     doseText = "12 saatte bir 500 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
     } else if (result < 10) {
     doseText = "24 saatte bir 500 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
@@ -570,12 +614,19 @@ html(lang='tr')
     window.location.href='#presentResults';
     // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Kolistimetat sodyum") {
+    function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
     if (result >= 70) {
-    doseText = "Doz ayarlamasına gerek yoktur. Günlük toplam doz 5 mg/kg/gün olacak şekilde hesaplanır. Toplam doz 2 veya 3'e bölünerek verilir.<a href='http://kocakfarma.com/urun-aciklama.aspx?bolumSeo=kisabilgi&id=43&lang=tr' target='_blank'>*</a>";
-    } else if (result < 70) {
-    minForColi = ((2.5 * [(1.5 * result) + 30]) / 2).toFixed(0);
-    maxForColi = ((3.5 * [(1.5 * result) + 30]) / 2).toFixed(0);
-    doseText = `12 saatte bir minimum ${minForColi} g, maksimum ${maxForColi} g<a href='http://kocakfarma.com/urun-aciklama.aspx?bolumSeo=kisabilgi&id=43&lang=tr' target='_blank'>*</a>`;
+    doseText = "Doz ayarlamasına gerek yoktur. Günlük toplam doz 150.000 IU/kg/gün olacak şekilde hesaplanır. Toplam doz 2 veya 3'e bölünerek verilir.<a href='https://titck.gov.tr/storage/kubKtAttachments/CISKhe7iHMIIx.pdf' target='_blank'>*</a>";
+    } else if (result < 70 && result > 10) {
+    minForColi = ((75000 * [(1.5 * result) + 30]) / 2).toFixed(0);
+    minForColi = numberWithCommas(minForColi);
+    maxForColi = ((105000 * [(1.5 * result) + 30]) / 2).toFixed(0);
+    maxForColi = numberWithCommas(maxForColi);
+    doseText = `12 saatte bir minimum ${minForColi} IU, maksimum ${maxForColi} IU<a href='https://titck.gov.tr/storage/kubKtAttachments/CISKhe7iHMIIx.pdf' target='_blank'>*</a>`;
+    } else if (result <= 10) {
+    doseText = `12 saatte bir minimum 1.687.500 IU, maksimum 2.362.500 IU<a href='https://titck.gov.tr/storage/kubKtAttachments/CISKhe7iHMIIx.pdf' target='_blank'>*</a>`;
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -603,9 +654,9 @@ html(lang='tr')
     window.location.href='#presentResults';
     // $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Siprofloksasin laktat") {
-    if (result >= 60) {
+    if (result > 60) {
     doseText = "Hekimin belirlemiş olduğu normal doz (Endikasyona bağlı olarak 800 mg - 1200 mg)<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
-    } else if (result < 60 && result >= 30) {
+    } else if (result <= 60 && result >= 30) {
     doseText = "Günde maksimum 800 mg olacak şekilde düzenlenir<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
     } else if (result < 30) {
     doseText = "Günde maksimum 400 mg olacak şekilde düzenlenir<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
@@ -1307,7 +1358,7 @@ html(lang='tr')
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
     $('#calculate').fadeTo('fast', 100);
     } else if (age1.value > -1 && age1.value < 13) {
-    infoText.innerHTML = "<strong>Piperasilin sodyum / Tazobaktam sodyum</strong> kullanımında 13 yaşından küçük çocuklar için ayrı bir hesaplama yöntemi mevcuttur<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "<strong>Piperasilin sodyum / Tazobaktam sodyum</strong> kullanımında 13 yaşından küçük çocuklar için farklı bir hesaplama yöntemi mevcuttur<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
@@ -1366,7 +1417,10 @@ html(lang='tr')
     $('#calculate').fadeTo('fast', 100);
     }
     } else if (actSubs.textContent === "Daptomisin") {
-    if (age2.value > -1 && age2.value < 18) {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    } else if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "<strong>Daptomisinin</strong> 18 yaş altı hastalardaki güvenliliği ve etkililiği saptanmamıştır. Kullanımı tavsiye edilmez.<a href='https://titck.gov.tr/storage/kubKtAttachments/xurEXcrTVinRL.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1377,7 +1431,10 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Ertapenem sodyum") {
-    if (age2.value > -1 && age2.value < 13) {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    } else if (age2.value > -1 && age2.value < 13) {
     infoText.innerHTML = "<strong>Ertapenem sodyum</strong> için böbrek yetmezliği olan pediyatrik hastalarla ilgili veri yoktur.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/k%C3%BCb.pdf_e21aa48b-870b-4333-a95c-2017da219d1c.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1388,7 +1445,10 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Levofloksasin") {
-    if (age2.value > -1 && age2.value < 18) {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    } else if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "<strong>Levofloksasin</strong> çocuklarda ve büyümesi devam eden ergenlerde kontrendikedir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/ec6b333e-e68b-4a96-8ae4-5ea400798a1d.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1399,7 +1459,10 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Meropenem trihidrat") {
-    if (age2.value > -1 && age2.value < 18) {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    } else if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "<strong>Meropeneme</strong> ilişkin, böbrek fonksiyonu bozuk olan çocuklarla ilgili deneyim yoktur.<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1410,7 +1473,10 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Piperasilin sodyum / Tazobaktam sodyum") {
-    if (age2.value > -1 && age2.value < 13) {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    } else if (age2.value > -1 && age2.value < 13) {
     infoText.innerHTML = "<strong>Piperasilin sodyum / Tazobaktam sodyum</strong> kullanımında 13 yaşından küçük çocuklar için ayrı bir hesaplama yöntemi mevcuttur<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1421,7 +1487,10 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Siprofloksasin laktat") {
-    if (age2.value > -1 && age2.value < 18) {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    } else if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "<strong>Siprofloksasin laktat</strong> için, renal ve/veya hepatik bozukluğu olan çocuklarda doz çalışması yapılmamıştır.<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {
@@ -1432,7 +1501,10 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
-    if (age2.value > -1 && age2.value < 18) {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    } else if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "<strong>Vankomisin hidroklorür</strong> için, renal ve/veya hepatik bozukluğu olan çocuklardaki dozlamasıyla ilgili herhangi bir prospektüs bilgisi verilmemiştir.<a href='https://titck.gov.tr/storage/kubKtAttachments/b2b033b065298.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     } else if (age2.value < 0) {

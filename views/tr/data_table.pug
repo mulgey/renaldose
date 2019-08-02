@@ -46,6 +46,52 @@ html(lang='en')
     script(type='text/javascript', src='../js/mdb.js')
     // MDBootstrap Datatables
     script(type='text/javascript', src='../js/addons/datatables.min.js')
+    // Scroll Stuff
+    script.
+      let isMobile = /iPhone|iPad|iPod|Android|BlackBerry|Opera Mini|IEMobile|webOS|Windows Phone/i.test(navigator.userAgent);
+      if (isMobile) {
+      $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+      scrollTop: $(hash).offset().top
+      }, 800, function(){
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+      } // End if
+      });
+      });
+      } else {
+      $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+      scrollTop: $(hash).offset().top
+      }, 50, function(){
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+      } // End if
+      });
+      });
+      }
   body
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
@@ -153,26 +199,26 @@ html(lang='en')
             td Meropenem trihidrat
             td 1,5 g - 6 g
             // Normal
-            td 1 g / 8 saat
+            td Hekim tarafından belirlenen normal doz
             // 60-89
             td
-              | 1 g / 8 saat (50-59)
+              | Normal doz (51-59)
               br
-              | 1 g / 12 saat (45-49)
+              | 1 g / 12 saat (45-50)
               br
             // 45-59
             td 1 g / 12 saat
             // 30-44
             td
-              | 1 g / 12 saat (25-29)
+              | 1 g / 12 saat (26-29)
               br
-              | 500 mg / 12 saat (15-24)
+              | 500 g / 12 saat (15-25)
               br
             // 15-29
             td
-              | 500 mg / 12 saat (10-14)
+              | 500 g / 12 saat (10-14)
               br
-              | 500 mg / 24 saat (10'un altı)
+              | 500 g / 24 saat (10'un altı)
               br
             // 15 altı
             td
@@ -194,7 +240,7 @@ html(lang='en')
             td Maksimum 400 mg olacak şekilde düzenlenir
             // 15 altı
             td
-              | Hemodiyaliz günlerinde diyaliz sonrasındaki en fazla günlük siprofloksasin intravenöz dozu 400 mg olmalıdır.
+              | Diyaliz sonrasındaki diyaliz günlerinde en fazla günlük siprofloksasin intravenöz dozu 400 mg olmalıdır.
             // diyaliz
           tr
             td Levofloksasin
@@ -293,7 +339,7 @@ html(lang='en')
             td 4,5 g / 12 saat
             // 15 altı
             td
-              | 4,5 g / 12 saat. Her bir diyaliz periyodundan sonra 2,25 g takviye dozu uygulanmalıdır
+              | Maksimum 12 saatte bir 4,5 g. Her bir diyaliz periyodundan sonra 2,25 g takviye dozu uygulanmalıdır
             // diyaliz
           tr
             td Flukonazol
@@ -330,7 +376,7 @@ html(lang='en')
             td 1,5 g / 12 saat (2 etken madde için total doz)
             // 15 altı
             td
-              | Doz ayarlanması gerektiği belirtilmiştir fakat ürün prospektüsünde nasıl yapılacağına ilişkin bir bilgi bulunmamaktadır.
+              | Hemodiyaliz sırasında sefoperazon serum yarı ömrü hafifçe azalabilir. Bu sebepten dolayı dozlar, diyaliz süresini takip edilecek şekilde ayarlanmalıdır.
             // diyaliz
           tr
             td Kolistimetat sodyum
@@ -347,7 +393,7 @@ html(lang='en')
             td KoH*
             // 15 altı
             td
-              | Hemodiyaliz yapılmayan günlerde günlük toplam 3.150.000 IU olarak 12 saatte bir uygulanır. Diyaliz günlerinde toplam 4.500.000 IU doz ikiye bölünür ve ilk yarısı hemodiyalizin son saatinde diğer yarısı hemodiyalizin son saatinde diğer yarısı da bundan 12 saat sonra uygulanır.
+              | Hemodiyaliz yapılmayan günlerde günlük toplam 3.150.000 IU olarak 12 saatte bir uygulanır. Diyaliz günlerinde toplam 4.500.000 IU doz ikiye bölünür ve ilk yarısı hemodiyalizin son saatinde, diğer yarısı da bundan 12 saat sonra uygulanır.
             // diyaliz
           tr
             td Tigesiklin
@@ -395,7 +441,7 @@ html(lang='en')
             // 15-29
             td Bu etken madde için doz ayarlamasına gerek yoktur
             // 15 altı
-            td Bu etken madde için doz ayarlamasına gerek yoktur
+            td Hemodiyaliz tedavisi gören hastalarda tedavi, diyaliz işleminden sonra uygulanmalıdır
             // diyaliz
           tr
             td Metronidazol
