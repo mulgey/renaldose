@@ -3,6 +3,7 @@ Genel
 - .view için genel olarak height: 110vh yerine, bölümlere özel vh tanımlamaları gerekmektedir
 - Huawei Mate 20 Lite testi gerekmektedir
 - Ortada bir sonuç varsa, "sayfayı yenilemeniz önerilir"
+- Print'ten sonra otomatik olarak save e geçiyor
 
 index.html
 - İki tuş mobil düzende bozuk bir hal alıyor
