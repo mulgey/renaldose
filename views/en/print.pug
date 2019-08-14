@@ -70,7 +70,7 @@ form.border.border-light.p-5(action='/en/print', method='post')
       #crCly.col-12.col-lg-8.mt-3
         | Creatinine Clearance (ml/min):
         br
-        input#crCl.form-control(autocomplete='off', readonly='' name='crCl')
+        input#crCl.form-control(type="text" autocomplete='off', readonly='' name='crCl')
       #diay.col-12.col-lg-8.mt-3
         | State of Hemodialysis:
         br
@@ -142,7 +142,11 @@ form.border.border-light.p-5(action='/en/print', method='post')
     let suggest = readCookie('suggestion');
     let time = readCookie('time');
     document.getElementById('time').value = time;
+    if (crCl === "undefined") {
+    document.getElementById('crCl').value = "";
+    } else {
     document.getElementById('crCl').value = crCl;
+    }
     document.getElementById('dia').value = dia;
     document.getElementById('actSubs').value = actSubs;
     document.getElementById('suggest').value = suggest;
