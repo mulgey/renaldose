@@ -1050,6 +1050,8 @@ html(lang='en')
     }
     } else {
     cilaText = `Making calculation with this active substance requires serum creatinine and weight values. <a href="#imipenem-cilastatin">Let's try again</a>`;
+    resulty.innerHTML = cilaText;
+    return window.location.href='#presentResults';
     }
     if (result) {
     cilaText += `<br> <h4 style="line-height: 40px"> (<b>Active substance:</b> Imipenem / Cilastatin sodium // <b>Creatinine clearance:</b> ${result} mL/min)</h4>`;
@@ -1088,6 +1090,8 @@ html(lang='en')
     }
     } else {
     daptoText = `Making calculation with this active substance requires serum creatinine and weight values. <a href="#daptomicina">Let's try again</a>`;
+    resulty.innerHTML = daptoText;
+    return window.location.href='#presentResults';
     }
     if (diyaDapt === "1" && result && weight) {
     daptoText += ` Results are also valid for hemodialysis patients.`;
@@ -1137,6 +1141,8 @@ html(lang='en')
     }
     } else {
     levoText = `Making calculation with this active substance requires serum creatinine value. <a href="#levofloxacin">Let's try again</a>`;
+    resulty.innerHTML = levoText;
+    return window.location.href='#presentResults';
     }
     if (diyaLevo === "1") {
     if (normal === "1") {
@@ -1829,8 +1835,10 @@ html(lang='en')
     suggesty = whole.substring(0, (position));
     }
     let diaDapto = document.getElementById('diyaForDapto');
+    let diaCila = document.getElementById('diyaForCila');
+    let diaLevo = document.getElementById('diyaForLevo');
     createCookie('crCl', result, 1);
-    if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked') || diaDapto.value === "1") {
+    if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked') || diaDapto.value === "1"|| diaCila.value === "1"|| diaLevo.value === "1") {
     createCookie('dia', 'Receiving hemodialysis', 1);
     } else {
     createCookie('dia', 'Not receiving hemodialysis', 1);

@@ -1056,7 +1056,9 @@ html(lang='tr')
     }
     }
     } else {
-    cilaText = `Bu Etkin madde ile hesap yapabilmemiz için serum kreatinin ve ağırlık değerlerinin sağlanmış olması gerekir. <a href="#imipenem-cilastatin">Tekrar deneyelim</a>`;
+    cilaText = `Bu etkin madde ile hesap yapabilmemiz için serum kreatinin ve ağırlık değerlerinin sağlanmış olması gerekir. <a href="#imipenem-cilastatin">Tekrar deneyelim</a>`;
+    resulty.innerHTML = cilaText;
+    return window.location.href='#presentResults';
     }
     if (result) {
     cilaText += `<br> <h4 style="line-height: 40px"> (<b>Etkin madde:</b> İmipenem / Silastatin sodyum // <b>Kreatinin klirensi:</b> ${result} mL/min)</h4>`;
@@ -1095,6 +1097,8 @@ html(lang='tr')
     }
     } else {
     daptoText = `Bu etkin madde ile hesap yapabilmemiz için serum kreatinin ve ağırlık değerlerinin sağlanmış olması gerekir. <a href="#daptomicina">Tekrar deneyelim</a>`;
+    resulty.innerHTML = daptoText;
+    return window.location.href='#presentResults';
     }
     if (diyaDapt === "1" && result && weight) {
     daptoText += ` Hemodiyaliz hastaları için de aynı sonuç geçerlidir.`;
@@ -1144,6 +1148,8 @@ html(lang='tr')
     }
     } else {
     levoText = `Bu etkin madde ile hesap yapabilmemiz için serum kreatinin değerinin sağlanmış olması gerekir. <a href="#levofloxacin">Tekrar deneyelim</a>`;
+    resulty.innerHTML = levoText;
+    return window.location.href='#presentResults';
     }
     if (diyaLevo === "1") {
     if (normal === "1") {
@@ -1883,8 +1889,10 @@ html(lang='tr')
     let position = whole.indexOf('*');
     let suggesty = whole.substring(0, (position));
     let diaDapto = document.getElementById('diyaForDapto');
+    let diaCila = document.getElementById('diyaForCila');
+    let diaLevo = document.getElementById('diyaForLevo');
     createCookie('crCl', result, 1);
-    if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked') || diaDapto.value === "1") {
+    if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked') || diaDapto.value === "1"|| diaCila.value === "1"|| diaLevo.value === "1") {
     createCookie('dia', 'Hemodiyaliz alıyor', 1);
     } else {
     createCookie('dia', 'Hemodiyaliz almıyor', 1);
