@@ -58,6 +58,6 @@ app.use(function(err, req, res, next) {
 */
   
 // listen on port 3000
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Express in kulağı 3000 de, dinliyor');
 });
