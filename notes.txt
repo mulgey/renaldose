@@ -4,6 +4,7 @@ Genel
 - Huawei Mate 20 Lite testi gerekmektedir
 - Ortada bir sonuç varsa, "sayfayı yenilemeniz önerilir"
 - Print'ten sonra otomatik olarak save e geçiyor
+- calc/en sayfasında doz ayarlamama bilgisi geçişli gelmiyor, TR de geliyor
 
 index.html
 - İki tuş mobil düzende bozuk bir hal alıyor
