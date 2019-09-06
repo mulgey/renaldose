@@ -131,15 +131,13 @@ html(lang='tr')
                 button#dropdownMenu1-1.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Etkin Madde Seçimi
                 #searchDrop.dropdown-menu.dropdown-primary(style="width: 95%")
                   input#searchField.form-control.ml-2(style="width: 95%; color: midnightblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search')
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antibakteriyel
                   a.dropdown-item
                     | Daptomisin - 
                     small Cubicin
                   a.dropdown-item
                     | Ertapenem sodyum - 
                     small İnvanz
-                  a.dropdown-item
-                    | Flukonazol - 
-                    small Lumen EF
                   a.dropdown-item
                     | İmipenem / Silastatin sodyum - 
                     small Tienam
@@ -179,6 +177,11 @@ html(lang='tr')
                   a.dropdown-item
                     | Vankomisin hidroklorür - 
                     small Vancotek
+                  .dropdown-divider
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antifungal
+                  a.dropdown-item
+                    | Flukonazol - 
+                    small Lumen EF
             .col-12.col-lg-6.mt-3
               .dropdown
                 button#dropdownMenu1-2.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Cockcroft-Gault Denklemi
@@ -691,6 +694,7 @@ html(lang='tr')
     } else {
     imicilapy.style.display = "flex";
     window.location.href='#imipenem-cilastatin';
+    $("#calcButton").attr("disabled", true);
     }
     if (isNaN(weight)) {
     (document.getElementById('weightForCila').value) = "";
@@ -706,6 +710,7 @@ html(lang='tr')
     } else {
     daptomcy.style.display = "flex";
     window.location.href='#daptomicina';
+    $("#calcButton").attr("disabled", true);
     }
     if (isNaN(weight)) {
     (document.getElementById('weightForDapto').value) = "";
@@ -719,6 +724,7 @@ html(lang='tr')
     } else {
     levofloxy.style.display = "flex";
     window.location.href='#levofloxacin';
+    $("#calcButton").attr("disabled", true);
     }
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir yetmezlik dozu verisi sağlanmamıştır.";
@@ -1065,7 +1071,6 @@ html(lang='tr')
     }
     resulty.innerHTML = cilaText;
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
     $("#calcForCila").attr("disabled", true);
     });
   script.
@@ -1108,7 +1113,6 @@ html(lang='tr')
     }
     resulty.innerHTML = daptoText;
     window.location.href='#presentResults';
-    $("#calcButton").attr("disabled", true);
     $("#calculateForDapto").attr("disabled", true);
     });
   script.
@@ -1165,6 +1169,7 @@ html(lang='tr')
     }
     resulty.innerHTML = levoText;
     window.location.href='#presentResults';
+    $("#calculateForLevo").attr("disabled", true);
     });
   script.
     $('#reload').click(() => {
