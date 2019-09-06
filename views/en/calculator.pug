@@ -510,7 +510,7 @@ html(lang='en')
     } else if (actSubs === "Colistimethate sodium") {
     doseText = ("A total daily dose of 3,150,000 IU is given every 12 hours during the period which hemodialysis treatment isn't applied. On hemodialysis treatment days, a total daily dose of 4,500,000 IU is divided into two and first half is applied on the last hour of hemodialysis and the other half is after 12 hours");
     } else if (actSubs === "Meropenem trihydrate") {
-    doseText = "The dose dedicated by the doctor is suggested to be applied after the hemodialysis treatment"
+    doseText = "The dose dedicated by the doctor is suggested to be applied following the hemodialysis treatment"
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
     doseText = "Maximum dose is 4.5 g / 12h. Following the hemodialysis period, a supply dose of 2.25 g should be applied"
     } else if (actSubs === "Cefoperazone sodium / Sulbactam sodium") {
@@ -1431,7 +1431,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "There is no dose study conducted in the children who has renal and/or liver failure for <strong>ciprofloxacin lactate</strong>.";
+    infoText.innerHTML = "There is no dose study conducted for the children who has renal and/or liver failure using <strong>ciprofloxacin lactate</strong>.";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -1605,7 +1605,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "There is no dose study conducted in the children who has renal and/or liver failure for <strong>ciprofloxacin lactate</strong>.";
+    infoText.innerHTML = "There is no dose study conducted for the children who has renal and/or liver failure using <strong>ciprofloxacin lactate</strong>.";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
