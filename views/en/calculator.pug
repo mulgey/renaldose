@@ -182,6 +182,20 @@ html(lang='en')
                   a.dropdown-item
                     | Fluconazole - 
                     small Diflucan
+                  .dropdown-divider
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Cardiovascular
+                  a.dropdown-item
+                    | Bisoprolol fumarate - 
+                    small Zebeta
+                  a.dropdown-item
+                    | Perindopril arginine - 
+                    small Coversyl Arginine
+                  a.dropdown-item
+                    | Perindopril arginine + Indapamide - 
+                    small Coversyl Arginine Plus
+                  a.dropdown-item
+                    | Ramipril - 
+                    small Altace
             .col-12.col-lg-6.mt-3
               .dropdown
                 button#dropdownMenu1-2.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Cockcroft-Gault Equation
@@ -521,6 +535,14 @@ html(lang='en')
     doseText = "Apply 1/3 of the dose OR apply the daily dose in every 3 days. Dose adjustment is not needed during the first 4 days of the treatment"
     } else if (actSubs === "Vancomycin hydrochloride") {
     doseText = "1 g / week";
+    } else if (actSubs === "Bisoprolol fumarate") {
+    doseText = "There's no proof that requires adjusting dose regimen in hemodialysis patients.";
+    } else if (actSubs === "Perindopril arginine") {
+    doseText = "A daily dose of 2.5 mg should be given following the dialysis session.";
+    } else if (actSubs === "Perindopril arginine + Indapamide") {
+    doseText = "Treatment is considered as contraindicated for the patients having severe renal insufficiency.";
+    } else if (actSubs === "Ramipril") {
+    doseText = "Enough experience was not obtained for the patients who has severe renal insufficiency or dialysis patients";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -676,6 +698,56 @@ html(lang='en')
     doseText = "Apply half of the dose OR apply the daily dose in every 2 days. Dose adjustment is not needed during the first 4 days of the treatment";
     } else if (result < 40) {
     doseText = "Apply 1/3 of the dose OR apply the daily dose in every 3 days. Dose adjustment is not needed during the first 4 days of the treatment";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Bisoprolol fumarate") {
+    if (result >= 20) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 20) {
+    doseText = "Daily dose should not exceed 10 mg of bisprolol fumarate";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Perindopril arginine") {
+    if (result >= 90) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 90 && result >= 60) {
+    doseText = "5 mg a day";
+    } else if (result < 60 && result >= 30) {
+    doseText = "2.5 mg a day";
+    } else if (result < 30 && result >= 15) {
+    doseText = "2.5 mg in every 2 days";
+    } else if (result < 15) {
+    doseText = "A daily dose of 2.5 mg should be given following the dialysis session";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Perindopril arginine + Indapamide") {
+    if (result >= 60) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 60 && result >= 30) {
+    doseText = "Starting the treatment with the appropriate dose of free combination is suggested.";
+    } else if (result < 30) {
+    doseText = "Treatment is contraindicated.";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Ramipril") {
+    if (result >= 50) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 50 && result >= 20) {
+    doseText = "Starting dose is 1.25 mg a day. Maximum dose for a day is 5 mg";
+    } else if (result < 20) {
+    doseText = "Enough experience was not obtained for the patients who has severe renal insufficiency or dialysis patients";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1451,6 +1523,78 @@ html(lang='en')
     infoText.innerHTML = text1;
     $('#calculate').fadeTo('medium', 100); $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Bisoprolol fumarate") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "There's no experience about <strong>bisoprolol</strong>'s usage on children. Therefore, it's not suggested.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Perindopril arginine") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Effectiveness and reliability of <strong>perindopril</strong> in children and adolescents could not be determined.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Perindopril arginine + Indapamide") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "<strong>Perindopril + indapamit</strong> should not be used by children and adolescents.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Ramipril") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Enough experience was not obtained for <strong>ramipril</strong> usage on children";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
@@ -1599,6 +1743,78 @@ html(lang='en')
     } else {
     infoText.innerHTML = text1;
     $('#calculate').fadeTo('medium', 100); $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Bisoprolol fumarate") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "There's no experience about <strong>bisoprolol</strong>'s usage on children. Therefore, it's not suggested.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Perindopril arginine") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Effectiveness and reliability of <strong>perindopril</strong> in children and adolescents could not be determined.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Perindopril arginine + Indapamide") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "<strong>Perindopril + indapamit</strong> should not be used by children and adolescents.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Ramipril") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Enough experience was not obtained for <strong>ramipril</strong> usage on children";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
     }
     } else if (actSubs.textContent === "Ciprofloxacin lactate") {
     if (age2.value > 100) {

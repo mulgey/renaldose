@@ -182,6 +182,20 @@ html(lang='tr')
                   a.dropdown-item
                     | Flukonazol - 
                     small Lumen EF
+                  .dropdown-divider
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Kardiyovasküler
+                  a.dropdown-item
+                    | Bisoprolol fumarat - 
+                    small Concor
+                  a.dropdown-item
+                    | Perindopril arginin - 
+                    small Coversyl
+                  a.dropdown-item
+                    | Perindopril arginin + İndapamit - 
+                    small Coversyl Plus
+                  a.dropdown-item
+                    | Ramipril - 
+                    small Delix
             .col-12.col-lg-6.mt-3
               .dropdown
                 button#dropdownMenu1-2.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Cockcroft-Gault Denklemi
@@ -513,19 +527,27 @@ html(lang='tr')
     } else if (actSubs === "Flukonazol") {
     doseText = "Her hemodiyaliz seansından sonra hekimin endikasyona göre belirlemiş olduğu normal doz alınabilir<a href='https://titck.gov.tr/storage/kubKtAttachments/Xb2snaSjTfhFC.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Kolistimetat sodyum") {
-    doseText = ("Hemodiyaliz yapılmayan günlerde günlük toplam 3.150.000 IU olarak 12 saatte bir uygulanır. Diyaliz günlerinde toplam 4.500.000 IU doz ikiye bölünür ve ilk yarısı hemodiyalizin son saatinde diğer yarısı da bundan 12 saat sonra uygulanır.<a href='https://titck.gov.tr/storage/kubKtAttachments/CISKhe7iHMIIx.pdf' target='_blank'>*</a>");
+    doseText = ("Hemodiyaliz yapılmayan günlerde günlük toplam 3.150.000 IU olarak 12 saatte bir uygulanır. Diyaliz günlerinde toplam 4.500.000 IU doz ikiye bölünür ve ilk yarısı hemodiyalizin son saatinde diğer yarısı da bundan 12 saat sonra uygulanır<a href='https://titck.gov.tr/storage/kubKtAttachments/CISKhe7iHMIIx.pdf' target='_blank'>*</a>");
     } else if (actSubs === "Meropenem trihidrat") {
     doseText = "Hekimin belirlediği normal dozun hemodiyaliz tedavisinden sonra uygulanması önerilir<a href='https://titck.gov.tr/storage/kubKtAttachments/w6Yt8152JtyzB.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Piperasilin sodyum / Tazobaktam sodyum") {
     doseText = "Maksimum günde 2 kez 4,5 g. Her bir diyaliz periyodundan sonra 2,25 g takviye dozu uygulanmalıdır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/a9679f69-af3d-4d0b-bb20-49b8be5adf96.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Sefoperazon sodyum / Sulbaktam sodyum") {
-    doseText = "Hemodiyaliz sırasında sefoperazonun yarı ömrü hafifçe azalabilir. Bu sebepten dolayı dozlar, diyaliz süresini takip edilecek şekilde ayarlanmalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>"
+    doseText = "Hemodiyaliz sırasında sefoperazonun yarı ömrü hafifçe azalabilir. Bu sebepten dolayı dozlar, diyaliz süresini takip edilecek şekilde ayarlanmalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/24e1b21e40213.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Siprofloksasin laktat") {
-    doseText = "Diyaliz sonrasındaki diyaliz günlerinde en fazla günlük siprofloksasin dozu 400 mg olmalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>"
+    doseText = "Diyaliz sonrasındaki diyaliz günlerinde en fazla günlük siprofloksasin dozu 400 mg olmalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/0003cad130634.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Teikoplanin") {
     doseText = "Normal dozun 1/3'ünü uygulayın veya normal dozu 3 günde bir uygulayın. Tedavinin ilk 4 günü doz ayarlaması gerekmemektedir.<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>"
     } else if (actSubs === "Vankomisin hidroklorür") {
     doseText = "Haftada 1 g<a href='https://titck.gov.tr/storage/kubKtAttachments/b2b033b065298.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Bisoprolol fumarat") {
+    doseText = "Diyaliz hastalarında doz rejiminin değiştirilmesini gerektiren bir kanıt bulunmamaktadır<a href='https://titck.gov.tr/storage/kubKtAttachments/c2ac447128449.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Perindopril arginin") {
+    doseText = "2,5 mg'lık doz diyaliz sonrasında verilmelidir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-COVERSYL%202,5-UYGUN%20KUB.pdf_ae2a7127-efc2-4c19-b1d9-628acc1c0e5a.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Perindopril arginin + İndapamit") {
+    doseText = "İleri derece böbrek yetmezliği olan hastalarda tedavi kontrendikedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20COVERSYL%205%20MG.pdf_e2e37ebe-b402-470c-8fae-dd7ae286a0d6.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Ramipril") {
+    doseText = "Şiddetli böbrek fonksiyon bozukluğu olan hastalarda ve diyaliz hastalarında kullanımı ile ilgili yeterli deneyim kazanılamamıştır<a href='https://titck.gov.tr/storage/kubKtAttachments/ir5ViI0HMRu5w.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -681,6 +703,56 @@ html(lang='tr')
     doseText = "Normal dozun yarısını uygulayın veya normal dozu 2 günde bir uygulayın. Tedavinin ilk 4 günü doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
     } else if (result < 40) {
     doseText = "Normal dozun 1/3'ünü uygulayın veya normal dozu 3 günde bir uygulayın. Tedavinin ilk 4 günü doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/affb19d273538.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Bisoprolol fumarat") {
+    if (result >= 20) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/c2ac447128449.pdf' target='_blank'>*</a>";
+    } else if (result < 20) {
+    doseText = "Günlük doz 10 mg'lık bisoprolol fumaratı aşmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/c2ac447128449.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Perindopril arginin") {
+    if (result >= 90) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-COVERSYL%202,5-UYGUN%20KUB.pdf_ae2a7127-efc2-4c19-b1d9-628acc1c0e5a.pdf' target='_blank'>*</a>";
+    } else if (result < 90 && result >= 60) {
+    doseText = "Günde 5 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-COVERSYL%202,5-UYGUN%20KUB.pdf_ae2a7127-efc2-4c19-b1d9-628acc1c0e5a.pdf' target='_blank'>*</a>";
+    } else if (result < 60 && result >= 30) {
+    doseText = "Günde 2,5 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-COVERSYL%202,5-UYGUN%20KUB.pdf_ae2a7127-efc2-4c19-b1d9-628acc1c0e5a.pdf' target='_blank'>*</a>";
+    } else if (result < 30 && result >= 15) {
+    doseText = "2 günde bir 2,5 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-COVERSYL%202,5-UYGUN%20KUB.pdf_ae2a7127-efc2-4c19-b1d9-628acc1c0e5a.pdf' target='_blank'>*</a>";
+    } else if (result < 15) {
+    doseText = "2,5 mg'lık doz diyaliz sonrasında verilmelidir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-COVERSYL%202,5-UYGUN%20KUB.pdf_ae2a7127-efc2-4c19-b1d9-628acc1c0e5a.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Perindopril arginin + İndapamit") {
+    if (result >= 60) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20COVERSYL%205%20MG.pdf_e2e37ebe-b402-470c-8fae-dd7ae286a0d6.pdf' target='_blank'>*</a>";
+    } else if (result < 60 && result >= 30) {
+    doseText = "Serbest kombinasyonun uygun dozajı ile tedaviye başlanması tavsiye edilir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20COVERSYL%205%20MG.pdf_e2e37ebe-b402-470c-8fae-dd7ae286a0d6.pdf' target='_blank'>*</a>";
+    } else if (result < 30) {
+    doseText = "Tedavi kontrendikedir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20COVERSYL%205%20MG.pdf_e2e37ebe-b402-470c-8fae-dd7ae286a0d6.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Ramipril") {
+    if (result >= 50) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/ir5ViI0HMRu5w.pdf' target='_blank'>*</a>";
+    } else if (result < 50 && result >= 20) {
+    doseText = "Günde 1 defa 1,25 mg ile başlanır. Uygulanacak en yüksek günlük doz 5 mg'dır<a href='https://titck.gov.tr/storage/kubKtAttachments/ir5ViI0HMRu5w.pdf' target='_blank'>*</a>";
+    } else if (result < 20) {
+    doseText = "Şiddetli böbrek fonksiyon bozukluğu olan hastalarda ve diyaliz hastalarında kullanımı ile ilgili yeterli deneyim kazanılamamıştır<a href='https://titck.gov.tr/storage/kubKtAttachments/ir5ViI0HMRu5w.pdf' target='_blank'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1346,7 +1418,7 @@ html(lang='tr')
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
-    } else if (age1.value > -1 && age1.value < 13) {
+    } else if (age1.value > -1 && age1.value < 18) {
     infoText.innerHTML = "<strong>Ertapenem sodyum</strong> için böbrek yetmezliği olan pediyatrik hastalarla ilgili veri yoktur.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/k%C3%BCb.pdf_e21aa48b-870b-4333-a95c-2017da219d1c.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
@@ -1496,6 +1568,78 @@ html(lang='tr')
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Bisoprolol fumarat") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "<strong>Bisoprololün</strong> çocuklarda kullanımıyla ilgili deneyim bulunmamaktadır, bu nedenle çocuklarda kullanımı önerilmez.<a href='https://titck.gov.tr/storage/kubKtAttachments/c2ac447128449.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Perindopril arginin") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "<strong>Perindoprilin</strong> çocuklardaki ve 18 yaş altı adolesanlardaki etkililiği ve güvenliliği belirlenmemiştir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-COVERSYL%202,5-UYGUN%20KUB.pdf_ae2a7127-efc2-4c19-b1d9-628acc1c0e5a.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Perindopril arginin + İndapamit") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "<strong>Perindoprilin + indapamit</strong> çocuklar ve adölesanlar tarafından kullanılmamalıdır.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20COVERSYL%205%20MG.pdf_e2e37ebe-b402-470c-8fae-dd7ae286a0d6.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Ramipril") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "<strong>Ramiprilin</strong> çocuklarda kullanımı ile ilgili yeterli deneyim kazanılmamıştır.<a href='https://titck.gov.tr/storage/kubKtAttachments/ir5ViI0HMRu5w.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
     $('#calculate').fadeTo('medium', 0);
@@ -1656,6 +1800,78 @@ html(lang='tr')
     } else {
     infoText.innerHTML = text2;
     $('#calculate').fadeTo('medium', 100); $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Bisoprolol fumarat") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "<strong>Bisoprololün</strong> çocuklarda kullanımıyla ilgili deneyim bulunmamaktadır, bu nedenle çocuklarda kullanımı önerilmez.<a href='https://titck.gov.tr/storage/kubKtAttachments/c2ac447128449.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Perindopril arginin") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "<strong>Perindoprilin</strong> çocuklardaki ve 18 yaş altı adolesanlardaki etkililiği ve güvenliliği belirlenmemiştir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-COVERSYL%202,5-UYGUN%20KUB.pdf_ae2a7127-efc2-4c19-b1d9-628acc1c0e5a.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Perindopril arginin + İndapamit") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "<strong>Perindoprilin + indapamit</strong> çocuklar ve adölesanlar tarafından kullanılmamalıdır.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20COVERSYL%205%20MG.pdf_e2e37ebe-b402-470c-8fae-dd7ae286a0d6.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Ramipril") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "<strong>Ramiprilin</strong> çocuklarda kullanımı ile ilgili yeterli deneyim kazanılmamıştır.<a href='https://titck.gov.tr/storage/kubKtAttachments/ir5ViI0HMRu5w.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
     }
     } else if (actSubs.textContent === "Siprofloksasin laktat") {
     if (age2.value > 100) {
