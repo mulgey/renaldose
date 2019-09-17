@@ -410,6 +410,7 @@ html(lang='en')
     infoText.innerHTML = "When using <strong>Cockcroft-Gault equation</strong>, you should provide gender, age, weight and serum creatinine values.";
     let needy = document.getElementById("notNeeded");
     let egfry = document.getElementById("egfry");
+    let resultpure = document.getElementById("resultpure");
     let cockgaulty = document.getElementById("cockgaulty");
     let neighbour = $('#dropdownMenu1-2');
     let disably = document.getElementById("willDisable");
@@ -422,6 +423,7 @@ html(lang='en')
     notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
     needy.style.display = "block";
     egfry.style.display = "none";
+    resultpure.style.display = "none";
     cockgaulty.style.display = "none";
     disably.className = "dropdown-item2 disabled";
     disably2.className = "dropdown-item2 disabled";
@@ -431,6 +433,7 @@ html(lang='en')
     notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
     needy.style.display = "block";
     egfry.style.display = "none";
+    resultpure.style.display = "none";
     cockgaulty.style.display = "none";
     disably.className = "dropdown-item2 disabled";
     disably2.className = "dropdown-item2 disabled";
@@ -440,6 +443,7 @@ html(lang='en')
     notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
     needy.style.display = "block";
     egfry.style.display = "none";
+    resultpure.style.display = "none";
     cockgaulty.style.display = "none";
     disably.className = "dropdown-item2 disabled";
     disably2.className = "dropdown-item2 disabled";
@@ -449,6 +453,7 @@ html(lang='en')
     notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
     needy.style.display = "block";
     egfry.style.display = "none";
+    resultpure.style.display = "none";
     cockgaulty.style.display = "none";
     disably.className = "dropdown-item2 disabled";
     disably2.className = "dropdown-item2 disabled";
@@ -459,6 +464,7 @@ html(lang='en')
     diya2.style.display = "none";
     needy.style.display = "none";
     egfry.style.display = "none";
+    resultpure.style.display = "none";
     cockgaulty.style.display = "flex";
     neighbour.text('Cockcroft-Gault Equation');
     disably.className = "dropdown-item2";
@@ -469,6 +475,7 @@ html(lang='en')
     } else {
     needy.style.display = "none";
     egfry.style.display = "none";
+    resultpure.style.display = "none";
     cockgaulty.style.display = "flex";
     neighbour.text('Cockcroft-Gault Equation');
     disably.className = "dropdown-item2";
@@ -527,7 +534,8 @@ html(lang='en')
     let daptomcy = document.getElementById("daptomicina");
     let levofloxy = document.getElementById("levofloxacin");
     let reload = document.getElementById("reload");
-    let buttony = document.getElementById("calcButton");    
+    let buttony = document.getElementById("calcButton");
+    let resultante = document.getElementById("resultante");
     if (crunit1 === "2") {
     srcr1 = srcr1 / 88.4;
     }
@@ -599,7 +607,16 @@ html(lang='en')
     result = ((186 * (srcr2 ** -1.154) * (age2 ** -0.203)) * 1.210).toFixed(2);
     }
     } else {
-    doseText = "When making calculation with <strong>e-GFR method, </strong>you should provide at least gender, age and serum creatinine values."
+    doseText = `When making <a href="#activeSubstance">calculation</a> with <strong>e-GFR method, </strong>you should provide at least gender, age and serum creatinine values.`
+    resulty.innerHTML = doseText;
+    return window.location.href='#presentResults';
+    }
+    } else if (method === "Result Input") {
+    if (resultante.value) {
+    preResult = parseFloat(resultante.value);
+    result = preResult.toFixed(2);
+    } else {
+    doseText = `Please provide the necessary <a href="#activeSubstance">value</a> for your patient.`
     resulty.innerHTML = doseText;
     return window.location.href='#presentResults';
     }
@@ -1385,6 +1402,29 @@ html(lang='en')
     } else {
     infoText.innerHTML = "Enter <strong>weight </strong>value as kilogram.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
+    }
+    }
+    }
+    // resultante
+    $('#resultante').keydown(() => {
+    clearTimeout(timer);
+    timer = setTimeout(resultReact, 1000)
+    });
+    let resultante = document.getElementById('resultante');
+    function resultReact() {
+    if (document.activeElement.id === "resultante") {
+    if (resultante.value > 90 && resultante.value < 180) {
+    infoText.innerHTML = "Your patient's result is considered as a sign of <strong>sufficient renal function</strong>.";
+    $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
+    } else if (resultante.value >= 180) {
+    infoText.innerHTML = "The result for your patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
+    } else if (resultante.value < 0) {
+    infoText.innerHTML = "The result for your patient cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = "Please input your result for the active substance you have selected.";
+    $('#calculate').fadeTo('medium', 100); $("#calcButton").attr("disabled", false);
     }
     }
     }
