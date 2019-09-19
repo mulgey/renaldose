@@ -77,6 +77,10 @@ table.dataTable thead .sorting_desc_disabled:before {
   background-color: #66a3ff;
 }
 
+#willDisable3:hover, #willDisable3:focus {
+  background-color: #66a3ff;
+}
+
 .dropdown-primary {
   height: auto;
   max-height: 200px;

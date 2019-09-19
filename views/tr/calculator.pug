@@ -202,6 +202,9 @@ html(lang='tr')
                 #searchDrop2.dropdown-menu.dropdown-primary(style="width: 95%")
                   a#willDisable.dropdown-item Cockcroft-Gault Denklemi
                   a#willDisable2.dropdown-item e-GFR Metodu
+                  a#willDisable3.dropdown-item
+                    b
+                      i Sonuç Girişi
           .row.mt-3
             #notNeeded.col(style='display:none')
               p#nonDiyaText.note.note-info.wow.fadeIn Bu etkin madde için böbrek yetmezliği durumunda doz ayarlaması gerekmemektedir.
@@ -248,6 +251,13 @@ html(lang='tr')
             #diya2.col-6.col-lg-3.custom-control.custom-checkbox.mt-2
               input#diyaliz2.custom-control-input(type='checkbox', autocomplete='off')
               label#dia2.custom-control-label(for='diyaliz2') Hemodiyaliz Alıyor
+          #resultpure.row.text-center.align-items-center.flex-center(style='display: none;')
+            .col-6.col-lg-4.md-form.input-group.mb-3
+              input#resultante.form-control.text-center(type='number', placeholder='', aria-label='resultante', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
+            .col-6.col-lg-4
+              h5(style='color: ghostwhite; font-weight: bold;')
+                | ml / min / 1,73 m
+                sup 2
           .row.mt-3
             #infoDiv.col
               p#infoText.note.note-info.wow.fadeIn
@@ -405,10 +415,12 @@ html(lang='tr')
     infoText.innerHTML = "<strong>Cockcroft-Gault Denklemi </strong>ile hesaplama yaparken cinsiyet, yaş, ağırlık ve serum kreatinini değerlerini girmeniz gerekir.";
     let needy = document.getElementById("notNeeded");
     let egfry = document.getElementById("egfry");
+    let resultpure = document.getElementById("resultpure");
     let cockgaulty = document.getElementById("cockgaulty");
     let neighbour = $('#dropdownMenu1-2');
     let disably = document.getElementById("willDisable");
     let disably2 = document.getElementById("willDisable2");
+    let disably3 = document.getElementById("willDisable3");
     let buttony = document.getElementById("calcButton");
     let diya1 = document.getElementById("diya1");
     let diya2 = document.getElementById("diya2");
@@ -422,6 +434,8 @@ html(lang='tr')
     disably2.className = "dropdown-item2 disabled";
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
+    resultpure.style.display = "none";
+    disably3.className = "dropdown-item2 disabled";
     } else if (textResult === "Moksifloksasin hidroklorür") {
     notNeedy.innerHTML = "Bu etkin madde için böbrek yetmezliği durumunda doz ayarlaması gerekmemektedir.<a href='https://titck.gov.tr/storage/kubKtAttachments/LHoY4QJlVyoQp.pdf' target='_blank'>*</a>";
     needy.style.display = "block";
@@ -431,6 +445,8 @@ html(lang='tr')
     disably2.className = "dropdown-item2 disabled";
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
+    resultpure.style.display = "none";
+    disably3.className = "dropdown-item2 disabled";
     } else if (textResult === "Linezolit") {
     notNeedy.innerHTML = "Bu etkin madde için böbrek yetmezliği durumunda doz ayarlaması gerekmemektedir.<a href='https://titck.gov.tr/storage/kubKtAttachments/466583b522937.pdf' target='_blank'>*</a>";
     needy.style.display = "block";
@@ -440,6 +456,8 @@ html(lang='tr')
     disably2.className = "dropdown-item2 disabled";
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
+    resultpure.style.display = "none";
+    disably3.className = "dropdown-item2 disabled";
     } else if (textResult === "Metronidazol") {
     notNeedy.innerHTML = "Bu etkin madde için böbrek yetmezliği durumunda doz ayarlaması gerekmemektedir.<a href='https://titck.gov.tr/storage/kubKtAttachments/38219d3492102.pdf' target='_blank'>*</a>";
     needy.style.display = "block";
@@ -449,6 +467,8 @@ html(lang='tr')
     disably2.className = "dropdown-item2 disabled";
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
+    resultpure.style.display = "none";
+    disably3.className = "dropdown-item2 disabled";
     } else if (textResult === "İmipenem / Silastatin sodyum" || textResult === "Daptomisin" || textResult === "Levofloksasin") {
     diya1.style.display = "none";
     diya2.style.display = "none";
@@ -461,6 +481,8 @@ html(lang='tr')
     calculatey.style.display = "block";
     buttony.className = "btn btn-cyan btn-lg rounded-pill";
     infoDiv.style.display = "inline-block";
+    resultpure.style.display = "none";
+    disably3.className = "dropdown-item2";
     } else {
     needy.style.display = "none";
     egfry.style.display = "none";
@@ -473,6 +495,8 @@ html(lang='tr')
     diya1.style.display = "block";
     diya2.style.display = "block";
     infoDiv.style.display = "inline-block";
+    resultpure.style.display = "none";
+    disably3.className = "dropdown-item2";
     }
     });
     $( "#searchDrop2 > a" ).click(function() {
@@ -480,15 +504,23 @@ html(lang='tr')
     $('#dropdownMenu1-2').text(string);
     let egfry = document.getElementById("egfry");
     let cockgaulty = document.getElementById("cockgaulty");
+    let resultpure = document.getElementById("resultpure");
     let texty = $('#dropdownMenu1-2').text();
     if (texty === "e-GFR Metodu") {
+    resultpure.style.display = "none";
     egfry.style.display = "flex";
     cockgaulty.style.display = "none";
     infoText.innerHTML = "<strong>e-GFR yöntemi </strong>ile hesaplama yaparken en az cinsiyet, yaş ve serum kreatinini değerlerini girmeniz gerekir."
     } else if (texty === "Cockcroft-Gault Denklemi") {
+    resultpure.style.display = "none";
     egfry.style.display = "none";
     cockgaulty.style.display = "flex";
     infoText.innerHTML = "<strong>Cockcroft-Gault Denklemi </strong>ile hesaplama yaparken cinsiyet, yaş, ağırlık ve serum kreatinini değerlerini girmeniz gerekir."
+    } else if (texty === "Sonuç Girişi") {
+    egfry.style.display = "none";
+    cockgaulty.style.display = "none";
+    resultpure.style.display = "flex";
+    infoText.innerHTML = "Lütfen seçmiş olduğunuz etkin madde için sonucu giriniz."
     }
     });
   script.
@@ -515,6 +547,7 @@ html(lang='tr')
     let levofloxy = document.getElementById("levofloxacin");
     let reload = document.getElementById("reload");
     let buttony = document.getElementById("calcButton");
+    let resultante = document.getElementById("resultante");
     if (crunit1 === "2") {
     srcr1 = srcr1 / 88.4;
     }
@@ -586,7 +619,16 @@ html(lang='tr')
     result = ((186 * (srcr2 ** -1.154) * (age2 ** -0.203)) * 1.210).toFixed(2);
     }
     } else {
-    doseText = "eGFR yöntemiyle hesaplama yapmak için en az; cinsiyet, yaş ve serum kreatinini değerlerini girmeniz gerekmektedir."
+    doseText = `eGFR yöntemiyle <a href="#activeSubstance">hesaplama</a> yapmak için en az; cinsiyet, yaş ve serum kreatinini değerlerini girmeniz gerekmektedir.`
+    resulty.innerHTML = doseText;
+    return window.location.href='#presentResults';
+    }
+    } else if (method === "Sonuç Girişi") {
+    if (resultante.value) {
+    preResult = parseFloat(resultante.value);
+    result = preResult.toFixed(2);
+    } else {
+    doseText = `Lütfen hastanız için gerekli olan <a href="#activeSubstance">değeri</a> giriniz.`;
     resulty.innerHTML = doseText;
     return window.location.href='#presentResults';
     }
@@ -1253,6 +1295,7 @@ html(lang='tr')
   script.
     const text1 = "<strong>Cockcroft-Gault Denklemi </strong>ile hesaplama yaparken cinsiyet, yaş, ağırlık ve serum kreatinini değerlerini girmeniz gerekir.";
     const text2 = "<strong>e-GFR yöntemi </strong>ile hesaplama yaparken en az cinsiyet, yaş ve serum kreatinini değerlerini girmeniz gerekir.";
+    const text3 = "Lütfen seçmiş olduğunuz etkin madde için sonucu giriniz.";
     // basic expectations
     $('#weight').focus(() => {
     infoText.innerHTML = "<strong>Kilo </strong>değerini kg cinsinden giriniz.";
@@ -1292,6 +1335,14 @@ html(lang='tr')
     });
     $("#albumin").blur(() => {
     infoText.innerHTML = text2;
+    $(infoDiv).fadeIn(1000);
+    });
+    $('#resultante').focus(() => {
+    infoText.innerHTML = "GFR için kabul edilen azalım 90'nın altında başlar ve 15'in altı böbrek yetmezliği olarak değerlendirilir.";
+    $(infoDiv).fadeIn(1000);
+    });
+    $("#resultante").blur(() => {
+    infoText.innerHTML = text3;
     $(infoDiv).fadeIn(1000);
     });
     // diya stuff
@@ -1369,6 +1420,29 @@ html(lang='tr')
     infoText.innerHTML = "<strong>Kilo </strong>değerini kg cinsinden giriniz.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    }
+    }
+    }
+    // resultante
+    $('#resultante').keydown(() => {
+    clearTimeout(timer);
+    timer = setTimeout(resultReact, 1000)
+    });
+    let resultante = document.getElementById('resultante');
+    function resultReact() {
+    if (document.activeElement.id === "resultante") {
+    if (resultante.value > 90 && resultante.value < 180) {
+    infoText.innerHTML = "Hastanız için girdiğiniz sonuç <strong>yeterli böbrek fonksiyonlarına</strong> sahip olduğunun bir göstergesi olarak değerlendirilir.";
+    $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
+    } else if (resultante.value >= 180) {
+    infoText.innerHTML = "Hastanız için girdiğiniz sonuç beklenen aralığın <strong>üstündedir</strong>. Lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
+    } else if (resultante.value < 0) {
+    infoText.innerHTML = "Hastanız için gireceğiniz sonuç negatif olamaz. Lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = "Lütfen seçmiş olduğunuz etkin madde için sonucu giriniz.";
+    $('#calculate').fadeTo('medium', 100); $("#calcButton").attr("disabled", false);
     }
     }
     }
