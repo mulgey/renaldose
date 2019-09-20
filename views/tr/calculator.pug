@@ -188,6 +188,9 @@ html(lang='tr')
                     | Bisoprolol fumarat - 
                     small Concor
                   a.dropdown-item
+                    | Kaptopril - 
+                    small Kaptoril
+                  a.dropdown-item
                     | Perindopril arginin - 
                     small Coversyl
                   a.dropdown-item
@@ -196,6 +199,9 @@ html(lang='tr')
                   a.dropdown-item
                     | Ramipril - 
                     small Delix
+                  a.dropdown-item
+                    | Ramipril + Hidroklorotiazit - 
+                    small Delix Plus
             .col-12.col-lg-6.mt-3
               .dropdown
                 button#dropdownMenu1-2.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Cockcroft-Gault Denklemi
@@ -581,6 +587,10 @@ html(lang='tr')
     doseText = "İleri derece böbrek yetmezliği olan hastalarda tedavi kontrendikedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20COVERSYL%205%20MG.pdf_e2e37ebe-b402-470c-8fae-dd7ae286a0d6.pdf' target='_blank'>*</a>";
     } else if (actSubs === "Ramipril") {
     doseText = "Şiddetli böbrek fonksiyon bozukluğu olan hastalarda ve diyaliz hastalarında kullanımı ile ilgili yeterli deneyim kazanılamamıştır<a href='https://titck.gov.tr/storage/kubKtAttachments/ir5ViI0HMRu5w.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Ramipril + Hidroklorotiazit") {
+    doseText = "Ağır böbrek yetmezliği olan ve diyaliz uygulanan hastalarda kullanımı kontrendikedir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK-K%C3%9CB-%20DEL%C4%B0X%2010MG-12,5MG.pdf_b6bd70d4-0194-4266-90f7-2377e406b93b.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Kaptopril") {
+    doseText = "Diyaliz sonrasında %20-%50 arasında doz uygulanır veya %25-35 arasındaki oranda ek doz uygulanır.<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -795,6 +805,32 @@ html(lang='tr')
     doseText = "Günde 1 defa 1,25 mg ile başlanır. Uygulanacak en yüksek günlük doz 5 mg'dır<a href='https://titck.gov.tr/storage/kubKtAttachments/ir5ViI0HMRu5w.pdf' target='_blank'>*</a>";
     } else if (result < 20) {
     doseText = "Şiddetli böbrek fonksiyon bozukluğu olan hastalarda ve diyaliz hastalarında kullanımı ile ilgili yeterli deneyim kazanılamamıştır<a href='https://titck.gov.tr/storage/kubKtAttachments/ir5ViI0HMRu5w.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Ramipril + Hidroklorotiazit") {
+    if (result >= 60) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK-K%C3%9CB-%20DEL%C4%B0X%2010MG-12,5MG.pdf_b6bd70d4-0194-4266-90f7-2377e406b93b.pdf' target='_blank'>*</a>";
+    } else if (result < 60 && result >= 30) {
+    doseText = "Günde 1,25 mg ramipril ile başlanır. Devamında kombinasyon tedavisine günde 2,5 mg ramipril / 12,5 mg hidroklorotiazid dozu ile başlanır. Maksimum günlük doz: 5 mg ramipril / 25 mg hidroklorotiazittir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK-K%C3%9CB-%20DEL%C4%B0X%2010MG-12,5MG.pdf_b6bd70d4-0194-4266-90f7-2377e406b93b.pdf' target='_blank'>*</a>";
+    } else if (result < 30) {
+    doseText = "Ağır böbrek yetmezliği olan ve diyaliz uygulanan hastalarda kullanımı kontrendikedir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK-K%C3%9CB-%20DEL%C4%B0X%2010MG-12,5MG.pdf_b6bd70d4-0194-4266-90f7-2377e406b93b.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Kaptopril") {
+    if (result > 40) {
+    doseText = "Başlangıç dozu 25-50 mg / gün. Maksimum günlük doz 150 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    } else if (result <= 40 && result >= 21) {
+    doseText = "Başlangıç dozu 25 mg / gün. Maksimum günlük doz 100 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    } else if (result <= 20 && result >= 10) {
+    doseText = "Başlangıç dozu 12,5 mg / gün. Maksimum günlük doz 75 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    } else if (result < 10) {
+    doseText = "Başlangıç dozu 6,25 mg / gün. Maksimum günlük doz 37,5 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1723,6 +1759,42 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Ramipril + Hidroklorotiazit") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "İlacın etkililiği ve güvenliliği ile ilgili veriler yeterli olmadığından, çocuklarda ve 18 yaşın altındaki ergenlerde kullanılması önerilmez.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TİTCK-KÜB-%20DELİX%2010MG-12,5MG.pdf_b6bd70d4-0194-4266-90f7-2377e406b93b.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Kaptopril") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Böbrek fonksiyon bozukluğu olan çocuklarda başlangıç dozu kilogram vücut ağırlığı başına 0,15 mg’dır. Doz ve doz intervali hastanın ihtiyacına göre belirlenir.<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age1.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -1889,7 +1961,7 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else {
-    infoText.innerHTML = text1;
+    infoText.innerHTML = text2;
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
@@ -1907,7 +1979,7 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else {
-    infoText.innerHTML = text1;
+    infoText.innerHTML = text2;
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
@@ -1925,7 +1997,7 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else {
-    infoText.innerHTML = text1;
+    infoText.innerHTML = text2;
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
@@ -1943,7 +2015,43 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else {
-    infoText.innerHTML = text1;
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Ramipril + Hidroklorotiazit") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "İlacın etkililiği ve güvenliliği ile ilgili veriler yeterli olmadığından, çocuklarda ve 18 yaşın altındaki ergenlerde kullanılması önerilmez.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TİTCK-KÜB-%20DELİX%2010MG-12,5MG.pdf_b6bd70d4-0194-4266-90f7-2377e406b93b.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Kaptopril") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Böbrek fonksiyon bozukluğu olan çocuklarda başlangıç dozu kilogram vücut ağırlığı başına 0,15 mg’dır. Doz ve doz intervali hastanın ihtiyacına göre belirlenir.<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }

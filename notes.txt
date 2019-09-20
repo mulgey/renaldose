@@ -5,6 +5,7 @@ Genel
 - Ortada bir sonuç varsa, "sayfayı yenilemeniz önerilir"
 - Print'ten sonra otomatik olarak save e geçiyor
 - calc/en sayfasında doz ayarlamama bilgisi geçişli gelmiyor, TR de geliyor
+- Ramipril crcl:35 için sonuç metni çok uzun. Mobil iphone 5s için ekrana sığmıyor
 
 index.html
 - İki tuş mobil düzende bozuk bir hal alıyor
