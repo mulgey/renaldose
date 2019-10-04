@@ -131,6 +131,14 @@ html(lang='en')
                 button#dropdownMenu1-1.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Select The Active Substance
                 #searchDrop.dropdown-menu.dropdown-primary(style="width: 95%")
                   input#searchField.form-control.ml-2(style="width: 95%; color: midnightblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search')
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Analgesic
+                  a.dropdown-item
+                    | Tramadol hydrochloride - 
+                    small Ultram
+                  a.dropdown-item
+                    | Acetaminophen (IV) - 
+                    small Ofirmev
+                  .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antibacterial
                   a.dropdown-item
                     | Daptomycin - 
@@ -191,6 +199,12 @@ html(lang='en')
                     | Captopril - 
                     small Capoten
                   a.dropdown-item
+                    | Olmesartan medoxomil - 
+                    small Benicar
+                  a.dropdown-item
+                    | Olmesartan medoxomil + Hydrochlorothiazide - 
+                    small Benicar HCT
+                  a.dropdown-item
                     | Perindopril arginine - 
                     small Coversyl Arginine
                   a.dropdown-item
@@ -202,6 +216,11 @@ html(lang='en')
                   a.dropdown-item
                     | Ramipril + Hydrochlorothiazide - 
                     small Altace Plus
+                  .dropdown-divider
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Diuretic
+                  a.dropdown-item
+                    | Spironolactone - 
+                    small Aldactone
             .col-12.col-lg-6.mt-3
               .dropdown
                 button#dropdownMenu1-2.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Cockcroft-Gault Equation
@@ -209,8 +228,7 @@ html(lang='en')
                   a#willDisable.dropdown-item Cockcroft-Gault Equation
                   a#willDisable2.dropdown-item e-GFR Method
                   a#willDisable3.dropdown-item
-                    b
-                      i Result Input
+                    b Result Input
           .row.mt-3
             #notNeeded.col(style='display:none')
               p#nonDiyaText.note.note-info.wow.fadeIn For this active substance, dose adjustment is not needed in the case of renal insufficiency.
@@ -394,7 +412,7 @@ html(lang='en')
     input = document.getElementById("searchField");
     filter = input.value.toUpperCase();
     div = document.getElementById("searchDrop");
-    a = div.getElementsByTagName("a");
+    a = div.querySelectorAll('.dropdown-header, .dropdown-item, .dropdown-divider');
     for (i = 0; i < a.length; i++) {
     txtValue = a[i].textContent || a[i].innerText;
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -583,9 +601,19 @@ html(lang='en')
     } else if (actSubs === "Ramipril") {
     doseText = "Enough experience was not obtained for the patients who has severe renal insufficiency or dialysis patients";
     } else if (actSubs === "Ramipril + Hydrochlorothiazide") {
-    doseText = "Treatment is considered as contraindicated for the patients having severe renal insufficiency and receiving dialysis.";
+    doseText = "Treatment is considered as contraindicated for the patients having severe renal insufficiency and receiving dialysis";
     } else if (actSubs === "Captopril") {
-    doseText = "Following the dialysis, dose may be applied between 20%-50% range or an extra dose may be applied between 25%-35% range.";
+    doseText = "Following the dialysis, dose may be applied between 20%-50% range or an extra dose may be applied between 25%-35% range";
+    } else if (actSubs === "Olmesartan medoxomil") {
+    doseText = "Olmesartan medoxomil usage is not suggested due to the limited experience";
+    } else if (actSubs === "Olmesartan medoxomil + Hydrochlorothiazide") {
+    doseText = "There's no information relevant to olmesartan or hydrochlorothiazide usage on dialysis";
+    } else if (actSubs === "Tramadol hydrochloride") {
+    doseText = "The physician may consider to prolong dosing intervals for the patients having renal insufficiency";
+    } else if (actSubs === "Acetaminophen (IV)") {
+    doseText = "For the patients having severe renal insufficiency, every application of the drug is suggested to be performed with 6 hours of interval";
+    } else if (actSubs === "Spironolactone") {
+    doseText = "Should not be used in the case of acute renal insufficiency, reduction in the renal functions or severe renal insufficiency";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -819,13 +847,65 @@ html(lang='en')
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Captopril") {
     if (result > 40) {
-    doseText = "25-50 mg / day for the start. Maximum daily dose is 150 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    doseText = "25-50 mg / day for the start. Maximum daily dose is 150 mg";
     } else if (result <= 40 && result >= 21) {
-    doseText = "25 mg / day for the start. Maximum daily dose is 100 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    doseText = "25 mg / day for the start. Maximum daily dose is 100 mg";
     } else if (result <= 20 && result >= 10) {
-    doseText = "12.5 mg / day for the start. Maximum daily dose is 75 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    doseText = "12.5 mg / day for the start. Maximum daily dose is 75 mg";
     } else if (result < 10) {
-    doseText = "6.25 mg / day for the start. Maximum daily dose is 37.5 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    doseText = "6.25 mg / day for the start. Maximum daily dose is 37.5 mg";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Olmesartan medoxomil") {
+    if (result >= 60) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 60 && result >= 20) {
+    doseText = "Maximum dose is 20 mg olmesartan medoxomil a day";
+    } else if (result < 20) {
+    doseText = "Olmesartan medoxomil usage is not suggested due to the limited experience";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Olmesartan medoxomil + Hydrochlorothiazide") {
+    if (result >= 30) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 30) {
+    doseText = "Treatment is considered as contraindicated for the patients having severe renal insufficiency";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Tramadol hydrochloride") {
+    if (result >= 90) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 90) {
+    doseText = "The physician may consider to prolong dosing intervals for the patients having renal insufficiency";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Acetaminophen (IV)") {
+    if (result > 30) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result <= 30) {
+    doseText = "For the patients having severe renal insufficiency, every application of the drug is suggested to be performed with 6 hours of interval";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Spironolactone") {
+    if (result >= 90) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 90) {
+    doseText = "Should not be used in the case of acute renal insufficiency, reduction in the renal functions or severe renal insufficiency";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1729,7 +1809,93 @@ html(lang='en')
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "For the children who has renal insufficiency, starting dose is 0.15 mg for every kilogram of the body weight. Dose and dose interval is determined by the need of the patient.<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "For the children who has renal insufficiency, starting dose is 0.15 mg for every kilogram of the body weight. Dose and dose interval is determined by the need of the patient.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Olmesartan medoxomil") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 6) {
+    infoText.innerHTML = "Safety and effectiveness of <strong>olmesartan medoxomil</strong> is not determined in the patients younger than 18 years old.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Olmesartan medoxomil + Hydrochlorothiazide") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Safety and effectiveness is not determined for the children and adolescents under the age of 18.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Tramadol hydrochloride") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 12) {
+    infoText.innerHTML = "It's contraindicated for the children aged below 12.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Acetaminophen (IV)") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Spironolactone") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 13) {
+    infoText.innerHTML = "Contraindicated for the pediatric patients who have moderate and severe renal insufficiency.";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
@@ -2011,7 +2177,93 @@ html(lang='en')
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "For the children who has renal insufficiency, starting dose is 0.15 mg for every kilogram of the body weight. Dose and dose interval is determined by the need of the patient.<a href='https://titck.gov.tr/storage/kubKtAttachments/b45546f374520.pdf' target='_blank'>*</a>";
+    infoText.innerHTML = "For the children who has renal insufficiency, starting dose is 0.15 mg for every kilogram of the body weight. Dose and dose interval is determined by the need of the patient.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Olmesartan medoxomil") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 6) {
+    infoText.innerHTML = "Safety and effectiveness of <strong>olmesartan medoxomil</strong> is not determined in the patients younger than 18 years old.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Olmesartan medoxomil + Hydrochlorothiazide") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Safety and effectiveness is not determined for the children and adolescents under the age of 18.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Tramadol hydrochloride") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 12) {
+    infoText.innerHTML = "It's contraindicated for the children aged below 12.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Acetaminophen (IV)") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Spironolactone") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 13) {
+    infoText.innerHTML = "Contraindicated for the pediatric patients who have moderate and severe renal insufficiency.";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
