@@ -219,6 +219,9 @@ html(lang='tr')
                   .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Diüretik
                   a.dropdown-item
+                    | Asetazolamit - 
+                    small Diazomid
+                  a.dropdown-item
                     | Spironolakton - 
                     small Aldactone
             .col-12.col-lg-6.mt-3
@@ -619,6 +622,8 @@ html(lang='tr')
     doseText = "Ciddi böbrek yetmezliği olan hastalarda her uygulamanın en az 6 saatlik ara ile yapılması önerilir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/parol%20%2010%20MG%20flakon%20kub%20YAYIN.pdf_f548f1e5-8d43-45bf-994e-2dde1d4df58e.pdf' target='_blank'>*</a>";
     } else if (actSubs === "Spironolakton") {
     doseText = "Akut renal yetmezlik, böbrek fonksiyonlarının gerilemesi veya ciddi böbrek fonksiyon bozukluğu durumunda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/hvVQ9hvMBnZue.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Asetazolamit") {
+    doseText = "Orta derecede diyaliz edilebilir (%20 - %50) Kullanımından kaçınılmalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -911,6 +916,18 @@ html(lang='tr')
     doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/hvVQ9hvMBnZue.pdf' target='_blank'>*</a>";
     } else if (result < 90) {
     doseText = "Akut renal yetmezlik, böbrek fonksiyonlarının gerilemesi veya ciddi böbrek fonksiyon bozukluğu durumunda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/hvVQ9hvMBnZue.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Asetazolamit") {
+    if (result > 50) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
+    } else if (result <= 50 && result >= 10) {
+    doseText = "12 saatte bir uygulanır<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
+    } else if (result < 10 ) {
+    doseText = "Kullanımından kaçınılmalıdır. Etkisi yoktur<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1961,6 +1978,24 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Asetazolamit") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 12) {
+    infoText.innerHTML = "12 yaşın altındaki pediatrik hastalarda etkililik ve güvenlilik ile ilgili yeterli çalışma bulunmamaktadır.<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age1.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -2296,6 +2331,24 @@ html(lang='tr')
     $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 13) {
     infoText.innerHTML = "Orta ila şiddetli böbrek yetersizliği olan pediyatrik hastalarda kontrendikedir.<a href='https://titck.gov.tr/storage/kubKtAttachments/hvVQ9hvMBnZue.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Asetazolamit") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 12) {
+    infoText.innerHTML = "12 yaşın altındaki pediatrik hastalarda etkililik ve güvenlilik ile ilgili yeterli çalışma bulunmamaktadır.<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
