@@ -138,6 +138,9 @@ html(lang='en')
                   a.dropdown-item
                     | Acetaminophen (IV) - 
                     small Ofirmev
+                  a.dropdown-item
+                    | Dexketoprofen - 
+                    small Keral
                   .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antibacterial
                   a.dropdown-item
@@ -222,8 +225,14 @@ html(lang='en')
                     | Acetazolamide - 
                     small Diamox
                   a.dropdown-item
+                    | Indapamide - 
+                    small Lozol
+                  a.dropdown-item
                     | Spironolactone - 
                     small Aldactone
+                  a.dropdown-item
+                    | Spironolactone + Hydrochlorothiazide - 
+                    small Aldactazide
             .col-12.col-lg-6.mt-3
               .dropdown
                 button#dropdownMenu1-2.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Cockcroft-Gault Equation
@@ -619,6 +628,12 @@ html(lang='en')
     doseText = "Should not be used in the case of acute renal insufficiency, reduction in the renal functions or severe renal insufficiency";
     } else if (actSubs === "Acetazolamide") {
     doseText = "It may be dialyzed in medium degree. Should be avoided to use";
+    } else if (actSubs === "Spironolactone + Hydrochlorothiazide") {
+    doseText = "Shouldn't be used during acute renal failure or significant disorders in renal excretion mechanisms";
+    } else if (actSubs === "Indapamide") {
+    doseText = "Treatment is contraindicated";
+    } else if (actSubs === "Dexketoprofen") {
+    doseText = "It shouldn't be used for the patients having severe renal insufficiency";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -920,9 +935,41 @@ html(lang='en')
     if (result > 50) {
     doseText = "There's no need for dose adjustment";
     } else if (result <= 50 && result >= 10) {
-    doseText = "It should be applied in every 12 hours";
+    doseText = "Dosing interval should be arranged as 12 hours";
     } else if (result < 10) {
     doseText = "Should be avoided to use. Treatment is considered as ineffective";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Spironolactone + Hydrochlorothiazide") {
+    if (result >= 90) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 90) {
+    doseText = "Shouldn't be used during acute renal failure or significant disorders in renal excretion mechanisms";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Indapamide") {
+    if (result >= 30) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 30) {
+    doseText = "Treatment is contraindicated";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Dexketoprofen") {
+    if (result >= 90) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 90 && result >= 60) {
+    doseText = "Total daily dose should be reduced to 50 mg";
+    } else if (result < 60) {
+    doseText = "It shouldn't be used for the patients having moderate and severe renal insufficiency";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1929,8 +1976,58 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
-    } else if (age1.value > -1 && age1.value < 13) {
+    } else if (age1.value > -1 && age1.value < 12) {
     infoText.innerHTML = "There's not enough study conducted for its effectiveness and reliability for the pediatric patients under the age of 12.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Spironolactone + Hydrochlorothiazide") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Indapamide") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Its safety and effectiveness was not studied on children and adolescents.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Dexketoprofen") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "It shouldn't be used for the children and adolescents because of the lack of proof on its safety and effectiveness.";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
@@ -2315,8 +2412,58 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
-    } else if (age2.value > -1 && age2.value < 13) {
+    } else if (age2.value > -1 && age2.value < 12) {
     infoText.innerHTML = "There's not enough study conducted for its effectiveness and reliability for the pediatric patients under the age of 12.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Spironolactone + Hydrochlorothiazide") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Indapamide") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Its safety and effectiveness was not studied on children and adolescents.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Dexketoprofen") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "It shouldn't be used for the children and adolescents because of the lack of proof on its safety and effectiveness.";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {

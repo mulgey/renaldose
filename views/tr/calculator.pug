@@ -138,6 +138,9 @@ html(lang='tr')
                   a.dropdown-item
                     | Parasetamol (IV) - 
                     small Perfalgan
+                  a.dropdown-item
+                    | Deksketoprofen - 
+                    small Arveles
                   .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antibakteriyel
                   a.dropdown-item
@@ -191,6 +194,20 @@ html(lang='tr')
                     | Flukonazol - 
                     small Lumen EF
                   .dropdown-divider
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Diüretik
+                  a.dropdown-item
+                    | Asetazolamit - 
+                    small Diazomid
+                  a.dropdown-item
+                    | İndapamit - 
+                    small Fludex SR
+                  a.dropdown-item
+                    | Spironolakton - 
+                    small Aldactone
+                  a.dropdown-item
+                    | Spironolakton + Hidroklorotiazit - 
+                    small Aldactazide
+                  .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Kardiyovasküler
                   a.dropdown-item
                     | Bisoprolol fumarat - 
@@ -216,14 +233,6 @@ html(lang='tr')
                   a.dropdown-item
                     | Ramipril + Hidroklorotiazit - 
                     small Delix Plus
-                  .dropdown-divider
-                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Diüretik
-                  a.dropdown-item
-                    | Asetazolamit - 
-                    small Diazomid
-                  a.dropdown-item
-                    | Spironolakton - 
-                    small Aldactone
             .col-12.col-lg-6.mt-3
               .dropdown
                 button#dropdownMenu1-2.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Cockcroft-Gault Denklemi
@@ -624,6 +633,12 @@ html(lang='tr')
     doseText = "Akut renal yetmezlik, böbrek fonksiyonlarının gerilemesi veya ciddi böbrek fonksiyon bozukluğu durumunda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/hvVQ9hvMBnZue.pdf' target='_blank'>*</a>";
     } else if (actSubs === "Asetazolamit") {
     doseText = "Orta derecede diyaliz edilebilir (%20 - %50) Kullanımından kaçınılmalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Spironolakton + Hidroklorotiazit") {
+    doseText = "Akut renal yetmezlik, böbreklerin atılım mekanizmasında belirgin bozukluk durumunda kullanılmamalıdır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/aldactazide%20yay%C4%B1n%20kub%2025.pdf_99ccfa6e-9890-4329-a8b7-e87583e0efcb.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "İndapamit") {
+    doseText = "Tedavi kontrendikedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20FLUDEX%20SR%20(2).pdf_f61f5a23-df70-4445-8de0-c2994c439657.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Deksketoprofen") {
+    doseText = "İleri derecede böbrek yetmezliği olan hastalarda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -925,9 +940,41 @@ html(lang='tr')
     if (result > 50) {
     doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
     } else if (result <= 50 && result >= 10) {
-    doseText = "12 saatte bir uygulanır<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
+    doseText = "Doz aralığı 12 saatte bir olacak şekilde düzenlenir<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
     } else if (result < 10 ) {
     doseText = "Kullanımından kaçınılmalıdır. Etkisi yoktur<a href='https://titck.gov.tr/storage/kubKtAttachments/e006be2c28231.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Spironolakton + Hidroklorotiazit") {
+    if (result >= 90) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/aldactazide%20yay%C4%B1n%20kub%2025.pdf_99ccfa6e-9890-4329-a8b7-e87583e0efcb.pdf' target='_blank'>*</a>";
+    } else if (result < 90) {
+    doseText = "Akut renal yetmezlik, böbreklerin atılım mekanizmasında belirgin bozukluk durumunda kullanılmamalıdır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/aldactazide%20yay%C4%B1n%20kub%2025.pdf_99ccfa6e-9890-4329-a8b7-e87583e0efcb.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "İndapamit") {
+    if (result >= 30) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20FLUDEX%20SR%20(2).pdf_f61f5a23-df70-4445-8de0-c2994c439657.pdf' target='_blank'>*</a>";
+    } else if (result < 30) {
+    doseText = "Tedavi kontrendikedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20FLUDEX%20SR%20(2).pdf_f61f5a23-df70-4445-8de0-c2994c439657.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Deksketoprofen") {
+    if (result >= 90) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
+    } else if (result < 90 && result >= 60) {
+    doseText = "Toplam günlük doz 50 mg'a indirilmelidir<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
+    } else if (result < 60) {
+    doseText = "Orta ve ağır böbrek yetmezliği olan hastalarda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1996,6 +2043,56 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Spironolakton + Hidroklorotiazit") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "İndapamit") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Etkililiği ve güvenliliği çocuklar ve ergenlik çağındaki gençlerde araştırılmamıştır.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20FLUDEX%20SR%20(2).pdf_f61f5a23-df70-4445-8de0-c2994c439657.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Deksketoprofen") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Güvenilirliği ve etkinliği kanıtlanmadığından çocuk ve adolesanlarda kullanılmamalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age1.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -2360,6 +2457,38 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Spironolakton + Hidroklorotiazit") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "İndapamit") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Etkililiği ve güvenliliği çocuklar ve ergenlik çağındaki gençlerde araştırılmamıştır.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Siprofloksasin laktat") {
     if (age2.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -2387,6 +2516,24 @@ html(lang='tr')
     } else {
     infoText.innerHTML = text2;
     $('#calculate').fadeTo('medium', 100); $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Deksketoprofen") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Güvenilirliği ve etkinliği kanıtlanmadığından çocuk ve adolesanlarda kullanılmamalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
     }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age2.value > 100) {
