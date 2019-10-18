@@ -189,10 +189,29 @@ html(lang='tr')
                     | Vankomisin hidroklorür - 
                     small Vancotek
                   .dropdown-divider
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antidiyabetik
+                  a.dropdown-item
+                    | Akarboz - 
+                    small Glucobay
+                  a.dropdown-item
+                    | Eksenatid - 
+                    small Byetta
+                  a.dropdown-item
+                    | Metformin hidroklorür - 
+                    small Glucophage
+                  .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antifungal
                   a.dropdown-item
                     | Flukonazol - 
                     small Lumen EF
+                  .dropdown-divider
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antiviral
+                  a.dropdown-item
+                    | Asiklovir (IV) - 
+                    small Zovirax
+                  a.dropdown-item
+                    | Oseltamivir fosfat - 
+                    small Tamiflu
                   .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Diüretik
                   a.dropdown-item
@@ -440,6 +459,12 @@ html(lang='tr')
     }
     }
   script.
+    $( "#dropdownMenu1-1" ).click(function() {
+    setTimeout(() => {
+    $("#searchField").focus();
+    }, 500);
+    });
+  script.
     let infoDiv = document.getElementById("infoDiv");
     let infoText = document.getElementById("infoText");
     let calculatey = document.getElementById("calculate");
@@ -639,6 +664,16 @@ html(lang='tr')
     doseText = "Tedavi kontrendikedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20FLUDEX%20SR%20(2).pdf_f61f5a23-df70-4445-8de0-c2994c439657.pdf' target='_blank'>*</a>";
     } else if (actSubs === "Deksketoprofen") {
     doseText = "İleri derecede böbrek yetmezliği olan hastalarda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Metformin hidroklorür") {
+    doseText = "Tedavi kontrendikedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/SUNULAN%20K%C3%9CB.pdf_84ecc77a-db1b-4bda-8f9b-2f9f5874bf07.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Akarboz") {
+    doseText = "Ciddi böbrek yetmezliğinde kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/e1cfeca910211.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Eksenatid") {
+    doseText = "Kullanılması önerilmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/5%20k%C3%BCb.pdf_46618ffd-223e-4191-b7f9-d39f3b534858.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Oseltamivir fosfat") {
+    doseText = "Her hemodiyaliz seansı sonrası 30 mg (profilaksi için kullanımında her 2. seans sonrası)<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Asiklovir (IV)") {
+    doseText = "Önerilen doz yarıya indirilmeli ve 24 saatte bir ve diyaliz sonrası uygulanmalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/RWY3niWOBW9Qt.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -975,6 +1010,72 @@ html(lang='tr')
     doseText = "Toplam günlük doz 50 mg'a indirilmelidir<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
     } else if (result < 60) {
     doseText = "Orta ve ağır böbrek yetmezliği olan hastalarda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Metformin hidroklorür") {
+    if (result >= 90) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/SUNULAN%20K%C3%9CB.pdf_84ecc77a-db1b-4bda-8f9b-2f9f5874bf07.pdf' target='_blank'>*</a>";
+    } else if (result < 90 && result >= 60) {
+    doseText = "Toplam maksimum günlük doz (günde 2 ya da 3'e bölünmüş şekilde) 3000 mg'dır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/SUNULAN%20K%C3%9CB.pdf_84ecc77a-db1b-4bda-8f9b-2f9f5874bf07.pdf' target='_blank'>*</a>";
+    } else if (result < 60 && result >= 45) {
+    doseText = "Toplam maksimum günlük doz (günde 2 ya da 3'e bölünmüş şekilde) 2000 mg'dır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/SUNULAN%20K%C3%9CB.pdf_84ecc77a-db1b-4bda-8f9b-2f9f5874bf07.pdf' target='_blank'>*</a>";
+    } else if (result < 45 && result >= 30) {
+    doseText = "Toplam maksimum günlük doz (günde 2 ya da 3'e bölünmüş şekilde) 1000 mg'dır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/SUNULAN%20K%C3%9CB.pdf_84ecc77a-db1b-4bda-8f9b-2f9f5874bf07.pdf' target='_blank'>*</a>";
+    } else if (result < 30) {
+    doseText = "Tedavi kontrendikedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/SUNULAN%20K%C3%9CB.pdf_84ecc77a-db1b-4bda-8f9b-2f9f5874bf07.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Akarboz") {
+    if (result >= 25) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/e1cfeca910211.pdf' target='_blank'>*</a>";
+    } else if (result < 25) {
+    doseText = "Ciddi böbrek yetmezliğinde kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/e1cfeca910211.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Eksenatid") {
+    if (result >= 50) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/5%20k%C3%BCb.pdf_46618ffd-223e-4191-b7f9-d39f3b534858.pdf' target='_blank'>*</a>";
+    } else if (result < 50 && result >= 30) {
+    doseText = "5 mcg'lık formundan 10 mcg'lık formuna dikkatle geçilmelidir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/5%20k%C3%BCb.pdf_46618ffd-223e-4191-b7f9-d39f3b534858.pdf' target='_blank'>*</a>";
+    } else if (result < 30) {
+    doseText = "Kullanılması önerilmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/5%20k%C3%BCb.pdf_46618ffd-223e-4191-b7f9-d39f3b534858.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Oseltamivir fosfat") {
+    if (result > 60) {
+    doseText = "Günde 2 kez 75 mg (profilaksi için kullanımında 1 kez)<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
+    } else if (result <= 60 && result > 30) {
+    doseText = "Günde 2 kez 30 mg (profilaksi için kullanımında 1 kez)<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
+    } else if (result <= 30 && result > 10) {
+    doseText = "Günde 1 kez 30 mg (profilaksi için kullanımında gün aşırı)<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
+    } else if (result <= 10) {
+    doseText = "Veri yoktur, kullanılması önerilmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Asiklovir (IV)") {
+    if (result > 50) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/RWY3niWOBW9Qt.pdf' target='_blank'>*</a>";
+    } else if (result <= 50 && result > 25) {
+    doseText = "Önerilen doz 12 saatte bir verilmelidir<a href='https://titck.gov.tr/storage/kubKtAttachments/RWY3niWOBW9Qt.pdf' target='_blank'>*</a>";
+    } else if (result <= 25 && result > 10) {
+    doseText = "Önerilen doz 24 saatte bir verilmelidir<a href='https://titck.gov.tr/storage/kubKtAttachments/RWY3niWOBW9Qt.pdf' target='_blank'>*</a>";
+    } else if (result <= 10) {
+    doseText = "Önerilen doz yarıya indirilmeli ve 24 saatte bir uygulanmalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/RWY3niWOBW9Qt.pdf' target='_blank'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2093,6 +2194,96 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Metformin hidroklorür") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 10) {
+    infoText.innerHTML = "<strong>Metformin</strong> 10 yaş veya üzeri çocuklarda ve ergenlerde kullanılabilir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/SUNULAN%20K%C3%9CB.pdf_84ecc77a-db1b-4bda-8f9b-2f9f5874bf07.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Akarboz") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "<strong>Akarbozun</strong> güvenliliği ve etkinliği 18 yaş altı hastalarda saptanmamıştır.<a href='https://titck.gov.tr/storage/kubKtAttachments/e1cfeca910211.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Eksenatid") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "18 yaşın altındaki hastalarda <strong>eksenatidin</strong> güvenliliği ve etkinliği kanıtlanmamıştır.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/5%20k%C3%BCb.pdf_46618ffd-223e-4191-b7f9-d39f3b534858.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Oseltamivir fosfat") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > 0 && age1.value < 13) {
+    infoText.innerHTML = "13 yaşın altındaki hastalar için böbrek yetmezliği için bir doz önerisi bilgisi bulunmamaktadır.<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value > -1 && age1.value < 1) {
+    infoText.innerHTML = "1 yaşın altındaki çocuklarda, güvenliliği ve etkililiği saptanmamıştır.<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Asiklovir (IV)") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age1.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -2526,6 +2717,96 @@ html(lang='tr')
     infoText.innerHTML = "Güvenilirliği ve etkinliği kanıtlanmadığından çocuk ve adolesanlarda kullanılmamalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/4r1EU7x0brs3G.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Metformin hidroklorür") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 10) {
+    infoText.innerHTML = "<strong>Metformin</strong> 10 yaş veya üzeri çocuklarda ve ergenlerde kullanılabilir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/SUNULAN%20K%C3%9CB.pdf_84ecc77a-db1b-4bda-8f9b-2f9f5874bf07.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Akarboz") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "<strong>Akarbozun</strong> güvenliliği ve etkinliği 18 yaş altı hastalarda saptanmamıştır.<a href='https://titck.gov.tr/storage/kubKtAttachments/e1cfeca910211.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Eksenatid") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "18 yaşın altındaki hastalarda <strong>eksenatidin</strong> güvenliliği ve etkinliği kanıtlanmamıştır.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/5%20k%C3%BCb.pdf_46618ffd-223e-4191-b7f9-d39f3b534858.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Oseltamivir fosfat") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > 0 && age2.value < 13) {
+    infoText.innerHTML = "13 yaşın altındaki hastalar için böbrek yetmezliği için bir doz önerisi bilgisi bulunmamaktadır.<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value > -1 && age2.value < 1) {
+    infoText.innerHTML = "1 yaşın altındaki çocuklarda, güvenliliği ve etkililiği saptanmamıştır.<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Asiklovir (IV)") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
     $('#calculate').fadeTo('medium', 0);
