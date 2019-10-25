@@ -212,6 +212,9 @@ html(lang='tr')
                   a.dropdown-item
                     | Oseltamivir fosfat - 
                     small Tamiflu
+                  a.dropdown-item
+                    | Zidovudin (IV) - 
+                    small Retrovir  
                   .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Diüretik
                   a.dropdown-item
@@ -252,6 +255,14 @@ html(lang='tr')
                   a.dropdown-item
                     | Ramipril + Hidroklorotiazit - 
                     small Delix Plus
+                  .dropdown-divider
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Serum Lipid Düşürücü
+                  a.dropdown-item
+                    | Fenofibrat - 
+                    small Lipanthyl
+                  a.dropdown-item
+                    | Rosuvastatin kalsiyum - 
+                    small Crestor
             .col-12.col-lg-6.mt-3
               .dropdown
                 button#dropdownMenu1-2.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Cockcroft-Gault Denklemi
@@ -674,6 +685,12 @@ html(lang='tr')
     doseText = "Her hemodiyaliz seansı sonrası 30 mg (profilaksi için kullanımında her 2. seans sonrası)<a href='https://titck.gov.tr/storage/kubKtAttachments/Fo65UzEwV4M8Q.pdf' target='_blank'>*</a>";
     } else if (actSubs === "Asiklovir (IV)") {
     doseText = "Önerilen doz yarıya indirilmeli ve 24 saatte bir ve diyaliz sonrası uygulanmalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/RWY3niWOBW9Qt.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Fenofibrat") {
+    doseText = "Şiddetli böbrek yetmezliğinde kontrendikedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub.pdf_ed2996a0-5ced-4c9f-9501-d70f02800060.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Rosuvastatin kalsiyum") {
+    doseText = "Ağır böbrek yetmezliği olan hastalarda kontendikedir<a href='https://titck.gov.tr/storage/kubKtAttachments/xd4VGlPv9LC8A.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Zidovudin (IV)") {
+    doseText = "6-8 saatte bir 100 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/3a0ef8f162739.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -1076,6 +1093,40 @@ html(lang='tr')
     doseText = "Önerilen doz 24 saatte bir verilmelidir<a href='https://titck.gov.tr/storage/kubKtAttachments/RWY3niWOBW9Qt.pdf' target='_blank'>*</a>";
     } else if (result <= 10) {
     doseText = "Önerilen doz yarıya indirilmeli ve 24 saatte bir uygulanmalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/RWY3niWOBW9Qt.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Fenofibrat") {
+    if (result >= 90) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub.pdf_ed2996a0-5ced-4c9f-9501-d70f02800060.pdf' target='_blank'>*</a>";
+    } else if (result < 90 && result >= 30) {
+    doseText = "Böbrek yetmezliği olan hastalarda dozun azaltılması gerekmektedir. Bu nedenle kullanımı önerilmez<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub.pdf_ed2996a0-5ced-4c9f-9501-d70f02800060.pdf' target='_blank'>*</a>";
+    } else if (result < 30) {
+    doseText = "Şiddetli böbrek yetmezliğinde kontrendikedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub.pdf_ed2996a0-5ced-4c9f-9501-d70f02800060.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Rosuvastatin kalsiyum") {
+    if (result >= 60) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/xd4VGlPv9LC8A.pdf' target='_blank'>*</a>";
+    } else if (result < 60 && result >= 30) {
+    doseText = "Başlangıç dozu olarak 5 mg önerilir. 40 mg'lik doz kontrendikedir<a href='https://titck.gov.tr/storage/kubKtAttachments/xd4VGlPv9LC8A.pdf' target='_blank'>*</a>";
+    } else if (result < 30) {
+    doseText = "Ağır böbrek yetmezliği olan hastalarda kontendikedir<a href='https://titck.gov.tr/storage/kubKtAttachments/xd4VGlPv9LC8A.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Zidovudin (IV)") {
+    if (result >= 10) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/3a0ef8f162739.pdf' target='_blank'>*</a>";
+    } else if (result < 10) {
+    doseText = "Günde 3-4 kez 1 mg/kg<a href='https://titck.gov.tr/storage/kubKtAttachments/3a0ef8f162739.pdf' target='_blank'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2284,6 +2335,56 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Fenofibrat") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "<strong>Fenofibratın</strong> 18 yaşın altındaki çocuklarda kullanılması önerilmemektedir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub.pdf_ed2996a0-5ced-4c9f-9501-d70f02800060.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Rosuvastatin kalsiyum") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 6) {
+    infoText.innerHTML = "<strong>Rosuvastatinin</strong> 6 yaşın altındaki çocuklarda kullanılması önerilmemektedir.<a href='https://titck.gov.tr/storage/kubKtAttachments/xd4VGlPv9LC8A.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Zidovudin (IV)") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age1.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -2803,6 +2904,56 @@ html(lang='tr')
     $("#calcButton").attr("disabled", false);
     }
     } else if (actSubs.textContent === "Asiklovir (IV)") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Fenofibrat") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "<strong>Fenofibratın</strong> 18 yaşın altındaki çocuklarda kullanılması önerilmemektedir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub.pdf_ed2996a0-5ced-4c9f-9501-d70f02800060.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Rosuvastatin kalsiyum") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 6) {
+    infoText.innerHTML = "<strong>Rosuvastatinin</strong> 6 yaşın altındaki çocuklarda kullanılması önerilmemektedir.<a href='https://titck.gov.tr/storage/kubKtAttachments/xd4VGlPv9LC8A.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Zidovudin (IV)") {
     if (age2.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
     $('#calculate').fadeTo('fast', 100);

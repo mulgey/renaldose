@@ -212,6 +212,9 @@ html(lang='en')
                   a.dropdown-item
                     | Oseltamivir phosphate - 
                     small Tamiflu
+                  a.dropdown-item
+                    | Zidovudine (IV) - 
+                    small Retrovir  
                   .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Cardiovascular
                   a.dropdown-item
@@ -252,6 +255,14 @@ html(lang='en')
                   a.dropdown-item
                     | Spironolactone + Hydrochlorothiazide - 
                     small Aldactazide
+                  .dropdown-divider
+                  h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Hypolipidemic
+                  a.dropdown-item
+                    | Fenofibrate - 
+                    small Tricor
+                  a.dropdown-item
+                    | Rosuvastatin calcium - 
+                    small Crestor
             .col-12.col-lg-6.mt-3
               .dropdown
                 button#dropdownMenu1-2.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Cockcroft-Gault Equation
@@ -669,6 +680,12 @@ html(lang='en')
     doseText = "30 mg after every hemodialysis session - after every 2nd session in prophylactic use -";
     } else if (actSubs === "Acyclovir (IV)") {
     doseText = "The dose suggested should be halved and applied after dialysis treatment every 24 hours";
+    } else if (actSubs === "Fenofibrate") {
+    doseText = "The treatment is contraindicated in the case of severe renal insufficiency";
+    } else if (actSubs === "Rosuvastatin calcium") {
+    doseText = "The treatment is contraindicated for the patients having severe renal insufficiency";
+    } else if (actSubs === "Zidovudine (IV)") {
+    doseText = "100 mg in every 6-8 hours";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -1071,6 +1088,40 @@ html(lang='en')
     doseText = "The dose suggested should be given every 24 hours";
     } else if (result <= 10) {
     doseText = "The dose suggested should be halved and applied every 24 hours";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Fenofibrate") {
+    if (result >= 90) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 90 && result >= 30) {
+    doseText = "The dose should be reduced for the patients having renal insufficiency. Thus, it's usage is not suggested";
+    } else if (result < 30) {
+    doseText = "The treatment is contraindicated in the case of severe renal insufficiency";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Rosuvastatin calcium") {
+    if (result >= 60) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 60 && result >= 30) {
+    doseText = "5 mg is suggested for a starting dose. The dose of 40 mg is contraindicated";
+    } else if (result < 30) {
+    doseText = "The treatment is contraindicated for the patients having severe renal insufficiency";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Zidovudine (IV)") {
+    if (result >= 10) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 10) {
+    doseText = "1 mg/kg in every 6-8 hours";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2230,6 +2281,56 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Fenofibrate") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Treating patients younger that 18 years old with <strong>fenofibrate</strong> is not suggested.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Rosuvastatin calcium") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 6) {
+    infoText.innerHTML = "Treating patients younger that 6 years old with <strong>rosuvastatin</strong> is not suggested.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Zidovudine (IV)") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
@@ -2743,6 +2844,56 @@ html(lang='en')
     $("#calcButton").attr("disabled", false);
     }
     } else if (actSubs.textContent === "Acyclovir (IV)") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Fenofibrate") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Treating patients younger that 18 years old with <strong>fenofibrate</strong> is not suggested.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text0;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Rosuvastatin calcium") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 6) {
+    infoText.innerHTML = "Treating patients younger that 6 years old with <strong>rosuvastatin</strong> is not suggested.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text0;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Zidovudine (IV)") {
     if (age2.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
