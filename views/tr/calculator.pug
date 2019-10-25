@@ -204,6 +204,12 @@ html(lang='tr')
                   a.dropdown-item
                     | Flukonazol - 
                     small Lumen EF
+                  a.dropdown-item
+                    | Kaspofungin asetat - 
+                    small Cancidas
+                  a.dropdown-item
+                    | Vorikonazol (IV) - 
+                    small Vfend
                   .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antiviral
                   a.dropdown-item
@@ -541,6 +547,17 @@ html(lang='tr')
     infoDiv.style.display = "none";
     resultpure.style.display = "none";
     disably3.className = "dropdown-item2 disabled";
+    } else if (textResult === "Kaspofungin asetat") {
+    notNeedy.innerHTML = "Bu etkin madde için böbrek yetmezliği durumunda doz ayarlaması gerekmemektedir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/cancidas%2050%20yay%C4%B1n%20kub.pdf_7196d7b5-2ec6-4119-8bf7-797cecb5c843.pdf' target='_blank'>*</a>";
+    needy.style.display = "block";
+    egfry.style.display = "none";
+    cockgaulty.style.display = "none";
+    disably.className = "dropdown-item2 disabled";
+    disably2.className = "dropdown-item2 disabled";
+    calculatey.style.display = "none";
+    infoDiv.style.display = "none";
+    resultpure.style.display = "none";
+    disably3.className = "dropdown-item2 disabled";
     } else if (textResult === "İmipenem / Silastatin sodyum" || textResult === "Daptomisin" || textResult === "Levofloksasin") {
     diya1.style.display = "none";
     diya2.style.display = "none";
@@ -691,6 +708,8 @@ html(lang='tr')
     doseText = "Ağır böbrek yetmezliği olan hastalarda kontendikedir<a href='https://titck.gov.tr/storage/kubKtAttachments/xd4VGlPv9LC8A.pdf' target='_blank'>*</a>";
     } else if (actSubs === "Zidovudin (IV)") {
     doseText = "6-8 saatte bir 100 mg<a href='https://titck.gov.tr/storage/kubKtAttachments/3a0ef8f162739.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Vorikonazol (IV)") {
+    doseText = "İntravenöz çözücü ajanın birikim yapmasından dolayı oral vorikonazol tedavisine geçilmesi tavsiye edilir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20VFEND%20IV.pdf_51cb4fff-3e30-4be9-8ff2-f423caae50bb.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -1127,6 +1146,16 @@ html(lang='tr')
     doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/3a0ef8f162739.pdf' target='_blank'>*</a>";
     } else if (result < 10) {
     doseText = "Günde 3-4 kez 1 mg/kg<a href='https://titck.gov.tr/storage/kubKtAttachments/3a0ef8f162739.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Vorikonazol (IV)") {
+    if (result >= 50) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20VFEND%20IV.pdf_51cb4fff-3e30-4be9-8ff2-f423caae50bb.pdf' target='_blank'>*</a>";
+    } else if (result < 50) {
+    doseText = "İntravenöz çözücü ajanın birikim yapmasından dolayı oral vorikonazol tedavisine geçilmesi tavsiye edilir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20VFEND%20IV.pdf_51cb4fff-3e30-4be9-8ff2-f423caae50bb.pdf' target='_blank'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2385,6 +2414,24 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Vorikonazol (IV)") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 2) {
+    infoText.innerHTML = "2 yaşın altındaki hastalarda <strong>vorikonazolün</strong> etkililik ve güvenlilik çalışmaları yapılmamıştır.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20VFEND%20IV.pdf_51cb4fff-3e30-4be9-8ff2-f423caae50bb.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age1.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -2958,6 +3005,24 @@ html(lang='tr')
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Vorikonazol (IV)") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 2) {
+    infoText.innerHTML = "2 yaşın altındaki hastalarda <strong>vorikonazolün</strong> etkililik ve güvenlilik çalışmaları yapılmamıştır.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20VFEND%20IV.pdf_51cb4fff-3e30-4be9-8ff2-f423caae50bb.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
     $('#calculate').fadeTo('medium', 0);

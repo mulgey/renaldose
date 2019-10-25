@@ -202,8 +202,14 @@ html(lang='en')
                   .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antifungal
                   a.dropdown-item
+                    | Caspofungin acetate - 
+                    small Cancidas
+                  a.dropdown-item
                     | Fluconazole - 
                     small Diflucan
+                  a.dropdown-item
+                    | Voriconazole (IV) - 
+                    small Vfend
                   .dropdown-divider
                   h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antiviral
                   a.dropdown-item
@@ -536,6 +542,17 @@ html(lang='en')
     disably3.className = "dropdown-item2 disabled";
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
+    } else if (textResult === "Caspofungin acetate") {
+    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
+    needy.style.display = "block";
+    egfry.style.display = "none";
+    resultpure.style.display = "none";
+    cockgaulty.style.display = "none";
+    disably.className = "dropdown-item2 disabled";
+    disably2.className = "dropdown-item2 disabled";
+    disably3.className = "dropdown-item2 disabled";
+    calculatey.style.display = "none";
+    infoDiv.style.display = "none";
     } else if (textResult === "Imipenem / Cilastatin sodium" || textResult === "Daptomycin" || textResult === "Levofloxacin") {
     diya1.style.display = "none";
     diya2.style.display = "none";
@@ -686,6 +703,8 @@ html(lang='en')
     doseText = "The treatment is contraindicated for the patients having severe renal insufficiency";
     } else if (actSubs === "Zidovudine (IV)") {
     doseText = "100 mg in every 6-8 hours";
+    } else if (actSubs === "Voriconazole (IV)") {
+    doseText = "Due to the accumulation of the intravenous solvent agent, it's suggested to switch to oral voriconazole treatment";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -1122,6 +1141,16 @@ html(lang='en')
     doseText = "There's no need for dose adjustment";
     } else if (result < 10) {
     doseText = "1 mg/kg in every 6-8 hours";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Voriconazole (IV)") {
+    if (result >= 50) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 50) {
+    doseText = "Due to the accumulation of the intravenous solvent agent, it's suggested to switch to oral voriconazole treatment";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2331,6 +2360,24 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Voriconazole (IV)") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 2) {
+    infoText.innerHTML = "Safety and efficacy studies of <strong>voriconazole</strong> for the patients aged below 2 wasn't conducted.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
@@ -2871,7 +2918,7 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else {
-    infoText.innerHTML = text0;
+    infoText.innerHTML = text2;
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
@@ -2889,7 +2936,7 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else {
-    infoText.innerHTML = text0;
+    infoText.innerHTML = text2;
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
@@ -2898,6 +2945,24 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Voriconazole (IV)") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 2) {
+    infoText.innerHTML = "Safety and efficacy studies of <strong>voriconazole</strong> for the patients aged below 2 wasn't conducted.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
