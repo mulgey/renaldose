@@ -259,6 +259,17 @@ html(lang='en')
                       | Ramipril + Hydrochlorothiazide - 
                       small Altace Plus
                     .dropdown-divider
+                    h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Central Nervous System Agent
+                    a.dropdown-item
+                      | Gabapentin - 
+                      small Neurontin
+                    a.dropdown-item
+                      | Lithium carbonate - 
+                      small Lithobid
+                    a.dropdown-item
+                      | Pregabalin - 
+                      small Lyrica
+                    .dropdown-divider
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Diuretic
                     a.dropdown-item
                       | Acetazolamide - 
@@ -277,6 +288,9 @@ html(lang='en')
                     a.dropdown-item
                       | Fenofibrate - 
                       small Tricor
+                    a.dropdown-item
+                      | Pitavastatin calcium - 
+                      small Zypitamag
                     a.dropdown-item
                       | Rosuvastatin calcium - 
                       small Crestor
@@ -760,6 +774,14 @@ html(lang='en')
     doseText = "Due to the accumulation of the intravenous solvent agent, it's suggested to switch to oral voriconazole treatment";
     } else if (actSubs === "Rivaroxaban") {
     doseText = "It's not suggested to be used";
+    } else if (actSubs === "Pregabalin") {
+    doseText = "In addition to the daily dose, an extra dose of 25 mg - 100 mg should be applied following the dialysis session";
+    } else if (actSubs === "Gabapentin") {
+    doseText = "150 mg - 300 mg. In the case of using the 150 mg dose, 300 mg should be applied every other day. An extra dose of 200-300 mg is suggested following the dialysis session";
+    } else if (actSubs === "Lithium carbonate") {
+    doseText = "It's dialyzable [%50 - %100] and suggested to be applied following the dialysis treatment";
+    } else if (actSubs === "Pitavastatin calcium") {
+    doseText = "The dose of 4 mg is not suggested for the patients having severe renal insufficiency";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -1216,6 +1238,60 @@ html(lang='en')
     doseText = "There's no need for dose adjustment";
     } else if (result < 15) {
     doseText = "It's not suggested to be used";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Pregabalin") {
+    if (result >= 60) {
+    doseText = "Starting dose is 150 mg, maximum dose is 600 mg. Dose regimen should be arranged as 2 or 3 times a day";
+    } else if (result < 60 && result >= 30) {
+    doseText = "Starting dose is 75 mg, maximum dose is 300 mg. Dose regimen should be arranged as 2 or 3 times a day";
+    } else if (result < 30 && result >= 15) {
+    doseText = "Starting dose is 25-50 mg, maximum dose is 150 mg. Dose regimen should be arranged as once or twice a day";
+    } else if (result < 15) {
+    doseText = "Starting dose is 25 mg, maximum dose is 75 mg. Dose regimen should be arranged as once a day";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Gabapentin") {
+    if (result >= 80) {
+    doseText = "Daily dose range: 900 mg - 3,600 mg";
+    } else if (result < 80 && result >= 50) {
+    doseText = "Daily dose range: 600 mg - 1,800 mg";
+    } else if (result < 50 && result >= 30) {
+    doseText = "Daily dose range: 300 mg - 900 mg";
+    } else if (result < 30 && result >= 15) {
+    doseText = "Daily dose range: 150 mg - 600 mg. In the case of using the 150 mg dose, 300 mg should be applied every other day";
+    } else if (result < 15) {
+    doseText = "Daily dose range: 150 mg - 300 mg. Dose should be reduced in proportion to the clearance value. In the case of using the 150 mg dose, 300 mg should be applied every other day";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Lithium carbonate") {
+    if (result > 50) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result <= 50 && result > 10) {
+    doseText = "%50 - %75 of the normal dose is applied";
+    } else if (result <= 10) {
+    doseText = "%25 - %50 of the normal dose is applied";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Pitavastatin calcium") {
+    if (result >= 90) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 90 && result >= 30) {
+    doseText = "Due to limited data, the dose of 4 mg may be used only if the patient is under close monitoring";
+    } else if (result < 30) {
+    doseText = "The dose of 4 mg is not suggested for the patients having severe renal insufficiency";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2528,6 +2604,78 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Pregabalin") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Its safety and efficiency could not be determined for the patients aged under 18.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Gabapentin") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 6) {
+    infoText.innerHTML = "There's not enough experience about the treatment of children younger than 6 years old.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Lithium carbonate") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 12) {
+    infoText.innerHTML = "It's not suggested to be used for the children aged under 12 due to insufficient data about its effect and safety.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Pitavastatin calcium") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 6) {
+    infoText.innerHTML = "Its reliability and efficiency was not determined for the patients aged below 6.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
@@ -3147,6 +3295,78 @@ html(lang='en')
     $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "Due to insufficient data for the patients aged below 18, it's not suggested to be used.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Pregabalin") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Its safety and efficiency could not be determined for the patients aged under 18.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Gabapentin") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 6) {
+    infoText.innerHTML = "There's not enough experience about the treatment of children younger than 6 years old.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Lithium carbonate") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 12) {
+    infoText.innerHTML = "It's not suggested to be used for the children aged under 12 due to insufficient data about its effect and safety.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Pitavastatin calcium") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 6) {
+    infoText.innerHTML = "Its reliability and efficiency was not determined for the patients aged below 6.";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {

@@ -6,6 +6,8 @@ Genel
 - Print'ten sonra otomatik olarak save e geçiyor
 - calc/en sayfasında doz ayarlamama bilgisi geçişli gelmiyor, TR de geliyor
 - Ramipril crcl:35 için sonuç metni çok uzun. Mobil iphone 5s için ekrana sığmıyor
+- Önerilen doz satırı 2 satır yüksekliğinde olmalı
+- Yaş sınırı olmalı (disable)
 
 index.html
 - İki tuş mobil düzende bozuk bir hal alıyor

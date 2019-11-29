@@ -273,10 +273,24 @@ html(lang='tr')
                       | Ramipril + Hidroklorotiazit - 
                       small Delix Plus
                     .dropdown-divider
+                    h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Santral Sinir Sistemine Etkili
+                    a.dropdown-item
+                      | Lityum karbonat - 
+                      small Lithuril
+                    a.dropdown-item
+                      | Gabapentin - 
+                      small Neurontin
+                    a.dropdown-item
+                      | Pregabalin - 
+                      small Lyrica
+                    .dropdown-divider
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Serum Lipid Düşürücü
                     a.dropdown-item
                       | Fenofibrat - 
                       small Lipanthyl
+                    a.dropdown-item
+                      | Pitavastatin kalsiyum - 
+                      small Alipza
                     a.dropdown-item
                       | Rosuvastatin kalsiyum - 
                       small Crestor
@@ -765,6 +779,14 @@ html(lang='tr')
     doseText = "İntravenöz çözücü ajanın birikim yapmasından dolayı oral vorikonazol tedavisine geçilmesi tavsiye edilir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20Onayl%C4%B1%20K%C3%9CB%20VFEND%20IV.pdf_51cb4fff-3e30-4be9-8ff2-f423caae50bb.pdf' target='_blank'>*</a>";
     } else if (actSubs === "Rivaroksaban") {
     doseText = "Kullanımı önerilmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/6cUsUJSpQ54B9.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Pregabalin") {
+    doseText = "Günlük doza ek olarak hemodiyaliz sonrası 25 mg - 100 mg'lık tek bir ek doz uygulanmalıdır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-LYRICA%2075%20MG-UYGUN%20KUB.pdf_15b5916a-0565-4487-85b3-6626d650e3cb.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Gabapentin") {
+    doseText = "150 mg - 300 mg. 150 mg'lık doz tercih edilirse gün aşırı 300 mg uygulanmalıdır. Diyaliz sonrası 200-300 mg'lık ek doz önerilir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20NEURONT%C4%B0N%20400%20MG%20UYGUN%20K%C3%9CB.pdf_1a045736-685c-43ec-931b-fc278806ef98.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Lityum karbonat") {
+    doseText = "Diyaliz edilebilir [%50 - %100] Dozun diyaliz seansından sonra alınması tavsiye edilir<a href='https://titck.gov.tr/storage/kubKtAttachments/fe0aa77783730.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Pitavastatin kalsiyum") {
+    doseText = "Ağır böbrek yetmezliği olan hastalarda 4 mg'lık doz tavsiye edilmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -1221,6 +1243,60 @@ html(lang='tr')
     doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/6cUsUJSpQ54B9.pdf' target='_blank'>*</a>";
     } else if (result < 15) {
     doseText = "Kullanımı önerilmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/6cUsUJSpQ54B9.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Pregabalin") {
+    if (result >= 60) {
+    doseText = "Başlangıç dozu 150 mg, maksimum doz 600 mg. Doz rejimi günde 2 veya 3 kez olacak şekilde düzenlenir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-LYRICA%2075%20MG-UYGUN%20KUB.pdf_15b5916a-0565-4487-85b3-6626d650e3cb.pdf' target='_blank'>*</a>";
+    } else if (result < 60 && result >= 30) {
+    doseText = "Başlangıç dozu 75 mg, maksimum doz 300 mg. Doz rejimi günde 2 veya 3 kez olacak şekilde düzenlenir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-LYRICA%2075%20MG-UYGUN%20KUB.pdf_15b5916a-0565-4487-85b3-6626d650e3cb.pdf' target='_blank'>*</a>";
+    } else if (result < 30 && result >= 15) {
+    doseText = "Başlangıç dozu 25-50 mg, maksimum doz 150 mg. Doz rejimi günde tek veya 2 kez olacak şekilde düzenlenir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-LYRICA%2075%20MG-UYGUN%20KUB.pdf_15b5916a-0565-4487-85b3-6626d650e3cb.pdf' target='_blank'>*</a>";
+    } else if (result < 15) {
+    doseText = "Başlangıç dozu 25 mg, maksimum doz 75 mg. Doz rejimi günde tek olacak şekilde düzenlenir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-LYRICA%2075%20MG-UYGUN%20KUB.pdf_15b5916a-0565-4487-85b3-6626d650e3cb.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Gabapentin") {
+    if (result >= 80) {
+    doseText = "Günlük doz aralığı: 900 mg - 3.600 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20NEURONT%C4%B0N%20400%20MG%20UYGUN%20K%C3%9CB.pdf_1a045736-685c-43ec-931b-fc278806ef98.pdf' target='_blank'>*</a>";
+    } else if (result < 80 && result >= 50) {
+    doseText = "Günlük doz aralığı: 600 mg - 1.800 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20NEURONT%C4%B0N%20400%20MG%20UYGUN%20K%C3%9CB.pdf_1a045736-685c-43ec-931b-fc278806ef98.pdf' target='_blank'>*</a>";
+    } else if (result < 50 && result >= 30) {
+    doseText = "Günlük doz aralığı: 300 mg - 900 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20NEURONT%C4%B0N%20400%20MG%20UYGUN%20K%C3%9CB.pdf_1a045736-685c-43ec-931b-fc278806ef98.pdf' target='_blank'>*</a>";
+    } else if (result < 30 && result >= 15) {
+    doseText = "Günlük doz aralığı: 150 mg - 600 mg. 150 mg'lık doz tercih edilirse gün aşırı 300 mg uygulanmalıdır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20NEURONT%C4%B0N%20400%20MG%20UYGUN%20K%C3%9CB.pdf_1a045736-685c-43ec-931b-fc278806ef98.pdf' target='_blank'>*</a>";
+    } else if (result < 15) {
+    doseText = "Günlük doz aralığı: 150 mg - 300 mg olup klirens ile orantılı olarak azaltılmalıdır. 150 mg'lık doz tercih edilirse gün aşırı 300 mg uygulanmalıdır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20NEURONT%C4%B0N%20400%20MG%20UYGUN%20K%C3%9CB.pdf_1a045736-685c-43ec-931b-fc278806ef98.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Lityum karbonat") {
+    if (result > 50) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/fe0aa77783730.pdf' target='_blank'>*</a>";
+    } else if (result <= 50 && result > 10) {
+    doseText = "Normal dozun %50 - %75'i uygulanır<a href='https://titck.gov.tr/storage/kubKtAttachments/fe0aa77783730.pdf' target='_blank'>*</a>";
+    } else if (result <= 10) {
+    doseText = "Normal dozun %25 - %50'si uygulanır<a href='https://titck.gov.tr/storage/kubKtAttachments/fe0aa77783730.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Pitavastatin kalsiyum") {
+    if (result >= 90) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
+    } else if (result < 90 && result >= 30) {
+    doseText = "Veriler sınırlı olduğu için 4 mg'lık doz yanlızca hasta yakın takip altında ise kullanılabilir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
+    } else if (result < 30) {
+    doseText = "Ağır böbrek yetmezliği olan hastalarda 4 mg'lık doz tavsiye edilmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2582,6 +2658,78 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Pregabalin") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "18 yaş altı hastalarda güvenlilik ve etkililiği belirlenmemiştir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-LYRICA%2075%20MG-UYGUN%20KUB.pdf_15b5916a-0565-4487-85b3-6626d650e3cb.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Gabapentin") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 6) {
+    infoText.innerHTML = "6 yaşından küçük çocuklarda ek tedavi ile ilgili olarak yeterli deneyim yoktur.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20NEURONT%C4%B0N%20400%20MG%20UYGUN%20K%C3%9CB.pdf_1a045736-685c-43ec-931b-fc278806ef98.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Lityum karbonat") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 12) {
+    infoText.innerHTML = "12 yaşın altındaki çocuklarda etkisi ve güvenliği bilinmediğinden kullanılmamalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/fe0aa77783730.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Pitavastatin kalsiyum") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 6) {
+    infoText.innerHTML = "6 yaşın altındaki çocuklarda güvenliliği ve etkinliği belirlenmemiştir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age1.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -3207,6 +3355,78 @@ html(lang='tr')
     $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
     infoText.innerHTML = "18 yaşından küçükler için yeterli veri bulunmadığından kullanımı önerilmemektedir.<a href='https://titck.gov.tr/storage/kubKtAttachments/6cUsUJSpQ54B9.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Pregabalin") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "18 yaş altı hastalarda güvenlilik ve etkililiği belirlenmemiştir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-LYRICA%2075%20MG-UYGUN%20KUB.pdf_15b5916a-0565-4487-85b3-6626d650e3cb.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Gabapentin") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 6) {
+    infoText.innerHTML = "6 yaşından küçük çocuklarda ek tedavi ile ilgili olarak yeterli deneyim yoktur.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20NEURONT%C4%B0N%20400%20MG%20UYGUN%20K%C3%9CB.pdf_1a045736-685c-43ec-931b-fc278806ef98.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Lityum karbonat") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 12) {
+    infoText.innerHTML = "12 yaşın altındaki çocuklarda etkisi ve güvenliği bilinmediğinden kullanılmamalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/fe0aa77783730.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Pitavastatin kalsiyum") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 6) {
+    infoText.innerHTML = "6 yaşın altındaki çocuklarda güvenliliği ve etkinliği belirlenmemiştir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
