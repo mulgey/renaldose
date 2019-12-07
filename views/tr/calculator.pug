@@ -150,6 +150,12 @@ html(lang='tr')
                       | Ertapenem sodyum - 
                       small İnvanz
                     a.dropdown-item
+                      | Fosfomisin sodyum - 
+                      small Fosit
+                    a.dropdown-item
+                      | Gentamisin sülfat - 
+                      small Genta
+                    a.dropdown-item
                       | İmipenem / Silastatin sodyum - 
                       small Tienam
                     a.dropdown-item
@@ -802,6 +808,10 @@ html(lang='tr')
     doseText = "Son dönem böbrek hastalığında kontrendikedir<a href='https://titck.gov.tr/storage/kubKtAttachments/db5987b271353.pdf' target='_blank'>*</a>";
     } else if (actSubs === "Duloksetin hidroklorür") {
     doseText = "Ciddi böbrek yetmezliği olan hastalarda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/fa4jPnAA73Pty.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Fosfomisin sodyum") {
+    doseText = "Diyaliz seansının sonunda 2 g fosfomisin verilmelidir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20FOS%C4%B0T%204%20G%20UYGUN%20K%C3%9CB.pdf_2b1d586e-b6c9-46b4-9a52-9d9bcc0c62ab.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Gentamisin sülfat") {
+    doseText = "Diyaliz için özel bir kullanım önerisi yoktur. Böbrek fonksiyonlarına göre değerlendirilmelidir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub-temiz.pdf_c38db27d-a8c5-456e-aadf-b98592b871b3.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -1350,6 +1360,44 @@ html(lang='tr')
     doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/fa4jPnAA73Pty.pdf'>*</a>";
     } else if (result < 30) {
     doseText = "Ciddi böbrek yetmezliği olan hastalarda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/fa4jPnAA73Pty.pdf'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Fosfomisin sodyum") {
+    if (result > 80) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20FOS%C4%B0T%204%20G%20UYGUN%20K%C3%9CB.pdf_2b1d586e-b6c9-46b4-9a52-9d9bcc0c62ab.pdf'>*</a>";
+    } else if (result > 40 && result <= 80) {
+    doseText = "Üst sınıra yakın dozlar tercih edildiğinde dikkatli olunması önerilir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20FOS%C4%B0T%204%20G%20UYGUN%20K%C3%9CB.pdf_2b1d586e-b6c9-46b4-9a52-9d9bcc0c62ab.pdf'>*</a>";
+    } else if (result > 30 && result <= 40) {
+    doseText = "2 veya 3'e bölünmüş dozlar halinde normal dozun % 70'i uygulanır. Yükleme dozu maksimum %100 olup 8 g'ı geçmemelidir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20FOS%C4%B0T%204%20G%20UYGUN%20K%C3%9CB.pdf_2b1d586e-b6c9-46b4-9a52-9d9bcc0c62ab.pdf'>*</a>";
+    } else if (result > 20 && result <= 30) {
+    doseText = "2 veya 3'e bölünmüş dozlar halinde normal dozun % 60'ı uygulanır. Yükleme dozu maksimum %100 olup 8 g'ı geçmemelidir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20FOS%C4%B0T%204%20G%20UYGUN%20K%C3%9CB.pdf_2b1d586e-b6c9-46b4-9a52-9d9bcc0c62ab.pdf'>*</a>";
+    } else if (result > 10 && result <= 20) {
+    doseText = "2 veya 3'e bölünmüş dozlar halinde normal dozun % 40'ı uygulanır. Yükleme dozu maksimum %100 olup 8 g'ı geçmemelidir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20FOS%C4%B0T%204%20G%20UYGUN%20K%C3%9CB.pdf_2b1d586e-b6c9-46b4-9a52-9d9bcc0c62ab.pdf'>*</a>";
+    } else if (result <= 10) {
+    doseText = "1 veya 2'ye bölünmüş dozlar halinde normal dozun % 20'si uygulanır. Yükleme dozu maksimum %100 olup 8 g'ı geçmemelidir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20FOS%C4%B0T%204%20G%20UYGUN%20K%C3%9CB.pdf_2b1d586e-b6c9-46b4-9a52-9d9bcc0c62ab.pdf'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Gentamisin sülfat") {
+    if (result > 70) {
+    doseText = "8 saatte bir 80 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub-temiz.pdf_c38db27d-a8c5-456e-aadf-b98592b871b3.pdf'>*</a>";
+    } else if (result > 34 && result <= 70) {
+    doseText = "12 saatte bir 80 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub-temiz.pdf_c38db27d-a8c5-456e-aadf-b98592b871b3.pdf'>*</a>";
+    } else if (result > 23 && result <= 34) {
+    doseText = "18 saatte bir 80 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub-temiz.pdf_c38db27d-a8c5-456e-aadf-b98592b871b3.pdf'>*</a>";
+    } else if (result > 15 && result <= 23) {
+    doseText = "24 saatte bir 80 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub-temiz.pdf_c38db27d-a8c5-456e-aadf-b98592b871b3.pdf'>*</a>";
+    } else if (result > 9 && result <= 15) {
+    doseText = "36 saatte bir 80 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub-temiz.pdf_c38db27d-a8c5-456e-aadf-b98592b871b3.pdf'>*</a>";
+    } else if (result > 4 && result <= 9) {
+    doseText = "48 saatte bir 80 mg<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub-temiz.pdf_c38db27d-a8c5-456e-aadf-b98592b871b3.pdf'>*</a>";
+    } else if (result < 5) {
+    doseText = "Doz önerisi bulunmamaktadır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/kub-temiz.pdf_c38db27d-a8c5-456e-aadf-b98592b871b3.pdf'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2837,6 +2885,38 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Fosfomisin sodyum") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Böbrek yetmezliği olan çocuklar için doz önerisi yoktur.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20FOS%C4%B0T%204%20G%20UYGUN%20K%C3%9CB.pdf_2b1d586e-b6c9-46b4-9a52-9d9bcc0c62ab.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Gentamisin sülfat") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age1.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -3590,6 +3670,38 @@ html(lang='tr')
     infoText.innerHTML = "Güvenlilik ve etkililiğe ait yetersiz veri nedeniyle çocuklar ve 18 yaş altındaki ergenlerde kullanılmamalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/fa4jPnAA73Pty.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Fosfomisin sodyum") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Böbrek yetmezliği olan çocuklar için doz önerisi yoktur.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/T%C4%B0TCK%20FOS%C4%B0T%204%20G%20UYGUN%20K%C3%9CB.pdf_2b1d586e-b6c9-46b4-9a52-9d9bcc0c62ab.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Gentamisin sülfat") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
     $('#calculate').fadeTo('medium', 0);

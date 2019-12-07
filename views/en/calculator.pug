@@ -150,6 +150,12 @@ html(lang='en')
                       | Ertapenem sodium - 
                       small Invanz
                     a.dropdown-item
+                      | Fosfomycin sodium - 
+                      small Fomicyt
+                    a.dropdown-item
+                      | Gentamicin sulfate - 
+                      small Gentamicin
+                    a.dropdown-item
                       | Imipenem / Cilastatin sodium - 
                       small Primaxin
                     a.dropdown-item
@@ -797,6 +803,10 @@ html(lang='en')
     doseText = "It's contraindicated for the patients having end stage renal disease";
     } else if (actSubs === "Duloxetine hydrochloride") {
     doseText = "It shouldn't be used for the patients having severe renal insufficiency";
+    } else if (actSubs === "Fosfomycin sodium") {
+    doseText = "2 g of fosfomycin should be applied following the dialysis session";
+    } else if (actSubs === "Gentamicin sulfate") {
+    doseText = "There's not a specific suggestion for the patients receiving dialysis treatment. Should be evaluated according to the renal functions";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -1345,6 +1355,44 @@ html(lang='en')
     doseText = "There's no need for dose adjustment";
     } else if (result < 30) {
     doseText = "It shouldn't be used for the patients having severe renal insufficiency";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Fosfomycin sodium") {
+    if (result > 80) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result > 40 && result <= 80) {
+    doseText = "It's advised to be cautious if doses on the upper limit are preferred";
+    } else if (result > 30 && result <= 40) {
+    doseText = "%70 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 (maximum), but should not exceed 8 g";
+    } else if (result > 20 && result <= 30) {
+    doseText = "%60 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 (maximum), but should not exceed 8 g";
+    } else if (result > 10 && result <= 20) {
+    doseText = "%40 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 (maximum), but should not exceed 8 g";
+    } else if (result <= 10) {
+    doseText = "%20 of the normal dose is applied as divided in 1 or 2. Loading dose is %100 (maximum), but should not exceed 8 g";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Gentamicin sulfate") {
+    if (result > 70) {
+    doseText = "80 mg in every 8 hours";
+    } else if (result > 34 && result <= 70) {
+    doseText = "80 mg in every 12 hours";
+    } else if (result > 23 && result <= 34) {
+    doseText = "80 mg in every 18 hours";
+    } else if (result > 15 && result <= 23) {
+    doseText = "80 mg in every 24 hours";
+    } else if (result > 9 && result <= 15) {
+    doseText = "80 mg in every 36 hours";
+    } else if (result > 4 && result <= 9) {
+    doseText = "80 mg in every 48 hours";
+    } else if (result < 5) {
+    doseText = "There's no dose suggestion for the results in this range";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2783,6 +2831,38 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Fosfomycin sodium") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "There's no  dose suggestion for the children having renal insufficiency.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Gentamicin sulfate") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
@@ -3512,6 +3592,56 @@ html(lang='en')
     infoText.innerHTML = "It's not suggested to be used among children aged below 8, due to the insufficient data about safety and efficiency.";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Duloxetine hydrochloride") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Due to insufficient data on safety and efficiency, it shouldn't be used for the children and adolescents aged below 18.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Fosfomycin sodium") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "There's no  dose suggestion for the children having renal insufficiency.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Gentamicin sulfate") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
