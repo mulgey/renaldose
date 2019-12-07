@@ -275,11 +275,20 @@ html(lang='tr')
                     .dropdown-divider
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Santral Sinir Sistemine Etkili
                     a.dropdown-item
-                      | Lityum karbonat - 
-                      small Lithuril
+                      | Duloksetin hidroklorür - 
+                      small Cymbalta
                     a.dropdown-item
                       | Gabapentin - 
                       small Neurontin
+                    a.dropdown-item
+                      | Lityum karbonat - 
+                      small Lithuril
+                    a.dropdown-item
+                      | Paliperidon palmitat - 
+                      small Xeplion
+                    a.dropdown-item
+                      | Pirasetam - 
+                      small Nootropil
                     a.dropdown-item
                       | Pregabalin - 
                       small Lyrica
@@ -312,7 +321,7 @@ html(lang='tr')
                   option(value='1') Erkek
                   option(value='2') Kadın
               .col-6.col-lg-2.md-form.input-group.mb-3
-                input#age1.form-control(type='number', placeholder='Yaş', aria-label='Yaş', aria-describedby='material-addon1', step='1', autocomplete='off', min='0')
+                input#age2.form-control(type='number', placeholder='Yaş', aria-label='Yaş', aria-describedby='material-addon1', step='1', autocomplete='off', min='0')
               .col-6.col-lg-2.md-form.input-group.mb-3
                 input#srcr1.form-control(type='number', placeholder='Serum kreatinini', aria-label='Serum kreatinini', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
               .col-6.col-lg-2
@@ -787,6 +796,12 @@ html(lang='tr')
     doseText = "Diyaliz edilebilir [%50 - %100] Dozun diyaliz seansından sonra alınması tavsiye edilir<a href='https://titck.gov.tr/storage/kubKtAttachments/fe0aa77783730.pdf' target='_blank'>*</a>";
     } else if (actSubs === "Pitavastatin kalsiyum") {
     doseText = "Ağır böbrek yetmezliği olan hastalarda 4 mg'lık doz tavsiye edilmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Paliperidon palmitat") {
+    doseText = "Kullanımı önerilmez<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-XEPLION%20100-UYGUN%20KUB.pdf_078ea993-9fb6-4364-a976-6a55cd92555a.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Pirasetam") {
+    doseText = "Son dönem böbrek hastalığında kontrendikedir<a href='https://titck.gov.tr/storage/kubKtAttachments/db5987b271353.pdf' target='_blank'>*</a>";
+    } else if (actSubs === "Duloksetin hidroklorür") {
+    doseText = "Ciddi böbrek yetmezliği olan hastalarda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/fa4jPnAA73Pty.pdf' target='_blank'>*</a>";
     } else {
     doseText = "Bu isimdeki etkin madde için herhangi bir diyaliz dozu verisi sağlanmamıştır.";
     }
@@ -1297,6 +1312,44 @@ html(lang='tr')
     doseText = "Veriler sınırlı olduğu için 4 mg'lık doz yanlızca hasta yakın takip altında ise kullanılabilir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
     } else if (result < 30) {
     doseText = "Ağır böbrek yetmezliği olan hastalarda 4 mg'lık doz tavsiye edilmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Paliperidon palmitat") {
+    if (result >= 80) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-XEPLION%20100-UYGUN%20KUB.pdf_078ea993-9fb6-4364-a976-6a55cd92555a.pdf' target='_blank'>*</a>";
+    } else if (result < 80 && result >= 50) {
+    doseText = "İlk gün 100 mg ve 1 hafta sonra 75 mg uygulanır. Önerilen aylık idame dozu 25 mg ila 100 mg aralığında 50 mg’dır<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-XEPLION%20100-UYGUN%20KUB.pdf_078ea993-9fb6-4364-a976-6a55cd92555a.pdf' target='_blank'>*</a>";
+    } else if (result < 50) {
+    doseText = "Kullanımı önerilmez<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-XEPLION%20100-UYGUN%20KUB.pdf_078ea993-9fb6-4364-a976-6a55cd92555a.pdf' target='_blank'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Pirasetam") {
+    if (result >= 80) {
+    doseText = "Genel günlük doz, 2-4 eşit doza bölünerek uygulanır<a href='https://titck.gov.tr/storage/kubKtAttachments/db5987b271353.pdf'>*</a>";
+    } else if (result < 80 && result >= 50) {
+    doseText = "Genel günlük dozun 2/3'ü, 2 veya 3 eşit doza bölünerek uygulanır<a href='https://titck.gov.tr/storage/kubKtAttachments/db5987b271353.pdf'>*</a>";
+    } else if (result < 50 && result >= 30) {
+    doseText = "Genel günlük dozun 1/3'ü, 2 eşit doza bölünerek uygulanır<a href='https://titck.gov.tr/storage/kubKtAttachments/db5987b271353.pdf'>*</a>";
+    } else if (result < 30 && result >= 15) {
+    doseText = "Genel günlük dozun 1/6'sı, tek seferde uygulanır<a href='https://titck.gov.tr/storage/kubKtAttachments/db5987b271353.pdf'>*</a>";
+    } else if (result < 15) {
+    doseText = "Kullanımı kontrendikedir<a href='https://titck.gov.tr/storage/kubKtAttachments/db5987b271353.pdf'>*</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Duloksetin hidroklorür") {
+    if (result >= 30) {
+    doseText = "Doz ayarlaması gerekmemektedir<a href='https://titck.gov.tr/storage/kubKtAttachments/fa4jPnAA73Pty.pdf'>*</a>";
+    } else if (result < 30) {
+    doseText = "Ciddi böbrek yetmezliği olan hastalarda kullanılmamalıdır<a href='https://titck.gov.tr/storage/kubKtAttachments/fa4jPnAA73Pty.pdf'>*</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2730,6 +2783,60 @@ html(lang='tr')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Paliperidon palmitat") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Çocuklarda ve 18 yaşın altındaki hastalarda güvenliliği ve etkililiği incelenmemiştir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-XEPLION%20100-UYGUN%20KUB.pdf_078ea993-9fb6-4364-a976-6a55cd92555a.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Pirasetam") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 8) {
+    infoText.innerHTML = "8 yaşın altındaki çocuklarda güvenlilik ve etkinlik ile ilgili yeterli veri bulunmaması sebebiyle kullanılması önerilmez.<a href='https://titck.gov.tr/storage/kubKtAttachments/db5987b271353.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Duloksetin hidroklorür") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Güvenlilik ve etkililiğe ait yetersiz veri nedeniyle çocuklar ve 18 yaş altındaki ergenlerde kullanılmamalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/fa4jPnAA73Pty.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vankomisin hidroklorür") {
     if (age1.value > 100) {
     infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
@@ -3427,6 +3534,60 @@ html(lang='tr')
     $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 6) {
     infoText.innerHTML = "6 yaşın altındaki çocuklarda güvenliliği ve etkinliği belirlenmemiştir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/sunulan%20k%C3%BCb.pdf_a6fe9e18-4a6e-4fd9-8e46-1b04e12d7245.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Paliperidon palmitat") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Çocuklarda ve 18 yaşın altındaki hastalarda güvenliliği ve etkililiği incelenmemiştir.<a href='https://titck.gov.tr/storage/Archive/2019/kubKtAttachments/TITCK-XEPLION%20100-UYGUN%20KUB.pdf_078ea993-9fb6-4364-a976-6a55cd92555a.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Pirasetam") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 8) {
+    infoText.innerHTML = "8 yaşın altındaki çocuklarda güvenlilik ve etkinlik ile ilgili yeterli veri bulunmaması sebebiyle kullanılması önerilmez.<a href='https://titck.gov.tr/storage/kubKtAttachments/db5987b271353.pdf' target='_blank'>*</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Yaş değeri sıfırdan küçük olamaz. Lütfen girdiğiniz bilgileri kontrol ediniz.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Duloksetin hidroklorür") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Hastanın yaş bilgisi beklenen değer aralığının <strong>üstündedir</strong>, lütfen kontrol ediniz.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Güvenlilik ve etkililiğe ait yetersiz veri nedeniyle çocuklar ve 18 yaş altındaki ergenlerde kullanılmamalıdır.<a href='https://titck.gov.tr/storage/kubKtAttachments/fa4jPnAA73Pty.pdf' target='_blank'>*</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {

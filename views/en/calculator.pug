@@ -261,11 +261,20 @@ html(lang='en')
                     .dropdown-divider
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Central Nervous System Agent
                     a.dropdown-item
+                      | Duloxetine hydrochloride - 
+                      small Cymbalta
+                    a.dropdown-item
                       | Gabapentin - 
                       small Neurontin
                     a.dropdown-item
                       | Lithium carbonate - 
                       small Lithobid
+                    a.dropdown-item
+                      | Paliperidone palmitate - 
+                      small Invega Sustenna
+                    a.dropdown-item
+                      | Piracetam - 
+                      small Pirament
                     a.dropdown-item
                       | Pregabalin - 
                       small Lyrica
@@ -782,6 +791,12 @@ html(lang='en')
     doseText = "It's dialyzable [%50 - %100] and suggested to be applied following the dialysis treatment";
     } else if (actSubs === "Pitavastatin calcium") {
     doseText = "The dose of 4 mg is not suggested for the patients having severe renal insufficiency";
+    } else if (actSubs === "Paliperidone palmitate") {
+    doseText = "It's not suggested to be used";
+    } else if (actSubs === "Piracetam") {
+    doseText = "It's contraindicated for the patients having end stage renal disease";
+    } else if (actSubs === "Duloxetine hydrochloride") {
+    doseText = "It shouldn't be used for the patients having severe renal insufficiency";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -1292,6 +1307,44 @@ html(lang='en')
     doseText = "Due to limited data, the dose of 4 mg may be used only if the patient is under close monitoring";
     } else if (result < 30) {
     doseText = "The dose of 4 mg is not suggested for the patients having severe renal insufficiency";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Paliperidone palmitate") {
+    if (result >= 80) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 80 && result >= 50) {
+    doseText = "First day 100 mg and one week later 75 mg is administered. Suggested monthly maintenance dose is 50 mg, between the range of 25 mg - 100 mg";
+    } else if (result < 50) {
+    doseText = "It's not suggested to be used";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Piracetam") {
+    if (result >= 80) {
+    doseText = "Normal daily total dose is applied as 2-4 equal doses";
+    } else if (result < 80 && result >= 50) {
+    doseText = "2/3 of the normal daily total dose is applied as 2-3 equal doses";
+    } else if (result < 50 && result >= 30) {
+    doseText = "1/3 of the normal daily total dose is applied as 2 equal doses";
+    } else if (result < 30 && result >= 15) {
+    doseText = "1/6 of the normal daily total dose is applied in a single dose";
+    } else if (result < 15) {
+    doseText = "Its use is contraindicated";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Duloxetine hydrochloride") {
+    if (result >= 30) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result < 30) {
+    doseText = "It shouldn't be used for the patients having severe renal insufficiency";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2676,6 +2729,60 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Paliperidone palmitate") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Its safety and efficiency was not studied on the children and patients aged below 18.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Piracetam") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 8) {
+    infoText.innerHTML = "It's not suggested to be used among children aged below 8, due to the insufficient data about safety and efficiency.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Duloxetine hydrochloride") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Due to insufficient data on safety and efficiency, it shouldn't be used for the children and adolescents aged below 18.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
@@ -3367,6 +3474,42 @@ html(lang='en')
     $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 6) {
     infoText.innerHTML = "Its reliability and efficiency was not determined for the patients aged below 6.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Paliperidone palmitate") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Its safety and efficiency was not studied on the children and patients aged below 18.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Piracetam") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 8) {
+    infoText.innerHTML = "It's not suggested to be used among children aged below 8, due to the insufficient data about safety and efficiency.";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
