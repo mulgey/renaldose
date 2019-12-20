@@ -144,6 +144,24 @@ html(lang='en')
                     .dropdown-divider
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Antibacterial
                     a.dropdown-item
+                      | Amikacin sulfate - 
+                      small Amikin
+                    a.dropdown-item
+                      | Ampicillin sodium / Sulbactam sodium - 
+                      small Unasyn
+                    a.dropdown-item
+                      | Cefoperazone sodium / Sulbactam sodium - 
+                      small Magnex Forte
+                    a.dropdown-item
+                      | Ceftazidime pentahydrate - 
+                      small Fortaz
+                    a.dropdown-item
+                      | Ciprofloxacin lactate - 
+                      small Cipro
+                    a.dropdown-item
+                      | Colistimethate sodium - 
+                      small Coly Mycin M
+                    a.dropdown-item
                       | Daptomycin - 
                       small Cubicin
                     a.dropdown-item
@@ -158,9 +176,6 @@ html(lang='en')
                     a.dropdown-item
                       | Imipenem / Cilastatin sodium - 
                       small Primaxin
-                    a.dropdown-item
-                      | Colistimethate sodium - 
-                      small Coly Mycin M
                     a.dropdown-item
                       | Levofloxacin - 
                       small Levaquin
@@ -179,12 +194,6 @@ html(lang='en')
                     a.dropdown-item
                       | Piperacillin sodium / Tazobactam sodium - 
                       small Zosyn
-                    a.dropdown-item
-                      | Cefoperazone sodium / Sulbactam sodium - 
-                      small Magnex Forte
-                    a.dropdown-item
-                      | Ciprofloxacin lactate - 
-                      small Cipro
                     a.dropdown-item
                       | Teicoplanin - 
                       small Targocid
@@ -672,20 +681,28 @@ html(lang='en')
     let resultpure = document.getElementById("resultpure");
     let texty = $('#dropdownMenu1-2').text();
     if (texty === "e-GFR Method") {
+    infoText.innerHTML = "When making calculation with <strong>e-GFR method, </strong>you should provide at least gender, age and serum creatinine values";
     egfry.style.display = "flex";
     cockgaulty.style.display = "none";
     resultpure.style.display = "none";
-    infoText.innerHTML = "When making calculation with <strong>e-GFR method, </strong>you should provide at least gender, age and serum creatinine values"
     } else if (texty === "Cockcroft-Gault Equation") {
     egfry.style.display = "none";
     cockgaulty.style.display = "flex";
     resultpure.style.display = "none";
     infoText.innerHTML = "When using <strong>Cockcroft-Gault equation</strong>, you should provide gender, age, weight and serum creatinine values"
     } else if (texty === "Result Input") {
+    let selected = (document.getElementById('dropdownMenu1-1')).textContent;
+    if (selected === "Amikacin sulfate") {
+    $("#resultante").attr("disabled", true);
+    $("#resultante").val('');
+    infoText.innerHTML = "Serum creatinine data is mandatory for this active substance's calculation."
+    } else {
+    $("#resultante").attr("disabled", false);
+    infoText.innerHTML = "Please input your result for the active substance you have selected";
+    }
     egfry.style.display = "none";
     cockgaulty.style.display = "none";
     resultpure.style.display = "flex";
-    infoText.innerHTML = "Please input your result for the active substance you have selected"
     }
     });
   script.
@@ -806,6 +823,12 @@ html(lang='en')
     } else if (actSubs === "Fosfomycin sodium") {
     doseText = "2 g of fosfomycin should be applied following the dialysis session";
     } else if (actSubs === "Gentamicin sulfate") {
+    doseText = "There's not a specific suggestion for the patients receiving dialysis treatment. Should be evaluated according to the renal functions";
+    } else if (actSubs === "Amikacin sulfate") {
+    doseText = "There's not a specific suggestion for the patients receiving dialysis treatment. Should be evaluated according to the renal functions";
+    } else if (actSubs === "Ceftazidime pentahydrate") {
+    doseText = "The dose calculated according to serum creatinine value should be repeated following the hemodialysis period";
+    } else if (actSubs === "Ampicillin sodium / Sulbactam sodium") {
     doseText = "There's not a specific suggestion for the patients receiving dialysis treatment. Should be evaluated according to the renal functions";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
@@ -1342,7 +1365,7 @@ html(lang='en')
     } else if (result < 50 && result >= 30) {
     doseText = "1/3 of the normal daily total dose is applied as 2 equal doses";
     } else if (result < 30 && result >= 15) {
-    doseText = "1/6 of the normal daily total dose is applied in a single dose";
+    doseText = "1/6 of the normal daily total dose is applied as a single dose";
     } else if (result < 15) {
     doseText = "Its use is contraindicated";
     }
@@ -1366,13 +1389,13 @@ html(lang='en')
     } else if (result > 40 && result <= 80) {
     doseText = "It's advised to be cautious if doses on the upper limit are preferred";
     } else if (result > 30 && result <= 40) {
-    doseText = "%70 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 (maximum), but should not exceed 8 g";
+    doseText = "%70 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 [maximum], but should not exceed 8 g";
     } else if (result > 20 && result <= 30) {
-    doseText = "%60 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 (maximum), but should not exceed 8 g";
+    doseText = "%60 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 [maximum], but should not exceed 8 g";
     } else if (result > 10 && result <= 20) {
-    doseText = "%40 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 (maximum), but should not exceed 8 g";
+    doseText = "%40 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 [maximum], but should not exceed 8 g";
     } else if (result <= 10) {
-    doseText = "%20 of the normal dose is applied as divided in 1 or 2. Loading dose is %100 (maximum), but should not exceed 8 g";
+    doseText = "%20 of the normal dose is applied as divided in 1 or 2. Loading dose is %100 [maximum], but should not exceed 8 g";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1393,6 +1416,54 @@ html(lang='en')
     doseText = "80 mg in every 48 hours";
     } else if (result < 5) {
     doseText = "There's no dose suggestion for the results in this range";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Amikacin sulfate") {
+    let crsr1 = parseFloat(document.getElementById("srcr1").value);
+    let crsr2 = parseFloat(document.getElementById("srcr2").value);
+    let preVal;
+    if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked')) {
+    } else {
+    if (isNaN(crsr1)) {
+    preVal = crsr2;
+    } else {
+    preVal = crsr1;
+    }
+    val = (9 * preVal).toFixed(0);
+    doseText = `7.5 mg/kg in every ${val} hours`;
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    }
+    } else if (actSubs === "Ceftazidime pentahydrate") {
+    if (result > 50) {
+    doseText = "There's no need for dose adjustment";
+    } else if (result <= 50 && result > 30) {
+    doseText = "Following the 1 g of loading dose, 1 g in every 12 hours";
+    } else if (result <= 30 && result > 15) {
+    doseText = "Following the 1 g of loading dose, 1 g in every 24 hours";
+    } else if (result <= 15 && result > 5) {
+    doseText = "Following the 1 g of loading dose, 0.5 g in every 24 hours";
+    } else if (result <= 5) {
+    doseText = "Following the 1 g of loading dose, 0.5 g in every 48 hours";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Ampicillin sodium / Sulbactam sodium") {
+    if (result >= 30) {
+    doseText = "It should be applied in the range of 1,5 g - 3 g [total dose] in every 6-8 hours";
+    } else if (result < 30 && result >= 15) {
+    doseText = "It should be applied in the range of 1,5 g - 3 g [total dose] in every 12 hours";
+    } else if (result < 15 && result >= 5) {
+    doseText = "It should be applied in the range of 1,5 g - 3 g [total dose] in every 24 hours";
+    } else if (result < 5) {
+    doseText = "There's no dose suggestion in this range of result";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2863,6 +2934,52 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Amikacin sulfate") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Ceftazidime pentahydrate") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Ampicillin sodium / Sulbactam sodium") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "There is not any dose information provided for the children having renal insufficiency.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
@@ -3642,6 +3759,52 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Amikacin sulfate") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Ceftazidime pentahydrate") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Ampicillin sodium / Sulbactam sodium") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "There is not any dose information provided for the children having renal insufficiency.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);

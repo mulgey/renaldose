@@ -9,6 +9,10 @@ Genel
 - Önerilen doz satırı 2 satır yüksekliğinde olmalı
 - Yaş sınırı olmalı (disable)
 - Diyaliz için özel öneri olmayanların hepsinin güncellenmesi
+- Arama kısmına yazılanlar (belki data table search de) otomatik olarak küçük harfe çevirme
+- Etken madde aramasında farmakolojik grupların ismi de çıkıyor
+- Hesapla tuşunu deaktif ettiysek / sildiysek, alttaki sebebi kaybolmamalı
+- en sayfasında favicon sorunu
 
 index.html
 - İki tuş mobil düzende bozuk bir hal alıyor
