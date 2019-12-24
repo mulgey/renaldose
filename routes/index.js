@@ -31,6 +31,11 @@ router.get('/tr/print', function(req, res, next) {
     return res.render("tr/print");
 });
 
+// GET tr/contact
+router.get('/tr/contact', function(req, res, next) {
+    return res.render("tr/contact");
+});
+
 // ENGLISH
 
 // GET en/
@@ -61,6 +66,11 @@ router.get('/en/print', function(req, res, next) {
 // GET en/test
 router.get('/en/test', function(req, res, next) {
     return res.render("en/test");
+});
+
+// GET en/contact
+router.get('/en/contact', function(req, res, next) {
+    return res.render("en/contact");
 });
 
 // GET en/save

@@ -529,6 +529,11 @@ html(lang='en')
                 button#print.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem; display: none;', onclick="window.open('print','_blank');")
                   | Save / Print 
                   i.far.fa-file-alt.pl-1
+              .col-12.col-lg-3
+                button#contact.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem; display: none;', onclick="window.open('contact','_blank');")
+                  | Report an Error
+                  i.far.fa-file-alt.pl-1
+
   script.
     $( "#dropdownMenu1-1" ).click(function() {
     setTimeout(() => {
@@ -836,6 +841,7 @@ html(lang='en')
     window.location.href='#presentResults';
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     $("#calcButton").attr("disabled", true);
     } else if (method === "Cockcroft-Gault Equation") {
     if (age1 && weight && srcr1 && gender1 != "Gender") {
@@ -895,6 +901,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Fluconazole") {
@@ -905,6 +912,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Meropenem trihydrate") {
@@ -919,6 +927,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
@@ -931,6 +940,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Colistimethate sodium") {
@@ -950,6 +960,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Vancomycin hydrochloride") {
@@ -961,6 +972,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Cefoperazone sodium / Sulbactam sodium") {
@@ -973,6 +985,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ciprofloxacin lactate") {
@@ -985,6 +998,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Teicoplanin") {
@@ -997,6 +1011,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Bisoprolol fumarate") {
@@ -1007,6 +1022,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Perindopril arginine") {
@@ -1023,6 +1039,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Perindopril arginine + Indapamide") {
@@ -1035,6 +1052,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ramipril") {
@@ -1047,6 +1065,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ramipril + Hydrochlorothiazide") {
@@ -1059,6 +1078,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Captopril") {
@@ -1073,6 +1093,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Olmesartan medoxomil") {
@@ -1085,6 +1106,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Olmesartan medoxomil + Hydrochlorothiazide") {
@@ -1095,6 +1117,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Tramadol hydrochloride") {
@@ -1105,6 +1128,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Acetaminophen (IV)") {
@@ -1115,6 +1139,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Spironolactone") {
@@ -1125,6 +1150,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Acetazolamide") {
@@ -1137,6 +1163,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Spironolactone + Hydrochlorothiazide") {
@@ -1147,6 +1174,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Indapamide") {
@@ -1157,6 +1185,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Dexketoprofen") {
@@ -1169,6 +1198,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Metformin hydrochloride") {
@@ -1185,6 +1215,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Acarbose") {
@@ -1195,6 +1226,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Exenatide") {
@@ -1207,6 +1239,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Oseltamivir phosphate") {
@@ -1221,6 +1254,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Acyclovir (IV)") {
@@ -1235,6 +1269,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Fenofibrate") {
@@ -1247,6 +1282,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Rosuvastatin calcium") {
@@ -1259,6 +1295,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Zidovudine (IV)") {
@@ -1269,6 +1306,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Voriconazole (IV)") {
@@ -1279,6 +1317,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Rivaroxaban") {
@@ -1289,6 +1328,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Pregabalin") {
@@ -1303,6 +1343,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Gabapentin") {
@@ -1319,6 +1360,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Lithium carbonate") {
@@ -1331,6 +1373,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Pitavastatin calcium") {
@@ -1343,6 +1386,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Paliperidone palmitate") {
@@ -1355,6 +1399,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Piracetam") {
@@ -1371,6 +1416,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Duloxetine hydrochloride") {
@@ -1381,6 +1427,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Fosfomycin sodium") {
@@ -1399,6 +1446,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Gentamicin sulfate") {
@@ -1419,6 +1467,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Amikacin sulfate") {
@@ -1436,6 +1485,7 @@ html(lang='en')
     doseText = `7.5 mg/kg in every ${val} hours`;
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     }
@@ -1453,6 +1503,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ampicillin sodium / Sulbactam sodium") {
@@ -1467,6 +1518,7 @@ html(lang='en')
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Imipenem / Cilastatin sodium") {
@@ -1540,6 +1592,7 @@ html(lang='en')
     if (result && weight) {
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     if (normal === "1") {
     if (weight >= 70) {
     if (diyaList === "1") {
@@ -1873,6 +1926,7 @@ html(lang='en')
     if (result && weight) {
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     if (result >= 30) {
     if (normal === "1") {
     mgValue = (4 * weight);
@@ -1913,6 +1967,7 @@ html(lang='en')
     if (result) {
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     if (result > 50) {
     levoText = `Dose adjustment is not needed (250 mg - 1000 mg a day, depending on the indication)`;
     } else if (result <= 50 && result > 19) {
@@ -1969,6 +2024,7 @@ html(lang='en')
     if (result) {
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
+    contact.style.display = "inline-block";
     if (result > 30) {
     enoText = `There's no need for dose adjustment`;
     } else if (result <= 30 && result >= 15) {
@@ -4040,6 +4096,28 @@ html(lang='en')
     let preTime = new Date();
     time = preTime.toLocaleString();
     createCookie('time', time, 1);
+    createCookie('actSubs', actSubs.textContent, 1);
+    createCookie('suggestion', suggesty, 1);
+    });
+    $('#contact').click(() => {
+    let suggesty;
+    let whole = resulty.textContent;
+    let position = whole.indexOf('(');
+    if (position === -1) {
+    suggesty = whole;
+    } else {
+    suggesty = whole.substring(0, (position));
+    }
+    let diaDapto = document.getElementById('diyaForDapto');
+    let diaCila = document.getElementById('diyaForCila');
+    let diaLevo = document.getElementById('diyaForLevo');
+    let diaEno = document.getElementById('diyaForEnox');
+    createCookie('crCl', result, 1);
+    if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked') || diaDapto.value === "1"|| diaCila.value === "1"|| diaLevo.value === "1" || diaEno.value === "1") {
+    createCookie('dia', 'Receiving hemodialysis', 1);
+    } else {
+    createCookie('dia', 'Not receiving hemodialysis', 1);
+    }
     createCookie('actSubs', actSubs.textContent, 1);
     createCookie('suggestion', suggesty, 1);
     });

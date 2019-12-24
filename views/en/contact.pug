@@ -97,7 +97,7 @@ html(lang='en')
       img(src='../img/logo_transparent.png', style='display: inline-block;', height='200', width='300')
     .form-row.justify-content-lg-center
       #email.col-12.col-lg-8.mt-3
-        | Your E-Mail:
+        | E-Mail:
         br
         input#notes.form-control(type='email', name='email')
       #crCly.col-12.col-lg-8.mt-3
@@ -168,3 +168,38 @@ html(lang='en')
     // Animations init
     new WOW().init();
     $('.toast').toast('show');
+  script.
+    function createCookie(name,value,days) {
+    if (days) {
+    var date = new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+    }
+    function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+    }
+    function eraseCookie(name) {
+    createCookie(name,"",-1);
+    }
+    let crCl = readCookie('crCl');
+    let dia = readCookie('dia');
+    let actSubs = readCookie('actSubs');
+    let suggest = readCookie('suggestion');
+    if (crCl === "undefined") {
+    document.getElementById('crCl').value = "";
+    } else {
+    document.getElementById('crCl').value = crCl;
+    }
+    document.getElementById('dia').value = dia;
+    document.getElementById('actSubs').value = actSubs;
+    document.getElementById('suggest').value = suggest;
