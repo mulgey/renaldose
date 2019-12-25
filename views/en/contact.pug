@@ -92,7 +92,7 @@ html(lang='en')
       }
   body
   // modify this form HTML and place wherever you want your form
-  form.border.border-light.p-5(action='https://formspree.io/xjvggayj', method='POST')
+  form#my-form.border.border-light.p-5(action='https://formspree.io/xjvggayj', method='POST')
     .text-center
       img(src='../img/logo_transparent.png', style='display: inline-block;', height='200', width='300')
     .form-row.justify-content-lg-center
@@ -124,8 +124,10 @@ html(lang='en')
       .col-12.col-lg-3
         button#my-form-button.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;')
           | Submit 
-          i.fas.fa-paper-plane.pl-1
-    p#my-form-status
+          i.fas.fa-check.pl-1
+    input(type='hidden', name='_subject', value='Renal Dose Feedback')
+    input(type='hidden', name='_cc', value='mustafaulgey@hotmail.com')
+    h4#my-form-status.row.text-center.justify-content-center.my-5(style='color: darkblue')
   // Place this script at the end of the body tag
   script.
     window.addEventListener("DOMContentLoaded", function() {
@@ -137,10 +139,10 @@ html(lang='en')
     function success() {
     form.reset();
     button.style = "display: none ";
-    status.innerHTML = "Thanks!";
+    status.innerHTML = "Thank you for your feedback. We'll get back to you shortly";
     }
     function error() {
-    status.innerHTML = "Oops! There was a problem.";
+    status.innerHTML = "Oops! There was a problem. Please try again using the previous result window";
     }
     // handle the form submission event
     form.addEventListener("submit", function(ev) {

@@ -13,6 +13,8 @@ Genel
 - Etken madde aramasında farmakolojik grupların ismi de çıkıyor
 - Hesapla tuşunu deaktif ettiysek / sildiysek, alttaki sebebi kaybolmamalı
 - en sayfasında favicon sorunu
+- Telefonlarda sonuç cümlesi küçük çıkarken altındaki parantez kısmı büyük çıkıyor
+- Enter tuşuna basınca hesaplama
 
 index.html
 - İki tuş mobil düzende bozuk bir hal alıyor
