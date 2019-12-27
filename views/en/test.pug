@@ -16,7 +16,6 @@ html(lang='en')
     link(href='../css/bootstrap.min.css', rel='stylesheet')
     link(href='../css/mdb.min.css', rel='stylesheet')
     link(href='../css/style.css', rel='stylesheet')
-    link(href='../css/addons/datatables.min.css', rel='stylesheet')
     link(rel='shortcut icon', href='../img/favicons/favicon.ico')
     link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
     link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
@@ -91,80 +90,82 @@ html(lang='en')
       });
       }
   body
-  // modify this form HTML and place wherever you want your form
-  form.border.border-light.p-5(action='https://formspree.io/xjvggayj', method='POST')
-    .text-center
-      img(src='../img/logo_transparent.png', style='display: inline-block;', height='200', width='300')
-    .form-row.justify-content-lg-center
-      #email.col-12.col-lg-8.mt-3
-        | Your E-Mail:
-        br
-        input#notes.form-control(type='email', name='email')
-      #crCly.col-12.col-lg-8.mt-3
-        | Creatinine Clearance (ml/min):
-        br
-        input#crCl.form-control(type="text" autocomplete='off', readonly='' name='crCl')
-      #diay.col-12.col-lg-8.mt-3
-        | State of Hemodialysis:
-        br
-        input#dia.form-control(type='text', autocomplete='off', readonly='' name='dia')
-      #acty.col-12.col-lg-8.mt-3
-        | Active Substance:
-        br
-        input#actSubs.form-control(type='text', autocomplete='off', required='', readonly='' name='actSubs')
-      #suggesty.col-12.col-lg-8.mt-3
-        | Suggested Dose:
-        br
-        input#suggest.form-control(type='text', autocomplete='off', readonly='' name='suggest')
-      #noty.col-12.col-lg-8.mt-3
-        | Your message:
-        br
-        input#message.form-control(type='text', autocomplete='off' name='message')
-    #buttons.row.text-center.justify-content-center.my-5
-      .col-12.col-lg-3
-        button#my-form-button.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem;')
-          | Submit 
-          i.fas.fa-paper-plane.pl-1
-    p#my-form-status
-  // Place this script at the end of the body tag
+    header
+      nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
+        .container
+          a.navbar-brand(href='/en')
+            strong RD
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarSupportedContent-7.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item.active
+                a.nav-link(href='/en')
+                  | Home
+                  span.sr-only (current)
+              li.nav-item
+                a.nav-link(href='/en/calculator') Calculator
+              li.nav-item
+                a.nav-link(href='/en/data_table') Data Table
+              li.nav-item
+                a.nav-link(href='/en/about') About
+            ul.navbar-nav
+              li.nav-item
+                a.nav-link.mt-1(href='/')
+                  img(src='../img/turkey.png', width='30', height='30')            
+              button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = '/en/calculator#activeSubstance';")
+                | Quick Start 
+                i.fas.fa-fast-forward.pl-1
+      .view(style="background-image: url('../img/main.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.text-center.flex-center.justify-content-center
+          .container
+            .row.white-text.mb-4.justify-content-center
+              h2.col-12.h2-reponsive.white-text.text-uppercase.font-weight-bold.mb-0.pt-md-5.pt-5.wow.fadeInDown(style='letter-spacing: 5px; font-size: 2.2rem;', data-wow-delay='0.3s')
+                strong Renal Dose
+              hr.col-10.col-lg-12.hr-light.my-4.w-75.wow.fadeInDown(data-wow-delay='0.4s')
+              h5.col-12.text-uppercase.mb-4.white-text.wow.fadeInDown(data-wow-delay='0.4s')
+                strong Interactive Dose Calculation Tool
+            .row.white-text.justify-content-center
+              a.col-11.col-lg-5.mx-3.mb-3.btn.btn-outline-white.wow.fadeInDown.slow(data-wow-delay='2s', href='#cards') More Information
+              a.col-11.col-lg-5.mx-3.mb-3.btn.btn-outline-white.font-weight-bold.wow.fadeInDown.slower(data-wow-delay='2s', href='/en/calculator') Start
+    #cards.card-deck.m-4(data-spy='cards', data-target='#cards')
+      .card.wow.animated.bounceIn.slow
+        img.card-img-top(src='../img/cards/card-01.jpg', alt='card-01')
+        .card-body
+          h5.card-title Choose The Active Substance
+          p.card-text(style='text-align: justify;')
+            | You may pick the active substance that you will work on from the database list
+      .card.wow.animated.bounceIn.slow.delay-1s
+        img.card-img-top(src='../img/cards/card-02.jpg', alt='card-02')
+        .card-body
+          h5.card-title Provide The Clinical Values for The Patient
+          p.card-text(style='text-align: justify;')
+            | You may perform the appropriate calculation based on Cockcroft-Gault or eGFR formulas to obtain the serum creatinine of the patient
+      .card.wow.animated.bounceIn.slower.delay-2s
+        img.card-img-top(src='../img/cards/card-03.jpg', alt='card-03')
+        .card-body
+          h5.card-title Find The Accurate Dose for Your Patient
+          p.card-text(style='text-align: justify;')
+            | You may get the dose information in accordance with the active substance you select and the clinical values you provide
+    .text-center.mb-4
+      button#starty.btn.rounded-pill.btn-primary.flipInX.delay-2s.slower(type='button', onclick="window.location.href = '/en/calculator';")
+        | Let's Start! 
+        i.fas.fa-caret-square-right.pl-1
+  footer.page-footer.font-small.pt-4(style='margin-top: 5rem; background-color: #09915d')
+    .container-fluid.text-center.text-md-left
+      .row
+        .col.mt-md-0.mt-3
+          p.flex-center.pb-3
+            <a class="fb-ic", href='https://www.facebook.com/renaldose', target='_blank'>
+              <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <a class="tw-ic" href='https://www.twitter.com/renal_dose', target='_blank'>
+              <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <a class="ins-ic" href='https://www.instagram.com/renal_dose', target='_blank'>
+              <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+        .footer-copyright.text-center.py-3(style='width: 100%')
+          | Copyright © 2019-2020 by RenalDose
   script.
-    window.addEventListener("DOMContentLoaded", function() {
-    // get the form elements defined in your form HTML above
-    var form = document.getElementById("my-form");
-    var button = document.getElementById("my-form-button");
-    var status = document.getElementById("my-form-status");
-    // Success and Error functions for after the form is submitted
-    function success() {
-    form.reset();
-    button.style = "display: none ";
-    status.innerHTML = "Thanks!";
-    }
-    function error() {
-    status.innerHTML = "Oops! There was a problem.";
-    }
-    // handle the form submission event
-    form.addEventListener("submit", function(ev) {
-    ev.preventDefault();
-    var data = new FormData(form);
-    ajax(form.method, form.action, data, success, error);
-    });
-    });
-    // helper function for sending an AJAX request
-    function ajax(method, url, data, success, error) {
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, url);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onreadystatechange = function() {
-    if (xhr.readyState !== XMLHttpRequest.DONE) return;
-    if (xhr.status === 200) {
-    success(xhr.response, xhr.responseType);
-    } else {
-    error(xhr.status, xhr.response, xhr.responseType);
-    }
-    };
-    xhr.send(data);
-    }
-  script.
-    // Animations init
     new WOW().init();
-    $('.toast').toast('show');
