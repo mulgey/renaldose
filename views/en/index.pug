@@ -110,9 +110,15 @@ html(lang='en')
               li.nav-item
                 a.nav-link(href='/en/about') About
             ul.navbar-nav
-              li.nav-item
-                a.nav-link.mt-1(href='/')
-                  img(src='../img/turkey.png', width='30', height='30')            
+              li.nav-item.dropdown.my-2
+                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.waves-effect.waves-light(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Language
+                .dropdown-menu.dropdown-info(aria-labelledby='navbarDropdownMenuLink')
+                  a.dropdown-item.waves-effect.waves-light.p-1(onclick="window.location.href = '/en/';")
+                    img(src='../img/english-language.png', width='30', height='30').ml-1
+                    |  English
+                  a.dropdown-item.waves-effect.waves-light.p-1(onclick="window.location.href = '/';")
+                    img(src='../img/turkey.png', width='30', height='30').ml-1
+                    |  Türkçe
               button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = '/en/calculator#activeSubstance';")
                 | Quick Start 
                 i.fas.fa-fast-forward.pl-1

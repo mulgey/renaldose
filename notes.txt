@@ -15,6 +15,7 @@ Genel
 - en sayfasında favicon sorunu
 - Telefonlarda sonuç cümlesi küçük çıkarken altındaki parantez kısmı büyük çıkıyor
 - Enter tuşuna basınca hesaplama
+- Dil seçimi dropdown olmalı
 
 index.html
 - İki tuş mobil düzende bozuk bir hal alıyor
