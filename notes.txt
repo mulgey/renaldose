@@ -16,6 +16,7 @@ Genel
 - Telefonlarda sonuç cümlesi küçük çıkarken altındaki parantez kısmı büyük çıkıyor
 - Enter tuşuna basınca hesaplama
 - Dil seçimi dropdown olmalı
+- Statik dosyaların CDN ye dönüşümü
 
 index.html
 - İki tuş mobil düzende bozuk bir hal alıyor

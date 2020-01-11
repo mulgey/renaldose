@@ -338,7 +338,7 @@ html(lang='tr')
               .col-6.col-lg-2.md-form.input-group.mb-3
                 input#age1.form-control(type='number', placeholder='Yaş', aria-label='Yaş', aria-describedby='material-addon1', step='1', autocomplete='off', min='0')
               .col-6.col-lg-2.md-form.input-group.mb-3
-                input#srcr1.form-control(type='number', placeholder='Serum kreatinini', aria-label='Serum kreatinini', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
+                input#srcr1.form-control(type='text', placeholder='Serum kreatinini', aria-label='Serum kreatinini', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
               .col-6.col-lg-2
                 select#crunit1.browser-default.custom-select
                   option(selected='', value='1') mg/dL
@@ -357,15 +357,15 @@ html(lang='tr')
               .col-6.col-lg-3.md-form.input-group.mb-3
                 input#age2.form-control(type='number', placeholder='Yaş', aria-label='Yaş', aria-describedby='material-addon1', step='1', autocomplete='off', min='0')
               .col-6.col-lg-3.md-form.input-group.mb-3
-                input#srcr2.form-control(type='number', placeholder='Serum kreatinini', aria-label='Serum kreatinini', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
+                input#srcr2.form-control(type='text', placeholder='Serum kreatinini', aria-label='Serum kreatinini', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
               .col-6.col-lg-3
                 select#crunit2.browser-default.custom-select
                   option(selected='', value='1') mg/dL
                   option(value='2') ‎µmol/L
               .col-6.col-lg-3.md-form.input-group.mb-3
-                input#nitrog.form-control(type='number', placeholder='BUN', aria-label='BUN', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
+                input#nitrog.form-control(type='text', placeholder='BUN', aria-label='BUN', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
               .col-6.col-lg-3.md-form.input-group.mb-3
-                input#albumin.form-control(type='number', placeholder='Albumin', aria-label='Albumin', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
+                input#albumin.form-control(type='text', placeholder='Albumin', aria-label='Albumin', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
               #bla.col-6.col-lg-3.custom-control.custom-checkbox.mt-2
                 input#black.custom-control-input(type='checkbox', autocomplete='off')
                 label.custom-control-label(for='black') Siyahi
@@ -374,7 +374,7 @@ html(lang='tr')
                 label#dia2.custom-control-label(for='diyaliz2') Hemodiyaliz Alıyor
             #resultpure.row.text-center.align-items-center.flex-center(style='display: none;')
               .col-6.col-lg-4.md-form.input-group.mb-3
-                input#resultante.form-control.text-center(type='number', placeholder='', aria-label='resultante', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
+                input#resultante.form-control.text-center(type='text', placeholder='', aria-label='resultante', aria-describedby='material-addon1', step='0.01', autocomplete='off', min='0')
               .col-6.col-lg-4
                 h5(style='color: ghostwhite; font-weight: bold;')
                   | ml / min / 1,73 m
@@ -738,16 +738,24 @@ html(lang='tr')
     let gender1 = document.getElementById("gender1").value;
     let age1 = parseFloat(document.getElementById("age1").value);
     let weight = parseFloat(document.getElementById("weight").value);
-    let srcr1 = parseFloat(document.getElementById("srcr1").value);
+    let srcr1 = document.getElementById("srcr1").value;
+    srcr1 = srcr1.replace(",", ".");
+    srcr1 = parseFloat(srcr1);
     let crunit1 = document.getElementById("crunit1").value;
     let actSubs = document.getElementById('dropdownMenu1-1').textContent;
     let doseText;
     let gender2 = document.getElementById("gender2").value;
     let age2 = parseFloat(document.getElementById("age2").value);
-    let srcr2 = parseFloat(document.getElementById("srcr2").value);
+    let srcr2 = document.getElementById("srcr2").value;
+    srcr2 = srcr2.replace(",", ".");
+    srcr2 = parseFloat(srcr2);
     let crunit2 = document.getElementById("crunit2").value;
-    let nitrog = parseFloat(document.getElementById("nitrog").value);
-    let albumin = parseFloat(document.getElementById("albumin").value);
+    let nitrog = document.getElementById("nitrog").value;
+    nitrog = nitrog.replace(",", ".");
+    nitrog = parseFloat(nitrog);
+    let albumin = document.getElementById("albumin").value;
+    albumin = albumin.replace(",", ".");
+    albumin = parseFloat(albumin);
     let imicilapy = document.getElementById("imipenem-cilastatin");
     let daptomcy = document.getElementById("daptomicina");
     let levofloxy = document.getElementById("levofloxacin");
@@ -899,7 +907,9 @@ html(lang='tr')
     }
     } else if (method === "Sonuç Girişi") {
     if (resultante.value) {
-    preResult = parseFloat(resultante.value);
+    let preResult = resultante.value;
+    preResult = preResult.replace(",", ".");
+    preResult = parseFloat(preResult);
     result = preResult.toFixed(2);
     } else {
     doseText = `Lütfen hastanız için gerekli olan <a href="#activeSubstance">değeri</a> giriniz.`;
