@@ -7,7 +7,7 @@ const router = express.Router();
 // TURKISH
 
 // GET tr/
-router.get('/', function(req, res, next) {
+router.get('/tr', function(req, res, next) {
     return res.render("tr/index");
 });
 
@@ -39,7 +39,7 @@ router.get('/tr/contact', function(req, res, next) {
 // ENGLISH
 
 // GET en/
-router.get('/en', function(req, res, next) {
+router.get('/', function(req, res, next) {
     return res.render("en/index");
 });
 

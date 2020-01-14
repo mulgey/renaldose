@@ -93,14 +93,14 @@ html(lang='en')
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
         .container
-          a.navbar-brand(href='/en')
+          a.navbar-brand(href='/')
             strong RD
           button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
           #navbarSupportedContent-7.collapse.navbar-collapse
             ul.navbar-nav.mr-auto
               li.nav-item.active
-                a.nav-link(href='/en')
+                a.nav-link(href='/')
                   | Home
                   span.sr-only (current)
               li.nav-item
@@ -113,10 +113,10 @@ html(lang='en')
               li.nav-item.dropdown.my-2
                 a#navbarDropdownMenuLink.nav-link.dropdown-toggle.waves-effect.waves-light(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Language
                 .dropdown-menu.dropdown-info(aria-labelledby='navbarDropdownMenuLink')
-                  a.dropdown-item.waves-effect.waves-light.p-1(onclick="window.location.href = '/en/';")
+                  a.dropdown-item.waves-effect.waves-light.p-1(onclick="window.location.href = '/';")
                     img(src='../img/english-language.png', width='30', height='30').ml-1
                     |  English
-                  a.dropdown-item.waves-effect.waves-light.p-1(onclick="window.location.href = '/';")
+                  a.dropdown-item.waves-effect.waves-light.p-1(onclick="window.location.href = '/tr';")
                     img(src='../img/turkey.png', width='30', height='30').ml-1
                     |  Türkçe
               button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = '/en/calculator#activeSubstance';")
