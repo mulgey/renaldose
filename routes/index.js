@@ -63,11 +63,6 @@ router.get('/en/print', function(req, res, next) {
     return res.render("en/print");
 });
 
-// GET en/test
-router.get('/en/test', function(req, res, next) {
-    return res.render("en/test");
-});
-
 // GET en/contact
 router.get('/en/contact', function(req, res, next) {
     return res.render("en/contact");
@@ -330,5 +325,16 @@ router.post('/tr/print', (req, res) => {
 
     return res.redirect(urlString);
 });
+
+// GET /test
+router.get('/test', function(req, res, next) {
+    return res.render("en/test");
+});
+
+// GET /datatable_test
+router.get('/table_test', function(req, res, next) {
+    return res.render("en/table_test");
+});
+
 
 module.exports = router;

@@ -1,0 +1,1350 @@
+doctype html
+html(lang='en')
+  head
+    // Global site tag (gtag.js) - Google Analytics
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-144190992-1')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-144190992-1');  
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title Renal Dose
+    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
+    link(href='../css/bootstrap.min.css', rel='stylesheet')
+    link(href='../css/mdb.min.css', rel='stylesheet')
+    link(href='../css/style.css', rel='stylesheet')
+    link(href='../css/addons/datatables.min.css', rel='stylesheet')
+    link(rel='shortcut icon', href='../img/favicons/favicon.ico')
+    link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='../img/favicons/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16x16.png')
+    link(rel='manifest', href='../img/favicons/manifest.json')
+    meta(name='msapplication-TileColor', content='#ffffff')
+    meta(name='msapplication-TileImage', content='../img/favicons/ms-icon-144x144.png')
+    meta(name='theme-color', content='#ffffff')
+    meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
+    // JQuery
+    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
+    // Bootstrap tooltips
+    script(type='text/javascript', src='../js/popper.min.js')
+    // Bootstrap core JavaScript
+    script(type='text/javascript', src='../js/bootstrap.min.js')
+    // MDB core JavaScript
+    script(type='text/javascript', src='../js/mdb.js')
+    // MDBootstrap Datatables
+    script(type='text/javascript', src='../js/addons/datatables.min.js')
+    // Scroll Stuff
+    script.
+      let isMobile = /iPhone|iPad|iPod|Android|BlackBerry|Opera Mini|IEMobile|webOS|Windows Phone/i.test(navigator.userAgent);
+      if (isMobile) {
+      $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+      scrollTop: $(hash).offset().top
+      }, 800, function(){
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+      } // End if
+      });
+      });
+      } else {
+      $(document).ready(function(){
+      // Add smooth scrolling to all links
+      $("a").on('click', function(event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+      // Store hash
+      var hash = this.hash;
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+      scrollTop: $(hash).offset().top
+      }, 50, function(){
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+      });
+      } // End if
+      });
+      });
+      }
+  body
+    header
+      nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
+        .container
+          a.navbar-brand(href='/')
+            strong RD
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-7', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarSupportedContent-7.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='/')
+                  | Home
+                  span.sr-only (current)
+              li.nav-item
+                a.nav-link(href='calculator') Calculator
+              li.nav-item.active
+                a.nav-link(href='data_table') Data Table
+              li.nav-item
+                a.nav-link(href='about') About
+            ul.navbar-nav           
+              button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = 'calculator#activeSubstance';")
+                | Quick Start 
+                i.fas.fa-fast-forward.pl-1
+      .view(style="background-image: url('../img/dt.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
+        .mask.rgba-black-light.align-items-center.flex-center
+          .container
+            .row
+              .col-md-12.mb-4.white-text.text-center
+                h1.h1-reponsive.white-text.mb-0.pt-md-5.pt-5.wow.fadeIn.slow
+                  strong Database List
+                hr.hr-light.my-4.w-50.wow.fadeIn.slow
+                h5.mb-4.white-text.wow.fadeIn.slow
+                  strong You can use that section to scan all the information in the database
+                a.btn.btn-outline-white.wow.shake.smooth-scroll(data-wow-delay='2s', href='#datatable') Browse
+    #datatable.m-4(data-spy='datatable', data-target='#datatable')
+      table#dtBasicExample.table.table-striped.table-bordered.table-sm(cellspacing='0', width='100%')
+        thead
+          tr
+            th.th-sm
+              | Active Substance
+            th.th-sm
+              | Standard Dose
+              strong (GFR 90 and above)
+            th.th-sm
+              | GFR 
+              strong "60 - 89"
+              |  Dose
+            th.th-sm
+              | GFR 
+              strong "45 - 59"
+              |  Dose
+            th.th-sm
+              | GFR 
+              strong "30 - 44"
+              |  Dose
+            th.th-sm
+              | GFR 
+              strong "15 - 29"
+              |  Dose
+            th.th-sm
+              | GFR 
+              strong "Below 15"
+              |  Dose
+            th.th-sm
+              | During Hemodialysis Treatment
+        tbody
+          tr
+            td Bisoprolol fumarate
+            td 2.5 mg - 10 mg
+            // Normal
+            td 2.5 mg - 10 mg
+            // 60-89
+            td 2.5 mg - 10 mg
+            // 45-59
+            td 2.5 mg - 10 mg
+            // 30-44
+            td
+              | 2.5 mg - 10 mg (20 - 29)
+              br
+              | 10 mg (maximum) (15 - 19)
+              br
+            // 15-29
+            td 10 mg (maximum)
+            // 15 altı
+            td There's no proof that requires adjusting dose regimen in hemodialysis patients
+            // diyaliz
+          tr
+            td Ertapenem sodium
+            td 1 g
+            // Normal
+            td 1 g
+            // 60-89
+            td 1 g
+            // 45-59
+            td 1 g
+            // 30-44
+            td 500 mg
+            // 15-29
+            td 500 mg
+            // 15 altı
+            td
+              | If the dose was applied within 6 hours before the hemodialysis, 150 mg extra dose is suggested. 
+              br
+              | If the dose was applied at least 6 hours before the hemodialysis, extra dose isn't needed.
+              br
+            // diyaliz
+          tr
+            td Imipenem / Cilastatin sodium
+            td 1 - 4 g
+            // Normal
+            td Co-Ca*
+            // 60-89
+            td Co-Ca*
+            // 45-59
+            td Co-Ca*
+            // 30-44
+            td Co-Ca*
+            // 15-29
+            td Co-Ca*
+            // 15 altı
+            td Co-Ca*
+            // diyaliz
+          tr
+            td Meropenem trihydrate
+            td 1.5 g - 6 g
+            // Normal
+            td Normal dose which was dedicated by the physician
+            // 60-89
+            td
+              | Normal dose (51-59)
+              br
+              | 1 gram / 12 hours (45-50)
+              br
+            // 45-59
+            td 1 gram / 12 hours
+            // 30-44
+            td
+              | 1 gram / 12 hours (26-29)
+              br
+              | 500 gram / 12 hours (15-25)
+              br
+            // 15-29
+            td
+              | 500 gram / 12 hours (10-14)
+              br
+              | 500 gram / 24 hours (Below 10)
+              br
+            // 15 altı
+            td
+              | The dose dedicated by the doctor is suggested to be applied after the hemodialysis treatment
+              br
+            // diyaliz
+          tr
+            td Ciprofloxacin lactate
+            td 800 - 1200 mg
+            // Normal
+            td Normal dose which was dedicated by the physician
+            // 60-89
+            td Regulated as to be maximum of 800 mg in a day
+            // 45-59
+            td Regulated as to be maximum of 800 mg in a day
+            // 30-44
+            td Regulated as to be maximum of 400 mg in a day
+            // 15-29
+            td Regulated as to be maximum of 400 mg in a day
+            // 15 altı
+            td
+              | On the dialysis days which follows a dialysis day, daily dose for ciprofloxacin must be maximum of 400 mg.
+            // diyaliz
+          tr
+            td Levofloxacin
+            td 250 mg - 1000 mg
+            // Normal
+            td Co-Ca*
+            // 60-89
+            td Co-Ca*
+            // 45-59
+            td Co-Ca*
+            // 30-44
+            td Co-Ca*
+            // 15-29
+            td Co-Ca*
+            // 15 altı
+            td Co-Ca*
+            // diyaliz
+          tr
+            td Daptomicina
+            td 4 - 6 mg / kg (Every 24 hours)
+            // Normal
+            td Normal dose which was dedicated by the physician
+            // 60-89
+            td
+              | Normal dose which was dedicated by the physician
+              br
+            // 45-59
+            td Normal dose which was dedicated by the physician
+            // 30-44
+            td Co-Ca*
+            // 15-29
+            td Co-Ca*
+            // 15 altı
+            td Co-Ca*
+            // diyaliz
+          tr
+            td Teicoplanin
+            td 200 - 800 mg / day
+            // Normal
+            td Normal dose which was dedicated by the physician
+            // 60-89
+            td
+              | Normal dose / Every 2 days (or)
+              br
+              | Half of the normal dose / Every day
+              br
+            // 45-59
+            td
+              | Normal dose / Every 3 days (or) 1/3 of the normal dose / once a day (30-39)
+              br
+              | Normal dose / Every 2 days (or) Half of the normal dose / once a day (40-44)
+              br
+            // 30-44
+            td Normal dose / Every 3 days (or) 1/3 of the normal dose / once a day
+            // 15-29
+            td Normal dose / Every 3 days (or) 1/3 of the normal dose / once a day
+            // 15 altı
+            td Normal dose / Every 3 days (or) 1/3 of the normal dose / once a day
+            // diyaliz
+          tr
+            td Vancomycin hydrochloride
+            td 
+              | 500 mg / 6 hours (or)
+              br
+              | 1 g / 12 hours
+              br
+            // Normal
+            td Co-Ca*
+            // 60-89
+            td Co-Ca*
+            // 45-59
+            td Co-Ca*
+            // 30-44
+            td Co-Ca*
+            // 15-29
+            td Co-Ca*
+            // 15 altı
+            td 1 g / week
+            // diyaliz
+          tr
+            td Piperacillin sodium / Tazobactam sodium
+            td 4.5 g / 6 or 8 hours
+            // Normal
+            td
+              | 4.5 g / 8 hours (60-80)
+              br
+              | Normal dose which was dedicated by the physician (Above 80)
+              br
+            // 60-89
+            td 4.5 g / 8 hours
+            // 45-59
+            td 4.5 g / 8 hours
+            // 30-44
+            td
+              | 4.5 g / 12 hours (15-19)
+              br
+              | 4.5 g / 8 hours (20-29)
+              br
+            // 15-29
+            td 4.5 g / 12 hours
+            // 15 altı
+            td
+              | Maximum dose is 4.5 g / 12 hours. Following the hemodialysis period, a supply dose of 2.25 g should be applied
+            // diyaliz
+          tr
+            td Fluconazole
+            td 50 mg - 400 mg
+            // Normal
+            td Suggested percentage of dose = % 100
+            // 60-89
+            td
+              | Suggested percentage of dose = % 50 (45-50)
+              br
+              | Suggested percentage of dose = %100 (51-59)
+              br
+            // 45-59
+            td Suggested percentage of dose = % 50
+            // 30-44
+            td Suggested percentage of dose = % 50
+            // 15-29
+            td Suggested percentage of dose = % 50
+            // 15 altı
+            td The dose dedicated by the doctor according to indication may be applied following the hemodialysis treatment
+            // diyaliz
+          tr
+            td Cefoperazone sodium / Sulbactam sodium
+            td 3 g - 12 g (Total dose for 2 active substances)
+            // Normal
+            td Normal dose which was dedicated by the physician
+            // 60-89
+            td Normal dose which was dedicated by the physician
+            // 45-59
+            td Normal dose which was dedicated by the physician
+            // 30-44
+            td 3 g / 12 hours (Total dose for 2 active substances)
+            // 15-29
+            td 1.5 g / 12 hours (Total dose for 2 active substances)
+            // 15 altı
+            td
+              | During hemodialysis, half-life of the drug may be slightly shortened. So, doses should be arranged as to follow the dialysis time.
+            // diyaliz
+          tr
+            td Colistimethate sodium
+            td 150.000 IU/kg/day. Maximum dose suggested for a day: 14.250.000 IU
+            // Normal
+            td Normal dose which was dedicated by the physician
+            // 60-89
+            td Co-Ca*
+            // 45-59
+            td Co-Ca*
+            // 30-44
+            td Co-Ca*
+            // 15-29
+            td Co-Ca*
+            // 15 altı
+            td
+              | A total daily dose of 105 mg is given every 12 hours during the period which hemodialysis treatment isn't applied. On hemodialysis treatment days, a total daily dose of 4.500.000 IU (150 mg) is divided into two and first half is applied on the last hour of hemodialysis and the other half is after 12 hours
+            // diyaliz
+          tr
+            td Tigecycline
+            td Following the 100 mg of starting dose, 50 mg / 12 hours
+            // Normal
+            td Dose adjustment isn't needed for this active substance
+            // 60-89
+            td Dose adjustment isn't needed for this active substance
+            // 45-59
+            td Dose adjustment isn't needed for this active substance
+            // 30-44
+            td Dose adjustment isn't needed for this active substance
+            // 15-29
+            td Dose adjustment isn't needed for this active substance
+            // 15 altı
+            td Dose adjustment isn't needed for this active substance
+            // diyaliz
+          tr
+            td Moxifloxacin hydrochloride
+            td 400 mg
+            // Normal
+            td Dose adjustment isn't needed for this active substance
+            // 60-89
+            td Dose adjustment isn't needed for this active substance
+            // 45-59
+            td Dose adjustment isn't needed for this active substance
+            // 30-44
+            td Dose adjustment isn't needed for this active substance
+            // 15-29
+            td Dose adjustment isn't needed for this active substance
+            // 15 altı
+            td Dose adjustment isn't needed for this active substance
+            // diyaliz
+          tr
+            td Linezolid
+            td 400 - 600 mg / 12 hours
+            // Normal
+            td Dose adjustment isn't needed for this active substance
+            // 60-89
+            td Dose adjustment isn't needed for this active substance
+            // 45-59
+            td Dose adjustment isn't needed for this active substance
+            // 30-44
+            td Dose adjustment isn't needed for this active substance
+            // 15-29
+            td Dose adjustment isn't needed for this active substance
+            // 15 altı
+            td Hemodialysis patients should receive the treatment following their dialysis application
+            // diyaliz
+          tr
+            td Metronidazole
+            td 1 - 1.5 g / day
+            // Normal
+            td Dose adjustment isn't needed for this active substance
+            // 60-89
+            td Dose adjustment isn't needed for this active substance
+            // 45-59
+            td Dose adjustment isn't needed for this active substance
+            // 30-44
+            td Dose adjustment isn't needed for this active substance
+            // 15-29
+            td Dose adjustment isn't needed for this active substance
+            // 15 altı
+            td Drug should be applied again following the dialysis
+            // diyaliz
+          tr
+            td Perindopril arginine
+            td 2.5 mg - 10 mg / day
+            // Normal
+            td 5 mg / day
+            // 60-89
+            td 2.5 mg / day
+            // 45-59
+            td 2.5 mg / day
+            // 30-44
+            td 2.5 mg / 2 days
+            // 15-29
+            td 2.5 mg following dialysis session
+            // 15 altı
+            td 2.5 mg following dialysis session
+            // diyaliz
+          tr
+            td Perindopril arginine + Indapamide
+            td One tablet per day
+            // Normal
+            td One tablet per day
+            // 60-89
+            td Starting the treatment with the appropriate dose of free combination
+            // 45-59
+            td Starting the treatment with the appropriate dose of free combination
+            // 30-44
+            td Treatment is contraindicated
+            // 15-29
+            td Treatment is contraindicated
+            // 15 altı
+            td Treatment is contraindicated
+            // diyaliz
+          tr
+            td Ramipril
+            td 1.25 mg - 10 mg
+            // Normal
+            td 1.25 mg - 10 mg
+            // 60-89
+            td
+              | 1.25 mg - 10 mg (51-59)
+              br
+              | 1.25 mg / day for start. Maximum 5 mg / day (45-50)
+              br
+            // 45-59
+            td 1.25 mg / day başlangıç. Maximum 5 mg / day
+            // 30-44
+            td
+              | 1.25 mg / day başlangıç. Maximum 5 mg / day (20-29)
+              br
+              | There's not enough experience (15-20)
+              br
+            // 15-29
+            td There's not enough experience
+            // 15 altı
+            td There's not enough experience
+            // diyaliz
+          tr
+            td Ramipril + Hydrochlorothiazide
+            td 
+              | 2.5 mg / 12.5 mg -
+              br
+              | 10 mg / 25 mg
+              br
+            // Normal
+            td 
+              | 2.5 mg / 12.5 mg -
+              br
+              | 10 mg / 25 mg
+              br
+            // 60-89
+            td
+              | 1.25 mg ramipril (start)
+              br
+              | 2.5 mg ramipril / 12.5 mg hidroklorotiazid (maintenance) Daily maximum: 5 mg ramipril / 25 mg hidroklorotiazit
+              br
+            // 45-59
+            td
+              | 1.25 mg ramipril (start)
+              br
+              | 2.5 mg ramipril / 12.5 mg hidroklorotiazid (maintenance) Daily maximum: 5 mg ramipril / 25 mg hidroklorotiazit
+              br
+            // 30-44
+            td Contraindicated for the patients having severe renal insufficiency and receiving dialysis
+            // 15-29
+            td Contraindicated for the patients having severe renal insufficiency and receiving dialysis
+            // 15 altı
+            td Contraindicated for the patients having severe renal insufficiency and receiving dialysis
+            // diyaliz
+          tr
+            td Captopril
+            td 25-50 mg / day for the start. Maximum daily dose is 150 mg
+            // Normal
+            td 25-50 mg / day for the start. Maximum daily dose is 150 mg
+            // 60-89
+            td 25-50 mg / day for the start. Maximum daily dose is 150 mg
+            // 45-59
+            td
+              | 25-50 mg / day for the start. Maximum daily dose is 150 mg (40-44)
+              br
+              | 25 mg / day for the start. Maximum daily dose is 100 mg (30-40)
+              br
+            // 30-44
+            td
+              | 25 mg / day for the start. Maximum daily dose is 100 mg (21-29)
+              br
+              | 12.5 mg / day for the start. Maximum daily dose is 75 mg (15-20)
+              br
+            // 15-29
+            td
+              | 12.5 mg / day for the start. Maximum daily dose is 75 mg (10-15)
+              br
+              | 6.25 mg / day for the start. Maximum daily dose is 37.5 mg (Less than 10)
+              br
+            // 15 altı
+            td Following the dialysis, dose may be applied between 20%-50% range or an extra dose may be applied between 25%-35% range
+            // diyaliz
+          tr
+            td Olmesartan medoxomil
+            td 10 mg / day for the start. Maximum daily dose is 40 mg
+            // Normal
+            td 10 mg / day for the start. Maximum daily dose is 40 mg
+            // 60-89
+            td Daily maximum dose is 20 mg
+            // 45-59
+            td Daily maximum dose is 20 mg
+            // 30-44
+            td
+              | Daily maximum dose is 20 mg (20-29)
+              br
+              | Usage is not suggested (15-19)
+              br
+            // 15-29
+            td Usage is not suggested
+            // 15 altı
+            td Usage is not suggested
+            // diyaliz
+          tr
+            td Olmesartan medoxomil + Hydrochlorothiazide
+            td 20 mg / 12.5 mg - 40 mg / 25 mg (a day)
+            // Normal
+            td 20 mg / 12.5 mg - 40 mg / 25 mg (a day)
+            // 60-89
+            td 20 mg / 12.5 mg - 40 mg / 25 mg (a day)
+            // 45-59
+            td 20 mg / 12.5 mg - 40 mg / 25 mg (a day)
+            // 30-44
+            td Its use is contraindicated
+            // 15-29
+            td Its use is contraindicated
+            // 15 altı
+            td No relevant information
+            // diyaliz
+          tr
+            td Tramadol hydrochloride
+            td Daily maximum 400 mg
+            // Normal
+            td The physician may consider to prolong dosing intervals for the patients having renal insufficiency
+            // 60-89
+            td The physician may consider to prolong dosing intervals for the patients having renal insufficiency
+            // 45-59
+            td The physician may consider to prolong dosing intervals for the patients having renal insufficiency
+            // 30-44
+            td The physician may consider to prolong dosing intervals for the patients having renal insufficiency
+            // 15-29
+            td The physician may consider to prolong dosing intervals for the patients having renal insufficiency
+            // 15 altı
+            td The physician may consider to prolong dosing intervals for the patients having renal insufficiency
+            // diyaliz
+          tr
+            td Acetaminophen (IV)
+            td
+              | Dose is adjusted according to the weight of the patient
+              br
+              | Maximum daily dose is 4 g
+              br
+            // Normal
+            td
+              | Dose is adjusted according to the weight of the patient
+              br
+              | Maximum daily dose is 4 g
+              br
+            // 60-89
+            td
+              | Dose is adjusted according to the weight of the patient
+              br
+              | Maximum daily dose is 4 g
+              br
+            // 45-59
+            td
+              | Dose is adjusted according to the weight of the patient
+              br
+              | Maximum daily dose is 4 g
+              br
+            // 30-44
+            td Every application of the drug is suggested to be performed with 6 hours of interval
+            // 15-29
+            td Every application of the drug is suggested to be performed with 6 hours of interval
+            // 15 altı
+            td Every application of the drug is suggested to be performed with 6 hours of interval
+            // diyaliz
+          tr
+            td Spironolactone
+            td 25 mg - 200 mg
+            // Normal
+            td Should not be used in the case of renal insufficiency
+            // 60-89
+            td Should not be used in the case of renal insufficiency
+            // 45-59
+            td Should not be used in the case of renal insufficiency
+            // 30-44
+            td Should not be used in the case of renal insufficiency
+            // 15-29
+            td Should not be used in the case of renal insufficiency
+            // 15 altı
+            td Should not be used in the case of renal insufficiency
+            // diyaliz
+          tr
+            td Acetazolamide
+            td 250 mg - 1000 mg
+            // Normal
+            td 250 mg - 1000 mg
+            // 60-89
+            td 
+              | 250 mg - 1000 mg (50-59)
+              br
+              | Dosing interval should be arranged as 12 hours (45-50)
+              br
+            // 45-59
+            td Dosing interval should be arranged as 12 hours
+            // 30-44
+            td Dosing interval should be arranged as 12 hours
+            // 15-29
+            td
+              | Dosing interval should be arranged as 12 hours (10-15)
+              br
+              | Should be avoided to use. Treatment is considered as ineffective (Below 10)
+            // 15 altı
+            td It may be dialyzed in medium degree (20% - 50%) Should be avoided to use
+            // diyaliz
+          tr
+            td Spironolactone + Hydrochlorothiazide
+            td 50 mg - 400 mg (Total for 2 active substances)
+            // Normal
+            td Shouldn't be used during acute renal failure or significant disorders in renal excretion mechanisms
+            // 60-89
+            td Shouldn't be used during acute renal failure or significant disorders in renal excretion mechanisms
+            // 45-59
+            td Shouldn't be used during acute renal failure or significant disorders in renal excretion mechanisms
+            // 30-44
+            td Shouldn't be used during acute renal failure or significant disorders in renal excretion mechanisms
+            // 15-29
+            td Shouldn't be used during acute renal failure or significant disorders in renal excretion mechanisms
+            // 15 altı
+            td Shouldn't be used during acute renal failure or significant disorders in renal excretion mechanisms
+            // diyaliz
+          tr
+            td Dexketoprofen
+            td 100 mg - 150 mg (IV)
+            // Normal
+            td Total daily dose should be reduced to 50 mg
+            // 60-89
+            td It shouldn't be used for the patients having moderate and severe renal insufficiency
+            // 45-59
+            td It shouldn't be used for the patients having moderate and severe renal insufficiency
+            // 30-44
+            td It shouldn't be used for the patients having moderate and severe renal insufficiency
+            // 15-29
+            td It shouldn't be used for the patients having moderate and severe renal insufficiency
+            // 15 altı
+            td It shouldn't be used for the patients having moderate and severe renal insufficiency
+            // diyaliz
+          tr
+            td Indapamide
+            td 1.25 mg - 5 mg
+            // Normal
+            td 1.25 mg - 5 mg
+            // 60-89
+            td 1.25 mg - 5 mg
+            // 45-59
+            td 1.25 mg - 5 mg
+            // 30-44
+            td Treatment is contraindicated
+            // 15-29
+            td Treatment is contraindicated
+            // 15 altı
+            td Treatment is contraindicated
+            // diyaliz
+          tr
+            td Metformin hydrochloride
+            td 1000 mg - 3000 mg
+            // Normal
+            td Daily maximum dose (divided into 2 or 3) is 3000 mg
+            // 60-89
+            td Daily maximum dose (divided into 2 or 3) is 2000 mg
+            // 45-59
+            td Daily maximum dose (divided into 2 or 3) is 1000 mg
+            // 30-44
+            td Treatment is contraindicated
+            // 15-29
+            td Treatment is contraindicated
+            // 15 altı
+            td Treatment is contraindicated
+            // diyaliz
+          tr
+            td Acarbose
+            td 50 mg - 600 mg
+            // Normal
+            td 50 mg - 600 mg
+            // 60-89
+            td 50 mg - 600 mg
+            // 45-59
+            td 50 mg - 600 mg
+            // 30-44
+            td
+              | 50 mg - 600 mg (25-29)
+              br
+              | Should not be used in the case of severe renal insufficiency (15-25)
+              br
+            // 15-29
+            td Should not be used in the case of severe renal insufficiency
+            // 15 altı
+            td Should not be used in the case of severe renal insufficiency
+            // diyaliz
+          tr
+            td Exenatide
+            td 10 mcg - 20 mcg
+            // Normal
+            td 10 mcg - 20 mcg
+            // 60-89
+            td
+              | 10 mcg - 20 mcg (50-59)
+              br
+              | Should be careful while switching from the product including 5 mcg active substance to 10 mcg (45-50)
+              br
+            // 45-59
+            td Should be careful while switching from the product including 5 mcg active substance to 10 mcg
+            // 30-44
+            td Its usage is not suggested
+            // 15-29
+            td Its usage is not suggested
+            // 15 altı
+            td Its usage is not suggested
+            // diyaliz
+          tr
+            td Oseltamivir phosphate
+            td 75 mg - 150 mg (adults)
+            // Normal
+            td 75 mg in every 12 hours (once a day in prophylactic use)
+            // 60-89
+            td 30 mg in every 12 hours (once a day in prophylactic use)
+            // 45-59
+            td 30 mg in every 12 hours (once a day in prophylactic use)
+            // 30-44
+            td 30 mg once a day (in every 2 days in prophylactic use)
+            // 15-29
+            td
+              | 30 mg once a day (in every 2 days in prophylactic use) (10-15)
+              br
+              | There's no data, thus it's not recommended (below 10)
+              br
+            // 15 altı
+            td 30 mg after every hemodialysis session (after every 2nd session in prophylactic use)
+            // diyaliz
+          tr
+            td Acyclovir (IV)
+            td
+              | 5 - 10 mg/kg (every 8 hours)
+              br
+              | 500 mg/m
+              sup 2
+              |  (CMV prophylaxis)
+              br 
+            // Normal
+            td Normal dose
+            // 60-89
+            td
+              | Normal dose (50-59)
+              br
+              | The dose suggested should be given every 12 hours (45-50)
+              br
+            // 45-59
+            td The dose suggested should be given every 12 hours
+            // 30-44
+            td
+              | The dose suggested should be given every 12 hours (25-29)
+              br
+              | The dose suggested should be given every 24 hours (15-25)
+              br
+            // 15-29
+            td
+              | The dose suggested should be given every 24 hours (10-15)
+              br
+              | The dose suggested should be halved and applied every 24 hours (below 10)
+              br
+            // 15 altı
+            td The dose suggested should be halved and applied after dialysis treatment every 24 hours
+            // diyaliz
+          tr
+            td Fenofibrate
+            td 160 mg - 267 mg
+            // Normal
+            td Dose should be reduced, thus it's usage is not suggested
+            // 60-89
+            td Dose should be reduced, thus it's usage is not suggested
+            // 45-59
+            td Dose should be reduced, thus it's usage is not suggested
+            // 30-44
+            td Its use is contraindicated
+            // 15-29
+            td Its use is contraindicated
+            // 15 altı
+            td Its use is contraindicated
+            // diyaliz
+          tr
+            td Rosuvastatin kalsiyum
+            td 5 mg - 40 mg
+            // Normal
+            td Normal dose
+            // 60-89
+            td Starting dose is 5 mg. The dose of 40 mg is contraindicated
+            // 45-59
+            td Starting dose is 5 mg. The dose of 40 mg is contraindicated
+            // 30-44
+            td Its use is contraindicated
+            // 15-29
+            td Its use is contraindicated
+            // 15 altı
+            td Its use is contraindicated
+            // diyaliz
+          tr
+            td Zidovudin (IV)
+            td 6 - 12 mg/kg
+            // Normal
+            td Normal dose
+            // 60-89
+            td Normal dose
+            // 45-59
+            td Normal dose
+            // 30-44
+            td Normal dose
+            // 15-29
+            td
+              | Normal dose (10-14)
+              br
+              | 1 mg/kg in every 6-8 hours (Below 10)
+              br
+            // 15 altı
+            td 100 mg in every 6-8 hours
+            // diyaliz
+          tr
+            td Caspofungin acetate
+            td 50 mg - 70 mg
+            // Normal
+            td Dose adjustment isn't needed for this active substance
+            // 60-89
+            td Dose adjustment isn't needed for this active substance
+            // 45-59
+            td Dose adjustment isn't needed for this active substance
+            // 30-44
+            td Dose adjustment isn't needed for this active substance
+            // 15-29
+            td Dose adjustment isn't needed for this active substance
+            // 15 altı
+            td Dose adjustment isn't needed for this active substance
+            // diyaliz
+          tr
+            td Vorikonazol (IV)
+            td 6 - 8 mg/kg
+            // Normal
+            td Normal dose
+            // 60-89
+            td
+              | Normal dose (50-59)
+              br
+              | It's suggested to switch to oral treatment (45-50)
+            // 45-59
+            td It's suggested to switch to oral treatment
+            // 30-44
+            td It's suggested to switch to oral treatment
+            // 15-29
+            td It's suggested to switch to oral treatment
+            // 15 altı
+            td It's suggested to switch to oral treatment
+            // diyaliz
+          tr
+            td Enoxaparin sodium
+            td 2000 IU (total) - 150 IU (per kg)
+            // Normal
+            td Normal dose
+            // 60-89
+            td Normal dose
+            // 45-59
+            td Normal dose
+            // 30-44
+            td Co-Ca*
+            // 15-29
+            td Its usage is not suggested for the patients who has end stage renal disease (except hemodialysis)
+            // 15 altı
+            td 100 IU/kg. For the patients who are at high risk of high hemorrhage, dose should be reduced to 50 IU/kg (double vascular port) or 75 IU/kg (single vascular port)
+            // diyaliz
+          tr
+            td Rivaroxaban
+            td 5 mg - 10 mg
+            // Normal
+            td Normal dose
+            // 60-89
+            td Normal dose
+            // 45-59
+            td Normal dose
+            // 30-44
+            td Normal dose
+            // 15-29
+            td It's not suggested to be used
+            // 15 altı
+            td It's not suggested to be used
+            // diyaliz
+          tr
+            td Anidulafungin
+            td 100 mg - 200 mg
+            // Normal
+            td Dose adjustment isn't needed for this active substance
+            // 60-89
+            td Dose adjustment isn't needed for this active substance
+            // 45-59
+            td Dose adjustment isn't needed for this active substance
+            // 30-44
+            td Dose adjustment isn't needed for this active substance
+            // 15-29
+            td Dose adjustment isn't needed for this active substance
+            // 15 altı
+            td Dose adjustment isn't needed for this active substance
+            // diyaliz
+          tr
+            td Pregabalin
+            td 150 mg - 600 mg
+            // Normal
+            td Starting dose: 150 mg, maximum dose: 600 mg. (Regimen: 2 or 3 times a day)
+            // 60-89
+            td Starting dose: 75 mg, maximum dose: 300 mg. (Regimen: 2 or 3 times a day)
+            // 45-59
+            td Starting dose: 75 mg, maximum dose: 300 mg. (Regimen: 2 or 3 times a day)
+            // 30-44
+            td Starting dose: 25-50 mg, maximum dose: 150 mg. (Regimen: Once or twice a day)
+            // 15-29
+            td Starting dose: 25 mg, maximum dose: 75 mg. (Regimen: Once a day)
+            // 15 altı
+            td In addition to the daily dose, an extra dose of 25 mg - 100 mg (following the dialysis session)
+            // diyaliz
+          tr
+            td Gabapentin
+            td 900 mg - 3600 mg
+            // Normal
+            td
+              | Daily dose range: 900 mg - 3,600 mg (≥80)
+              br
+              | Daily dose range: 600 mg - 1,800 mg (60-79)
+              br
+            // 60-89
+            td
+              | Daily dose range: 600 mg - 1,800 mg (50-59)
+              br
+              | Daily dose range: 300 mg - 900 mg (45-49)
+              br
+            // 45-59
+            td Daily dose range: 300 mg - 900 mg
+            // 30-44
+            td Daily dose range: 150 mg - 600 mg. In the case of using the 150 mg dose, 300 mg should be applied every other day
+            // 15-29
+            td Daily dose range: 150 mg - 300 mg. Dose should be reduced in proportion to the clearance value. In the case of using the 150 mg dose, 300 mg should be applied every other day
+            // 15 altı
+            td Daily dose range: 150 mg - 300 mg. In the case of using the 150 mg dose, 300 mg should be applied every other day. An extra dose of 200-300 mg is suggested following the dialysis session
+            // diyaliz
+          tr
+            td Lithium carbonate
+            td 300 mg - 1800 mg
+            // Normal
+            td Normal dose
+            // 60-89
+            td
+              | Normal dose (51-59)
+              br
+              | %50 - %75 of the normal dose (45-50)
+              br
+            // 45-59
+            td %50 - %75 of the normal dose
+            // 30-44
+            td %50 - %75 of the normal dose
+            // 15-29
+            td
+              | %50 - %75 of the normal dose (10-15)
+              br
+              | %25 - %50 of the normal dose (Below 10)
+              br
+            // 15 altı
+            td It's dialyzable (%50 - %100) and suggested to be applied following the dialysis treatment
+            // diyaliz
+          tr
+            td Pitavastatin calcium
+            td 1 mg - 4 mg
+            // Normal
+            td The dose of 4 mg may be used only if the patient is under close monitoring
+            // 60-89
+            td The dose of 4 mg may be used only if the patient is under close monitoring
+            // 45-59
+            td The dose of 4 mg may be used only if the patient is under close monitoring
+            // 30-44
+            td The dose of 4 mg is not suggested for the patients having severe renal insufficiency
+            // 15-29
+            td The dose of 4 mg is not suggested for the patients having severe renal insufficiency
+            // 15 altı
+            td The dose of 4 mg is not suggested for the patients having severe renal insufficiency
+            // diyaliz
+          tr
+            td Paliperidone palmitate
+            td 25 mg - 150 mg
+            // Normal
+            td
+              | Normal dose (80-89)
+              br
+              | First day 100 mg, one week later 75 mg. Monthly maintenance dose is 50 mg (60-79)
+              br
+            // 60-89
+            td
+              | First day 100 mg, one week later 75 mg. Monthly maintenance dose is 50 mg (50-59)
+              br
+              | Not suggested to use (45-49)
+              br
+            // 45-59
+            td Not suggested to use
+            // 30-44
+            td Not suggested to use
+            // 15-29
+            td Not suggested to use
+            // 15 altı
+            td Not suggested to use
+            // diyaliz
+          tr
+            td Piracetam
+            td 2400 mg - 24,000 mg
+            // Normal
+            td
+              | Normal daily total dose is applied as 2-4 equal doses (80-89)
+              br
+              | 2/3 of the normal daily total dose is applied as 2-3 equal doses (60-79)
+              br
+            // 60-89
+            td
+              | 2/3 of the normal daily total dose is applied as 2-3 equal doses (50-59)
+              br
+              | 1/3 of the normal daily total dose is applied as 2 equal doses (45-49)
+              br
+            // 45-59
+            td 1/3 of the normal daily total dose is applied as 2 equal doses
+            // 30-44
+            td 1/6 of the normal daily total dose is applied in a single dose
+            // 15-29
+            td Its use is contraindicated
+            // 15 altı
+            td Its use is contraindicated
+            // diyaliz
+          tr
+            td Duloxetine hydrochloride
+            td 30 mg - 120 mg
+            // Normal
+            td Normal dose
+            // 60-89
+            td Normal dose
+            // 45-59
+            td Normal dose
+            // 30-44
+            td Not suggested
+            // 15-29
+            td Not suggested
+            // 15 altı
+            td Not suggested
+            // diyaliz
+          tr
+            td Fosfomycin sodium
+            td 12 g - 24 g
+            // Normal
+            td
+              | Normal dose (81-89)
+              br
+              | It's advised to be cautious if doses on the upper limit are preferred (60-80)
+            // 60-89
+            td It's advised to be cautious if doses on the upper limit are preferred
+            // 45-59
+            td
+              | It's advised to be cautious if doses on the upper limit are preferred (41-44)
+              br
+              | % 70 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 and 8 g (31-40)
+              br
+              | % 60 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 and 8 g (30)
+              br
+            // 30-44
+            td
+              | % 60 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 and 8 g (21-29)
+              br
+              | % 40 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 and 8 g (15-20)
+            // 15-29
+            td
+              | % 40 of the normal dose is applied as divided in 2 or 3. Loading dose is %100 and 8 g (11-14)
+              br
+              | % 20 of the normal dose is applied as divided in 1 or 2. Loading dose is %100 and 8 g (below 11)
+            // 15 altı
+            td 2 g of fosfomycin should be applied following the dialysis session
+            // diyaliz
+          tr
+            td Gentamicin sulfate
+            td 3 mg/kg - 24 mg/kg
+            // Normal
+            td
+              | 80 mg in every 8 hours (71-89)
+              br
+              | 80 mg in every 12 hours (60-70)
+              br
+            // 60-89
+            td 80 mg in every 12 hours
+            // 45-59
+            td
+              | 80 mg in every 12 hours (35-44)
+              br
+              | 80 mg in every 18 hours (30-34)
+            // 30-44
+            td
+              | 80 mg in every 18 hours (24-29)
+              br
+              | 80 mg in every 24 hours (16-23)
+              br
+              | 80 mg in every 36 hours (15)
+              br
+            // 15-29
+            td
+              | 80 mg in every 36 hours (10-14)
+              br
+              | 80 mg in every 48 hours (5-9)
+              br
+              | There's no dose suggestion (Below 5)
+            // 15 altı
+            td Should be evaluated according to the renal functions
+            // diyaliz
+          tr
+            td Amikacin sulfate
+            td 15 mg/kg - 1500 mg
+            // Normal
+            td Co-Ca*
+            // 60-89
+            td Co-Ca*
+            // 45-59
+            td Co-Ca*
+            // 30-44
+            td Co-Ca*
+            // 15-29
+            td Co-Ca*
+            // 15 altı
+            td Should be evaluated according to the renal functions
+            // diyaliz
+          tr
+            td Ceftazidime pentahydrate
+            td 1 g - 6 g
+            // Normal
+            td Normal dose
+            // 60-89
+            td
+              | Normal dose (51-59)
+              br
+              | Following the 1 g of loading dose, 1 g in every 12 hours (45-50)
+              br
+            // 45-59
+            td
+              | Following the 1 g of loading dose, 1 g in every 12 hours (31-44)
+              br
+              | Following the 1 g of loading dose, 1 g in every 24 hours (30)
+              br
+            // 30-44
+            td
+              | Following the 1 g of loading dose, 1 g in every 24 hours (16-29)
+              br
+              | Following the 1 g of loading dose, 0.5 g in every 24 hours (15)
+              br
+            // 15-29
+            td
+              | Following the 1 g of loading dose, 0.5 g in every 24 hours (6-14)
+              br
+              | Following the 1 g of loading dose, 0.5 g in every 48 hours (Below 6)
+              br
+            // 15 altı
+            td The dose calculated according to serum creatinine value should be repeated following the hemodialysis period
+            // diyaliz
+          tr
+            td Ampicillin sodium / Sulbactam sodium
+            td 1.5 g - 12 g (total dose)
+            // Normal
+            td 1,5 g - 3 g (total dose) in every 6-8 hours
+            // 60-89
+            td 1,5 g - 3 g (total dose) in every 6-8 hours
+            // 45-59
+            td 1,5 g - 3 g (total dose) in every 6-8 hours
+            // 30-44
+            td 1,5 g - 3 g (total dose) in every 12 hours
+            // 15-29
+            td
+              | 1,5 g - 3 g (total dose) in every 24 hours (5-14)
+              br
+              | No dose suggestion (Below 5)
+              br
+            // 15 altı
+            td Should be evaluated according to the renal functions
+            // diyaliz
+        tfoot
+          tr
+            th
+              | Active Substance
+            th
+              | Normal Dose 
+              strong (GFR 90 and above)
+            th
+              | GFR 
+              strong "60 - 89"
+              |  Dose
+            th
+              | GFR 
+              strong "45 - 59"
+              |  Dose
+            th
+              | GFR 
+              strong "30 - 44"
+              |  Dose
+            th
+              | GFR 
+              strong "15 - 29"
+              |  Dose
+            th
+              | GFR 
+              strong "Below 15"
+              |  Dose
+            th
+              | During Hemodialysis Treatment
+      p
+        strong *Co-Ca
+        |  = 
+        i Complex calculation is required
+    footer.page-footer.font-small.pt-4(style="background-color: #09915d")
+      .container-fluid.text-center.text-md-left
+        .row
+          .col.mt-md-0.mt-3
+            p.flex-center.pb-3
+              a.fb-ic(href='https://www.facebook.com/renaldose', target='_blank')
+                i.fab.fa-facebook-f.fa-lg.white-text.mr-md-5.mr-3.fa-2x
+              a.tw-ic(href='https://www.twitter.com/renal_dose', target='_blank')
+                i.fab.fa-twitter.fa-lg.white-text.mr-md-5.mr-3.fa-2x
+              a.ins-ic(href='https://www.instagram.com/renal_dose', target='_blank')
+                i.fab.fa-instagram.fa-lg.white-text.mr-md-5.mr-3.fa-2x  
+              a.yt-ic(href='https://www.youtube.com/channel/UC-nMxvcYKp_NPANWe47BBZg', target='_blank')
+                i.fab.fa-youtube.fa-lg.white-text.mr-md-5.mr-3.fa-2x
+          .footer-copyright.text-center.py-3(style='width: 100%')
+            | Copyright © 2019-2020 by RenalDose
+  script.
+    // Animations init
+    new WOW().init();
+    // Datatables show
+    $(document).ready(function () {
+    $('#dtBasicExample').DataTable();
+    $('.dataTables_length').addClass('bs-select');
+    });
