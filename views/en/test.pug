@@ -91,19 +91,20 @@ html(lang='en')
       });
       }
     // Facebook Pixel Code
-    script.
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '3344540945561427');
-      fbq('track', 'PageView');
-    noscript
-      img(height='1', width='1', style='display:none', src='https://www.facebook.com/tr?id=3344540945561427&ev=PageView&noscript=1')
+    //
+      script.
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '3344540945561427');
+        fbq('track', 'PageView');
+      noscript
+        img(height='1', width='1', style='display:none', src='https://www.facebook.com/tr?id=3344540945561427&ev=PageView&noscript=1')
     // End Facebook Pixel Code
   body
     header
@@ -148,7 +149,7 @@ html(lang='en')
                     input#searchField.form-control.ml-2(style="width: 95%; color: midnightblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search')
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Analgesic
                     a.dropdown-item
-                      | Tramadol hydrochloride - 
+                      | Tramadol - 
                       small Ultram
                     a.dropdown-item
                       | Acetaminophen (IV) - 
@@ -808,8 +809,8 @@ html(lang='en')
     doseText = "Olmesartan medoxomil usage is not suggested due to the limited experience";
     } else if (actSubs === "Olmesartan medoxomil + Hydrochlorothiazide") {
     doseText = "There's no information relevant to olmesartan or hydrochlorothiazide usage on dialysis";
-    } else if (actSubs === "Tramadol hydrochloride") {
-    doseText = "The physician may consider to prolong dosing intervals for the patients having renal insufficiency";
+    } else if (actSubs === "Tramadol") {
+    doseText = "50–100 mg orally every 12 h as needed; maximum 200 mg/day; dose after hemodialysis on dialysis days<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
     } else if (actSubs === "Acetaminophen (IV)") {
     doseText = "For the patients having severe renal insufficiency, every application of the drug is suggested to be performed with 6 hours of interval";
     } else if (actSubs === "Spironolactone") {
@@ -1151,11 +1152,11 @@ html(lang='en')
     contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
-    } else if (actSubs === "Tramadol hydrochloride") {
-    if (result >= 90) {
-    doseText = "There's no need for dose adjustment";
-    } else if (result < 90) {
-    doseText = "The physician may consider to prolong dosing intervals for the patients having renal insufficiency";
+    } else if (actSubs === "Tramadol") {
+    if (result >= 30) {
+    doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
+    } else if (result < 30) {
+    doseText = "50–100 mg orally every 12 h as needed; maximum 200 mg/day<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2090,7 +2091,7 @@ html(lang='en')
     });
   script.
     $('#reload').click(() => {
-    location.assign('calculator#activeSubstance');
+    location.assign('test#activeSubstance');
     setTimeout(() => {
     location.reload();
     }, 900);
@@ -2556,10 +2557,6 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
-    } else if (age1.value > -1 && age1.value < 12) {
-    infoText.innerHTML = "It's contraindicated for the children aged below 12.";
-    $('#calculate').fadeTo('medium', 0);
-    $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -3390,10 +3387,6 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
-    } else if (age2.value > -1 && age2.value < 12) {
-    infoText.innerHTML = "It's contraindicated for the children aged below 12.";
-    $('#calculate').fadeTo('medium', 0);
-    $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
