@@ -91,19 +91,19 @@ html(lang='en')
       });
       }
     // Facebook Pixel Code
-    script.
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '3344540945561427');
-      fbq('track', 'PageView');
-    noscript
-      img(height='1', width='1', style='display:none', src='https://www.facebook.com/tr?id=3344540945561427&ev=PageView&noscript=1')
+      script.
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '3344540945561427');
+        fbq('track', 'PageView');
+      noscript
+        img(height='1', width='1', style='display:none', src='https://www.facebook.com/tr?id=3344540945561427&ev=PageView&noscript=1')
     // End Facebook Pixel Code
   body
     header
@@ -148,10 +148,10 @@ html(lang='en')
                     input#searchField.form-control.ml-2(style="width: 95%; color: midnightblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search')
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Analgesic
                     a.dropdown-item
-                      | Tramadol hydrochloride - 
+                      | Tramadol - 
                       small Ultram
                     a.dropdown-item
-                      | Acetaminophen (IV) - 
+                      | Acetaminophen - 
                       small Ofirmev
                     a.dropdown-item
                       | Dexketoprofen - 
@@ -787,7 +787,7 @@ html(lang='en')
     } else if (actSubs === "Cefoperazone sodium / Sulbactam sodium") {
     doseText = "During hemodialysis, half-life of the drug may be slightly shortened. So, doses should be arranged as to follow the dialysis time."
     } else if (actSubs === "Ciprofloxacin lactate") {
-    doseText = "On the dialysis days which follows a dialysis day, daily dose for ciprofloxacin must be maximum of 400 mg."
+    doseText = "200 - 400 mg IV every 24 h (after hemodialysis on dialysis days)<a href='https://www.ncbi.nlm.nih.gov/pubmed/2931415' target='_blank'> (*)</a>"
     } else if (actSubs === "Teicoplanin") {
     doseText = "Apply 1/3 of the dose OR apply the daily dose in every 3 days. Dose adjustment is not needed during the first 4 days of the treatment"
     } else if (actSubs === "Vancomycin hydrochloride") {
@@ -808,10 +808,10 @@ html(lang='en')
     doseText = "Olmesartan medoxomil usage is not suggested due to the limited experience";
     } else if (actSubs === "Olmesartan medoxomil + Hydrochlorothiazide") {
     doseText = "There's no information relevant to olmesartan or hydrochlorothiazide usage on dialysis";
-    } else if (actSubs === "Tramadol hydrochloride") {
-    doseText = "The physician may consider to prolong dosing intervals for the patients having renal insufficiency";
-    } else if (actSubs === "Acetaminophen (IV)") {
-    doseText = "For the patients having severe renal insufficiency, every application of the drug is suggested to be performed with 6 hours of interval";
+    } else if (actSubs === "Tramadol") {
+    doseText = "50–100 mg orally every 12 h as needed; maximum 200 mg/day; dose after hemodialysis on dialysis days<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
+    } else if (actSubs === "Acetaminophen") {
+    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://www.ncbi.nlm.nih.gov/pubmed/7241376' target='_blank'> (*)</a>";
     } else if (actSubs === "Spironolactone") {
     doseText = "Should not be used in the case of acute renal insufficiency, reduction in the renal functions or severe renal insufficiency";
     } else if (actSubs === "Acetazolamide") {
@@ -861,11 +861,11 @@ html(lang='en')
     } else if (actSubs === "Gentamicin sulfate") {
     doseText = "There's not a specific suggestion for the patients receiving dialysis treatment. Should be evaluated according to the renal functions";
     } else if (actSubs === "Amikacin sulfate") {
-    doseText = "There's not a specific suggestion for the patients receiving dialysis treatment. Should be evaluated according to the renal functions";
+    doseText = "3.75 mg/kg after dialysis<a href='https://www.ncbi.nlm.nih.gov/pubmed/993628' target='_blank'> (*)</a>";
     } else if (actSubs === "Ceftazidime pentahydrate") {
-    doseText = "The dose calculated according to serum creatinine value should be repeated following the hemodialysis period";
+    doseText = "1 g IV followed by 1 g IV after each hemodialysis<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
     } else if (actSubs === "Ampicillin sodium / Sulbactam sodium") {
-    doseText = "There's not a specific suggestion for the patients receiving dialysis treatment. Should be evaluated according to the renal functions";
+    doseText = "3 g IV every 24 h; administer after hemodialysis on dialysis days<a href='https://www.ncbi.nlm.nih.gov/pubmed/2817847' target='_blank'> (*)</a>";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -1020,12 +1020,14 @@ html(lang='en')
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ciprofloxacin lactate") {
-    if (result > 60) {
-    doseText = "Normal dose which was dedicated by the physician. (800 mg - 1200 mg, depending on the indication)";
-    } else if (result <= 60 && result >= 30) {
-    doseText = "Should be regulated as to be maximum of 800 mg in a day";
-    } else if (result < 30) {
-    doseText = "Should be regulated as to be maximum of 400 mg in a day";
+    if (result > 50) {
+    doseText = "200 mg IV every 12 h - 400 mg IV every 8 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2931415' target='_blank'> (*)</a>";
+    } else if (result <= 50 && result >= 30) {
+    doseText = "200 mg - 400 mg IV every 12 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2931415' target='_blank'> (*)</a>";
+    } else if (result < 30 && result >= 5) {
+    doseText = "200 mg - 400 mg IV every 18 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2931415' target='_blank'> (*)</a>";
+    } else if (result < 5) {
+    doseText = `Please check the result for the dialysis selection with a new calculation`;
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1151,22 +1153,22 @@ html(lang='en')
     contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
-    } else if (actSubs === "Tramadol hydrochloride") {
-    if (result >= 90) {
-    doseText = "There's no need for dose adjustment";
-    } else if (result < 90) {
-    doseText = "The physician may consider to prolong dosing intervals for the patients having renal insufficiency";
+    } else if (actSubs === "Tramadol") {
+    if (result >= 30) {
+    doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
+    } else if (result < 30) {
+    doseText = "50–100 mg orally every 12 h as needed; maximum 200 mg/day<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
-    } else if (actSubs === "Acetaminophen (IV)") {
+    } else if (actSubs === "Acetaminophen") {
     if (result > 30) {
-    doseText = "There's no need for dose adjustment";
+    doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/7241376' target='_blank'> (*)</a>";
     } else if (result <= 30) {
-    doseText = "For the patients having severe renal insufficiency, every application of the drug is suggested to be performed with 6 hours of interval";
+    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://www.ncbi.nlm.nih.gov/pubmed/7241376' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1513,7 +1515,7 @@ html(lang='en')
     preVal = crsr1;
     }
     val = (9 * preVal).toFixed(0);
-    doseText = `7.5 mg/kg in every ${val} hours`;
+    doseText = `7.5 mg/kg in every ${val} hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/993628' target='_blank'> (*)</a>`;
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     contact.style.display = "inline-block";
@@ -1522,15 +1524,15 @@ html(lang='en')
     }
     } else if (actSubs === "Ceftazidime pentahydrate") {
     if (result > 50) {
-    doseText = "There's no need for dose adjustment";
+    doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
     } else if (result <= 50 && result > 30) {
-    doseText = "Following the 1 g of loading dose, 1 g in every 12 hours";
+    doseText = "1 – 1.5 g in every 12 hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
     } else if (result <= 30 && result > 15) {
-    doseText = "Following the 1 g of loading dose, 1 g in every 24 hours";
+    doseText = "1 – 1.5 g in every 24 hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
     } else if (result <= 15 && result > 5) {
-    doseText = "Following the 1 g of loading dose, 0.5 g in every 24 hours";
+    doseText = "0.5 – 0.75 g in every 24 hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
     } else if (result <= 5) {
-    doseText = "Following the 1 g of loading dose, 0.5 g in every 48 hours";
+    doseText = "0.5 – 0.75 g in every 48 hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1538,14 +1540,12 @@ html(lang='en')
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ampicillin sodium / Sulbactam sodium") {
-    if (result >= 30) {
-    doseText = "It should be applied in the range of 1,5 g - 3 g [total dose] in every 6-8 hours";
-    } else if (result < 30 && result >= 15) {
-    doseText = "It should be applied in the range of 1,5 g - 3 g [total dose] in every 12 hours";
-    } else if (result < 15 && result >= 5) {
-    doseText = "It should be applied in the range of 1,5 g - 3 g [total dose] in every 24 hours";
-    } else if (result < 5) {
-    doseText = "There's no dose suggestion in this range of result";
+    if (result > 50) {
+    doseText = "1.5 – 3 g IV every 6 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2817847' target='_blank'> (*)</a>";
+    } else if (result <= 50 && result >= 10) {
+    doseText = "1.5 – 3 g IV every 12 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2817847' target='_blank'> (*)</a>";
+    } else if (result < 10) {
+    doseText = "1.5 – 3 g IV every 24 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2817847' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2386,9 +2386,6 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
-    } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "There is no dose study conducted for the children who has renal and/or liver failure using <strong>ciprofloxacin lactate</strong>.";
-    $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
@@ -2556,10 +2553,6 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
-    } else if (age1.value > -1 && age1.value < 12) {
-    infoText.innerHTML = "It's contraindicated for the children aged below 12.";
-    $('#calculate').fadeTo('medium', 0);
-    $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -2569,7 +2562,7 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
-    } else if (actSubs.textContent === "Acetaminophen (IV)") {
+    } else if (actSubs.textContent === "Acetaminophen") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
@@ -3054,10 +3047,6 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
-    } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "There is not any dose information provided for the children having renal insufficiency.";
-    $('#calculate').fadeTo('medium', 0);
-    $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -3292,9 +3281,6 @@ html(lang='en')
     if (age2.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
-    } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "There is no dose study conducted for the children who has renal and/or liver failure using <strong>ciprofloxacin lactate</strong>.";
-    $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
@@ -3390,10 +3376,6 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
-    } else if (age2.value > -1 && age2.value < 12) {
-    infoText.innerHTML = "It's contraindicated for the children aged below 12.";
-    $('#calculate').fadeTo('medium', 0);
-    $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -3403,7 +3385,7 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
-    } else if (actSubs.textContent === "Acetaminophen (IV)") {
+    } else if (actSubs.textContent === "Acetaminophen") {
     if (age2.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
@@ -3888,10 +3870,6 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
-    } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "There is not any dose information provided for the children having renal insufficiency.";
-    $('#calculate').fadeTo('medium', 0);
-    $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
