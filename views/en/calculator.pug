@@ -809,7 +809,7 @@ html(lang='en')
     } else if (actSubs === "Olmesartan medoxomil + Hydrochlorothiazide") {
     doseText = "There's no information relevant to olmesartan or hydrochlorothiazide usage on dialysis";
     } else if (actSubs === "Tramadol") {
-    doseText = "50–100 mg orally every 12 h as needed; maximum 200 mg/day; dose after hemodialysis on dialysis days<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
+    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day; dose after hemodialysis on dialysis days<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
     } else if (actSubs === "Acetaminophen") {
     doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://www.ncbi.nlm.nih.gov/pubmed/7241376' target='_blank'> (*)</a>";
     } else if (actSubs === "Spironolactone") {
@@ -1157,7 +1157,7 @@ html(lang='en')
     if (result >= 30) {
     doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
     } else if (result < 30) {
-    doseText = "50–100 mg orally every 12 h as needed; maximum 200 mg/day<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
+    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -4086,12 +4086,14 @@ html(lang='en')
     $('#print').click(() => {
     let suggesty;
     let whole = resulty.textContent;
-    let position = whole.indexOf('(');
-    if (position === -1) {
-    suggesty = whole;
+    if (whole.indexOf('*') > -1) {
+    let position = whole.indexOf('*');
+    suggesty = whole.substring(0, (position - 2));
     } else {
+    let position = whole.indexOf('(');
     suggesty = whole.substring(0, (position));
     }
+    
     let diaDapto = document.getElementById('diyaForDapto');
     let diaCila = document.getElementById('diyaForCila');
     let diaLevo = document.getElementById('diyaForLevo');
