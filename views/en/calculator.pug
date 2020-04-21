@@ -779,7 +779,7 @@ html(lang='en')
     } else if (actSubs === "Fluconazole") {
     doseText = "The dose dedicated by the doctor according to indication may be applied following the hemodialysis treatment"
     } else if (actSubs === "Colistimethate sodium") {
-    doseText = ("A total daily dose of 3,150,000 IU is given every 12 hours during the period which hemodialysis treatment isn't applied. On hemodialysis treatment days, a total daily dose of 4,500,000 IU is divided into two and first half is applied on the last hour of hemodialysis and the other half is after 12 hours");
+    doseText = ("1.5 mg/kg IV every 24–48 h<a href='https://annals.org/aim/article-abstract/682216/effects-renal-impairment-peritoneal-dialysis-hemodialysis-serum-sodium-colistimethate-levels' target='_blank'> (*)</a>");
     } else if (actSubs === "Meropenem trihydrate") {
     doseText = "The dose dedicated by the doctor is suggested to be applied following the hemodialysis treatment"
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
@@ -809,9 +809,9 @@ html(lang='en')
     } else if (actSubs === "Olmesartan medoxomil + Hydrochlorothiazide") {
     doseText = "There's no information relevant to olmesartan or hydrochlorothiazide usage on dialysis";
     } else if (actSubs === "Tramadol") {
-    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day; dose after hemodialysis on dialysis days<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
+    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day; dose after hemodialysis on dialysis days<a href='https://www.ncbi.nlm.nih.gov/pubmed/6356890' target='_blank'> (*)</a>";
     } else if (actSubs === "Acetaminophen") {
-    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://www.ncbi.nlm.nih.gov/pubmed/7241376' target='_blank'> (*)</a>";
+    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://www.worldcat.org/title/drug-prescribing-in-renal-failure-dosing-guidelines-for-adults-and-children/oclc/232304117' target='_blank'> (*)</a>";
     } else if (actSubs === "Spironolactone") {
     doseText = "Should not be used in the case of acute renal insufficiency, reduction in the renal functions or severe renal insufficiency";
     } else if (actSubs === "Acetazolamide") {
@@ -861,11 +861,11 @@ html(lang='en')
     } else if (actSubs === "Gentamicin sulfate") {
     doseText = "There's not a specific suggestion for the patients receiving dialysis treatment. Should be evaluated according to the renal functions";
     } else if (actSubs === "Amikacin sulfate") {
-    doseText = "3.75 mg/kg after dialysis<a href='https://www.ncbi.nlm.nih.gov/pubmed/993628' target='_blank'> (*)</a>";
+    doseText = "3.75 mg/kg after dialysis<a href='https://www.springer.com/gp/book/9781461457992' target='_blank'> (*)</a>";
     } else if (actSubs === "Ceftazidime pentahydrate") {
-    doseText = "1 g IV followed by 1 g IV after each hemodialysis<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
+    doseText = "1 g IV followed by 1 g IV after each hemodialysis<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (actSubs === "Ampicillin sodium / Sulbactam sodium") {
-    doseText = "3 g IV every 24 h; administer after hemodialysis on dialysis days<a href='https://www.ncbi.nlm.nih.gov/pubmed/2817847' target='_blank'> (*)</a>";
+    doseText = "3 g IV every 24 h; administer after hemodialysis on dialysis days<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7a7a6041-f76c-4507-bf58-99e119328991' target='_blank'> (*)</a>";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -975,19 +975,16 @@ html(lang='en')
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Colistimethate sodium") {
-    function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-    if (result >= 70) {
-    doseText = "Dose adjustment is not needed. Daily total dose is calculated as 150,000 IU/kg/day. Total dose is given in 2 or 3 equal parts.";
-    } else if (result < 70 && result > 10) {
-    minForColi = ((75000 * [(1.5 * result) + 30]) / 2).toFixed(0);
-    minForColi = numberWithCommas(minForColi);
-    maxForColi = ((105000 * [(1.5 * result) + 30]) / 2).toFixed(0);
-    maxForColi = numberWithCommas(maxForColi);
-    doseText = `In every 12 hours minimum ${minForColi} IU, maximum ${maxForColi} IU`;
-    } else if (result <= 10) {
-    doseText = `In every 12 hours minimum 1,687,500 IU, maximum 2,362,500 IU`;
+    if (result >= 80) {
+    doseText = "2.5 – 5 mg/kg, divided into 2 to 4 doses per day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a335659-03b0-4a2d-9cd4-7dcf7da96fe6' target='_blank'> (*)</a>";
+    } else if (result < 80 && result >= 50) {
+    doseText = `2.5 – 3.8 mg/kg, divided into 2 doses per day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a335659-03b0-4a2d-9cd4-7dcf7da96fe6' target='_blank'> (*)</a>`;
+    } else if (result < 50 && result >= 30) {
+    doseText = `2.5 mg/kg, once daily or divided into 2 doses per day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a335659-03b0-4a2d-9cd4-7dcf7da96fe6' target='_blank'> (*)</a>`;
+    } else if (result < 30 && result >= 10) {
+    doseText = `1.5 mg/kg every 36 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a335659-03b0-4a2d-9cd4-7dcf7da96fe6' target='_blank'> (*)</a>`;
+    } else if (result < 10) {
+    doseText = `1.5 mg/kg IV or IM every 36 h<a href='https://annals.org/aim/article-abstract/682216/effects-renal-impairment-peritoneal-dialysis-hemodialysis-serum-sodium-colistimethate-levels' target='_blank'> (*)</a>`;
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1155,9 +1152,9 @@ html(lang='en')
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Tramadol") {
     if (result >= 30) {
-    doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
+    doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/6356890' target='_blank'> (*)</a>";
     } else if (result < 30) {
-    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day<a href='https://www.ncbi.nlm.nih.gov/pubmed/15509185' target='_blank'> (*)</a>";
+    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day<a href='https://www.ncbi.nlm.nih.gov/pubmed/6356890' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1166,9 +1163,9 @@ html(lang='en')
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Acetaminophen") {
     if (result > 30) {
-    doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/7241376' target='_blank'> (*)</a>";
+    doseText = "There's no need for dose adjustment<a href='https://www.worldcat.org/title/drug-prescribing-in-renal-failure-dosing-guidelines-for-adults-and-children/oclc/232304117' target='_blank'> (*)</a>";
     } else if (result <= 30) {
-    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://www.ncbi.nlm.nih.gov/pubmed/7241376' target='_blank'> (*)</a>";
+    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://www.worldcat.org/title/drug-prescribing-in-renal-failure-dosing-guidelines-for-adults-and-children/oclc/232304117' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1515,7 +1512,7 @@ html(lang='en')
     preVal = crsr1;
     }
     val = (9 * preVal).toFixed(0);
-    doseText = `7.5 mg/kg in every ${val} hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/993628' target='_blank'> (*)</a>`;
+    doseText = `7.5 mg/kg in every ${val} hours<a href='https://www.springer.com/gp/book/9781461457992' target='_blank'> (*)</a>`;
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     contact.style.display = "inline-block";
@@ -1524,15 +1521,15 @@ html(lang='en')
     }
     } else if (actSubs === "Ceftazidime pentahydrate") {
     if (result > 50) {
-    doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
+    doseText = "There's no need for dose adjustment<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (result <= 50 && result > 30) {
-    doseText = "1 – 1.5 g in every 12 hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
+    doseText = "1 – 1.5 g in every 12 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (result <= 30 && result > 15) {
-    doseText = "1 – 1.5 g in every 24 hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
+    doseText = "1 – 1.5 g in every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (result <= 15 && result > 5) {
-    doseText = "0.5 – 0.75 g in every 24 hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
+    doseText = "0.5 – 0.75 g in every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (result <= 5) {
-    doseText = "0.5 – 0.75 g in every 48 hours<a href='https://www.ncbi.nlm.nih.gov/pubmed/6348018' target='_blank'> (*)</a>";
+    doseText = "0.5 – 0.75 g in every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1541,11 +1538,11 @@ html(lang='en')
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ampicillin sodium / Sulbactam sodium") {
     if (result > 50) {
-    doseText = "1.5 – 3 g IV every 6 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2817847' target='_blank'> (*)</a>";
+    doseText = "1.5 – 3 g IV every 6 h<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7a7a6041-f76c-4507-bf58-99e119328991' target='_blank'> (*)</a>";
     } else if (result <= 50 && result >= 10) {
-    doseText = "1.5 – 3 g IV every 12 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2817847' target='_blank'> (*)</a>";
+    doseText = "1.5 – 3 g IV every 12 h<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7a7a6041-f76c-4507-bf58-99e119328991' target='_blank'> (*)</a>";
     } else if (result < 10) {
-    doseText = "1.5 – 3 g IV every 24 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2817847' target='_blank'> (*)</a>";
+    doseText = "1.5 – 3 g IV every 24 h<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7a7a6041-f76c-4507-bf58-99e119328991' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1961,18 +1958,18 @@ html(lang='en')
     if (result >= 30) {
     if (normal === "1") {
     mgValue = (4 * weight);
-    daptoText = `${mgValue} mg in every 24 hours`;
+    daptoText = `${mgValue} mg once in every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a990141d-7b92-48a5-a41d-1254522e2aa1' target='_blank'> (*)</a>`;
     } else if (normal === "2") {
     mgValue = (6 * weight);
-    daptoText = `${mgValue} mg in every 24 hours`;
+    daptoText = `${mgValue} mg once in every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a990141d-7b92-48a5-a41d-1254522e2aa1' target='_blank'> (*)</a>`;
     }
     } else if (result < 30) {
     if (normal === "1") {
     mgValue = (4 * weight);
-    daptoText = `${mgValue} mg in every 48 hours`;
+    daptoText = `${mgValue} mg once in every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a990141d-7b92-48a5-a41d-1254522e2aa1' target='_blank'> (*)</a>`;
     } else if (normal === "2") {
     mgValue = (6 * weight);
-    daptoText = `${mgValue} mg in every 24 hours`;
+    daptoText = `${mgValue} mg once in every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a990141d-7b92-48a5-a41d-1254522e2aa1' target='_blank'> (*)</a>`;
     }
     }
     } else {
@@ -1981,7 +1978,7 @@ html(lang='en')
     return window.location.href='#presentResults';
     }
     if (diyaDapt === "1" && result && weight) {
-    daptoText += ` Results are also valid for hemodialysis patients.`;
+    daptoText += ` When possible, administer daptomycin for injection following the completion of hemodialysis on hemodialysis days. `;
     }
     if (result) {
     daptoText += `<br> <h4 style="line-height: 40px; font-size: 3vh;"> (<b>Active substance:</b> Daptomycin // <b>Creatinine clearance:</b> ${result} mL/min)</h4>`;
