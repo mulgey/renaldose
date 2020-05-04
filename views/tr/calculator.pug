@@ -4153,6 +4153,15 @@ html(lang='tr')
     }
     }
   script.
+    $(document).on('keypress',function(e) {
+    if(e.which == 13) {
+    if ($('#calcButton').prop('disabled')) {
+    } else {
+    $("#calcButton").trigger( "click" );
+    }
+    }
+    });
+  script.
     function createCookie(name,value,days) {
     if (days) {
     var date = new Date();

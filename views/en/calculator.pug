@@ -148,7 +148,7 @@ html(lang='en')
                     input#searchField.form-control.ml-2(style="width: 95%; color: midnightblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search')
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Analgesic
                     a.dropdown-item
-                      | Tramadol - 
+                      | Tramadol hydrochloride - 
                       small Ultram
                     a.dropdown-item
                       | Acetaminophen - 
@@ -775,11 +775,11 @@ html(lang='en')
     }
     if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked')) {
     if (actSubs === "Ertapenem sodium") {
-    doseText = "500 mg / day. If the dose was applied within 6 hours before the hemodialysis, 150 mg extra dose is suggested. If not, extra dose isn't needed"
+    doseText = "500 mg / day. A supplementary dose of 150 mg is recommended if administered within 6 hours prior to hemodialysis. If not, extra dose isn't needed.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33f3b99b-fa82-42e0-26bf-f49891ae3d22' target='_blank'> (*)</a>"
     } else if (actSubs === "Fluconazole") {
     doseText = "The dose dedicated by the doctor according to indication may be applied following the hemodialysis treatment"
     } else if (actSubs === "Colistimethate sodium") {
-    doseText = ("1.5 mg/kg IV every 24–48 h<a href='https://annals.org/aim/article-abstract/682216/effects-renal-impairment-peritoneal-dialysis-hemodialysis-serum-sodium-colistimethate-levels' target='_blank'> (*)</a>");
+    doseText = ("1.5 mg/kg IV every 24–48 h<a href='https://annals.org/aim/article-abstract/682653/sodium-colistimethate-dosage-renal-failure' target='_blank'> (*)</a>");
     } else if (actSubs === "Meropenem trihydrate") {
     doseText = "The dose dedicated by the doctor is suggested to be applied following the hemodialysis treatment"
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
@@ -808,10 +808,10 @@ html(lang='en')
     doseText = "Olmesartan medoxomil usage is not suggested due to the limited experience";
     } else if (actSubs === "Olmesartan medoxomil + Hydrochlorothiazide") {
     doseText = "There's no information relevant to olmesartan or hydrochlorothiazide usage on dialysis";
-    } else if (actSubs === "Tramadol") {
-    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day; dose after hemodialysis on dialysis days<a href='https://www.ncbi.nlm.nih.gov/pubmed/6356890' target='_blank'> (*)</a>";
+    } else if (actSubs === "Tramadol hydrochloride") {
+    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day; dose after hemodialysis on dialysis days<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae7c54b1-b440-4cca-97e8-e5b825413d32#A15719CE-AE41-4863-9266-469F619BDC1F' target='_blank'> (*)</a>";
     } else if (actSubs === "Acetaminophen") {
-    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://www.worldcat.org/title/drug-prescribing-in-renal-failure-dosing-guidelines-for-adults-and-children/oclc/232304117' target='_blank'> (*)</a>";
+    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c5177abd-9465-40d8-861d-3904496d82b7#S8.6' target='_blank'> (*)</a>";
     } else if (actSubs === "Spironolactone") {
     doseText = "Should not be used in the case of acute renal insufficiency, reduction in the renal functions or severe renal insufficiency";
     } else if (actSubs === "Acetazolamide") {
@@ -926,9 +926,9 @@ html(lang='en')
     }
     if (actSubs === "Ertapenem sodium") {
     if (result > 30) {
-    doseText = "Dose adjustment is not needed. (Standard daily dose: 1g)";
+    doseText = "Dose adjustment is not needed. (Standard daily dose: 1g)<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33f3b99b-fa82-42e0-26bf-f49891ae3d22' target='_blank'> (*)</a>";
     } else if (result <= 30) {
-    doseText = "500 mg / day";
+    doseText = "500 mg / day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33f3b99b-fa82-42e0-26bf-f49891ae3d22' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -976,15 +976,15 @@ html(lang='en')
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Colistimethate sodium") {
     if (result >= 80) {
-    doseText = "2.5 – 5 mg/kg, divided into 2 to 4 doses per day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a335659-03b0-4a2d-9cd4-7dcf7da96fe6' target='_blank'> (*)</a>";
+    doseText = "2.5 – 5 mg/kg, divided into 2 to 4 doses per day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ab241809-0d2f-44ba-829c-26be67ee623f' target='_blank'> (*)</a>";
     } else if (result < 80 && result >= 50) {
-    doseText = `2.5 – 3.8 mg/kg, divided into 2 doses per day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a335659-03b0-4a2d-9cd4-7dcf7da96fe6' target='_blank'> (*)</a>`;
+    doseText = `2.5 – 3.8 mg/kg, divided into 2 doses per day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ab241809-0d2f-44ba-829c-26be67ee623f' target='_blank'> (*)</a>`;
     } else if (result < 50 && result >= 30) {
-    doseText = `2.5 mg/kg, once daily or divided into 2 doses per day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a335659-03b0-4a2d-9cd4-7dcf7da96fe6' target='_blank'> (*)</a>`;
+    doseText = `2.5 mg/kg, once daily or divided into 2 doses per day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ab241809-0d2f-44ba-829c-26be67ee623f' target='_blank'> (*)</a>`;
     } else if (result < 30 && result >= 10) {
-    doseText = `1.5 mg/kg every 36 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a335659-03b0-4a2d-9cd4-7dcf7da96fe6' target='_blank'> (*)</a>`;
+    doseText = `1.5 mg/kg every 36 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ab241809-0d2f-44ba-829c-26be67ee623f' target='_blank'> (*)</a>`;
     } else if (result < 10) {
-    doseText = `1.5 mg/kg IV or IM every 36 h<a href='https://annals.org/aim/article-abstract/682216/effects-renal-impairment-peritoneal-dialysis-hemodialysis-serum-sodium-colistimethate-levels' target='_blank'> (*)</a>`;
+    doseText = `1.5 mg/kg IV or IM every 36 h<a href='https://annals.org/aim/article-abstract/682653/sodium-colistimethate-dosage-renal-failure' target='_blank'> (*)</a>`;
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1017,12 +1017,10 @@ html(lang='en')
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Ciprofloxacin lactate") {
-    if (result > 50) {
-    doseText = "200 mg IV every 12 h - 400 mg IV every 8 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2931415' target='_blank'> (*)</a>";
-    } else if (result <= 50 && result >= 30) {
-    doseText = "200 mg - 400 mg IV every 12 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2931415' target='_blank'> (*)</a>";
+    if (result >= 30) {
+    doseText = "See usual dosage<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=add61932-233d-44ff-b938-c2d9fb801df0' target='_blank'> (*)</a>";
     } else if (result < 30 && result >= 5) {
-    doseText = "200 mg - 400 mg IV every 18 h<a href='https://www.ncbi.nlm.nih.gov/pubmed/2931415' target='_blank'> (*)</a>";
+    doseText = "200 – 400 mg every 18–24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=add61932-233d-44ff-b938-c2d9fb801df0' target='_blank'> (*)</a>";
     } else if (result < 5) {
     doseText = `Please check the result for the dialysis selection with a new calculation`;
     }
@@ -1150,11 +1148,11 @@ html(lang='en')
     contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
-    } else if (actSubs === "Tramadol") {
+    } else if (actSubs === "Tramadol hydrochloride") {
     if (result >= 30) {
-    doseText = "There's no need for dose adjustment<a href='https://www.ncbi.nlm.nih.gov/pubmed/6356890' target='_blank'> (*)</a>";
+    doseText = "There's no need for dose adjustment<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae7c54b1-b440-4cca-97e8-e5b825413d32#A15719CE-AE41-4863-9266-469F619BDC1F' target='_blank'> (*)</a>";
     } else if (result < 30) {
-    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day<a href='https://www.ncbi.nlm.nih.gov/pubmed/6356890' target='_blank'> (*)</a>";
+    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae7c54b1-b440-4cca-97e8-e5b825413d32#A15719CE-AE41-4863-9266-469F619BDC1F' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1163,9 +1161,9 @@ html(lang='en')
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Acetaminophen") {
     if (result > 30) {
-    doseText = "There's no need for dose adjustment<a href='https://www.worldcat.org/title/drug-prescribing-in-renal-failure-dosing-guidelines-for-adults-and-children/oclc/232304117' target='_blank'> (*)</a>";
+    doseText = "There's no need for dose adjustment<a href='https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c5177abd-9465-40d8-861d-3904496d82b7#S8.6' target='_blank'> (*)</a>";
     } else if (result <= 30) {
-    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://www.worldcat.org/title/drug-prescribing-in-renal-failure-dosing-guidelines-for-adults-and-children/oclc/232304117' target='_blank'> (*)</a>";
+    doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c5177abd-9465-40d8-861d-3904496d82b7#S8.6' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1512,7 +1510,7 @@ html(lang='en')
     preVal = crsr1;
     }
     val = (9 * preVal).toFixed(0);
-    doseText = `7.5 mg/kg in every ${val} hours<a href='https://www.springer.com/gp/book/9781461457992' target='_blank'> (*)</a>`;
+    doseText = `7.5 mg/kg in every ${val} hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0b56f6df-a05d-4520-8bf0-d7cefe20f6ad' target='_blank'> (*)</a>`;
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     contact.style.display = "inline-block";
@@ -1523,13 +1521,13 @@ html(lang='en')
     if (result > 50) {
     doseText = "There's no need for dose adjustment<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (result <= 50 && result > 30) {
-    doseText = "1 – 1.5 g in every 12 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
+    doseText = "1 g in every 12 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (result <= 30 && result > 15) {
-    doseText = "1 – 1.5 g in every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
+    doseText = "1 g in every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (result <= 15 && result > 5) {
-    doseText = "0.5 – 0.75 g in every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
+    doseText = "0.5 g in every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (result <= 5) {
-    doseText = "0.5 – 0.75 g in every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
+    doseText = "0.5 g in every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1978,7 +1976,7 @@ html(lang='en')
     return window.location.href='#presentResults';
     }
     if (diyaDapt === "1" && result && weight) {
-    daptoText += ` When possible, administer daptomycin for injection following the completion of hemodialysis on hemodialysis days. `;
+    daptoText += ` When possible, administer daptomycin following the completion of hemodialysis on hemodialysis days. `;
     }
     if (result) {
     daptoText += `<br> <h4 style="line-height: 40px; font-size: 3vh;"> (<b>Active substance:</b> Daptomycin // <b>Creatinine clearance:</b> ${result} mL/min)</h4>`;
@@ -2267,7 +2265,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "Safety and effectiveness of <strong>daptomycin</strong> is not determined in the patients younger than 18 years old. Its usage is not suggested.";
+    infoText.innerHTML = "The dosage regimen for daptomycin for injection in pediatric patients with renal impairment has not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a990141d-7b92-48a5-a41d-1254522e2aa1' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -2280,8 +2278,8 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
-    } else if (age1.value > -1 && age1.value < 13) {
-    infoText.innerHTML = "There's not any data for <strong>ertapenem sodium</strong> about pediatric patients who has renal insufficiency.";
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "There are no data in pediatric patients with renal impairment.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33f3b99b-fa82-42e0-26bf-f49891ae3d22' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -2383,6 +2381,9 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "No information is available on dosing adjustments necessary for pediatric patients with moderate to severe renal insufficiency.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=add61932-233d-44ff-b938-c2d9fb801df0' target='_blank'> (*)</a>";
+    $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
@@ -2550,6 +2551,10 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 16) {
+    infoText.innerHTML = "The safety and efficacy of tramadol hydrochloride in patients under 16 years of age have not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae7c54b1-b440-4cca-97e8-e5b825413d32#A15719CE-AE41-4863-9266-469F619BDC1F' target='_blank'> (*)</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -2564,6 +2569,10 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 2) {
+    infoText.innerHTML = "The effectiveness of acetaminophen in patients younger than 2 years of age has not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c5177abd-9465-40d8-861d-3904496d82b7#S8.6' target='_blank'> (*)</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -3030,6 +3039,10 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "In pediatric patients as for adults, the creatinine clearance should be adjusted for body surface area or lean body mass, and the dosing frequency should be reduced in cases of renal insufficiency.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -3090,7 +3103,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "Safety and effectiveness of <strong>daptomycin</strong> is not determined in the patients younger than 18 years old. Its usage is not suggested.";
+    infoText.innerHTML = "The dosage regimen for daptomycin for injection in pediatric patients with renal impairment has not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a990141d-7b92-48a5-a41d-1254522e2aa1' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -3103,8 +3116,8 @@ html(lang='en')
     if (age2.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
-    } else if (age2.value > -1 && age2.value < 13) {
-    infoText.innerHTML = "There's not any data for <strong>ertapenem sodium</strong> about pediatric patients who has renal insufficiency.";
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "There are no data in pediatric patients with renal impairment.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33f3b99b-fa82-42e0-26bf-f49891ae3d22' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -3278,6 +3291,9 @@ html(lang='en')
     if (age2.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "No information is available on dosing adjustments necessary for pediatric patients with moderate to severe renal insufficiency.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=add61932-233d-44ff-b938-c2d9fb801df0' target='_blank'> (*)</a>";
+    $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
@@ -3373,6 +3389,10 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 16) {
+    infoText.innerHTML = "The safety and efficacy of tramadol hydrochloride in patients under 16 years of age have not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae7c54b1-b440-4cca-97e8-e5b825413d32#A15719CE-AE41-4863-9266-469F619BDC1F' target='_blank'> (*)</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -3387,6 +3407,10 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 2) {
+    infoText.innerHTML = "The effectiveness of acetaminophen in patients younger than 2 years of age has not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c5177abd-9465-40d8-861d-3904496d82b7#S8.6' target='_blank'> (*)</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -3853,6 +3877,10 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "In pediatric patients as for adults, the creatinine clearance should be adjusted for body surface area or lean body mass, and the dosing frequency should be reduced in cases of renal insufficiency.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
     $('#calculate').fadeTo('medium', 0);
@@ -4057,6 +4085,15 @@ html(lang='en')
     }
     }
     }
+  script.
+    $(document).on('keypress',function(e) {
+    if(e.which == 13) {
+    if ($('#calcButton').prop('disabled')) {
+    } else {
+    $("#calcButton").trigger( "click" );
+    }
+    }
+    });
   script.
     function createCookie(name,value,days) {
     if (days) {
