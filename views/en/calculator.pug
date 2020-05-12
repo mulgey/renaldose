@@ -410,28 +410,23 @@ html(lang='en')
               .col
                 p#leftNote1.note.note-info.wow.fadeIn
                   strong
-                    | Calculation for this active substance may be performed based on the dose which 
-                    u physician determined for the indication.
+                    | Calculation for this active substance may be performed based on  
+                    u the bacterial species 
+                    | which is suspected or proven to be the cause of the infection.
             .row.mt-3
-              .col-12.col-lg-3.mt-3
+              .col-12.col-lg-4.mt-3
                 label(for='diyaForCila', style='color: white; font-weight: bold') Receiving Hemodialysis
                 select#diyaForCila.browser-default.custom-select
                   option(value='1') Yes
                   option(selected='', value='2') No
-              .col-12.col-lg-3.mt-3
-                label(for='normalForCila', style='color: white; font-weight: bold') Determined Daily Dose
+              .col-12.col-lg-4.mt-3
+                label(for='normalForCila', style='color: white; font-weight: bold') Bacterial Species
                 select#normalForCila.browser-default.custom-select
-                  option(value='1') 1.0 g / day
-                  option(value='2') 1.5 g / day
-                  option(selected='', value='3') 2.0 g / day
-                  option(value='4') 3.0 g / day
-                  option(value='5') 4.0 g / day
-              .col-12.col-lg-3.mt-3
+                  option(selected='', value='1') Susceptible
+                  option(value='2') Intermediate Susceptibility
+              .col-12.col-lg-4.mt-3
                 label(for='srcrForCila', style='color: white; font-weight: bold') Creatinin Clearence (ml/min)
                 input#srcrForCila.form-control(type='number', style='color: black', step='0.01', autocomplete='off', min='0', readonly='')
-              .col-12.col-lg-3.mt-3
-                label(for='weightForCila', style='color: white; font-weight: bold') Weight (Kilogram)
-                input#weightForCila.form-control(type='text', style='color: black', autocomplete='off')
             .row.text-center.align-items-center.mt-4
               #calculateForCila.col
                 button#calcForCila.btn.btn-cyan.rounded-pill.rounded-pill.btn-lg(type='button') Calculate
@@ -482,9 +477,9 @@ html(lang='en')
               .col-12.col-lg-4.mt-3
                 label(for='normalForLevo', style='color: white; font-weight: bold') Determined Daily Dose
                 select#normalForLevo.browser-default.custom-select
-                  option(value='1') 250 mg / 24 hours
-                  option(value='2') 500 mg / 24 hours
-                  option(selected='', value='3') 500 mg / 12 hours
+                  option(value='1') 750 mg / 24 hours
+                  option(selected='', value='2') 500 mg / 24 hours
+                  option(value='3') 250 mg / 24 hours
               .col-12.col-lg-4.mt-3
                 label(for='diyaForLevo', style='color: white; font-weight: bold') Receiving Hemodialysis
                 select#diyaForLevo.browser-default.custom-select
@@ -636,7 +631,7 @@ html(lang='en')
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
     } else if (textResult === "Linezolid") {
-    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
+    notNeedy.innerHTML = "No dose adjustment is recommended for patients with renal impairment. Should be given after dialysis in hemodialysis patients.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cc3e3ea4-50aa-49ee-a8bc-fb48bfc8e014' target='_blank'> (*)</a>";
     needy.style.display = "block";
     egfry.style.display = "none";
     resultpure.style.display = "none";
@@ -728,7 +723,7 @@ html(lang='en')
     infoText.innerHTML = "When using <strong>Cockcroft-Gault equation</strong>, you should provide gender, age, weight and serum creatinine values"
     } else if (texty === "Result Input") {
     let selected = (document.getElementById('dropdownMenu1-1')).textContent;
-    if (selected === "Amikacin sulfate") {
+    if (selected === "Amikacin sulfate" || selected === "Gentamicin sulfate") {
     $("#resultante").attr("disabled", true);
     $("#resultante").val('');
     infoText.innerHTML = "Serum creatinine data is mandatory for this active substance's calculation."
@@ -859,7 +854,7 @@ html(lang='en')
     } else if (actSubs === "Fosfomycin sodium") {
     doseText = "2 g of fosfomycin should be applied following the dialysis session";
     } else if (actSubs === "Gentamicin sulfate") {
-    doseText = "There's not a specific suggestion for the patients receiving dialysis treatment. Should be evaluated according to the renal functions";
+    doseText = "The recommended dosage at the end of each dialysis period is 1 to 1.7 mg/kg depending upon the severity of the infection.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a73a5453-c091-43fd-aae2-d992152363b1' target='_blank'> (*)</a>";
     } else if (actSubs === "Amikacin sulfate") {
     doseText = "3.75 mg/kg after dialysis<a href='https://www.springer.com/gp/book/9781461457992' target='_blank'> (*)</a>";
     } else if (actSubs === "Ceftazidime pentahydrate") {
@@ -1478,26 +1473,24 @@ html(lang='en')
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Gentamicin sulfate") {
-    if (result > 70) {
-    doseText = "80 mg in every 8 hours";
-    } else if (result > 34 && result <= 70) {
-    doseText = "80 mg in every 12 hours";
-    } else if (result > 23 && result <= 34) {
-    doseText = "80 mg in every 18 hours";
-    } else if (result > 15 && result <= 23) {
-    doseText = "80 mg in every 24 hours";
-    } else if (result > 9 && result <= 15) {
-    doseText = "80 mg in every 36 hours";
-    } else if (result > 4 && result <= 9) {
-    doseText = "80 mg in every 48 hours";
-    } else if (result < 5) {
-    doseText = "There's no dose suggestion for the results in this range";
+    let crsr1 = parseFloat(document.getElementById("srcr1").value);
+    let crsr2 = parseFloat(document.getElementById("srcr2").value);
+    let preVal;
+    if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked')) {
+    } else {
+    if (isNaN(crsr1)) {
+    preVal = crsr2;
+    } else {
+    preVal = crsr1;
     }
+    val = (8 * preVal).toFixed(0);
+    doseText = `Apply the suitable dose (3 - 5 mg/kg/day) for the patient in every ${val} hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a73a5453-c091-43fd-aae2-d992152363b1' target='_blank'> (*)</a>`;
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
+    }
     } else if (actSubs === "Amikacin sulfate") {
     let crsr1 = parseFloat(document.getElementById("srcr1").value);
     let crsr2 = parseFloat(document.getElementById("srcr2").value);
@@ -1549,19 +1542,12 @@ html(lang='en')
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Imipenem / Cilastatin sodium") {
     document.getElementById('srcrForCila').value = result;
-    document.getElementById('weightForCila').value = weight;
     if (result === undefined) {
     window.location.href='#presentResults';
     } else {
     imicilapy.style.display = "flex";
     window.location.href='#imipenem-cilastatin';
     $("#calcButton").attr("disabled", true);
-    }
-    if (isNaN(weight)) {
-    (document.getElementById('weightForCila').value) = "";
-    console.log(result);
-    } else {
-    (document.getElementById('weightForCila').value) = weight;
     }
     } else if (actSubs === "Daptomycin") {
     document.getElementById('srcrForDapto').value = result;
@@ -1607,331 +1593,44 @@ html(lang='en')
     });
   script.
     $('#calcForCila').click(() => {
-    let weight = document.getElementById('weightForCila').value;
     let normal = document.getElementById("normalForCila").value;
     let diyaList = document.getElementById("diyaForCila").value;
-    let cilaInfo = document.getElementById('leftNote1');
     let cilaText;
-    if (weight > 0 && weight < 30 && result < 71) {
-    return cilaInfo.innerHTML = "Due to insufficient data for <strong>imipenem / cilastatin sodium</strong> , its usage for pediatric patients weight less than 30 kilograms is not suggested.";
-    }
-    if (result && weight) {
+    if (result) {
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     contact.style.display = "inline-block";
     if (normal === "1") {
-    if (weight >= 70) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight >= 60 && weight < 70) {
-    if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours";
-    }
-    } else if (weight >= 50 && weight < 60) {
-    if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "125 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours";
-    }
-    } else if (weight >= 40 && weight < 50) {
-    if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "125 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours";
-    }
-    } else if (weight < 40) {
-    if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "125 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 12 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours";
-    }
+    cilaText = "200 mg every 6 hours or 500 mg every 12 hours (after hemodialysis and at intervals timed from the end of that hemodialysis session)<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result >= 90) {
+    cilaText = "500 mg every 6 hours or 1000 mg every 8 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result >= 60 && result < 90) {
+    cilaText = "400 mg or 500 mg every 6 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result >= 30 && result < 60) {
+    cilaText = "300 mg every 6 hours or 500 mg every 8 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result >= 15 && result < 30) {
+    cilaText = "200 mg every 6 hours or 500 mg every 12 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result < 15) {
+    cilaText = "Patient should not receive this treatment unless hemodialysis is instituted within 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
     }
     } else if (normal === "2") {
-    if (weight >= 70) {
     if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight >= 60 && weight < 70) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight >= 50 && weight < 60) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight >= 40 && weight < 50) {
-    if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours";
-    }
-    } else if (weight < 40) {
-    if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "125 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours";
-    }
-    }
-    } else if (normal === "3") {
-    if (weight >= 70) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "500 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight >= 60 && weight < 70) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight >= 50 && weight < 60) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight >= 40 && weight < 50) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight < 40) {
-    if (diyaList === "1") {
-    cilaText = "125 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "125 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "125 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "125 mg in every 12 hours";
-    }
-    }
-    } else if (normal === "4") {
-    if (weight >= 70) {
-    if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "1000 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours";
-    }
-    } else if (weight >= 60 && weight < 70) {
-    if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "750 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours";
-    }
-    } else if (weight >= 50 && weight < 60) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "500 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight >= 40 && weight < 50) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight < 40) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    }
-    } else if (normal === "5") {
-    if (weight >= 70) {
-    if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "1000 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "750 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 6 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours";
-    }
-    } else if (weight >= 60 && weight < 70) {
-    if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "1000 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "750 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours";
-    }
-    } else if (weight >= 50 && weight < 60) {
-    if (diyaList === "1") {
-    cilaText = "500 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "750 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "500 mg in every 12 hours";
-    }
-    } else if (weight >= 40 && weight < 50) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "500 mg in every 6 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
-    } else if (weight < 40) {
-    if (diyaList === "1") {
-    cilaText = "250 mg in every 12 hours";
-    } else if (result >= 71) {
-    cilaText = "500 mg in every 8 hours";
-    } else if (result >= 41 && result < 71) {
-    cilaText = "250 mg in every 6 hours";
-    } else if (result >= 21 && result < 41) {
-    cilaText = "250 mg in every 8 hours";
-    } else if (result >= 6 && result < 21) {
-    cilaText = "250 mg in every 12 hours";
-    }
+    cilaText = "500 mg every 12 hours (after hemodialysis and at intervals timed from the end of that hemodialysis session)<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result >= 90) {
+    cilaText = "1000 mg every 6 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result >= 60 && result < 90) {
+    cilaText = "750 mg every 8 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result >= 30 && result < 60) {
+    cilaText = "500 mg every 6 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result >= 15 && result < 30) {
+    cilaText = "500 mg every 12 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
+    } else if (result < 15) {
+    cilaText = "Patient should not receive this treatment unless hemodialysis is instituted within 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
     }
     }
     } else {
-    cilaText = `Making calculation with this active substance requires serum creatinine and weight values. <a href="#imipenem-cilastatin">Let's try again</a>`;
+    cilaText = `Making calculation with this active substance requires serum creatinine value. <a href="#imipenem-cilastatin">Let's try again</a>`;
     resulty.innerHTML = cilaText;
     return window.location.href='#presentResults';
     }
@@ -1994,31 +1693,31 @@ html(lang='en')
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     contact.style.display = "inline-block";
-    if (result > 50) {
-    levoText = `Dose adjustment is not needed (250 mg - 1000 mg a day, depending on the indication)`;
-    } else if (result <= 50 && result > 19) {
+    if (result >= 50) {
+    levoText = `Dose adjustment is not needed (250 mg - 750 mg a day, depending on the indication)<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>`;
+    } else if (result < 50 && result >= 20) {
     if (normal === "1") {
-    levoText = "First dose is 250 mg. After then 125 mg / 24 hours";
+    levoText = "750 mg every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     } else if (normal === "2") {
-    levoText = "First dose is 500 mg. After then 250 mg / 24 hours";
+    levoText = "500 mg initial dose, then 250 mg every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     } else if (normal === "3") {
-    levoText = "First dose is 500 mg. After then 250 mg / 12 hours";
+    levoText = "No dosage adjustment required<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     }
     } else if (result < 20 && result >= 10) {
     if (normal === "1") {
-    levoText = "First dose is 250 mg. After then 125 mg / 48 hours";
+    levoText = "750 mg initial dose, then 500 mg every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     } else if (normal === "2") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
+    levoText = "500 mg initial dose, then 250 mg every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     } else if (normal === "3") {
-    levoText = "First dose is 500 mg. After then 125 mg / 12 hours";
+    levoText = "250 mg every 48 hours. If treating uncomplicated urinary tract infection, no dosage adjustment is required<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     }
     } else if (result < 10) {
     if (normal === "1") {
-    levoText = "First dose is 250 mg. After then 125 mg / 48 hours";
+    levoText = "No information on dosing adjustment is available. You may prefer the results with dialysis selection on<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     } else if (normal === "2") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
+    levoText = "No information on dosing adjustment is available. You may prefer the results with dialysis selection on<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     } else if (normal === "3") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
+    levoText = "No information on dosing adjustment is available. You may prefer the results with dialysis selection on<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     }
     }
     } else {
@@ -2028,11 +1727,11 @@ html(lang='en')
     }
     if (diyaLevo === "1") {
     if (normal === "1") {
-    levoText = "First dose is 250 mg. After then 125 mg / 48 hours";
+    levoText = "750 mg initial dose, then 500 mg every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     } else if (normal === "2") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
+    levoText = "500 mg initial dose, then 250 mg every 48 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     } else if (normal === "3") {
-    levoText = "First dose is 500 mg. After then 125 mg / 24 hours";
+    levoText = "No information on dosing adjustment is available.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     }
     }
     if (result) {
@@ -2304,7 +2003,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "Clinical data is not sufficient to advice its usage for children or pediatric patients who has renal insufficiency (serum creatinine > 2 mg/dL)";
+    infoText.innerHTML = "It is not recommended in pediatric patients with renal impairment, as no data are available.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -2329,7 +2028,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "<strong>Levofloxacin</strong> is contraindicated for the children and adolescents whose growing still proceeds.";
+    infoText.innerHTML = "There's no information available on dosage adjustment in pediatric patients with renal impairment.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -3142,7 +2841,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "Clinical data is not sufficient to advice its usage for children or pediatric patients who has renal insufficiency (serum creatinine > 2 mg/dL)";
+    infoText.innerHTML = "It is not recommended in pediatric patients with renal impairment, as no data are available.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f41d8abd-7792-4918-1b93-bd83ea01955e' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -3167,7 +2866,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "<strong>Levofloxacin</strong> is contraindicated for the children and adolescents whose growing still proceeds.";
+    infoText.innerHTML = "There's no information available on dosage adjustment in pediatric patients with renal impairment.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=eb30fafa-bbb9-458f-89df-ae610fa6aa96' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
