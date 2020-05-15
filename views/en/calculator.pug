@@ -776,7 +776,7 @@ html(lang='en')
     } else if (actSubs === "Colistimethate sodium") {
     doseText = ("1.5 mg/kg IV every 24–48 h<a href='https://annals.org/aim/article-abstract/682653/sodium-colistimethate-dosage-renal-failure' target='_blank'> (*)</a>");
     } else if (actSubs === "Meropenem trihydrate") {
-    doseText = "The dose dedicated by the doctor is suggested to be applied following the hemodialysis treatment"
+    doseText = "There is inadequate information regarding its use in patients on hemodialysis or peritoneal dialysis.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12714f80-d6e5-4453-b66c-62f57c16ddfc' target='_blank'> (*)</a>"
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
     doseText = "Maximum dose is 4.5 g / 12h. Following the hemodialysis period, a supply dose of 2.25 g should be applied"
     } else if (actSubs === "Cefoperazone sodium / Sulbactam sodium") {
@@ -943,13 +943,13 @@ html(lang='en')
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Meropenem trihydrate") {
     if (result > 50) {
-    doseText = "Dose adjustment is not needed. (1.5 g - 6 g a day, depending on the indication)";
+    doseText = "Recommended dose (500 mg cSSSI and 1 gram Intra-abdominal) every 8 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12714f80-d6e5-4453-b66c-62f57c16ddfc' target='_blank'> (*)</a>";
     } else if (result <= 50 && result > 25 ) {
-    doseText = "1 g in every 12 hours";
+    doseText = "Recommended dose (500 mg cSSSI and 1 gram Intra-abdominal) every 12 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12714f80-d6e5-4453-b66c-62f57c16ddfc' target='_blank'> (*)</a>";
     } else if (result <= 25 && result >= 10) {
-    doseText = "500 g in every 12 hours";
+    doseText = "One-half recommended dose (500 mg cSSSI and 1 gram Intra-abdominal) every 12 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12714f80-d6e5-4453-b66c-62f57c16ddfc' target='_blank'> (*)</a>";
     } else if (result < 10) {
-    doseText = "500 mg in every 24 hours";
+    doseText = "One-half recommended dose (500 mg cSSSI and 1 gram Intra-abdominal) every 24 hours<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12714f80-d6e5-4453-b66c-62f57c16ddfc' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2042,7 +2042,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "There's no experience related to <strong>meropeneme</strong> on children who has renal dysfunction.";
+    infoText.innerHTML = "There is no experience in pediatric patients with renal impairment.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12714f80-d6e5-4453-b66c-62f57c16ddfc' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -2880,7 +2880,7 @@ html(lang='en')
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "There's no experience related to <strong>meropeneme</strong> on children who has renal dysfunction.";
+    infoText.innerHTML = "There is no experience in pediatric patients with renal impairment.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12714f80-d6e5-4453-b66c-62f57c16ddfc' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
