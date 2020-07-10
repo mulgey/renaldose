@@ -145,7 +145,7 @@ html(lang='en')
                 .dropdown
                   button#dropdownMenu1-1.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Select The Active Substance
                   #searchDrop.dropdown-menu.dropdown-primary(style="width: 95%")
-                    input#searchField.form-control.ml-2(style="width: 95%; color: midnightblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search')
+                    input#searchField.form-control.ml-2(style="width: 95%; color: midnightblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search', autocomplete='off')
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Analgesic
                     a.dropdown-item
                       | Tramadol hydrochloride - 
@@ -530,7 +530,7 @@ html(lang='en')
                   | Initiation of the calculation process is being waited. Let's skip to the 
                   a(href='#activeSubstance') data input
                   |  section
-            .row.justify-content-md-center
+            #buttonGroup.row.justify-content-md-center
               .col-12.col-lg-3
                 button#reload.btn.btn-cyan.rounded-pill.mt-3(style='padding: 1rem 2rem; display: none;')
                   | New Calculation 
@@ -609,7 +609,7 @@ html(lang='en')
     let diya2 = document.getElementById("diya2");
     let notNeedy = document.getElementById("nonDiyaText");
     if (textResult === "Tigecycline") {
-    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
+    notNeedy.innerHTML = "No dosage adjustment of tigecycline is necessary in patients with renal impairment or in patients undergoing hemodialysis.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=50605463-2dc2-4b27-bc51-4d87bb9a8539' target='_blank'> (*)</a>";
     needy.style.display = "block";
     egfry.style.display = "none";
     resultpure.style.display = "none";
@@ -620,7 +620,7 @@ html(lang='en')
     calculatey.style.display = "none";
     infoDiv.style.display = "none";
     } else if (textResult === "Moxifloxacin hydrochloride") {
-    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
+    notNeedy.innerHTML = "No dosage adjustment in patients with renal or hepatic impairment.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6067b2ee-2171-49bb-aa07-1d401ebf4f2e' target='_blank'> (*)</a>";
     needy.style.display = "block";
     egfry.style.display = "none";
     resultpure.style.display = "none";
@@ -632,17 +632,6 @@ html(lang='en')
     infoDiv.style.display = "none";
     } else if (textResult === "Linezolid") {
     notNeedy.innerHTML = "No dose adjustment is recommended for patients with renal impairment. Should be given after dialysis in hemodialysis patients.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cc3e3ea4-50aa-49ee-a8bc-fb48bfc8e014' target='_blank'> (*)</a>";
-    needy.style.display = "block";
-    egfry.style.display = "none";
-    resultpure.style.display = "none";
-    cockgaulty.style.display = "none";
-    disably.className = "dropdown-item2 disabled";
-    disably2.className = "dropdown-item2 disabled";
-    disably3.className = "dropdown-item2 disabled";
-    calculatey.style.display = "none";
-    infoDiv.style.display = "none";
-    } else if (textResult === "Metronidazole") {
-    notNeedy.innerHTML = "For this active substance, dose adjustment isn't needed in the case of renal insufficiency.";
     needy.style.display = "block";
     egfry.style.display = "none";
     resultpure.style.display = "none";
@@ -772,21 +761,21 @@ html(lang='en')
     if (actSubs === "Ertapenem sodium") {
     doseText = "500 mg / day. A supplementary dose of 150 mg is recommended if administered within 6 hours prior to hemodialysis. If not, extra dose isn't needed.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33f3b99b-fa82-42e0-26bf-f49891ae3d22' target='_blank'> (*)</a>"
     } else if (actSubs === "Fluconazole") {
-    doseText = "The dose dedicated by the doctor according to indication may be applied following the hemodialysis treatment"
+    doseText = "The dose dedicated by the doctor according to indication may be applied following the hemodialysis treatment";
     } else if (actSubs === "Colistimethate sodium") {
-    doseText = ("1.5 mg/kg IV every 24–48 h<a href='https://annals.org/aim/article-abstract/682653/sodium-colistimethate-dosage-renal-failure' target='_blank'> (*)</a>");
+    doseText = "1.5 mg/kg IV every 24–48 h<a href='https://annals.org/aim/article-abstract/682653/sodium-colistimethate-dosage-renal-failure' target='_blank'> (*)</a>";
     } else if (actSubs === "Meropenem trihydrate") {
     doseText = "There is inadequate information regarding its use in patients on hemodialysis or peritoneal dialysis.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=12714f80-d6e5-4453-b66c-62f57c16ddfc' target='_blank'> (*)</a>"
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
-    doseText = "Maximum dose is 4.5 g / 12h. Following the hemodialysis period, a supply dose of 2.25 g should be applied"
+    doseText = "2.25 g [As total grams piperacillin/tazobactam] q12h // [2.25 g q8h for nosocomial pneumonia]<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2cfa6723-175b-4c4d-8212-266844b07610' target='_blank'> (*)</a>"
     } else if (actSubs === "Cefoperazone sodium / Sulbactam sodium") {
-    doseText = "During hemodialysis, half-life of the drug may be slightly shortened. So, doses should be arranged as to follow the dialysis time."
+    doseText = "During hemodialysis, half-life of the drug may be slightly shortened. So, doses should be arranged as to follow the dialysis time.";
     } else if (actSubs === "Ciprofloxacin lactate") {
-    doseText = "200 - 400 mg IV every 24 h (after hemodialysis on dialysis days)<a href='https://www.ncbi.nlm.nih.gov/pubmed/2931415' target='_blank'> (*)</a>"
+    doseText = "200 - 400 mg IV every 24 h [after hemodialysis on dialysis days]<a href='https://www.ncbi.nlm.nih.gov/pubmed/2931415' target='_blank'> (*)</a>";
     } else if (actSubs === "Teicoplanin") {
-    doseText = "Apply 1/3 of the dose OR apply the daily dose in every 3 days. Dose adjustment is not needed during the first 4 days of the treatment"
+    doseText = "Apply 1/3 of the dose OR apply the daily dose in every 3 days. Dose adjustment is not needed during the first 4 days of the treatment";
     } else if (actSubs === "Vancomycin hydrochloride") {
-    doseText = "1 g / week";
+    doseText = "Give one dose at 15 mg/kg actual body weight [rounded to nearest 250 mg]. Check a random vancomycin level 2 h after hemodialysis. If random level is &#8804; 20 mcg/mL, repeat dose. If random level is > 20 mcg/mL, do not re-dose, repeat level after next dialysis.<a href='https://www.springer.com/gp/book/9781461457992' target='_blank'> (*)</a>";
     } else if (actSubs === "Bisoprolol fumarate") {
     doseText = "There's no proof that requires adjusting dose regimen in hemodialysis patients.";
     } else if (actSubs === "Perindopril arginine") {
@@ -804,7 +793,7 @@ html(lang='en')
     } else if (actSubs === "Olmesartan medoxomil + Hydrochlorothiazide") {
     doseText = "There's no information relevant to olmesartan or hydrochlorothiazide usage on dialysis";
     } else if (actSubs === "Tramadol hydrochloride") {
-    doseText = "50 – 100 mg orally every 12 h as needed; maximum 200 mg/day; dose after hemodialysis on dialysis days<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae7c54b1-b440-4cca-97e8-e5b825413d32#A15719CE-AE41-4863-9266-469F619BDC1F' target='_blank'> (*)</a>";
+    doseText = "50 – 100 mg orally every 12 h as needed, maximum 200 mg/day, dose after hemodialysis on dialysis days<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae7c54b1-b440-4cca-97e8-e5b825413d32#A15719CE-AE41-4863-9266-469F619BDC1F' target='_blank'> (*)</a>";
     } else if (actSubs === "Acetaminophen") {
     doseText = "Longer dosing intervals and a reduced total daily dose of acetaminophen may be warranted<a href='https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=c5177abd-9465-40d8-861d-3904496d82b7#S8.6' target='_blank'> (*)</a>";
     } else if (actSubs === "Spironolactone") {
@@ -860,7 +849,9 @@ html(lang='en')
     } else if (actSubs === "Ceftazidime pentahydrate") {
     doseText = "1 g IV followed by 1 g IV after each hemodialysis<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=757c31dc-99ef-4960-b118-738b79631b1a' target='_blank'> (*)</a>";
     } else if (actSubs === "Ampicillin sodium / Sulbactam sodium") {
-    doseText = "3 g IV every 24 h; administer after hemodialysis on dialysis days<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7a7a6041-f76c-4507-bf58-99e119328991' target='_blank'> (*)</a>";
+    doseText = "3 g IV every 24 h, administer after hemodialysis on dialysis days<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7a7a6041-f76c-4507-bf58-99e119328991' target='_blank'> (*)</a>";
+    } else if (actSubs === "Metronidazole") {
+    doseText = "Hemodialysis removes significant amounts of metronidazole and its metabolites from systemic circulation. Therefore, supplementation of metronidazole following a hemodialysis session may be necessary<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9d762edb-12ac-429d-b1f0-7af5d3b909d4' target='_blank'> (*)</a>";
     } else {
     doseText = "Dialysis dose data was not provided for this active substance";
     }
@@ -957,12 +948,12 @@ html(lang='en')
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Piperacillin sodium / Tazobactam sodium") {
-    if (result > 80) {
-    doseText = "Dose adjustment is not needed. (4.5 g in every 6 or 8 hours, depending on the indication)";
-    } else if (result <= 80 && result >= 20) {
-    doseText = "4.5 g in every 8 hours";
+    if (result > 40) {
+    doseText = "3.375 g [As total grams piperacillin/tazobactam] q6h // [4.5 g q6h for nosocomial pneumonia]<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2cfa6723-175b-4c4d-8212-266844b07610' target='_blank'> (*)</a>";
+    } else if (result <= 40 && result >= 20) {
+    doseText = "2.25 g [As total grams piperacillin/tazobactam] q6h // [3.375 g q6h for nosocomial pneumonia]<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2cfa6723-175b-4c4d-8212-266844b07610' target='_blank'> (*)</a>";
     } else if (result < 20) {
-    doseText = "4.5 g in every 12 hours";
+    doseText = "2.25 g [As total grams piperacillin/tazobactam] q8h // [2.25 g q6h for nosocomial pneumonia]<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2cfa6723-175b-4c4d-8212-266844b07610' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1540,6 +1531,17 @@ html(lang='en')
     contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
+    } else if (actSubs === "Metronidazole") {
+    if (result > 29) {
+    doseText = "For patients with mild to moderate renal impairment dose adjustment is not considered necessary as elimination half-life is not significantly altered<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9d762edb-12ac-429d-b1f0-7af5d3b909d4' target='_blank'> (*)</a>";
+    } else if (result < 30) {
+    doseText = "Monitoring for metronidazole associated adverse events is recommended when metronidazole is administered in patients with severe renal impairment or end stage of renal disease who are not undergoing hemodialysis<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9d762edb-12ac-429d-b1f0-7af5d3b909d4' target='_blank'> (*)</a>";
+    }
+    reload.style.display = "inline-block";
+    print.style.display = "inline-block";
+    contact.style.display = "inline-block";
+    window.location.href='#presentResults';
+    $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Imipenem / Cilastatin sodium") {
     document.getElementById('srcrForCila').value = result;
     if (result === undefined) {
@@ -2055,8 +2057,8 @@ html(lang='en')
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
-    } else if (age1.value > -1 && age1.value < 13) {
-    infoText.innerHTML = "For <strong>piperacillin sodium / tazobactam sodium</strong>, there's a different calculation method for the children younger than 13 years old.";
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "It has not been determined how to adjust piperacillin and tazobactam for injection dosage in pediatric patients with renal impairment.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2cfa6723-175b-4c4d-8212-266844b07610' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -2765,6 +2767,24 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
+    } else if (actSubs.textContent === "Metronidazole") {
+    if (age1.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age1.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age1.value > -1 && age1.value < 18) {
+    infoText.innerHTML = "Safety and effectiveness in pediatric patients have not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9d762edb-12ac-429d-b1f0-7af5d3b909d4' target='_blank'> (*)</a>";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text1;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
     } else if (actSubs.textContent === "Vancomycin hydrochloride") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
@@ -2893,8 +2913,8 @@ html(lang='en')
     if (age2.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100); $("#calcButton").attr("disabled", false);
-    } else if (age2.value > -1 && age2.value < 13) {
-    infoText.innerHTML = "For <strong>piperacillin sodium / tazobactam sodium</strong>, there's a different calculation method for the children younger than 13 years old.";
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "It has not been determined how to adjust piperacillin and tazobactam for injection dosage in pediatric patients with renal impairment.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2cfa6723-175b-4c4d-8212-266844b07610' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0); $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
@@ -3596,6 +3616,24 @@ html(lang='en')
     $("#calcButton").attr("disabled", false);
     } else if (age2.value < 0) {
     infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else {
+    infoText.innerHTML = text2;
+    $('#calculate').fadeTo('medium', 100);
+    $("#calcButton").attr("disabled", false);
+    }
+    } else if (actSubs.textContent === "Metronidazole") {
+    if (age2.value > 100) {
+    infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
+    $('#calculate').fadeTo('fast', 100);
+    $("#calcButton").attr("disabled", false);
+    } else if (age2.value < 0) {
+    infoText.innerHTML = "Age value cannot be less than zero. Please check again.";
+    $('#calculate').fadeTo('medium', 0);
+    $("#calcButton").attr("disabled", true);
+    } else if (age2.value > -1 && age2.value < 18) {
+    infoText.innerHTML = "Safety and effectiveness in pediatric patients have not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9d762edb-12ac-429d-b1f0-7af5d3b909d4' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else {
