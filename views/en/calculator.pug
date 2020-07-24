@@ -712,7 +712,7 @@ html(lang='en')
     infoText.innerHTML = "When using <strong>Cockcroft-Gault equation</strong>, you should provide gender, age, weight and serum creatinine values"
     } else if (texty === "Result Input") {
     let selected = (document.getElementById('dropdownMenu1-1')).textContent;
-    if (selected === "Amikacin sulfate" || selected === "Gentamicin sulfate") {
+    if (selected === "Amikacin sulfate" || selected === "Gentamicin sulfate" || selected === "Acarbose") {
     $("#resultante").attr("disabled", true);
     $("#resultante").val('');
     infoText.innerHTML = "Serum creatinine data is mandatory for this active substance's calculation."
@@ -809,7 +809,7 @@ html(lang='en')
     } else if (actSubs === "Metformin hydrochloride") {
     doseText = "Treatment is contraindicated";
     } else if (actSubs === "Acarbose") {
-    doseText = "Should not be used in the case of severe renal insufficiency";
+    doseText = "Data not available. Avoid unless no suitable alternative exists, if indeed necessary, begin with low doses and monitor carefully<a href='https://www.springer.com/gp/book/9781461457992' target='_blank'> (*)</a>";
     } else if (actSubs === "Exenatide") {
     doseText = "Its usage is not suggested";
     } else if (actSubs === "Oseltamivir phosphate") {
@@ -979,10 +979,10 @@ html(lang='en')
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Vancomycin hydrochloride") {
     if (result >= 90) {
-    doseText = 'Dose adjustment is not needed';  
+    doseText = "Dose adjustment is not needed<a href='https://annals.org/aim/article-abstract/682653/sodium-colistimethate-dosage-renal-failure' target='_blank'> (*)</a>";
     } else if (result < 90) {
     vancoDose = (result * 15.45).toFixed(0);
-    doseText = `Following the 15 mg / kg loading dose, ${vancoDose} mg in every 24 hours.`;
+    doseText = `Following the 15 mg / kg loading dose, ${vancoDose} mg in every 24 hours.<a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=06dcfd36-942f-4752-86ad-4c5a6fc3e48f" target="_blank"> (*)</a>`;
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -1233,16 +1233,28 @@ html(lang='en')
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     } else if (actSubs === "Acarbose") {
-    if (result >= 25) {
-    doseText = "There's no need for dose adjustment";
-    } else if (result < 25) {
-    doseText = "Should not be used in the case of severe renal insufficiency ";
+    let crsr1 = parseFloat(document.getElementById("srcr1").value);
+    let crsr2 = parseFloat(document.getElementById("srcr2").value);
+    let val;
+    if ($("#diyaliz1").is(':checked') || $("#diyaliz2").is(':checked')) {
+    } else {
+    if (isNaN(crsr1)) {
+    val = crsr2;
+    } else {
+    val = crsr1;
+    }
+    console.log(val);
+    if (val > 2) {
+    doseText = "Clinical trials in diabetic patients with significant renal dysfunction [SCr >2.0 mg/dL] have not been conducted, therefore treatment of these patients with (acarbose) is not recommended<a href='https://www.springer.com/gp/book/9781461457992' target='_blank'> (*)</a>";
+    } else {
+    doseText = "There's no need for dose adjustment<a href='https://www.springer.com/gp/book/9781461457992' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
     contact.style.display = "inline-block";
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
+    }
     } else if (actSubs === "Exenatide") {
     if (result >= 50) {
     doseText = "There's no need for dose adjustment";
@@ -2393,7 +2405,7 @@ html(lang='en')
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "Safety and efficiency of <strong>acarbose</strong> was not determined  for the patients younger than 18 years old.";
+    infoText.innerHTML = "Safety and effectiveness of acarbose in pediatric patients have not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e4148493-e3bd-4530-8fb6-cdb5197c010e' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
@@ -3249,7 +3261,7 @@ html(lang='en')
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "Safety and efficiency of <strong>acarbose</strong> was not determined  for the patients younger than 18 years old.";
+    infoText.innerHTML = "Safety and effectiveness of acarbose in pediatric patients have not been established.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e4148493-e3bd-4530-8fb6-cdb5197c010e' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
