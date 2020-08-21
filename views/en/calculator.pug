@@ -224,7 +224,7 @@ html(lang='en')
                       | Acarbose - 
                       small Precose
                     a.dropdown-item
-                      | Exenatide - 
+                      | Exenatide IV - 
                       small Bydureon
                     a.dropdown-item
                       | Metformin hydrochloride - 
@@ -810,8 +810,8 @@ html(lang='en')
     doseText = "Treatment is contraindicated";
     } else if (actSubs === "Acarbose") {
     doseText = "Data not available. Avoid unless no suitable alternative exists, if indeed necessary, begin with low doses and monitor carefully<a href='https://www.springer.com/gp/book/9781461457992' target='_blank'> (*)</a>";
-    } else if (actSubs === "Exenatide") {
-    doseText = "Its usage is not suggested";
+    } else if (actSubs === "Exenatide IV") {
+    doseText = "It is not recommended for use in patients with end-stage renal disease or severe renal impairment<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53d03c03-ebf7-418d-88a8-533eabd2ee4f' target='_blank'> (*)</a>";
     } else if (actSubs === "Oseltamivir phosphate") {
     doseText = "30 mg after every hemodialysis session - after every 2nd session in prophylactic use -";
     } else if (actSubs === "Acyclovir (IV)") {
@@ -1255,13 +1255,13 @@ html(lang='en')
     window.location.href='#presentResults';
     $("#calcButton").attr("disabled", true);
     }
-    } else if (actSubs === "Exenatide") {
+    } else if (actSubs === "Exenatide IV") {
     if (result >= 50) {
-    doseText = "There's no need for dose adjustment";
+    doseText = "There's no need for dose adjustment<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53d03c03-ebf7-418d-88a8-533eabd2ee4f' target='_blank'> (*)</a>";
     } else if (result < 50 && result >= 30) {
-    doseText = "Should be careful while switching from the product including 5 mcg active substance to 10 mcg";
+    doseText = "Caution should be applied when initiating or escalating doses of exenatide from 5 to 10 mcg in patients with moderate renal impairment<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53d03c03-ebf7-418d-88a8-533eabd2ee4f' target='_blank'> (*)</a>";
     } else if (result < 30) {
-    doseText = "Its usage is not suggested";
+    doseText = "It is not recommended for use in patients with end-stage renal disease or severe renal impairment<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53d03c03-ebf7-418d-88a8-533eabd2ee4f' target='_blank'> (*)</a>";
     }
     reload.style.display = "inline-block";
     print.style.display = "inline-block";
@@ -2417,13 +2417,13 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
-    } else if (actSubs.textContent === "Exenatide") {
+    } else if (actSubs.textContent === "Exenatide IV") {
     if (age1.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
     } else if (age1.value > -1 && age1.value < 18) {
-    infoText.innerHTML = "Safety and efficiency of <strong>exenatide</strong> was not proved for the patients aged below 18 years old.";
+    infoText.innerHTML = "Safety and effectiveness of exenatide have not been established in pediatric patients.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53d03c03-ebf7-418d-88a8-533eabd2ee4f' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age1.value < 0) {
@@ -3273,13 +3273,13 @@ html(lang='en')
     $('#calculate').fadeTo('medium', 100);
     $("#calcButton").attr("disabled", false);
     }
-    } else if (actSubs.textContent === "Exenatide") {
+    } else if (actSubs.textContent === "Exenatide IV") {
     if (age2.value > 100) {
     infoText.innerHTML = "Age value of the patient is <strong>above </strong>the expected range, please check again.";
     $('#calculate').fadeTo('fast', 100);
     $("#calcButton").attr("disabled", false);
     } else if (age2.value > -1 && age2.value < 18) {
-    infoText.innerHTML = "Safety and efficiency of <strong>exenatide</strong> was not proved for the patients aged below 18 years old.";
+    infoText.innerHTML = "Safety and effectiveness of exenatide have not been established in pediatric patients.<a href='https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=53d03c03-ebf7-418d-88a8-533eabd2ee4f' target='_blank'> (*)</a>";
     $('#calculate').fadeTo('medium', 0);
     $("#calcButton").attr("disabled", true);
     } else if (age2.value < 0) {
