@@ -1,2 +1,0 @@
-Express in kulağı 3000 de, dinliyor
-[0mGET /robots.txt [33m404 [0m11.630 ms - 149[0m

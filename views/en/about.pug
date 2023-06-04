@@ -1,109 +1,8 @@
 doctype html
 html(lang='en')
   head
-    // Global site tag (gtag.js) - Google Analytics
-    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-144190992-1')
-    script.
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-144190992-1');  
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(http-equiv='x-ua-compatible', content='ie=edge')
-    title Renal Dose
-    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
-    link(href='../css/bootstrap.min.css', rel='stylesheet')
-    link(href='../css/mdb.min.css', rel='stylesheet')
-    link(href='../css/style.css', rel='stylesheet')
-    link(rel='shortcut icon', href='../img/favicons/favicon.ico')
-    link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/apple-icon-72x72.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/apple-icon-76x76.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/apple-icon-114x114.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/apple-icon-120x120.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/apple-icon-144x144.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/apple-icon-152x152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/apple-icon-180x180.png')
-    link(rel='icon', type='image/png', sizes='192x192', href='../img/favicons/android-icon-192x192.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32x32.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96x96.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16x16.png')
-    link(rel='manifest', href='../img/favicons/manifest.json')
-    meta(name='msapplication-TileColor', content='#ffffff')
-    meta(name='msapplication-TileImage', content='../img/favicons/ms-icon-144x144.png')
-    meta(name='theme-color', content='#ffffff')
-    meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
-    // JQuery
-    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
-    // Bootstrap tooltips
-    script(type='text/javascript', src='../js/popper.min.js')
-    // Bootstrap core JavaScript
-    script(type='text/javascript', src='../js/bootstrap.min.js')
-    // MDB core JavaScript
-    script(type='text/javascript', src='../js/mdb.js')
-    // Scroll Stuff
-    script.
-      let isMobile = /iPhone|iPad|iPod|Android|BlackBerry|Opera Mini|IEMobile|webOS|Windows Phone/i.test(navigator.userAgent);
-      if (isMobile) {
-      $(document).ready(function(){
-      // Add smooth scrolling to all links
-      $("a").on('click', function(event) {
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-      // Store hash
-      var hash = this.hash;
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-      scrollTop: $(hash).offset().top
-      }, 800, function(){
-      // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
-      });
-      } // End if
-      });
-      });
-      } else {
-      $(document).ready(function(){
-      // Add smooth scrolling to all links
-      $("a").on('click', function(event) {
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-      // Store hash
-      var hash = this.hash;
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-      scrollTop: $(hash).offset().top
-      }, 50, function(){
-      // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
-      });
-      } // End if
-      });
-      });
-      }
-    // Facebook Pixel Code
-    script.
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '3344540945561427');
-      fbq('track', 'PageView');
-    noscript
-      img(height='1', width='1', style='display:none', src='https://www.facebook.com/tr?id=3344540945561427&ev=PageView&noscript=1')
-    // End Facebook Pixel Code
+    title Renal Dose || About
+    include ../includes/head.pug
   body
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
@@ -137,49 +36,26 @@ html(lang='en')
               button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = 'calculator#activeSubstance';")
                 | Quick Start 
                 i.fas.fa-fast-forward.pl-1
-      nav.navbar.navbar-expand-lg.fixed-bottom.navbar-dark.info-color
-        .container
-          a.navbar-brand(href='#core')
-            strong CORE
-          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-8', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-          #navbarSupportedContent-8.collapse.navbar-collapse
-            ul.navbar-nav.mr-auto
-              li.nav-item
-                a.nav-link(href='#team') Team
       #core.view(data-spy='core', data-target='#core', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
           .container
             .row.mt-3.align-items-center
-              .col-12.col-lg-6.mt-3
-                img.p-2.rounded.img-thumbnail.z-depth-3(src='../img/core.jpeg' height='350' width='350' alt='owner' style='margin: auto; opacity: 0.9;')
-              .col-12.col-lg-6.mt-3(style='color:white; text-align:justify; line-height: 1.9; font-size: 1.7vh;')
+              .col-12.col-lg-11.mt-3(style='color:white; text-align:justify; line-height: 1.9; font-size: 2vh;')
                 p
-                u
-                  b Mustafa ÜLGEY
                 br 
-                | I’ve been working in Konya Numune Hospital since 2011, as a hospital pharmacist born in 1986. Following my participations to the seminars of EAHP (European Association of Hospital Pharmacists), I’ve found myself to make a presentation for the congress of the association in 2013, France, for the first study I’ve conducted. Afterwards, the abstracts I’ve sent to the journal of the same association, EJHP, were accepted and I had many opportunities to present my posters. Across the studies, with the one constitutes the theme for this website, I’ve been honored as third in the hospital pharmacist contest, organized by the Ministry of Health, in 2014. My current busyness is trying to acquire the occupational satisfaction by adjusting our practice to web applications.
+                | The main purpose of creating this online calculator is to ensure that health professionals, who make decisions and provide information during the course of the treatment, can easily access the accurate information using both computer and mobile devices.
                 br
+                |
+                br
+                | Dear colleagues and other health professionals who want to communicate and cooperate for (1) variety of drugs for which we offer dosage information and (2) versions that can be offered in different languages, can contact us using our contact e-mail. We look forward to hearing your feedback.
+                br
+                |
+                br
+                |
                 small 
-                  b E-mail: 
-                  | mustafa@renaldose.com
-      #team.view(data-spy='team', data-target='#team', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
-          .container
-            .row.mt-3.align-items-center
-              .col-12.col-lg-6.mt-3
-                img.p-2.rounded.img-thumbnail.z-depth-3(src='../img/team.jpeg'  height='350' width='350' alt='team' style='margin: auto; opacity: 0.9;')
-              .col-12.col-lg-6.mt-3(style='color:white; text-align:justify; line-height: 1.9; font-size: 1.7vh;')
-                p
-                  u
-                    b Konya Numune Hospital Pharmacy Department
-                  br
-                  | The community that I’m a member of, is probably the best hospital pharmacists team of the nation. When you’re just at the beginning of your career, keeping all the ideal approaches you’ve started with; you need a colleague like Ms.Ph.Ersin GUNER, who may open the best doors and help you moving to the right direction. I’m more than glad for turning this advantage to good account. When you exceed your daily working layout and have your hard working times, you also need collegues who supports you well. If you have a team mate like Ph.Dilek TURKTAS, you would have already removed the daily obstacles, before they reach along your way. Also many co-workers loving their job and you may experience the occupational soul with, which I won’t be able to spell their names one by one: Your workplace is like your home.
-      #credits.view(data-spy='credits', data-target='#credits', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
-          .container
-            .row.mt-3.align-items-center
-              .col-12.mt-3
+                  b Contact Information: 
+                  | mail@renaldose.com
+              .col-12.mt-5
                 img.p-2(src='../img/credits.png' height='162.5' width='300' alt='credits' style='margin: auto; opacity: 0.9;')
               .col-12.col-lg-6.mt-3
       footer.page-footer.font-small.pt-4(style='background-color: #09915d')

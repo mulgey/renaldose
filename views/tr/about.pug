@@ -1,109 +1,8 @@
 doctype html
 html(lang='tr')
   head
-    // Global site tag (gtag.js) - Google Analytics
-    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-144190992-1')
-    script.
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-144190992-1');
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(http-equiv='x-ua-compatible', content='ie=edge')
-    title Renal Dose
-    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
-    link(href='../css/bootstrap.min.css', rel='stylesheet')
-    link(href='../css/mdb.min.css', rel='stylesheet')
-    link(href='../css/style.css', rel='stylesheet')
-    link(rel='shortcut icon', href='../img/favicons/favicon.ico')
-    link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/apple-icon-72x72.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/apple-icon-76x76.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/apple-icon-114x114.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/apple-icon-120x120.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/apple-icon-144x144.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/apple-icon-152x152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/apple-icon-180x180.png')
-    link(rel='icon', type='image/png', sizes='192x192', href='../img/favicons/android-icon-192x192.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32x32.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96x96.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16x16.png')
-    link(rel='manifest', href='../img/favicons/manifest.json')
-    meta(name='msapplication-TileColor', content='#ffffff')
-    meta(name='msapplication-TileImage', content='../img/favicons/ms-icon-144x144.png')
-    meta(name='theme-color', content='#ffffff')
-    meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
-    // JQuery
-    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
-    // Bootstrap tooltips
-    script(type='text/javascript', src='../js/popper.min.js')
-    // Bootstrap core JavaScript
-    script(type='text/javascript', src='../js/bootstrap.min.js')
-    // MDB core JavaScript
-    script(type='text/javascript', src='../js/mdb.js')
-    // Scroll Stuff
-    script.
-      let isMobile = /iPhone|iPad|iPod|Android|BlackBerry|Opera Mini|IEMobile|webOS|Windows Phone/i.test(navigator.userAgent);
-      if (isMobile) {
-      $(document).ready(function(){
-      // Add smooth scrolling to all links
-      $("a").on('click', function(event) {
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-      // Store hash
-      var hash = this.hash;
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-      scrollTop: $(hash).offset().top
-      }, 800, function(){
-      // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
-      });
-      } // End if
-      });
-      });
-      } else {
-      $(document).ready(function(){
-      // Add smooth scrolling to all links
-      $("a").on('click', function(event) {
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-      // Store hash
-      var hash = this.hash;
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-      scrollTop: $(hash).offset().top
-      }, 50, function(){
-      // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
-      });
-      } // End if
-      });
-      });
-      }
-    // Facebook Pixel Code
-    script.
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '3344540945561427');
-      fbq('track', 'PageView');
-    noscript
-      img(height='1', width='1', style='display:none', src='https://www.facebook.com/tr?id=3344540945561427&ev=PageView&noscript=1')
-    // End Facebook Pixel Code
+    title Renal Dose || Hakkında
+    include ../includes/head.pug
   body
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
@@ -137,49 +36,26 @@ html(lang='tr')
               button.btn.btn-rounded.btn-indigo.px-4.py-3.rounded-pill.ml-3(onclick="window.location.href = 'calculator#activeSubstance';")
                 | Hızlı Başla! 
                 i.fas.fa-fast-forward.pl-1
-      nav.navbar.navbar-expand-lg.fixed-bottom.navbar-dark.info-color
-        .container
-          a.navbar-brand(href='#core')
-            strong ÖZ
-          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent-8', aria-controls='navbarSupportedContent-7', aria-expanded='false', aria-label='Toggle navigation')
-            span.navbar-toggler-icon
-          #navbarSupportedContent-8.collapse.navbar-collapse
-            ul.navbar-nav.mr-auto
-              li.nav-item
-                a.nav-link(href='#team') Takım
       #core.view(data-spy='core', data-target='#core', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
           .container
             .row.mt-3.align-items-center
-              .col-12.col-lg-6.mt-3
-                img.p-2.rounded.img-thumbnail.z-depth-3(src='../img/core.jpeg' height='350' width='350' alt='owner' style='margin: auto; opacity: 0.9;')
-              .col-12.col-lg-6.mt-3(style='color:white; text-align:justify; line-height: 1.9; font-size: 1.7vh;')
+              .col-12.col-lg-11.mt-3(style='color:white; text-align:justify; line-height: 1.9; font-size: 2vh;')
                 p
-                u
-                  b Mustafa ÜLGEY
                 br 
-                | 1986 doğumlu bir hastane eczacısı olarak 2011 yılından bu yana Konya Numune Hastanesi'nde görevimi sürdürmekteyim. EAHP'ın (Avrupa Hastane Eczacıları Birliği) seminerlerine katıldıktan sonra hazırladığım ilk çalışmada, kendimi sunum yapmak üzere birliğin 2013 yılında Fransa'da düzenlenen kongresinde buldum. Sonrasında aynı kuruluşun dergisi olan EJHP'ye gönderdiğim özetler kabul edildi ve çok sayıda çalışma posterimi sunma şansı yakaladım. Çalışmalarımdan bu sitenin temasını oluşturanı ile, bakanlığın 2014 yılında düzenlediği proje yarışmasında ekibimiz adına üçüncülük ödülü aldım. Mesleki tatminiyeti, pratiğimizi web uygulamalarına uyarlayarak almaya çalışmak şimdiki meşguliyetim.
+                | Bu online hesaplayıcıyı oluşturmak istememizdeki temel amaç, hastanın tedavisi için karar verici ve destek bilgi sağlayıcı sağlık profesyonellerinin hem bilgisayar hem de mobile araçlardan kolaylıkla doğru bilgiye ulaşmasını sağlamaktır.
                 br
+                |
+                br
+                | Doz bilgisi sunduğumuz ilaçların çeşitliliği ve farklı diller için sunulabilecek versiyonlar için iletişim ve işbirliği kurmak isteyen değerli meslektaşlarımız ve diğer sağlık profesyonelleri iletişim adresimizden bize ulaşabilirler. Geri bildirimlerinizle gelişmeyi heyecanla bekliyoruz.
+                br
+                |
+                br
+                |
                 small 
                   b İletişim: 
-                  | mustafa@renaldose.com
-      #team.view(data-spy='team', data-target='#team', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
-          .container
-            .row.mt-3.align-items-center
-              .col-12.col-lg-6.mt-3
-                img.p-2.rounded.img-thumbnail.z-depth-3(src='../img/team.jpeg'  height='350' width='350' alt='team' style='margin: auto; opacity: 0.9;')
-              .col-12.col-lg-6.mt-3(style='color:white; text-align:justify; line-height: 1.9; font-size: 1.7vh;')
-                p
-                  u
-                    b Konya Numune Hastanesi Eczane Birimi
-                  br
-                  | Üyesi olduğum bu topluluk, muhtemelen ülkenin en iyi hastane eczacıları ekibi. Mesleğin başında henüz ideal yaklaşımlara sahipken Uzm.Ecz.Ersin GÜNER gibi sizi doğru yönlendiren ve size iyi kapılar açan bir meslektaşa ihtiyaç duyarsınız. Bu avantajı fazlasıyla değerlendirdiğim için mutluyum. Normal çalışma düzeninizin dışına çıktığınızda ve zorlu dönemlerinizde size destek olacak meslektaşlara da sahip olmalısınız. Ecz.Dilek TÜRKTAŞ gibi bir ekip arkadaşınız varsa çoğu engeli daha oluşmadan ortadan kaldırabilmişsinizdir. Ayrıca meslek ruhunu hissedebileceğiniz işini seven, isimlerini tek tek sayamayacağım çok sayıda arkadaş: İş yeriniz eviniz gibidir.
-      #credits.view(data-spy='credits', data-target='#credits', style="height: 110vh; background-image: url('../img/about.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
-        .mask.rgba-black-light.align-items-center.flex-center(style="overflow-y: scroll")
-          .container
-            .row.mt-3.align-items-center
-              .col-12.mt-3
+                  | mail@renaldose.com
+              .col-12.mt-5
                 img.p-2(src='../img/credits.png' height='162.5' width='300' alt='credits' style='margin: auto; opacity: 0.9;')
               .col-12.col-lg-6.mt-3
       footer.page-footer.font-small.pt-4(style='background-color: #09915d')

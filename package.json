@@ -1,5 +1,5 @@
 {
-  "name": "prospecturk_03",
+  "name": "renaldose",
   "version": "1.0.0",
   "description": "mixing the front end with the back end",
   "main": "app.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mulgey/prospecturk_03.git"
+    "url": "git+https://github.com/mulgey/renaldose.git"
   },
   "author": "mulgey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mulgey/prospecturk_03/issues"
+    "url": "https://github.com/mulgey/renaldose/issues"
   },
-  "homepage": "https://github.com/mulgey/prospecturk_03#readme",
+  "homepage": "https://github.com/mulgey/renaldose#readme",
   "devDependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",

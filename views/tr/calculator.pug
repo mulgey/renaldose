@@ -1,110 +1,8 @@
 doctype html
 html(lang='tr')
   head
-    // Global site tag (gtag.js) - Google Analytics
-    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-144190992-1')
-    script.
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-144190992-1');  
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(http-equiv='x-ua-compatible', content='ie=edge')
-    title Renal Dose
-    link(rel='stylesheet', href='https://use.fontawesome.com/releases/v5.6.3/css/all.css')
-    link(href='../css/bootstrap.min.css', rel='stylesheet')
-    link(href='../css/mdb.min.css', rel='stylesheet')
-    link(href='../css/style.css', rel='stylesheet')
-    link(href='../css/addons/datatables.min.css', rel='stylesheet')
-    link(rel='shortcut icon', href='../img/favicons/favicon.ico')
-    link(rel='apple-touch-icon', sizes='57x57', href='../img/favicons/apple-icon-57x57.png')
-    link(rel='apple-touch-icon', sizes='60x60', href='../img/favicons/apple-icon-60x60.png')
-    link(rel='apple-touch-icon', sizes='72x72', href='../img/favicons/apple-icon-72x72.png')
-    link(rel='apple-touch-icon', sizes='76x76', href='../img/favicons/apple-icon-76x76.png')
-    link(rel='apple-touch-icon', sizes='114x114', href='../img/favicons/apple-icon-114x114.png')
-    link(rel='apple-touch-icon', sizes='120x120', href='../img/favicons/apple-icon-120x120.png')
-    link(rel='apple-touch-icon', sizes='144x144', href='../img/favicons/apple-icon-144x144.png')
-    link(rel='apple-touch-icon', sizes='152x152', href='../img/favicons/apple-icon-152x152.png')
-    link(rel='apple-touch-icon', sizes='180x180', href='../img/favicons/apple-icon-180x180.png')
-    link(rel='icon', type='image/png', sizes='192x192', href='../img/favicons/android-icon-192x192.png')
-    link(rel='icon', type='image/png', sizes='32x32', href='../img/favicons/favicon-32x32.png')
-    link(rel='icon', type='image/png', sizes='96x96', href='../img/favicons/favicon-96x96.png')
-    link(rel='icon', type='image/png', sizes='16x16', href='../img/favicons/favicon-16x16.png')
-    link(rel='manifest', href='../img/favicons/manifest.json')
-    meta(name='msapplication-TileColor', content='#ffffff')
-    meta(name='msapplication-TileImage', content='../img/favicons/ms-icon-144x144.png')
-    meta(name='theme-color', content='#ffffff')
-    meta(name='msapplication-config', content='../img/favicons/browserconfig.xml')
-    // JQuery
-    script(type='text/javascript', src='../js/jquery-3.3.1.min.js')
-    // Bootstrap tooltips
-    script(type='text/javascript', src='../js/popper.min.js')
-    // Bootstrap core JavaScript
-    script(type='text/javascript', src='../js/bootstrap.min.js')
-    // MDB core JavaScript
-    script(type='text/javascript', src='../js/mdb.js')
-    // Scroll Stuff
-    script.
-      let isMobile = /iPhone|iPad|iPod|Android|BlackBerry|Opera Mini|IEMobile|webOS|Windows Phone/i.test(navigator.userAgent);
-      if (isMobile) {
-      $(document).ready(function(){
-      // Add smooth scrolling to all links
-      $("a").on('click', function(event) {
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-      // Store hash
-      var hash = this.hash;
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-      scrollTop: $(hash).offset().top
-      }, 800, function(){
-      // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
-      });
-      } // End if
-      });
-      });
-      } else {
-      $(document).ready(function(){
-      // Add smooth scrolling to all links
-      $("a").on('click', function(event) {
-      // Make sure this.hash has a value before overriding default behavior
-      if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-      // Store hash
-      var hash = this.hash;
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-      scrollTop: $(hash).offset().top
-      }, 50, function(){
-      // Add hash (#) to URL when done scrolling (default click behavior)
-      window.location.hash = hash;
-      });
-      } // End if
-      });
-      });
-      }
-    // Facebook Pixel Code
-    script.
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '3344540945561427');
-      fbq('track', 'PageView');
-    noscript
-      img(height='1', width='1', style='display:none', src='https://www.facebook.com/tr?id=3344540945561427&ev=PageView&noscript=1')
-    // End Facebook Pixel Code
+    title Renal Dose || Hesaplayıcı
+    include ../includes/head.pug
   body
     header
       nav.navbar.navbar-expand-lg.navbar-dark.default-color.fixed-top.scrolling-navbar
@@ -125,6 +23,16 @@ html(lang='tr')
                 a.nav-link(href='data_table') Veri Tablosu
               li.nav-item
                 a.nav-link(href='about') Hakkında
+            ul.navbar-nav
+              li.nav-item.dropdown.my-2
+                a#navbarDropdownMenuLink.nav-link.dropdown-toggle.waves-effect.waves-light(data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Language
+                .dropdown-menu.dropdown-info(aria-labelledby='navbarDropdownMenuLink')
+                  a.dropdown-item.waves-effect.waves-light.p-1(onclick="window.location.href = '/en/calculator';")
+                    img(src='../img/english-language.png', width='30', height='30').ml-1
+                    |  English
+                  a.dropdown-item.waves-effect.waves-light.p-1(onclick="window.location.href = '/tr/calculator';")
+                    img(src='../img/turkey.png', width='30', height='30').ml-1
+                    |  Türkçe
       .view(style="background-image: url('../img/calculate_01.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;")
         .mask.rgba-black-light.align-items-center.flex-center
           .container
@@ -144,7 +52,7 @@ html(lang='tr')
               .col-12.col-lg-6.mt-3
                 .dropdown
                   button#dropdownMenu1-1.btn.btn-primary.dropdown-toggle.rounded-pill(style='width: 100%;', type='button', data-toggle='dropdown') Etkin Madde Seçimi
-                  #searchDrop.dropdown-menu.dropdown-primary(style="width: 95%")
+                  #searchDrop.dropdown-menu.dropdown-primary(style="width: 95%; max-height: 100vh; height: 45vh;")
                     input#searchField.form-control.ml-2(style="width: 95%; color: midnightblue;" onkeyup='searchTest()', type='text', placeholder='Search', aria-label='Search', autocomplete='off')
                     h6.dropdown-header(style="margin-top: 5px; font-weight: bold; color: seagreen;") Analjezik
                     a.dropdown-item
@@ -339,7 +247,7 @@ html(lang='tr')
                   #searchDrop2.dropdown-menu.dropdown-primary(style="width: 95%")
                     a#willDisable.dropdown-item Cockcroft-Gault Denklemi
                     a#willDisable2.dropdown-item e-GFR Metodu
-                    a#willDisable3.dropdown-item
+                    a#willDisable3.dropdown-item.selected
                       b Sonuç Girişi
             .row.mt-3
               #notNeeded.col(style='display:none')
@@ -893,6 +801,22 @@ html(lang='tr')
     if (gender1 === "2") {
     result = ((((140 - age1) * weight) / (72 * srcr1)) * 0.85).toFixed(2);
     }
+    } else if (gender1 === "Cinsiyet") {
+      doseText = `Cinsiyet bilgisine ihtiyacım var, <a href="#activeSubstance">kontrol</a> edebilir misiniz?`;
+      resulty.innerHTML = doseText;
+      return window.location.href='#presentResults';
+    } else if (isNaN(age1)) {
+      doseText = `Yaş bilgisine ihtiyacım var, <a href="#activeSubstance">kontrol</a> edebilir misiniz?`;
+      resulty.innerHTML = doseText;
+      return window.location.href='#presentResults';
+    } else if (isNaN(srcr1)) {
+      doseText = `Serum kreatinini değerine ihtiyacım var, <a href="#activeSubstance">kontrol</a> edebilir misiniz?`;
+      resulty.innerHTML = doseText;
+      return window.location.href='#presentResults';
+    } else if (isNaN(weight)) {
+      doseText = `Ağırlık bilgisine ihtiyacım var, <a href="#activeSubstance">kontrol</a> edebilir misiniz?`;
+      resulty.innerHTML = doseText;
+      return window.location.href='#presentResults';
     } else {
     doseText = `Bilgileri eksiksiz girersek, hesaplamaya <a href="#activeSubstance">başlayabiliriz</a>`;
     resulty.innerHTML = doseText;
